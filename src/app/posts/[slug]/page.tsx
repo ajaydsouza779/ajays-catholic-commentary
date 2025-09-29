@@ -1,4 +1,5 @@
 import Header from "@/components/Header"
+import CommentForm from "./CommentForm"
 import Link from "next/link"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
@@ -184,21 +185,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </div>
           )}
 
-          {/* Comment Form Placeholder */}
-          <div className="mt-8 p-6 bg-neutral-50 rounded-lg">
-            <h3 className="text-lg font-serif text-primary-navy mb-4">
-              Share Your Thoughts
-            </h3>
-            <p className="text-neutral-600 mb-4">
-              Sign in to leave a comment and join the discussion.
-            </p>
-            <Link
-              href="/auth/signin"
-              className="inline-block bg-primary-navy text-white px-6 py-2 rounded-md font-medium hover:bg-primary-gold hover:text-primary-navy transition-colors"
-            >
-              Sign In to Comment
-            </Link>
-          </div>
+          {/* Comment Form (only visible when signed in) */}
+          <CommentForm postId={post.id} />
         </div>
       </main>
 

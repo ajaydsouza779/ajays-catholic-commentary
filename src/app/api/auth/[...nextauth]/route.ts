@@ -57,16 +57,42 @@ export const authOptions = {
   },
   callbacks: {
     async jwt({ token, user }) {
+      // On login, persist id and role on the token
       if (user) {
         token.id = user.id
         token.role = user.role
+        return token
       }
+
+      // For existing sessions created before this logic, backfill id from sub
+      if (!token.id && token.sub) {
+        token.id = token.sub
+      }
+
+      // If role is missing, fetch it from the database
+      if (!token.role && (token.id || token.sub)) {
+        try {
+          const dbUser = await prisma.user.findUnique({
+            where: { id: (token.id as string) || (token.sub as string) }
+          })
+          if (dbUser) {
+            token.role = dbUser.role
+          }
+        } catch (_e) {
+          // noop - leave token as-is if lookup fails
+        }
+      }
+
       return token
     },
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.id as string
-        session.user.role = token.role as string
+        // Ensure session has an id even for older tokens
+        const idFromToken = (token.id as string) || (token.sub as string) || ""
+        session.user.id = idFromToken
+        if (token.role) {
+          session.user.role = token.role as string
+        }
       }
       return session
     },

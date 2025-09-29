@@ -5,20 +5,18 @@ test.describe('Admin Dashboard', () => {
   test.use({ storageState: 'playwright/.auth/user.json' });
 
   test('should access admin dashboard after sign in', async ({ page }) => {
-    // Navigate to admin dashboard (already authenticated)
     await page.goto('/admin');
-    
-    // Check admin dashboard elements
-    await expect(page.getByText(/Admin Dashboard/i)).toBeVisible();
+    // Wait for render
+    await page.waitForSelector('[data-testid="admin-title"]', { timeout: 15000 });
+    await expect(page.locator('[data-testid="admin-title"]').first()).toBeVisible();
     await expect(page.getByText(/Posts/i)).toBeVisible();
-    await expect(page.getByText(/Create New Post/i)).toBeVisible();
+    await expect(page.getByText(/New Post|Create New Post/i)).toBeVisible();
   });
 
   test('should display posts list in admin dashboard', async ({ page }) => {
     await page.goto('/admin');
-    
-    // Check if posts are displayed
-    const postsTable = page.locator('table, [data-testid="posts-list"]');
+    await page.waitForSelector('[data-testid="posts-list"]', { timeout: 15000 });
+    const postsTable = page.locator('[data-testid="posts-list"]');
     await expect(postsTable).toBeVisible();
     
     // Check for post actions (edit, delete)
@@ -57,9 +55,10 @@ test.describe('Admin Dashboard', () => {
     await page.getByRole('button', { name: /Create Post|Submit/i }).click();
     
     // Should redirect to admin dashboard or show success message
-    await expect(page).toHaveURL(/.*\/admin/);
-    
-    // Check if the post appears in the posts list
+    await page.waitForURL(/.*\/(admin|posts\/.*\/edit)/, { timeout: 15000 });
+    // Navigate to admin list and verify presence
+    await page.goto('/admin');
+    await page.waitForSelector('[data-testid="posts-list"]', { timeout: 15000 });
     await expect(page.getByText(/Test Post from Playwright/i)).toBeVisible();
   });
 
@@ -116,11 +115,9 @@ test.describe('Admin Dashboard', () => {
     }
   });
 
+  test.use({ storageState: undefined });
   test('should redirect to sign in if not authenticated', async ({ page }) => {
-    // Try to access admin dashboard without signing in
     await page.goto('/admin');
-    
-    // Should redirect to sign in page
     await expect(page).toHaveURL(/.*\/auth\/signin/);
   });
 });

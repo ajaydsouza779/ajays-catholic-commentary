@@ -94,7 +94,7 @@ export default function AdminDashboard() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-serif mb-2" style={{color: '#1E3A8A'}}>
+              <h1 className="text-3xl font-serif mb-2" style={{color: '#1E3A8A'}} data-testid="admin-title">
                 Admin Dashboard
               </h1>
               <p className="text-lg" style={{color: '#6B7280'}}>
@@ -156,7 +156,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Posts Table */}
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden" data-testid="posts-list">
           <div className="px-6 py-4 border-b border-gray-200">
             <h2 className="text-xl font-serif" style={{color: '#1E3A8A'}}>
               Recent Posts
