@@ -1,36 +1,289 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ajay's Catholic Commentary
 
-## Getting Started
+A comprehensive web application for Catholic commentary, learning, and community discussion. Built with Next.js, TypeScript, and modern web technologies.
 
-First, run the development server:
+## 🎯 Project Overview
+
+This application serves as a platform for:
+- **Rich Catholic Commentary** - Detailed theological discussions and insights
+- **Interactive Learning** - Educational content with visual timelines and interactive elements
+- **Community Discussion** - Comment system for engaging with content
+- **Admin Management** - Full CRUD operations for content management
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- Git
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ajaydsouza779/ajays-catholic-commentary.git
+   cd ajays-catholic-commentary
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp env.example .env.local
+   # Edit .env.local with your configuration
+   ```
+
+4. **Set up the database**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   npx tsx scripts/seed-database.ts
+   ```
+
+5. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser**
+   Navigate to [http://localhost:3001](http://localhost:3001)
+
+## 🧪 Testing
+
+### Automated Testing with Playwright
+
+The project includes comprehensive automated tests covering all major functionality.
+
+#### Test Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Run all tests
+npm run test
+
+# Run tests with visual UI
+npm run test:ui
+
+# Run tests in headed mode (see browser)
+npm run test:headed
+
+# Debug mode for troubleshooting
+npm run test:debug
+
+# Run specific test file
+npx playwright test tests/homepage.spec.ts
+
+# Run tests for specific browser
+npx playwright test --project=chromium
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Test Coverage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- ✅ **Homepage Tests** - Navigation, content display, feature cards
+- ✅ **Authentication Tests** - Sign in/out, error handling, validation
+- ✅ **Admin Dashboard Tests** - Post management, CRUD operations
+- ✅ **Posts Tests** - Display, navigation, content formatting
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### Running Tests
 
-## Learn More
+```bash
+# Use the automated test runner
+./run-tests.sh
 
-To learn more about Next.js, take a look at the following resources:
+# Or run specific test modes
+./run-tests.sh ui      # Open Playwright UI
+./run-tests.sh headed  # Run with visible browser
+./run-tests.sh debug   # Debug mode
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏗️ Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+ajays-catholic-commentary/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── admin/             # Admin dashboard pages
+│   │   ├── api/               # API routes
+│   │   ├── auth/              # Authentication pages
+│   │   ├── posts/             # Posts pages
+│   │   └── globals.css        # Global styles
+│   ├── components/            # Reusable components
+│   ├── lib/                   # Utility functions
+│   └── types/                 # TypeScript type definitions
+├── prisma/
+│   └── schema.prisma          # Database schema
+├── tests/                     # Playwright test files
+├── scripts/                   # Database seeding scripts
+└── playwright.config.ts       # Playwright configuration
+```
 
-## Deploy on Vercel
+## 🛠️ Technology Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Frontend
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **Tiptap** - Rich text editor
+- **NextAuth.js** - Authentication
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Backend
+- **Next.js API Routes** - Server-side API
+- **Prisma** - Database ORM
+- **SQLite** - Local development database
+- **PostgreSQL** - Production database (planned)
+
+### Testing
+- **Playwright** - End-to-end testing
+- **Multi-browser support** - Chrome, Firefox, Safari
+
+## 📊 Database Schema
+
+### Core Models
+- **User** - User accounts and authentication
+- **Post** - Blog posts and commentary
+- **Comment** - User comments on posts
+- **Category** - Post categorization
+- **Tag** - Post tagging system
+
+### Relationships
+- Users can create multiple posts
+- Posts can have multiple categories and tags
+- Posts can have multiple comments
+- Many-to-many relationships for categories and tags
+
+## 🔐 Authentication
+
+### User Roles
+- **ADMIN** - Full access to admin dashboard and content management
+- **USER** - Can view content and add comments
+
+### Default Admin Account
+- **Email**: `ajay@example.com`
+- **Password**: `admin123`
+
+## 🚀 Deployment
+
+### Development
+```bash
+npm run dev
+```
+
+### Production Build
+```bash
+npm run build
+npm start
+```
+
+### Recommended Hosting
+- **Vercel** - Optimal for Next.js applications
+- **Supabase** - Database and authentication
+- **Cloudinary** - Image storage and optimization
+
+## 📋 Development Workflow
+
+### 1. Before Making Changes
+```bash
+# Run tests to ensure current state
+npm run test
+
+# Check for any failing tests
+./run-tests.sh
+```
+
+### 2. Making Changes
+- Make your code changes
+- Update tests if needed
+- Ensure TypeScript compilation passes
+
+### 3. After Making Changes
+```bash
+# Run tests to verify changes
+npm run test
+
+# Run specific test suites if needed
+npx playwright test tests/admin.spec.ts
+```
+
+### 4. Before Committing
+```bash
+# Run full test suite
+./run-tests.sh
+
+# Ensure all tests pass
+npm run lint
+```
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Database Connection Issues**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
+
+2. **Authentication Problems**
+   - Check `.env.local` configuration
+   - Verify `NEXTAUTH_SECRET` is set
+   - Clear browser cookies/session
+
+3. **Test Failures**
+   ```bash
+   # Run tests in debug mode
+   npm run test:debug
+   
+   # Check test results
+   npx playwright show-report
+   ```
+
+4. **Build Issues**
+   ```bash
+   # Clear Next.js cache
+   rm -rf .next
+   npm run build
+   ```
+
+## 📈 Future Enhancements
+
+### Phase 2: History of the Chair of St. Peter
+- Papal timeline with interactive visualizations
+- Historical context and Catholic notes
+- Search and filter functionality
+
+### Phase 3: Divisions in the Church
+- Interactive church division tree
+- Historical heresies and Church responses
+- Educational content on unification
+
+### Phase 4: History and Origin of the Bible
+- Bible formation timeline
+- English translation history
+- Comparison of Bible versions
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests to ensure everything works
+5. Submit a pull request
+
+## 📄 License
+
+This project is private and proprietary.
+
+## 📞 Support
+
+For issues and questions:
+- Check the troubleshooting section
+- Run tests to identify problems
+- Review the test reports for specific failures
+
+---
+
+**Last Updated**: December 2024  
+**Version**: 1.0.0  
+**Status**: Development/Testing Phase

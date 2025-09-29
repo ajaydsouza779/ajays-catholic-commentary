@@ -1,0 +1,64 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8] [cursor=pointer]
+  - alert [ref=e11]
+  - generic [ref=e12]:
+    - banner [ref=e13]:
+      - generic [ref=e15]:
+        - link "A Ajay's Catholic Commentary" [ref=e16] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e18] [cursor=pointer]: A
+          - generic [ref=e19] [cursor=pointer]: Ajay's Catholic Commentary
+        - button [ref=e20]:
+          - img [ref=e21]
+    - main [ref=e22]:
+      - navigation [ref=e23]:
+        - link "← Back to Posts" [ref=e24] [cursor=pointer]:
+          - /url: /posts
+      - article [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e28]: Spiritual Life
+          - 'heading "The Beauty of Daily Prayer: Finding God in the Ordinary" [level=1] [ref=e29]'
+          - generic [ref=e30]:
+            - generic [ref=e31]:
+              - generic [ref=e32]: By Ajay
+              - generic [ref=e33]: •
+              - time [ref=e34]: January 15, 2024
+            - generic [ref=e35]: 0 comments
+          - generic [ref=e36]:
+            - paragraph [ref=e37]: In our fast-paced world, it's easy to overlook the profound beauty that lies in the simple act of daily prayer. As Catholics, we are blessed with a rich tradition of prayer that can transform even the most mundane moments into encounters with the divine.
+            - heading "The Rhythm of Prayer" [level=2] [ref=e38]
+            - paragraph [ref=e39]: Prayer is not merely a religious obligation, but a lifeline that connects us to our Creator. When we establish a rhythm of daily prayer, we create space for God to speak to our hearts and guide our steps.
+            - paragraph [ref=e40]: The Church offers us various forms of prayer - from the structured beauty of the Liturgy of the Hours to the spontaneous conversations we have with God throughout our day. Each form serves a unique purpose in our spiritual journey.
+            - heading "Finding God in the Ordinary" [level=2] [ref=e41]
+            - paragraph [ref=e42]: One of the most beautiful aspects of Catholic spirituality is the recognition that God is present in all things. When we pray with intention, we begin to see His hand in the smallest details of our lives.
+            - paragraph [ref=e43]: Whether it's offering a quick prayer of gratitude before a meal, or taking a moment to reflect on God's goodness during a quiet walk, these simple acts of prayer can become powerful moments of grace.
+            - heading "Practical Steps" [level=2] [ref=e44]
+            - paragraph [ref=e45]: "If you're looking to deepen your prayer life, consider these simple steps:"
+            - list [ref=e46]:
+              - listitem [ref=e47]: Start your day with a morning offering
+              - listitem [ref=e48]: Take time for silent meditation
+              - listitem [ref=e49]: End your day with an examination of conscience
+              - listitem [ref=e50]: Keep a prayer journal to track your spiritual growth
+            - paragraph [ref=e51]: Remember, prayer is not about perfection, but about presence. God meets us where we are, in our brokenness and our joy, and transforms our hearts through the simple act of turning to Him.
+          - generic [ref=e52]:
+            - heading "Tags:" [level=3] [ref=e53]
+            - generic [ref=e54]:
+              - generic [ref=e55]: "#Faith"
+              - generic [ref=e56]: "#Prayer"
+      - generic [ref=e57]:
+        - heading "Comments (0)" [level=2] [ref=e58]
+        - paragraph [ref=e60]: No comments yet. Be the first to share your thoughts!
+        - generic [ref=e61]:
+          - heading "Share Your Thoughts" [level=3] [ref=e62]
+          - paragraph [ref=e63]: Sign in to leave a comment and join the discussion.
+          - link "Sign In to Comment" [ref=e64] [cursor=pointer]:
+            - /url: /auth/signin
+    - contentinfo [ref=e65]:
+      - generic [ref=e66]:
+        - paragraph [ref=e67]: Ajay's Catholic Commentary
+        - paragraph [ref=e68]: Sharing the beauty of Catholic faith and tradition
+```

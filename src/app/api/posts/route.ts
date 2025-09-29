@@ -109,7 +109,28 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Create the post
+    // Debug: Log the session user ID
+    console.log("Session user ID:", session.user.id)
+    
+    // Verify the user exists in the database
+    const user = await prisma.user.findUnique({
+      where: { id: session.user.id }
+    })
+    
+    if (!user) {
+      console.log("User not found in database, trying to find by email")
+      const userByEmail = await prisma.user.findUnique({
+        where: { email: session.user.email }
+      })
+      if (userByEmail) {
+        console.log("Found user by email, using their ID:", userByEmail.id)
+        session.user.id = userByEmail.id
+      } else {
+        return new NextResponse(JSON.stringify({ error: "User not found" }), { status: 404 })
+      }
+    }
+
+    // Create the post first without categories and tags
     const post = await prisma.post.create({
       data: {
         title,
@@ -121,27 +142,49 @@ export async function POST(request: NextRequest) {
       }
     })
 
-    // Add categories if provided
+    // Add categories if provided and they exist
     if (categoryIds && categoryIds.length > 0) {
-      await prisma.postCategory.createMany({
-        data: categoryIds.map((categoryId: string) => ({
-          postId: post.id,
-          categoryId
-        }))
+      const existingCategories = await prisma.category.findMany({
+        where: { id: { in: categoryIds } }
       })
+      
+      if (existingCategories.length > 0) {
+        await prisma.postCategory.createMany({
+          data: existingCategories.map(category => ({
+            postId: post.id,
+            categoryId: category.id
+          }))
+        })
+      }
     }
 
-    // Add tags if provided
+    // Add tags if provided and they exist
     if (tagIds && tagIds.length > 0) {
-      await prisma.postTag.createMany({
-        data: tagIds.map((tagId: string) => ({
-          postId: post.id,
-          tagId
-        }))
+      const existingTags = await prisma.tag.findMany({
+        where: { id: { in: tagIds } }
       })
+      
+      if (existingTags.length > 0) {
+        await prisma.postTag.createMany({
+          data: existingTags.map(tag => ({
+            postId: post.id,
+            tagId: tag.id
+          }))
+        })
+      }
     }
 
-    return NextResponse.json(post, { status: 201 })
+    // Fetch the complete post with relationships
+    const completePost = await prisma.post.findUnique({
+      where: { id: post.id },
+      include: {
+        categories: { include: { category: true } },
+        tags: { include: { tag: true } },
+        author: { select: { name: true, email: true } }
+      }
+    })
+
+    return NextResponse.json(completePost, { status: 201 })
   } catch (error) {
     console.error("Error creating post:", error)
     return NextResponse.json(

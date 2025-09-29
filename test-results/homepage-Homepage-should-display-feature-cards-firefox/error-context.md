@@ -1,0 +1,48 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - link "A Ajay's Catholic Commentary" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8] [cursor=pointer]: A
+          - generic [ref=e9] [cursor=pointer]: Ajay's Catholic Commentary
+        - button [ref=e10]:
+          - img [ref=e11]
+    - main [ref=e15]:
+      - generic [ref=e17]:
+        - heading "Welcome to Ajay's Catholic Commentary" [level=1] [ref=e18]
+        - paragraph [ref=e19]: A platform for sharing Catholic insights, teachings, and reflections. Join our community in exploring the beauty of Catholic faith and tradition.
+        - generic [ref=e20]:
+          - link "Read Posts" [ref=e21] [cursor=pointer]:
+            - /url: /posts
+          - link "Join Community" [ref=e22] [cursor=pointer]:
+            - /url: /auth/signup
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e26]: 📖
+          - heading "Rich Commentary" [level=3] [ref=e27]
+          - paragraph [ref=e28]: Thoughtful reflections on Catholic teachings, scripture, and spiritual life.
+        - generic [ref=e29]:
+          - generic [ref=e31]: 💬
+          - heading "Community Discussion" [level=3] [ref=e32]
+          - paragraph [ref=e33]: Engage in meaningful conversations with fellow Catholics and seekers.
+        - generic [ref=e34]:
+          - generic [ref=e36]: 🙏
+          - heading "Spiritual Growth" [level=3] [ref=e37]
+          - paragraph [ref=e38]: Deepen your faith through shared wisdom and spiritual insights.
+      - generic [ref=e39]:
+        - heading "Recent Posts" [level=2] [ref=e40]
+        - generic [ref=e41]:
+          - paragraph [ref=e42]: No posts yet, but stay tuned!
+          - paragraph [ref=e43]: Ajay will be sharing his first Catholic commentary soon. Sign up to be notified when new content is published.
+    - contentinfo [ref=e44]:
+      - generic [ref=e45]:
+        - paragraph [ref=e46]: Ajay's Catholic Commentary
+        - paragraph [ref=e47]: Sharing the beauty of Catholic faith and tradition
+  - button "Open Next.js Dev Tools" [ref=e53] [cursor=pointer]:
+    - img [ref=e54] [cursor=pointer]
+  - alert [ref=e58]
+```

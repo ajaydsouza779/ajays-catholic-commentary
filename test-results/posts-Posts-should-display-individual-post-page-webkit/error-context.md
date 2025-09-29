@@ -1,0 +1,64 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8] [cursor=pointer]
+  - alert [ref=e13]
+  - generic [ref=e14]:
+    - banner [ref=e15]:
+      - generic [ref=e17]:
+        - link "A Ajay's Catholic Commentary" [ref=e18]:
+          - /url: /
+          - generic [ref=e20]: A
+          - generic [ref=e21]: Ajay's Catholic Commentary
+        - button [ref=e22]:
+          - img [ref=e23]
+    - main [ref=e24]:
+      - navigation [ref=e25]:
+        - link "← Back to Posts" [ref=e26]:
+          - /url: /posts
+      - article [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e30]: Spiritual Life
+          - 'heading "The Beauty of Daily Prayer: Finding God in the Ordinary" [level=1] [ref=e31]'
+          - generic [ref=e32]:
+            - generic [ref=e33]:
+              - generic [ref=e34]: By Ajay
+              - generic [ref=e35]: •
+              - time [ref=e36]: January 15, 2024
+            - generic [ref=e37]: 0 comments
+          - generic [ref=e38]:
+            - paragraph [ref=e39]: In our fast-paced world, it's easy to overlook the profound beauty that lies in the simple act of daily prayer. As Catholics, we are blessed with a rich tradition of prayer that can transform even the most mundane moments into encounters with the divine.
+            - heading "The Rhythm of Prayer" [level=2] [ref=e40]
+            - paragraph [ref=e41]: Prayer is not merely a religious obligation, but a lifeline that connects us to our Creator. When we establish a rhythm of daily prayer, we create space for God to speak to our hearts and guide our steps.
+            - paragraph [ref=e42]: The Church offers us various forms of prayer - from the structured beauty of the Liturgy of the Hours to the spontaneous conversations we have with God throughout our day. Each form serves a unique purpose in our spiritual journey.
+            - heading "Finding God in the Ordinary" [level=2] [ref=e43]
+            - paragraph [ref=e44]: One of the most beautiful aspects of Catholic spirituality is the recognition that God is present in all things. When we pray with intention, we begin to see His hand in the smallest details of our lives.
+            - paragraph [ref=e45]: Whether it's offering a quick prayer of gratitude before a meal, or taking a moment to reflect on God's goodness during a quiet walk, these simple acts of prayer can become powerful moments of grace.
+            - heading "Practical Steps" [level=2] [ref=e46]
+            - paragraph [ref=e47]: "If you're looking to deepen your prayer life, consider these simple steps:"
+            - list [ref=e48]:
+              - listitem [ref=e49]: Start your day with a morning offering
+              - listitem [ref=e50]: Take time for silent meditation
+              - listitem [ref=e51]: End your day with an examination of conscience
+              - listitem [ref=e52]: Keep a prayer journal to track your spiritual growth
+            - paragraph [ref=e53]: Remember, prayer is not about perfection, but about presence. God meets us where we are, in our brokenness and our joy, and transforms our hearts through the simple act of turning to Him.
+          - generic [ref=e54]:
+            - heading "Tags:" [level=3] [ref=e55]
+            - generic [ref=e56]:
+              - generic [ref=e57]: "#Faith"
+              - generic [ref=e58]: "#Prayer"
+      - generic [ref=e59]:
+        - heading "Comments (0)" [level=2] [ref=e60]
+        - paragraph [ref=e62]: No comments yet. Be the first to share your thoughts!
+        - generic [ref=e63]:
+          - heading "Share Your Thoughts" [level=3] [ref=e64]
+          - paragraph [ref=e65]: Sign in to leave a comment and join the discussion.
+          - link "Sign In to Comment" [ref=e66]:
+            - /url: /auth/signin
+    - contentinfo [ref=e67]:
+      - generic [ref=e68]:
+        - paragraph [ref=e69]: Ajay's Catholic Commentary
+        - paragraph [ref=e70]: Sharing the beauty of Catholic faith and tradition
+```

@@ -1,0 +1,61 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - link "A Ajay's Catholic Commentary" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8] [cursor=pointer]: A
+          - generic [ref=e9] [cursor=pointer]: Ajay's Catholic Commentary
+        - button [ref=e10]:
+          - img [ref=e11]
+    - main [ref=e12]:
+      - generic [ref=e13]:
+        - heading "Catholic Commentary" [level=1] [ref=e14]
+        - paragraph [ref=e15]: Explore thoughtful reflections on Catholic teachings, scripture, and spiritual life.
+      - generic [ref=e16]:
+        - article [ref=e17]:
+          - generic [ref=e18]:
+            - generic [ref=e20]: Spiritual Life
+            - 'heading "The Beauty of Daily Prayer: Finding God in the Ordinary" [level=2] [ref=e21]':
+              - 'link "The Beauty of Daily Prayer: Finding God in the Ordinary" [active] [ref=e22] [cursor=pointer]':
+                - /url: /posts/the-beauty-of-daily-prayer
+            - paragraph [ref=e23]: Discover how daily prayer can transform ordinary moments into encounters with the divine, and learn practical steps to deepen your spiritual life.
+            - generic [ref=e24]:
+              - generic [ref=e25]: By Ajay
+              - time [ref=e26]: January 15, 2024
+            - generic [ref=e27]:
+              - generic [ref=e28]: "#Faith"
+              - generic [ref=e29]: "#Prayer"
+        - article [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e33]: Catholic Tradition
+            - 'heading "Understanding the Eucharist: The Source and Summit of Our Faith" [level=2] [ref=e34]':
+              - 'link "Understanding the Eucharist: The Source and Summit of Our Faith" [ref=e35] [cursor=pointer]':
+                - /url: /posts/understanding-the-eucharist
+            - paragraph [ref=e36]: Explore the profound mystery of the Eucharist and discover how this central sacrament of our faith can transform our daily lives and relationships.
+            - generic [ref=e37]:
+              - generic [ref=e38]: By Ajay
+              - time [ref=e39]: January 10, 2024
+            - generic [ref=e40]:
+              - generic [ref=e41]: "#Faith"
+              - generic [ref=e42]: "#Gospel"
+        - article [ref=e43]:
+          - generic [ref=e44]:
+            - 'heading "Saints as Spiritual Companions: Learning from the Cloud of Witnesses" [level=2] [ref=e45]':
+              - 'link "Saints as Spiritual Companions: Learning from the Cloud of Witnesses" [ref=e46] [cursor=pointer]':
+                - /url: /posts/saints-as-spiritual-companions
+            - paragraph [ref=e47]: Discover how the saints can become your spiritual companions and learn from their examples of faith, courage, and love.
+            - generic [ref=e48]:
+              - generic [ref=e49]: By Ajay
+              - time [ref=e50]: January 5, 2024
+    - contentinfo [ref=e51]:
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: Ajay's Catholic Commentary
+        - paragraph [ref=e54]: Sharing the beauty of Catholic faith and tradition
+  - button "Open Next.js Dev Tools" [ref=e60] [cursor=pointer]:
+    - img [ref=e61] [cursor=pointer]
+  - alert [ref=e64]
+```

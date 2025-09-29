@@ -1,0 +1,48 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - link "A Ajay's Catholic Commentary" [ref=e6]:
+          - /url: /
+          - generic [ref=e8]: A
+          - generic [ref=e9]: Ajay's Catholic Commentary
+        - button [ref=e10]:
+          - img [ref=e11]
+    - main [ref=e12]:
+      - generic [ref=e14]:
+        - heading "Welcome to Ajay's Catholic Commentary" [level=1] [ref=e15]
+        - paragraph [ref=e16]: A platform for sharing Catholic insights, teachings, and reflections. Join our community in exploring the beauty of Catholic faith and tradition.
+        - generic [ref=e17]:
+          - link "Read Posts" [ref=e18]:
+            - /url: /posts
+          - link "Join Community" [ref=e19]:
+            - /url: /auth/signup
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e23]: 📖
+          - heading "Rich Commentary" [level=3] [ref=e24]
+          - paragraph [ref=e25]: Thoughtful reflections on Catholic teachings, scripture, and spiritual life.
+        - generic [ref=e26]:
+          - generic [ref=e28]: 💬
+          - heading "Community Discussion" [level=3] [ref=e29]
+          - paragraph [ref=e30]: Engage in meaningful conversations with fellow Catholics and seekers.
+        - generic [ref=e31]:
+          - generic [ref=e33]: 🙏
+          - heading "Spiritual Growth" [level=3] [ref=e34]
+          - paragraph [ref=e35]: Deepen your faith through shared wisdom and spiritual insights.
+      - generic [ref=e36]:
+        - heading "Recent Posts" [level=2] [ref=e37]
+        - generic [ref=e38]:
+          - paragraph [ref=e39]: No posts yet, but stay tuned!
+          - paragraph [ref=e40]: Ajay will be sharing his first Catholic commentary soon. Sign up to be notified when new content is published.
+    - contentinfo [ref=e41]:
+      - generic [ref=e42]:
+        - paragraph [ref=e43]: Ajay's Catholic Commentary
+        - paragraph [ref=e44]: Sharing the beauty of Catholic faith and tradition
+  - button "Open Next.js Dev Tools" [ref=e50] [cursor=pointer]:
+    - img [ref=e51] [cursor=pointer]
+  - alert [ref=e56]
+```
