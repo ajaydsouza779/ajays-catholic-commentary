@@ -1,86 +1,118 @@
 "use client"
 
 import Header from "@/components/Header"
+import DatabaseTestButton from "@/components/DatabaseTestButton"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useRef } from "react"
+import { useSession } from "next-auth/react"
 import { BookOpen, History, Users, FileText, User, Edit3 } from "lucide-react"
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('posts')
+  const { data: session } = useSession()
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null)
+  const fileInputRef = useRef<HTMLInputElement | null>(null)
 
   const tabs = [
-    { id: 'posts', label: 'Posts', icon: BookOpen, href: '/posts' },
-    { id: 'papal-timeline', label: 'Papal Timeline', icon: History, href: '/history/papal-timeline' },
-    { id: 'church-divisions', label: 'Church History', icon: Users, href: '/history/church-divisions' },
-    { id: 'bible-origin', label: 'Bible History', icon: FileText, href: '/history/bible-origin' },
+    { id: 'posts', label: 'Posts', icon: BookOpen },
+    { id: 'papal-timeline', label: 'Papal Timeline', icon: History },
+    { id: 'church-divisions', label: 'Church History', icon: Users },
+    { id: 'bible-origin', label: 'Bible History', icon: FileText },
   ]
 
+  function handlePhotoChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = () => {
+      setPhotoPreview(reader.result as string)
+    }
+    reader.readAsDataURL(file)
+  }
+
   return (
-    <div className="min-h-screen bg-amber-50">
+    <div className="min-h-screen bg-primary-cream">
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Author Section */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-            {/* Author Photo Placeholder */}
-            <div className="w-32 h-32 rounded-full bg-amber-100 flex items-center justify-center border-4 border-amber-200">
-              <User className="w-16 h-16 text-amber-600" />
-            </div>
-            
-            {/* Author Info */}
-            <div className="flex-1 text-center md:text-left">
-              <h1 className="text-3xl md:text-4xl font-serif font-bold text-gray-800 mb-2">
-                Ajay D'Souza
-              </h1>
-              <p className="text-lg text-amber-600 font-medium mb-4">
-                Catholic Scholar & Commentator
-              </p>
-              <p className="text-gray-600 leading-relaxed max-w-3xl">
-                Welcome to my Catholic Commentary platform. Here, I share insights into Catholic teachings, 
-                explore the rich history of our Church, and reflect on the beauty of our faith tradition. 
-                Join me in discovering the depth and wisdom of Catholicism through thoughtful commentary, 
-                historical exploration, and spiritual reflection.
-              </p>
-              <div className="mt-4 flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-amber-700 transition-colors"
-                >
-                  <Edit3 className="w-4 h-4" />
-                  Learn More About Me
-                </Link>
-                <Link
-                  href="/auth/signup"
-                  className="inline-flex items-center gap-2 border-2 border-amber-600 text-amber-600 px-6 py-3 rounded-lg font-medium hover:bg-amber-600 hover:text-white transition-colors"
-                >
-                  Join Our Community
-                </Link>
+        <div className="relative overflow-hidden rounded-2xl mb-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-100 via-rose-100 to-sky-100" />
+          <div className="relative p-6 sm:p-8 border border-amber-200/60 backdrop-blur-sm">
+            <div className="flex flex-col md:flex-row items-start gap-6">
+              {/* Left: Photo + name */}
+              <div className="flex items-center md:block">
+                <div className="relative">
+                  <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-amber-100 border-4 border-amber-300/60 overflow-hidden flex items-center justify-center shadow">
+                    {photoPreview ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={photoPreview} alt="Author" className="w-full h-full object-cover" />
+                    ) : (
+                      <User className="w-14 h-14 sm:w-16 sm:h-16 text-amber-700" />
+                    )}
+                  </div>
+                  {(session?.user as { role?: string })?.role === 'ADMIN' && (
+                    <button
+                      onClick={() => fileInputRef.current?.click()}
+                      className="absolute -bottom-2 right-0 bg-amber-600 hover:bg-amber-700 text-white text-xs px-3 py-1 rounded-full shadow"
+                    >
+                      Upload
+                    </button>
+                  )}
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handlePhotoChange}
+                  />
+                </div>
+                <div className="ml-4 md:ml-0 md:mt-3 text-left md:text-center">
+                  <div className="text-base sm:text-lg text-gray-800 font-semibold">Ajay D'Souza</div>
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center gap-1.5 text-amber-800 hover:text-amber-900 text-sm font-medium mt-1"
+                  >
+                    <Edit3 className="w-4 h-4" />
+                    Learn more about me
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right: Intro text */}
+              <div className="flex-1">
+                <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
+                  Welcome to my Catholic Commentary platform. Here, I share insights into Catholic teachings,
+                  explore the rich history of our Church, and reflect on the beauty of our faith tradition.
+                  Join me in discovering the depth and wisdom of Catholicism through thoughtful commentary,
+                  historical exploration, and spiritual reflection.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="bg-white rounded-xl shadow-lg mb-8">
-          <div className="border-b border-gray-200">
-            <nav className="flex space-x-8 px-6" aria-label="Tabs">
+        <div className="bg-white/90 rounded-xl shadow-lg mb-8">
+          <div className="border-b border-amber-200/60">
+            <nav className="flex space-x-2 sm:space-x-4 px-2 sm:px-6" aria-label="Tabs">
               {tabs.map((tab) => {
                 const Icon = tab.icon
+                const isActive = activeTab === tab.id
                 return (
-                  <Link
+                  <button
                     key={tab.id}
-                    href={tab.href}
-                    className={`flex items-center gap-2 py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
-                      activeTab === tab.id
-                        ? 'border-amber-500 text-amber-600'
-                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                    }`}
+                    type="button"
                     onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center gap-2 my-2 sm:my-0 py-2 sm:py-3 px-3 sm:px-4 rounded-lg text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'bg-amber-50 text-amber-800 ring-1 ring-amber-300'
+                        : 'text-gray-700 hover:bg-amber-50 hover:text-amber-800'
+                    }`}
                   >
                     <Icon className="w-4 h-4" />
                     {tab.label}
-                  </Link>
+                  </button>
                 )
               })}
             </nav>
@@ -91,60 +123,63 @@ export default function Home() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2">
-            {/* Recent Posts */}
-            <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-              <div className="flex items-center gap-3 mb-6">
-                <BookOpen className="w-6 h-6 text-amber-600" />
-                <h2 className="text-2xl font-serif font-bold text-gray-800">
-                  Recent Posts
-                </h2>
-              </div>
-              <div className="text-gray-600">
-                <p className="mb-4">No posts yet, but stay tuned!</p>
-                <p className="text-sm">
-                  Ajay will be sharing his first Catholic commentary soon. 
-                  Sign up to be notified when new content is published.
-                </p>
-                <Link
-                  href="/posts"
-                  className="inline-flex items-center gap-2 mt-4 text-amber-600 hover:text-amber-700 font-medium"
-                >
-                  View All Posts
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* Coming Soon Sections */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl shadow-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <History className="w-5 h-5 text-amber-600" />
-                  <h3 className="text-lg font-serif font-bold text-gray-800">Papal Timeline</h3>
+            {activeTab === 'posts' && (
+              <div className="bg-white/95 rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+                <div className="flex items-center gap-3 mb-6">
+                  <BookOpen className="w-6 h-6 text-amber-700" />
+                  <h2 className="text-2xl font-serif font-bold text-gray-900">Recent Posts</h2>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">
-                  Explore the history of the Chair of St. Peter through an interactive timeline of popes.
-                </p>
-                <span className="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">
-                  Coming Soon
-                </span>
-              </div>
-
-              <div className="bg-white rounded-xl shadow-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Users className="w-5 h-5 text-amber-600" />
-                  <h3 className="text-lg font-serif font-bold text-gray-800">Church History</h3>
+                <div className="text-gray-600">
+                  <p className="mb-4">No posts yet, but stay tuned!</p>
+                  <p className="text-sm">Ajay will be sharing his first Catholic commentary soon.</p>
+                  <Link href="/posts" className="inline-flex items-center gap-2 mt-4 text-amber-700 hover:text-amber-900 font-medium">
+                    View All Posts
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
-                <p className="text-gray-600 text-sm mb-4">
+              </div>
+            )}
+
+            {activeTab === 'papal-timeline' && (
+              <div className="bg-white/95 rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <History className="w-6 h-6 text-amber-700" />
+                  <h2 className="text-2xl font-serif font-bold text-gray-900">Papal Timeline</h2>
+                </div>
+                <p className="text-gray-600">
+                  Explore the history of the Chair of St. Peter through an interactive timeline of Popes.
+                </p>
+                <span className="inline-block mt-4 bg-amber-100 text-amber-900 text-xs px-2 py-1 rounded-full">Coming Soon</span>
+              </div>
+            )}
+
+            {activeTab === 'church-divisions' && (
+              <div className="bg-white/95 rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <Users className="w-6 h-6 text-amber-700" />
+                  <h2 className="text-2xl font-serif font-bold text-gray-900">Church History</h2>
+                </div>
+                <p className="text-gray-600">
                   Discover the divisions and unity in Church history through an interactive tree.
                 </p>
-                <span className="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">
-                  Coming Soon
-                </span>
+                <span className="inline-block mt-4 bg-amber-100 text-amber-900 text-xs px-2 py-1 rounded-full">Coming Soon</span>
               </div>
-            </div>
+            )}
+
+            {activeTab === 'bible-origin' && (
+              <div className="bg-white/95 rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <FileText className="w-6 h-6 text-amber-700" />
+                  <h2 className="text-2xl font-serif font-bold text-gray-900">Bible History</h2>
+                </div>
+                <p className="text-gray-600">
+                  Learn about the formation of the Bible, key councils, and translations.
+                </p>
+                <span className="inline-block mt-4 bg-amber-100 text-amber-900 text-xs px-2 py-1 rounded-full">Coming Soon</span>
+              </div>
+            )}
           </div>
 
           {/* Sidebar */}
@@ -224,10 +259,15 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-            <p className="text-gray-400 text-sm">
-              © 2024 Ajay's Catholic Commentary. All rights reserved.
-            </p>
+          <div className="border-t border-gray-700 mt-8 pt-8">
+            <div className="flex justify-between items-center">
+              <p className="text-gray-400 text-sm">
+                © 2024 Ajay's Catholic Commentary. All rights reserved.
+              </p>
+              <div className="flex justify-end">
+                <DatabaseTestButton />
+              </div>
+            </div>
           </div>
         </div>
       </footer>

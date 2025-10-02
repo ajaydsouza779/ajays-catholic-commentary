@@ -1,4 +1,5 @@
 import Header from "@/components/Header"
+import DatabaseTestButton from "@/components/DatabaseTestButton"
 import Link from "next/link"
 import Image from "next/image"
 import { prisma } from "@/lib/prisma"
@@ -78,7 +79,7 @@ export default async function PostsPage() {
           </div>
         ) : (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
+            {posts.map((post: any) => (
               <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 {post.featuredImage && (
                   <div className="aspect-video bg-primary-gold">
@@ -92,7 +93,7 @@ export default async function PostsPage() {
                 )}
                 <div className="p-6">
                   <div className="flex flex-wrap gap-2 mb-3">
-                    {post.categories.map(({ category }) => (
+                    {post.categories.map(({ category }: any) => (
                       <span
                         key={category.id}
                         className="px-2 py-1 bg-primary-gold text-primary-navy text-xs font-medium rounded-full"
@@ -122,7 +123,7 @@ export default async function PostsPage() {
                   </div>
                   {post.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-3">
-                      {post.tags.map(({ tag }) => (
+                      {post.tags.map(({ tag }: any) => (
                         <span
                           key={tag.id}
                           className="px-2 py-1 bg-neutral-100 text-neutral-600 text-xs rounded"
@@ -139,14 +140,44 @@ export default async function PostsPage() {
         )}
       </main>
 
-      <footer className="bg-primary-navy text-white py-8 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-primary-gold font-serif text-lg mb-2">
-            Ajay&apos;s Catholic Commentary
-          </p>
-          <p className="text-sm text-neutral-300">
-            Sharing the beauty of Catholic faith and tradition
-          </p>
+      <footer className="bg-gray-800 text-white py-12 mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="font-serif text-xl font-bold text-amber-400 mb-4">
+                Ajay's Catholic Commentary
+              </h3>
+              <p className="text-gray-300 text-sm">
+                Sharing the beauty of Catholic faith and tradition through thoughtful commentary and historical exploration.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-amber-400 mb-4">Quick Links</h4>
+              <div className="space-y-2">
+                <Link href="/" className="block text-gray-300 hover:text-white text-sm transition-colors">Home</Link>
+                <Link href="/posts" className="block text-gray-300 hover:text-white text-sm transition-colors">All Posts</Link>
+                <Link href="/about" className="block text-gray-300 hover:text-white text-sm transition-colors">About</Link>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold text-amber-400 mb-4">Coming Soon</h4>
+              <div className="space-y-2">
+                <span className="block text-gray-300 text-sm">Papal Timeline</span>
+                <span className="block text-gray-300 text-sm">Church History</span>
+                <span className="block text-gray-300 text-sm">Bible History</span>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-8 pt-8">
+            <div className="flex justify-between items-center">
+              <p className="text-gray-400 text-sm">
+                © 2024 Ajay's Catholic Commentary. All rights reserved.
+              </p>
+              <div className="flex justify-end">
+                <DatabaseTestButton />
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
