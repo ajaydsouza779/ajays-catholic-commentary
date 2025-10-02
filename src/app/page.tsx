@@ -3,7 +3,7 @@
 import Header from "@/components/Header"
 import DatabaseTestButton from "@/components/DatabaseTestButton"
 import Link from "next/link"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import { BookOpen, History, Users, FileText, User, Edit3 } from "lucide-react"
 
@@ -11,7 +11,25 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('posts')
   const { data: session } = useSession()
   const [photoPreview, setPhotoPreview] = useState<string | null>(null)
+  const [profilePhoto, setProfilePhoto] = useState<string | null>(null)
   const fileInputRef = useRef<HTMLInputElement | null>(null)
+
+  // Fetch profile photo on component mount
+  useEffect(() => {
+    const fetchProfilePhoto = async () => {
+      try {
+        const response = await fetch('/api/admin/profile-photo')
+        if (response.ok) {
+          const data = await response.json()
+          setProfilePhoto(data.photo)
+        }
+      } catch (error) {
+        console.error('Error fetching profile photo:', error)
+      }
+    }
+    
+    fetchProfilePhoto()
+  }, [])
 
   const tabs = [
     { id: 'posts', label: 'Posts', icon: BookOpen },
@@ -24,8 +42,27 @@ export default function Home() {
     const file = event.target.files?.[0]
     if (!file) return
     const reader = new FileReader()
-    reader.onload = () => {
-      setPhotoPreview(reader.result as string)
+    reader.onload = async () => {
+      const base64Data = reader.result as string
+      setPhotoPreview(base64Data)
+      
+      // Upload to server
+      try {
+        const response = await fetch('/api/admin/profile-photo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ photo: base64Data })
+        })
+        
+        if (response.ok) {
+          setProfilePhoto(base64Data)
+          console.log('Profile photo updated successfully')
+        } else {
+          console.error('Failed to update profile photo')
+        }
+      } catch (error) {
+        console.error('Error uploading profile photo:', error)
+      }
     }
     reader.readAsDataURL(file)
   }
@@ -43,14 +80,14 @@ export default function Home() {
               {/* Left: Photo + name */}
               <div className="flex items-center md:block">
                 <div className="relative">
-                  <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-amber-100 border-4 border-amber-300/60 overflow-hidden flex items-center justify-center shadow">
-                    {photoPreview ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={photoPreview} alt="Author" className="w-full h-full object-cover" />
-                    ) : (
-                      <User className="w-14 h-14 sm:w-16 sm:h-16 text-amber-700" />
-                    )}
-                  </div>
+                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-amber-100 border-4 border-amber-300/60 overflow-hidden flex items-center justify-center shadow">
+                  {photoPreview || profilePhoto ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={photoPreview || profilePhoto || ''} alt="Author" className="w-full h-full object-cover" />
+                  ) : (
+                    <User className="w-14 h-14 sm:w-16 sm:h-16 text-amber-700" />
+                  )}
+                </div>
                   {(session?.user as { role?: string })?.role === 'ADMIN' && (
                     <button
                       onClick={() => fileInputRef.current?.click()}

@@ -10,16 +10,11 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="bg-primary-cream/90 backdrop-blur supports-[backdrop-filter]:bg-primary-cream/80 shadow-lg border-b-2 border-amber-200">
+    <header className="bg-primary-cream/90 backdrop-blur supports-[backdrop-filter]:bg-primary-cream/80 shadow-lg border-b-2 border-amber-200" style={{ backgroundColor: '#F5F5DC' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-full flex items-center justify-center bg-amber-600">
-              <span className="font-bold text-lg text-white">A</span>
-            </div>
-            <span className="text-xl font-serif font-bold text-gray-800">Ajay&apos;s Catholic Commentary</span>
-          </Link>
+          {/* Left placeholder (logo removed) */}
+          <div />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

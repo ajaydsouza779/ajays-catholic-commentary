@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans antialiased bg-primary-cream">
+      <body className="font-sans antialiased bg-primary-cream" style={{ backgroundColor: '#F5F5DC' }}>
         <Providers>
           {children}
         </Providers>
