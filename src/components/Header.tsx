@@ -4,6 +4,7 @@ import { useSession, signOut } from "next-auth/react"
 import Link from "next/link"
 import { Menu, X, User, LogOut } from "lucide-react"
 import { useState } from "react"
+import SearchBar from "./SearchBar"
 
 export default function Header() {
   const { data: session } = useSession()
@@ -15,6 +16,11 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           {/* Left placeholder (logo removed) */}
           <div />
+
+          {/* Search Bar */}
+          <div className="hidden lg:block flex-1 max-w-md mx-8">
+            <SearchBar />
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -32,6 +38,9 @@ export default function Header() {
             </Link>
             <Link href="/history/bible-origin" className="text-gray-700 hover:text-amber-600 transition-colors font-medium">
               Bible History
+            </Link>
+            <Link href="/search" className="text-gray-700 hover:text-amber-600 transition-colors font-medium">
+              Search
             </Link>
             <Link href="/about" className="text-gray-700 hover:text-amber-600 transition-colors font-medium">
               About
