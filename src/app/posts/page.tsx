@@ -1,7 +1,8 @@
 import Header from "@/components/Header"
 import DatabaseTestButton from "@/components/DatabaseTestButton"
 import Link from "next/link"
-import Image from "next/image"
+import OptimizedImage from "@/components/OptimizedImage"
+import LazyLoad from "@/components/LazyLoad"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
 
@@ -92,17 +93,19 @@ export default async function PostsPage() {
         ) : (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post: PostListItem) => (
-              <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                {post.featuredImage && (
-                  <div className="aspect-video bg-primary-gold">
-                    <Image
-                      src={post.featuredImage}
-                      alt={post.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
+              <LazyLoad key={post.id}>
+                <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                  {post.featuredImage && (
+                    <div className="aspect-video bg-primary-gold">
+                      <OptimizedImage
+                        src={post.featuredImage}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                  )}
                 <div className="p-6">
                   <div className="flex flex-wrap gap-2 mb-3">
                     {post.categories.map(({ category }: { category: { id: string; name: string } }) => (
@@ -146,7 +149,8 @@ export default async function PostsPage() {
                     </div>
                   )}
                 </div>
-              </article>
+                </article>
+              </LazyLoad>
             ))}
           </div>
         )}

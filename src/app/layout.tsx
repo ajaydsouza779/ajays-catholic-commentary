@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { Providers } from "./providers"
+import PerformanceMonitor from "@/components/PerformanceMonitor"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased bg-primary-cream" style={{ backgroundColor: '#F5F5DC' }}>
         <Providers>
+          <PerformanceMonitor />
           {children}
         </Providers>
       </body>

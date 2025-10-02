@@ -2,7 +2,7 @@ import Header from "@/components/Header"
 import DatabaseTestButton from "@/components/DatabaseTestButton"
 import CommentForm from "./CommentForm"
 import Link from "next/link"
-import Image from "next/image"
+import OptimizedImage from "@/components/OptimizedImage"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
 import { notFound } from "next/navigation"
@@ -83,11 +83,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           {/* Featured Image */}
           {post.featuredImage && (
             <div className="aspect-video bg-primary-gold">
-              <Image
+              <OptimizedImage
                 src={post.featuredImage}
                 alt={post.title}
                 fill
                 className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
               />
             </div>
           )}
