@@ -96,7 +96,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             {/* Categories */}
             {post.categories.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-4">
-                {post.categories.map(({ category }: any) => (
+                {post.categories.map(({ category }: { category: { id: string; name: string } }) => (
                   <span
                     key={category.id}
                     className="px-3 py-1 bg-primary-gold text-primary-navy text-sm font-medium rounded-full"
