@@ -1,4 +1,4 @@
-import NextAuth from "next-auth"
+import NextAuth from "next-auth/next"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { prisma } from "@/lib/prisma"
@@ -52,11 +52,12 @@ export const authOptions = {
     })
   ],
   session: {
-    strategy: "jwt",
+    strategy: "jwt" as const,
     maxAge: 30 * 24 * 60 * 60, // 30 days
   },
   callbacks: {
-    async jwt({ token, user }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async jwt({ token, user }: { token: any; user: any }) {
       // On login, persist id and role on the token
       if (user) {
         token.id = user.id
@@ -85,7 +86,8 @@ export const authOptions = {
 
       return token
     },
-    async session({ session, token }) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async session({ session, token }: { session: any; token: any }) {
       if (token) {
         // Ensure session has an id even for older tokens
         const idFromToken = (token.id as string) || (token.sub as string) || ""

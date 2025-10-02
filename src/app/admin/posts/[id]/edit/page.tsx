@@ -52,17 +52,6 @@ export default function EditPost() {
     tagIds: [] as string[]
   })
 
-  useEffect(() => {
-    if (status === "loading") return
-    
-    if (!session || session.user?.role !== "ADMIN") {
-      router.push("/")
-      return
-    }
-
-    fetchData()
-  }, [session, status, router, postId, fetchData])
-
   const fetchData = useCallback(async () => {
     try {
       const [postRes, categoriesRes, tagsRes] = await Promise.all([
@@ -100,6 +89,17 @@ export default function EditPost() {
       setLoading(false)
     }
   }, [postId])
+
+  useEffect(() => {
+    if (status === "loading") return
+    
+    if (!session || (session.user as { role?: string })?.role !== "ADMIN") {
+      router.push("/")
+      return
+    }
+
+    fetchData()
+  }, [session, status, router, postId, fetchData])
 
   const generateSlug = (title: string) => {
     return title
@@ -156,7 +156,7 @@ export default function EditPost() {
     )
   }
 
-  if (!session || session.user?.role !== "ADMIN") {
+  if (!session || (session.user as { role?: string })?.role !== "ADMIN") {
     return null
   }
 

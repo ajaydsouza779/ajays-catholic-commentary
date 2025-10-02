@@ -17,13 +17,13 @@ export async function GET(request: NextRequest) {
     const offset = parseInt(searchParams.get("offset") || "0")
 
     // Build where clause
-    const where: { status?: string } = {}
+    const where: { status?: "PUBLISHED" | "DRAFT" } = {}
     
     // If user is not admin, only show published posts
     if (session.user?.role !== "ADMIN") {
       where.status = "PUBLISHED"
-    } else if (status) {
-      where.status = status
+    } else if (status && (status === "PUBLISHED" || status === "DRAFT")) {
+      where.status = status as "PUBLISHED" | "DRAFT"
     }
 
     const posts = await prisma.post.findMany({

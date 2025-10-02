@@ -32,7 +32,7 @@ export default function Header() {
             <Link href="/about" className="text-white hover:text-yellow-300 transition-colors">
               About
             </Link>
-            {session?.user?.role === "ADMIN" && (
+            {(session?.user as { role?: string })?.role === "ADMIN" && (
               <Link href="/admin" className="text-white hover:text-yellow-300 transition-colors">
                 Admin
               </Link>
@@ -45,7 +45,7 @@ export default function Header() {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
                   <User className="w-4 h-4" />
-                  <span className="text-sm">{session.user.name || session.user.email}</span>
+                  <span className="text-sm">{(session.user as { name?: string; email?: string }).name || (session.user as { name?: string; email?: string }).email}</span>
                 </div>
                 <button
                   onClick={() => signOut()}
@@ -99,7 +99,7 @@ export default function Header() {
               <Link href="/about" className="text-white hover:text-yellow-300 transition-colors">
                 About
               </Link>
-              {session?.user?.role === "ADMIN" && (
+              {(session?.user as { role?: string })?.role === "ADMIN" && (
                 <Link href="/admin" className="text-white hover:text-yellow-300 transition-colors">
                   Admin
                 </Link>
@@ -110,7 +110,7 @@ export default function Header() {
                   <div className="flex flex-col space-y-2">
                     <div className="flex items-center space-x-2 text-sm">
                       <User className="w-4 h-4" />
-                      <span>{session.user.name || session.user.email}</span>
+                      <span>{(session.user as { name?: string; email?: string }).name || (session.user as { name?: string; email?: string }).email}</span>
                     </div>
                     <button
                       onClick={() => signOut()}

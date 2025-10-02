@@ -9,7 +9,7 @@ export default function CommentForm({ postId, onSubmitted }: { postId: string, o
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  if (!session?.user?.id) {
+  if (!session?.user || !(session.user as { id?: string }).id) {
     return null
   }
 
