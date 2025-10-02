@@ -157,7 +157,7 @@ export default async function PostsPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <h3 className="font-serif text-xl font-bold text-amber-400 mb-4">
-                Ajay's Catholic Commentary
+                Ajay&apos;s Catholic Commentary
               </h3>
               <p className="text-gray-300 text-sm">
                 Sharing the beauty of Catholic faith and tradition through thoughtful commentary and historical exploration.
@@ -183,7 +183,7 @@ export default async function PostsPage() {
           <div className="border-t border-gray-700 mt-8 pt-8">
             <div className="flex justify-between items-center">
               <p className="text-gray-400 text-sm">
-                © 2024 Ajay's Catholic Commentary. All rights reserved.
+                © 2024 Ajay&apos;s Catholic Commentary. All rights reserved.
               </p>
               <div className="flex justify-end">
                 <DatabaseTestButton />

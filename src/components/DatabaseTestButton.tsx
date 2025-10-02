@@ -30,7 +30,7 @@ export default function DatabaseTestButton() {
       const result = await response.json()
       setTestResult(result)
       
-    } catch (error) {
+    } catch (_error) {
       const errorResult = {
         success: false,
         message: 'Network error - unable to reach server',
