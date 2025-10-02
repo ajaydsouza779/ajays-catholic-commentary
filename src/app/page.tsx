@@ -68,7 +68,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="ml-4 md:ml-0 md:mt-3 text-left md:text-center">
-                  <div className="text-base sm:text-lg text-gray-800 font-semibold">Ajay D'Souza</div>
+                  <div className="text-base sm:text-lg text-gray-800 font-semibold">Ajay D&apos;Souza</div>
                   <Link
                     href="/about"
                     className="inline-flex items-center gap-1.5 text-amber-800 hover:text-amber-900 text-sm font-medium mt-1"

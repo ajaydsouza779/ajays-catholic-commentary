@@ -5,6 +5,18 @@ import Image from "next/image"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
 
+type PostListItem = {
+  id: string
+  title: string
+  slug: string
+  excerpt: string | null
+  featuredImage: string | null
+  publishedAt: Date | null
+  author: { name: string | null; email: string }
+  categories: { category: { id: string; name: string } }[]
+  tags: { tag: { id: string; name: string } }[]
+}
+
 async function getPosts() {
   try {
     const posts = await prisma.post.findMany({
@@ -79,7 +91,7 @@ export default async function PostsPage() {
           </div>
         ) : (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post: any) => (
+            {posts.map((post: PostListItem) => (
               <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 {post.featuredImage && (
                   <div className="aspect-video bg-primary-gold">
@@ -93,7 +105,7 @@ export default async function PostsPage() {
                 )}
                 <div className="p-6">
                   <div className="flex flex-wrap gap-2 mb-3">
-                    {post.categories.map(({ category }: any) => (
+                    {post.categories.map(({ category }: { category: { id: string; name: string } }) => (
                       <span
                         key={category.id}
                         className="px-2 py-1 bg-primary-gold text-primary-navy text-xs font-medium rounded-full"
@@ -123,7 +135,7 @@ export default async function PostsPage() {
                   </div>
                   {post.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-3">
-                      {post.tags.map(({ tag }: any) => (
+                      {post.tags.map(({ tag }: { tag: { id: string; name: string } }) => (
                         <span
                           key={tag.id}
                           className="px-2 py-1 bg-neutral-100 text-neutral-600 text-xs rounded"

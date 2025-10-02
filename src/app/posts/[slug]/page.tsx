@@ -137,7 +137,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               <div className="mt-8 pt-6 border-t border-neutral-200">
                 <h3 className="text-sm font-medium text-neutral-700 mb-3">Tags:</h3>
                 <div className="flex flex-wrap gap-2">
-                  {post.tags.map(({ tag }: any) => (
+                  {post.tags.map(({ tag }: { tag: { id: string; name: string } }) => (
                     <span
                       key={tag.id}
                       className="px-3 py-1 bg-neutral-100 text-neutral-600 text-sm rounded-full"
@@ -163,7 +163,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </div>
           ) : (
             <div className="space-y-6">
-              {post.comments.map((comment: any) => (
+              {post.comments.map((comment: { id: string; content: string; createdAt: Date; author: { name: string | null; email: string } }) => (
                 <div key={comment.id} className="border-b border-neutral-200 pb-6 last:border-b-0">
                   <div className="flex items-center space-x-3 mb-3">
                     <div className="w-8 h-8 bg-primary-gold rounded-full flex items-center justify-center">
