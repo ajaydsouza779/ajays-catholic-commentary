@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react"
 import { useRouter, useParams } from "next/navigation"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import { ArrowLeft, Save, Eye } from "lucide-react"
 import RichTextEditor from "@/components/RichTextEditor"
@@ -61,9 +61,9 @@ export default function EditPost() {
     }
 
     fetchData()
-  }, [session, status, router, postId])
+  }, [session, status, router, postId, fetchData])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const [postRes, categoriesRes, tagsRes] = await Promise.all([
         fetch(`/api/posts/${postId}`),
@@ -99,7 +99,7 @@ export default function EditPost() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [postId])
 
   const generateSlug = (title: string) => {
     return title

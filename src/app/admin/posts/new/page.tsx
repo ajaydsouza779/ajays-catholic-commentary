@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ArrowLeft, Save, Eye } from "lucide-react"
+import { ArrowLeft, Save } from "lucide-react"
 import RichTextEditor from "@/components/RichTextEditor"
 
 interface Category {

@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
     const offset = parseInt(searchParams.get("offset") || "0")
 
     // Build where clause
-    const where: any = {}
+    const where: { status?: string } = {}
     
     // If user is not admin, only show published posts
     if (session.user?.role !== "ADMIN") {
@@ -113,20 +113,39 @@ export async function POST(request: NextRequest) {
     console.log("Session user ID:", session.user.id)
     
     // Verify the user exists in the database
-    const user = await prisma.user.findUnique({
-      where: { id: session.user.id }
-    })
-    
-    if (!user) {
-      console.log("User not found in database, trying to find by email")
+    let authorIdToUse = session.user.id;
+    if (!authorIdToUse) {
+      console.log("Session user ID is undefined, trying to find user by email.");
+      if (!session.user.email) {
+        return new NextResponse(JSON.stringify({ error: "User email not found in session." }), { status: 401 });
+      }
       const userByEmail = await prisma.user.findUnique({
         where: { email: session.user.email }
-      })
+      });
       if (userByEmail) {
-        console.log("Found user by email, using their ID:", userByEmail.id)
-        session.user.id = userByEmail.id
+        console.log("Found user by email, using their ID:", userByEmail.id);
+        authorIdToUse = userByEmail.id;
       } else {
-        return new NextResponse(JSON.stringify({ error: "User not found" }), { status: 404 })
+        return new NextResponse(JSON.stringify({ error: "User not found in database by email." }), { status: 404 });
+      }
+    } else {
+      const user = await prisma.user.findUnique({
+        where: { id: authorIdToUse }
+      });
+      if (!user) {
+        console.log("User not found in database with session ID, trying to find by email.");
+        if (!session.user.email) {
+          return new NextResponse(JSON.stringify({ error: "User email not found in session." }), { status: 401 });
+        }
+        const userByEmail = await prisma.user.findUnique({
+          where: { email: session.user.email }
+        });
+        if (userByEmail) {
+          console.log("Found user by email, using their ID:", userByEmail.id);
+          authorIdToUse = userByEmail.id;
+        } else {
+          return new NextResponse(JSON.stringify({ error: "User not found in database by email." }), { status: 404 });
+        }
       }
     }
 
@@ -138,7 +157,7 @@ export async function POST(request: NextRequest) {
         content,
         excerpt: excerpt || content.substring(0, 200) + "...",
         status: status || "DRAFT",
-        authorId: session.user.id
+        authorId: authorIdToUse
       }
     })
 

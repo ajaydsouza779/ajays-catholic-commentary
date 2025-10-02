@@ -78,7 +78,7 @@ export const authOptions = {
           if (dbUser) {
             token.role = dbUser.role
           }
-        } catch (_e) {
+        } catch {
           // noop - leave token as-is if lookup fails
         }
       }

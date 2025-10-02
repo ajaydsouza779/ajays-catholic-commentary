@@ -49,7 +49,7 @@ export default function SignUp() {
         const data = await response.json()
         setError(data.error || "Something went wrong")
       }
-    } catch (error) {
+    } catch {
       setError("Something went wrong. Please try again.")
     } finally {
       setLoading(false)

@@ -29,8 +29,8 @@ export default function CommentForm({ postId, onSubmitted }: { postId: string, o
       }
       setContent("")
       onSubmitted?.()
-    } catch (e: any) {
-      setError(e.message || "Failed to submit comment")
+    } catch (e: unknown) {
+      setError((e as Error).message || "Failed to submit comment")
     } finally {
       setSubmitting(false)
     }

@@ -1,6 +1,7 @@
 import Header from "@/components/Header"
 import CommentForm from "./CommentForm"
 import Link from "next/link"
+import Image from "next/image"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
 import { notFound } from "next/navigation"
@@ -81,10 +82,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           {/* Featured Image */}
           {post.featuredImage && (
             <div className="aspect-video bg-primary-gold">
-              <img
+              <Image
                 src={post.featuredImage}
                 alt={post.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
           )}

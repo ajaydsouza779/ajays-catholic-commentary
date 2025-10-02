@@ -1,5 +1,6 @@
 import Header from "@/components/Header"
 import Link from "next/link"
+import Image from "next/image"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
 
@@ -81,10 +82,11 @@ export default async function PostsPage() {
               <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                 {post.featuredImage && (
                   <div className="aspect-video bg-primary-gold">
-                    <img
+                    <Image
                       src={post.featuredImage}
                       alt={post.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 )}
