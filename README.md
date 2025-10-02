@@ -36,7 +36,7 @@ This application serves as a platform for:
    # Edit .env.local with your configuration
    ```
 
-4. **Set up the database**
+4. **Set up the database (Local: SQLite)**
    ```bash
    npx prisma generate
    npx prisma db push
@@ -50,6 +50,11 @@ This application serves as a platform for:
 
 6. **Open your browser**
    Navigate to [http://localhost:3001](http://localhost:3001)
+
+### **Default Admin Account**
+- **Email**: `ajay@example.com`
+- **Password**: `admin123`
+- **Access**: Admin dashboard at `/admin`
 
 ## 🧪 Testing
 
@@ -131,8 +136,8 @@ ajays-catholic-commentary/
 ### Backend
 - **Next.js API Routes** - Server-side API
 - **Prisma** - Database ORM
-- **SQLite** - Local development database
-- **PostgreSQL** - Production database (planned)
+- **SQLite** - Local development database (prisma/schema.prisma)
+- **PostgreSQL** - Production database (prisma/schema.postgres.prisma)
 
 ### Testing
 - **Playwright** - End-to-end testing
@@ -174,6 +179,25 @@ npm run dev
 ```bash
 npm run build
 npm start
+```
+
+### Production Database (PostgreSQL)
+
+- Use `prisma/schema.postgres.prisma` in production. On Vercel, set:
+  - `DATABASE_URL` to your Postgres URL (URL-encode special chars, add `?sslmode=require` if needed)
+  - `PRISMA_SCHEMA_PATH=prisma/schema.postgres.prisma`
+  - `NEXTAUTH_SECRET`, `NEXTAUTH_URL`, `AUTH_TRUST_HOST=true`
+
+**Current Production Setup:**
+- **Database**: Supabase PostgreSQL
+- **Connection**: `postgresql://postgres.nxjtogogonbztiyympvb:[PASSWORD]@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres?pgbouncer=true&sslmode=require&connection_limit=1`
+- **Admin Password Hash**: `$2b$12$tcTC.oOk8VoViF5NmikQgu86Wj4CPzGfxsysfzYukLSMedpXFaECW`
+
+One-time production DB init (run locally with prod `DATABASE_URL` exported):
+```bash
+npm run db:push:prod
+npm run db:generate:prod
+DATABASE_URL=... npx tsx scripts/seed-database.ts
 ```
 
 ### Recommended Hosting

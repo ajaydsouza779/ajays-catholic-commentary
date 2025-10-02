@@ -13,8 +13,10 @@
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report",
     "db:generate": "prisma generate",
-    "db:push": "prisma db push",
+    "db:push": "prisma db push --schema=prisma/schema.prisma",
     "db:seed": "tsx scripts/seed-database.ts",
+    "db:push:prod": "prisma db push --schema=prisma/schema.postgres.prisma",
+    "db:generate:prod": "prisma generate --schema=prisma/schema.postgres.prisma",
     "db:studio": "prisma studio",
     "db:reset": "rm -f prisma/dev.db && npm run db:push && npm run db:seed"
   },

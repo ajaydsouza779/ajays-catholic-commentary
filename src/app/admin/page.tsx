@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Plus, Edit, Eye, Trash2, Calendar, User } from "lucide-react"
+import { Plus, Edit, Eye, Trash2, Calendar, User, Users } from "lucide-react"
 
 interface Post {
   id: string
@@ -101,14 +101,24 @@ export default function AdminDashboard() {
                 Welcome back, {session.user?.name || session.user?.email}
               </p>
             </div>
-            <Link
-              href="/admin/posts/new"
-              className="inline-flex items-center px-4 py-2 rounded-md font-medium transition-colors"
-              style={{backgroundColor: '#1E3A8A', color: 'white'}}
-            >
-              <Plus className="w-4 h-4 mr-2" />
-              New Post
-            </Link>
+            <div className="flex space-x-3">
+              <Link
+                href="/admin/users"
+                className="inline-flex items-center px-4 py-2 rounded-md font-medium transition-colors border"
+                style={{borderColor: '#1E3A8A', color: '#1E3A8A'}}
+              >
+                <Users className="w-4 h-4 mr-2" />
+                Manage Users
+              </Link>
+              <Link
+                href="/admin/posts/new"
+                className="inline-flex items-center px-4 py-2 rounded-md font-medium transition-colors"
+                style={{backgroundColor: '#1E3A8A', color: 'white'}}
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                New Post
+              </Link>
+            </div>
           </div>
         </div>
 
