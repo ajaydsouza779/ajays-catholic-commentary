@@ -6,6 +6,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowLeft, Save } from "lucide-react"
 import RichTextEditor from "@/components/RichTextEditor"
+import ImageUpload from "@/components/ImageUpload"
 
 interface Category {
   id: string
@@ -33,7 +34,9 @@ export default function NewPost() {
     excerpt: "",
     status: "DRAFT",
     categoryIds: [] as string[],
-    tagIds: [] as string[]
+    tagIds: [] as string[],
+    featuredImage: "",
+    featuredImagePublicId: ""
   })
 
   useEffect(() => {
@@ -207,6 +210,28 @@ export default function NewPost() {
                 />
                 <p className="text-sm mt-1" style={{color: '#6B7280'}}>
                   This will be shown in post previews. Leave empty to auto-generate from content.
+                </p>
+              </div>
+
+              {/* Featured Image */}
+              <div>
+                <label className="block text-sm font-medium mb-2" style={{color: '#1E3A8A'}}>
+                  Featured Image
+                </label>
+                <ImageUpload
+                  onImageUploaded={(url, publicId) => 
+                    setFormData(prev => ({ 
+                      ...prev, 
+                      featuredImage: url, 
+                      featuredImagePublicId: publicId 
+                    }))
+                  }
+                  currentImage={formData.featuredImage}
+                  folder="posts/featured-images"
+                  className="max-w-md"
+                />
+                <p className="text-sm mt-1" style={{color: '#6B7280'}}>
+                  Upload a featured image for your post. This will be displayed in post previews and headers.
                 </p>
               </div>
 

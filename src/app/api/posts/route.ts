@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
-    const { title, slug, content, excerpt, status, categoryIds, tagIds } = body
+    const { title, slug, content, excerpt, status, categoryIds, tagIds, featuredImage } = body
 
     // Validate required fields
     if (!title || !slug || !content) {
@@ -157,6 +157,7 @@ export async function POST(request: NextRequest) {
         content,
         excerpt: excerpt || content.substring(0, 200) + "...",
         status: status || "DRAFT",
+        featuredImage: featuredImage || null,
         authorId: authorIdToUse
       }
     })
