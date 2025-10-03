@@ -67,7 +67,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-primary-cream">
+    <div className="min-h-screen bg-neutral-50">
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -131,14 +131,14 @@ export default function Home() {
         {/* Navigation Tabs */}
         <div className="bg-white/90 rounded-xl shadow-lg mb-8">
           <div className="border-b border-amber-200/60">
-            <nav className="flex space-x-2 sm:space-x-4 px-2 sm:px-6" aria-label="Tabs">
+            <nav className="flex flex-wrap gap-2 px-2 sm:px-6 py-2" aria-label="Tabs">
               {tabs.map((tab) => {
                 const Icon = tab.icon
                 return (
                   <Link
                     key={tab.id}
                     href={tab.href}
-                    className="flex items-center gap-2 my-2 sm:my-0 py-2 sm:py-3 px-3 sm:px-4 rounded-lg text-sm font-medium transition-colors text-gray-700 hover:bg-amber-50 hover:text-amber-800"
+                    className="inline-flex items-center gap-2 py-1.5 px-3 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-amber-50 hover:text-amber-800"
                   >
                     <Icon className="w-4 h-4" />
                     {tab.label}
@@ -200,30 +200,30 @@ export default function Home() {
             {/* Quick Links */}
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-lg font-serif font-bold text-gray-800 mb-4">Quick Links</h3>
-              <div className="space-y-3">
-                <Link href="/posts" className="flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
+              <div className="space-y-2">
+                <Link href="/posts" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
                   <BookOpen className="w-4 h-4" />
                   <span className="text-sm">All Posts</span>
                 </Link>
-                <Link href="/history/papal-timeline" className="flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
+                <Link href="/history/papal-timeline" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
                   <History className="w-4 h-4" />
                   <span className="text-sm">Papal Timeline</span>
                 </Link>
-                <Link href="/history/church-divisions" className="flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
+                <Link href="/history/church-divisions" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
                   <Users className="w-4 h-4" />
                   <span className="text-sm">Church History</span>
                 </Link>
-                <Link href="/history/bible-origin" className="flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
+                <Link href="/history/bible-origin" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
                   <FileText className="w-4 h-4" />
                   <span className="text-sm">Bible History</span>
                 </Link>
-                <Link href="/search" className="flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
+                <Link href="/search" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                   <span className="text-sm">Search</span>
                 </Link>
-                <Link href="/about" className="flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
+                <Link href="/about" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
                   <User className="w-4 h-4" />
                   <span className="text-sm">About Ajay</span>
                 </Link>

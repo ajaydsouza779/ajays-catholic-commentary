@@ -58,7 +58,7 @@ export default async function PostsPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-serif text-primary-navy mb-4">
-            Catholic Commentary
+            All Posts
           </h1>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
             Explore thoughtful reflections on Catholic teachings, scripture, and spiritual life.
@@ -89,7 +89,7 @@ export default async function PostsPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post: PostListItem) => (
               <LazyLoad key={post.id}>
-                <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <article data-testid="post-card" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                   {post.featuredImage && (
                     <div className="aspect-video bg-primary-gold">
                       <OptimizedImage

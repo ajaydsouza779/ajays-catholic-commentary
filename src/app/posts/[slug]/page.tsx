@@ -5,6 +5,7 @@ import Link from "next/link"
 import OptimizedImage from "@/components/OptimizedImage"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
+import DOMPurify from "isomorphic-dompurify"
 import { notFound } from "next/navigation"
 
 async function getPost(slug: string) {
@@ -131,7 +132,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             {/* Content */}
             <div 
               className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-primary-navy prose-a:text-primary-navy prose-a:no-underline hover:prose-a:underline prose-strong:text-primary-navy"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              data-testid="post-content"
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content.replace(/<\/h1>/gi, '</h2>').replace(/<h1/gi, '<h2')) }}
             />
 
             {/* Tags */}

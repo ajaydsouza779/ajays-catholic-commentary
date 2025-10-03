@@ -1,0 +1,127 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e5]:
+        - navigation [ref=e6]:
+          - link "Home" [ref=e7]:
+            - /url: /
+          - link "Posts" [ref=e8]:
+            - /url: /posts
+        - button [ref=e9]:
+          - img [ref=e10]
+    - main [ref=e11]:
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - img [ref=e18]
+          - generic [ref=e21]:
+            - generic [ref=e22]: Ajay D'Souza
+            - link "Learn more about me" [ref=e23]:
+              - /url: /about
+              - img [ref=e24]
+              - text: Learn more about me
+        - paragraph [ref=e27]: Welcome to my Catholic Commentary platform. Here, I share insights into Catholic teachings, explore the rich history of our Church, and reflect on the beauty of our faith tradition. Join me in discovering the depth and wisdom of Catholicism through thoughtful commentary, historical exploration, and spiritual reflection.
+      - navigation "Tabs" [ref=e30]:
+        - link "Posts" [ref=e31]:
+          - /url: /posts
+          - img [ref=e32]
+          - text: Posts
+        - link "Papal Timeline" [ref=e34]:
+          - /url: /history/papal-timeline
+          - img [ref=e35]
+          - text: Papal Timeline
+        - link "Church History" [ref=e39]:
+          - /url: /history/church-divisions
+          - img [ref=e40]
+          - text: Church History
+        - link "Bible History" [ref=e45]:
+          - /url: /history/bible-origin
+          - img [ref=e46]
+          - text: Bible History
+      - generic [ref=e49]:
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - img [ref=e53]
+            - heading "Welcome to Ajay's Catholic Commentary" [level=2] [ref=e55]
+          - generic [ref=e56]:
+            - paragraph [ref=e57]: Explore the rich tapestry of Catholic faith through commentary, historical research, and spiritual reflection. Use the navigation tabs above to discover different aspects of our faith tradition.
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - heading "📝 Posts" [level=3] [ref=e60]
+                - paragraph [ref=e61]: Read insightful Catholic commentary and theological reflections.
+              - generic [ref=e62]:
+                - heading "👑 Papal Timeline" [level=3] [ref=e63]
+                - paragraph [ref=e64]: Explore the history of the Chair of St. Peter through interactive timelines.
+              - generic [ref=e65]:
+                - heading "⛪ Church History" [level=3] [ref=e66]
+                - paragraph [ref=e67]: Discover the divisions and unity in Church history through interactive trees.
+              - generic [ref=e68]:
+                - heading "📖 Bible History" [level=3] [ref=e69]
+                - paragraph [ref=e70]: Learn about the formation of the Bible, manuscripts, and translations.
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - heading "About This Platform" [level=3] [ref=e73]
+            - paragraph [ref=e74]: This platform is dedicated to exploring Catholic faith through commentary, historical research, and spiritual reflection. Join our community of seekers and believers as we journey together in faith.
+          - generic [ref=e75]:
+            - heading "Quick Links" [level=3] [ref=e76]
+            - generic [ref=e77]:
+              - link "All Posts" [ref=e78]:
+                - /url: /posts
+                - img [ref=e79]
+                - generic [ref=e81]: All Posts
+              - link "Papal Timeline" [ref=e82]:
+                - /url: /history/papal-timeline
+                - img [ref=e83]
+                - generic [ref=e87]: Papal Timeline
+              - link "Church History" [ref=e88]:
+                - /url: /history/church-divisions
+                - img [ref=e89]
+                - generic [ref=e94]: Church History
+              - link "Bible History" [ref=e95]:
+                - /url: /history/bible-origin
+                - img [ref=e96]
+                - generic [ref=e99]: Bible History
+              - link "Search" [ref=e100]:
+                - /url: /search
+                - img
+                - generic [ref=e102]: Search
+              - link "About Ajay" [ref=e103]:
+                - /url: /about
+                - img [ref=e104]
+                - generic [ref=e107]: About Ajay
+          - generic [ref=e108]:
+            - heading "Stay Updated" [level=3] [ref=e109]
+            - paragraph [ref=e110]: Get notified when new content is published.
+            - link "Sign Up for Updates" [ref=e111]:
+              - /url: /auth/signup
+    - contentinfo [ref=e112]:
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - generic [ref=e115]:
+            - heading "Ajay's Catholic Commentary" [level=3] [ref=e116]
+            - paragraph [ref=e117]: Sharing the beauty of Catholic faith and tradition through thoughtful commentary and historical exploration.
+          - generic [ref=e118]:
+            - heading "Quick Links" [level=4] [ref=e119]
+            - generic [ref=e120]:
+              - link "Posts" [ref=e121]:
+                - /url: /posts
+              - link "About" [ref=e122]:
+                - /url: /about
+              - link "Join Community" [ref=e123]:
+                - /url: /auth/signup
+          - generic [ref=e124]:
+            - heading "Coming Soon" [level=4] [ref=e125]
+            - generic [ref=e126]:
+              - generic [ref=e127]: Papal Timeline
+              - generic [ref=e128]: Church History
+              - generic [ref=e129]: Bible History
+        - generic [ref=e131]:
+          - paragraph [ref=e132]: © 2024 Ajay's Catholic Commentary. All rights reserved.
+          - button "Database Status" [ref=e134]:
+            - img [ref=e135]
+  - button "Open Next.js Dev Tools" [ref=e144] [cursor=pointer]:
+    - img [ref=e145] [cursor=pointer]
+  - alert [ref=e150]
+```

@@ -313,3 +313,18 @@ npx tsx scripts/seed-database.ts
 **Last Updated**: December 2024  
 **Current Phase**: Issue Resolution & Testing  
 **Next Milestone**: All Tests Passing
+
+## UI-First Working Agreement (Session Expectations)
+- Focus order: Homepage UI first, then other pages.
+- Apply a cohesive theme: contrasting header (white), body (neutral-50), and footer (white), avoid full-cream everywhere.
+- Keep links compact (inline-flex), avoid oversized blocks; consistent padding/gaps.
+- Validate visually: take homepage screenshots after changes; tests are secondary to visual checks for UI tasks.
+- Progress cadence: post a short status update at least every 5 minutes during long tasks.
+- Prefer minimal, reversible edits; document changes briefly in commits/notes.
+
+### Live Progress Logging
+- During any long-running work (builds, tests, data tasks, multi-file edits), the assistant must emit a brief console-style status update every ≤5 minutes indicating:
+  - What step is in progress
+  - What was just completed
+  - Any blockers or waits (e.g., network/build)
+  - Next immediate action

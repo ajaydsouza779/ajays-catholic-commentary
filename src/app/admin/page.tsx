@@ -82,7 +82,7 @@ export default function AdminDashboard() {
 
       if (response.ok) {
         // Refresh the posts list
-        fetchPosts()
+        await fetchData()
       } else {
         const error = await response.json()
         alert(error.error || "Failed to delete post")

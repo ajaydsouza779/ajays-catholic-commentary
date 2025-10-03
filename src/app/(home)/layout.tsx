@@ -7,9 +7,9 @@ export default function HomeLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="min-h-screen bg-primary-cream">
+    <div className="min-h-screen bg-neutral-50">
       <Header />
-      <main>
+      <main className="pb-12">
         {children}
       </main>
       <Footer />

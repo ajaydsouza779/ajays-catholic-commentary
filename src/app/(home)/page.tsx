@@ -66,9 +66,11 @@ export default function Home() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Author Section */}
+        {/* Hero / Author Section */}
         <div className="relative overflow-hidden rounded-2xl mb-8">
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-100 via-rose-100 to-sky-100" />
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-amber-100 to-white" />
+          <div className="absolute -top-20 -right-24 w-80 h-80 rounded-full opacity-20" style={{backgroundColor:'#D4AF37'}} />
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full opacity-10" style={{backgroundColor:'#1B365D'}} />
           <div className="relative p-6 sm:p-8 border border-amber-200/60 backdrop-blur-sm">
             <div className="flex flex-col md:flex-row items-start gap-6">
               {/* Left: Photo + name */}
@@ -112,28 +114,36 @@ export default function Home() {
 
               {/* Right: Intro text */}
               <div className="flex-1">
-                <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
-                  Welcome to my Catholic Commentary platform. Here, I share insights into Catholic teachings,
-                  explore the rich history of our Church, and reflect on the beauty of our faith tradition.
-                  Join me in discovering the depth and wisdom of Catholicism through thoughtful commentary,
-                  historical exploration, and spiritual reflection.
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-3">
+                  Faith. History. Reflection.
+                </h1>
+                <p className="text-gray-700 leading-relaxed text-base sm:text-lg mb-4">
+                  Explore Catholic teachings, the story of the Church, and reflections to deepen your faith journey.
                 </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/posts" className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium text-white shadow" style={{backgroundColor: '#1B365D'}}>
+                    Read Latest Posts
+                  </Link>
+                  <Link href="/history/papal-timeline" className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-medium border" style={{borderColor: '#D4AF37', color: '#1B365D'}}>
+                    Explore Papal Timeline
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="bg-white/90 rounded-xl shadow-lg mb-8">
+        <div className="bg-white/90 rounded-xl shadow mb-8">
           <div className="border-b border-amber-200/60">
-            <nav className="flex space-x-2 sm:space-x-4 px-2 sm:px-6" aria-label="Tabs">
+            <nav className="flex flex-wrap gap-2 px-2 sm:px-6 py-2" aria-label="Tabs">
               {tabs.map((tab) => {
                 const Icon = tab.icon
                 return (
                   <Link
                     key={tab.id}
                     href={tab.href}
-                    className="flex items-center gap-2 my-2 sm:my-0 py-2 sm:py-3 px-3 sm:px-4 rounded-lg text-sm font-medium transition-colors text-gray-700 hover:bg-amber-50 hover:text-amber-800"
+                    className="inline-flex items-center gap-2 py-1.5 px-3 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-amber-50 hover:text-amber-800"
                   >
                     <Icon className="w-4 h-4" />
                     {tab.label}
@@ -144,11 +154,27 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Highlights */}
+        <div className="grid md:grid-cols-3 gap-4 mb-8">
+          <Link href="/posts" className="rounded-xl p-5 border hover:shadow-md transition-shadow" style={{backgroundColor:'#FFF7E6', borderColor:'#F1C453'}}>
+            <h3 className="font-serif text-lg text-gray-900 mb-1">Featured Commentary</h3>
+            <p className="text-sm text-gray-600">Thoughtful reflections grounded in Scripture and Tradition.</p>
+          </Link>
+          <Link href="/history/papal-timeline" className="rounded-xl p-5 border hover:shadow-md transition-shadow" style={{backgroundColor:'#EEF2FF', borderColor:'#C7D2FE'}}>
+            <h3 className="font-serif text-lg text-gray-900 mb-1">Papal Timeline</h3>
+            <p className="text-sm text-gray-600">Journey through the Chair of St. Peter across the centuries.</p>
+          </Link>
+          <Link href="/search" className="rounded-xl p-5 border hover:shadow-md transition-shadow" style={{backgroundColor:'#ECFEFF', borderColor:'#A5F3FC'}}>
+            <h3 className="font-serif text-lg text-gray-900 mb-1">Discover Content</h3>
+            <p className="text-sm text-gray-600">Search posts, popes, church divisions, manuscripts, and more.</p>
+          </Link>
+        </div>
+
         {/* Welcome Content */}
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2">
-            <div className="bg-white/95 rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+            <div className="bg-white rounded-xl shadow p-8 mb-8 border border-amber-100">
               <div className="flex items-center gap-3 mb-6">
                 <BookOpen className="w-6 h-6 text-amber-700" />
                 <h2 className="text-2xl font-serif font-bold text-gray-900">Welcome to Ajay&apos;s Catholic Commentary</h2>
@@ -183,7 +209,7 @@ export default function Home() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* About Section */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-white rounded-xl shadow-lg p-6 border border-amber-100">
               <h3 className="text-lg font-serif font-bold text-gray-800 mb-4">About This Platform</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 This platform is dedicated to exploring Catholic faith through commentary, 
