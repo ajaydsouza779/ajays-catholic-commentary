@@ -121,6 +121,7 @@ BibleTranslation (standalone)
 - `tests/auth.spec.ts` - Authentication flows
 - `tests/admin.spec.ts` - Admin dashboard operations
 - `tests/posts.spec.ts` - Posts display and navigation
+- `tests/screenshots.spec.ts` - **MANDATORY** Screenshot testing for all pages
 - `tests/setup.ts` - Authentication state setup
 
 ### Test Commands
@@ -129,8 +130,17 @@ npm run test          # Run all tests
 npm run test:ui       # Visual test runner
 npm run test:headed   # Run with visible browser
 npm run test:debug    # Debug mode
+npm run test:report   # Generate test report with screenshots
 ./run-tests.sh        # Automated test runner
 ```
+
+### 🖼️ Screenshot Testing Requirements (MANDATORY)
+- **After every functionality implementation**: Run `npx playwright test tests/screenshots.spec.ts --headed`
+- **Coverage**: Screenshot all pages (homepage, posts, papal timeline, church divisions, bible origin, search, admin)
+- **Validation**: Generate test report with screenshots for physical validation
+- **Automation**: Include screenshot tests in CI/CD pipeline
+- **Documentation**: Update test reports with each feature implementation
+- **Report Generation**: Use `npx playwright show-report` to view screenshots
 
 ### Test Data
 - **Admin User**: ajay@example.com / admin123

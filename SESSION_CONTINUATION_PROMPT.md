@@ -129,8 +129,18 @@ Account, Session, VerificationToken (NextAuth.js tables)
 - ✅ **Authentication Tests**: Sign in/out, error handling
 - ✅ **Admin Dashboard Tests**: Post management, CRUD operations
 - ✅ **Posts Tests**: Display, navigation, content formatting
+- ✅ **Screenshot Tests**: **MANDATORY** - All pages captured for validation
 
-**Run Tests**: `npm run test` or `./run-tests.sh`
+### 🖼️ **Screenshot Testing Requirements (MANDATORY)**
+- **After every functionality implementation**: Run `npx playwright test tests/screenshots.spec.ts --headed`
+- **Coverage**: Screenshot all pages (homepage, posts, papal timeline, church divisions, bible origin, search, admin)
+- **Validation**: Generate test report with screenshots for physical validation
+- **Report Generation**: Use `npx playwright show-report` to view screenshots
+- **Automation**: Include in CI/CD pipeline
+
+**Run Tests**: `npm run test` or `./run-tests.sh`  
+**Screenshot Tests**: `npx playwright test tests/screenshots.spec.ts --headed`  
+**View Reports**: `npx playwright show-report`
 
 ## 🚀 **Deployment Status**
 

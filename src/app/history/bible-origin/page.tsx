@@ -61,7 +61,7 @@ export default function BibleOriginPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-primary-cream py-8">
+      <div className="py-8">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto"></div>
@@ -74,7 +74,7 @@ export default function BibleOriginPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-primary-cream py-8">
+      <div className="py-8">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
@@ -88,7 +88,7 @@ export default function BibleOriginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-primary-cream py-8">
+    <div className="py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
