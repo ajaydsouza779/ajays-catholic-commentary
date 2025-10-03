@@ -676,15 +676,15 @@ const popesData = [
     ]
   },
 
-  // Current Pope
+  // Pope Francis (266th Pope)
   {
     name: "Francis",
     regnalName: "Pope Francis",
     birthName: "Jorge Mario Bergoglio",
     birthDate: "1936 AD",
-    deathDate: null,
+    deathDate: "2025 AD",
     papacyStart: "2013 AD",
-    papacyEnd: null,
+    papacyEnd: "2025 AD",
     papacyNumber: 266,
     nationality: "Argentine (Buenos Aires)",
     previousOffice: "Archbishop of Buenos Aires",
@@ -708,7 +708,7 @@ const popesData = [
       }
     ]),
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pope_Francis_2019.jpg/400px-Pope_Francis_2019.jpg",
-    isCurrent: true,
+    isCurrent: false,
     events: [
       {
         title: "Election as Pope",
@@ -748,6 +748,55 @@ const popesData = [
         category: "DIPLOMACY",
         year: 2014,
         significance: "Improved relations with other faiths"
+      }
+    ]
+  },
+
+  // Current Pope
+  {
+    name: "Leo XIV",
+    regnalName: "Pope Leo XIV",
+    birthName: "Robert Francis Prevost",
+    birthDate: "1955 AD",
+    deathDate: null,
+    papacyStart: "2025 AD",
+    papacyEnd: null,
+    papacyNumber: 267,
+    nationality: "American (Chicago)",
+    previousOffice: "Prefect of the Dicastery for Bishops",
+    biography: "First American pope in history. Former Augustinian missionary and bishop. Known for his pastoral approach and commitment to Church renewal.",
+    historicalContext: "Pope Leo XIV is the first American pope in the history of the Catholic Church. Born in Chicago, he served as a missionary in Peru before being appointed Prefect of the Dicastery for Bishops. His election in 2025 marked a historic moment for the Church.",
+    references: JSON.stringify([
+      {
+        title: "Vatican Official Biography",
+        url: "https://www.vatican.va/content/vatican/en/holy-father/leone-xiv.html",
+        type: "Official"
+      },
+      {
+        title: "Vatican List of Popes",
+        url: "https://www.vatican.va/content/vatican/en/holy-father.html",
+        type: "Official"
+      }
+    ]),
+    imageUrl: null, // No image available yet
+    isCurrent: true,
+    events: [
+      {
+        title: "Election as Pope",
+        description: "Chosen as successor to Pope Francis, becoming the first American pope.",
+        eventDate: "2025 AD",
+        eventType: "ELECTION",
+        location: "Vatican",
+        significance: "First American pope in Church history"
+      }
+    ],
+    achievements: [
+      {
+        title: "First American Pope",
+        description: "Became the first pope from the United States of America.",
+        category: "OTHER",
+        year: 2025,
+        significance: "Historic milestone for the Catholic Church"
       }
     ]
   }
