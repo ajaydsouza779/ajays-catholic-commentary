@@ -213,6 +213,8 @@ model Pope {
   notableEvents   String?  // JSON string of major events
   biography       String?  // Detailed biography
   imageUrl        String?  // Portrait image
+  historicalContext String? // Historical context and sources
+  references      String?  // JSON string of references/sources
   isCurrent       Boolean  @default(false)
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
