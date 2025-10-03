@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Plus, Edit, Eye, Trash2, Calendar, User, Users } from "lucide-react"
+import { Plus, Edit, Eye, Trash2, Calendar, User, Users, BarChart3, BookOpen, History, FileText, Settings } from "lucide-react"
 
 interface Post {
   id: string
@@ -18,10 +18,22 @@ interface Post {
   }
 }
 
+interface Analytics {
+  totalPosts: number
+  publishedPosts: number
+  draftPosts: number
+  totalUsers: number
+  totalComments: number
+  totalPopes: number
+  totalDivisions: number
+  totalManuscripts: number
+}
+
 export default function AdminDashboard() {
   const { data: session, status } = useSession()
   const router = useRouter()
   const [posts, setPosts] = useState<Post[]>([])
+  const [analytics, setAnalytics] = useState<Analytics | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -32,18 +44,27 @@ export default function AdminDashboard() {
       return
     }
 
-    fetchPosts()
+    fetchData()
   }, [session, status, router])
 
-  const fetchPosts = async () => {
+  const fetchData = async () => {
     try {
-      const response = await fetch("/api/posts")
-      if (response.ok) {
-        const data = await response.json()
-        setPosts(data)
+      const [postsRes, analyticsRes] = await Promise.all([
+        fetch("/api/posts"),
+        fetch("/api/admin/analytics")
+      ])
+      
+      if (postsRes.ok) {
+        const postsData = await postsRes.json()
+        setPosts(postsData)
+      }
+      
+      if (analyticsRes.ok) {
+        const analyticsData = await analyticsRes.json()
+        setAnalytics(analyticsData)
       }
     } catch (error) {
-      console.error("Error fetching posts:", error)
+      console.error("Error fetching data:", error)
     } finally {
       setLoading(false)
     }
@@ -61,7 +82,7 @@ export default function AdminDashboard() {
 
       if (response.ok) {
         // Refresh the posts list
-        fetchPosts()
+        await fetchData()
       } else {
         const error = await response.json()
         alert(error.error || "Failed to delete post")
@@ -122,29 +143,20 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {/* Analytics Overview */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex items-center">
               <div className="p-2 rounded-lg" style={{backgroundColor: '#F59E0B'}}>
-                <Calendar className="w-6 h-6" style={{color: '#1E3A8A'}} />
+                <BookOpen className="w-6 h-6" style={{color: '#1E3A8A'}} />
               </div>
               <div className="ml-4">
                 <p className="text-sm font-medium" style={{color: '#6B7280'}}>Total Posts</p>
-                <p className="text-2xl font-bold" style={{color: '#1E3A8A'}}>{posts.length}</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <div className="flex items-center">
-              <div className="p-2 rounded-lg" style={{backgroundColor: '#F59E0B'}}>
-                <Eye className="w-6 h-6" style={{color: '#1E3A8A'}} />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium" style={{color: '#6B7280'}}>Published</p>
                 <p className="text-2xl font-bold" style={{color: '#1E3A8A'}}>
-                  {posts.filter(post => post.status === 'PUBLISHED').length}
+                  {analytics?.totalPosts || posts.length}
+                </p>
+                <p className="text-xs" style={{color: '#6B7280'}}>
+                  {analytics?.publishedPosts || posts.filter(p => p.status === 'PUBLISHED').length} published
                 </p>
               </div>
             </div>
@@ -153,16 +165,116 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex items-center">
               <div className="p-2 rounded-lg" style={{backgroundColor: '#F59E0B'}}>
-                <Edit className="w-6 h-6" style={{color: '#1E3A8A'}} />
+                <Users className="w-6 h-6" style={{color: '#1E3A8A'}} />
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium" style={{color: '#6B7280'}}>Drafts</p>
+                <p className="text-sm font-medium" style={{color: '#6B7280'}}>Users</p>
                 <p className="text-2xl font-bold" style={{color: '#1E3A8A'}}>
-                  {posts.filter(post => post.status === 'DRAFT').length}
+                  {analytics?.totalUsers || 0}
+                </p>
+                <p className="text-xs" style={{color: '#6B7280'}}>
+                  {analytics?.totalComments || 0} comments
                 </p>
               </div>
             </div>
           </div>
+          
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="flex items-center">
+              <div className="p-2 rounded-lg" style={{backgroundColor: '#F59E0B'}}>
+                <History className="w-6 h-6" style={{color: '#1E3A8A'}} />
+              </div>
+              <div className="ml-4">
+                <p className="text-sm font-medium" style={{color: '#6B7280'}}>History Content</p>
+                <p className="text-2xl font-bold" style={{color: '#1E3A8A'}}>
+                  {(analytics?.totalPopes || 0) + (analytics?.totalDivisions || 0)}
+                </p>
+                <p className="text-xs" style={{color: '#6B7280'}}>
+                  {analytics?.totalPopes || 0} popes, {analytics?.totalDivisions || 0} divisions
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="flex items-center">
+              <div className="p-2 rounded-lg" style={{backgroundColor: '#F59E0B'}}>
+                <FileText className="w-6 h-6" style={{color: '#1E3A8A'}} />
+              </div>
+              <div className="ml-4">
+                <p className="text-sm font-medium" style={{color: '#6B7280'}}>Bible History</p>
+                <p className="text-2xl font-bold" style={{color: '#1E3A8A'}}>
+                  {analytics?.totalManuscripts || 0}
+                </p>
+                <p className="text-xs" style={{color: '#6B7280'}}>
+                  manuscripts & translations
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Link
+            href="/admin/posts/new"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+          >
+            <div className="flex items-center">
+              <div className="p-2 rounded-lg bg-green-100">
+                <Plus className="w-6 h-6 text-green-600" />
+              </div>
+              <div className="ml-4">
+                <h3 className="font-semibold text-gray-900">New Post</h3>
+                <p className="text-sm text-gray-600">Create a new blog post</p>
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            href="/admin/users"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+          >
+            <div className="flex items-center">
+              <div className="p-2 rounded-lg bg-blue-100">
+                <Users className="w-6 h-6 text-blue-600" />
+              </div>
+              <div className="ml-4">
+                <h3 className="font-semibold text-gray-900">Manage Users</h3>
+                <p className="text-sm text-gray-600">View and manage users</p>
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            href="/history/papal-timeline"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+          >
+            <div className="flex items-center">
+              <div className="p-2 rounded-lg bg-purple-100">
+                <History className="w-6 h-6 text-purple-600" />
+              </div>
+              <div className="ml-4">
+                <h3 className="font-semibold text-gray-900">Papal Timeline</h3>
+                <p className="text-sm text-gray-600">Manage papal history</p>
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            href="/admin/settings"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+          >
+            <div className="flex items-center">
+              <div className="p-2 rounded-lg bg-gray-100">
+                <Settings className="w-6 h-6 text-gray-600" />
+              </div>
+              <div className="ml-4">
+                <h3 className="font-semibold text-gray-900">Settings</h3>
+                <p className="text-sm text-gray-600">Site configuration</p>
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Posts Table */}

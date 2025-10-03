@@ -187,3 +187,154 @@ enum CommentStatus {
   REJECTED
   SPAM
 }
+
+// Site settings for admin-configurable content
+model SiteSettings {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Papal Timeline models
+model Pope {
+  id              String   @id @default(cuid())
+  name            String
+  regnalName      String   // e.g., "Pope Francis"
+  birthName       String?  // e.g., "Jorge Mario Bergoglio"
+  birthDate       DateTime?
+  deathDate       DateTime?
+  papacyStart     DateTime
+  papacyEnd       DateTime?
+  papacyNumber    Int      // e.g., 266 for Pope Francis
+  nationality     String?
+  previousOffice  String?  // e.g., "Archbishop of Buenos Aires"
+  notableEvents   String?  // JSON string of major events
+  biography       String?  // Detailed biography
+  imageUrl        String?  // Portrait image
+  isCurrent       Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  events          PapalEvent[]
+  achievements    PapalAchievement[]
+  divisions       ChurchDivision[] @relation("PopeDivisions")
+
+  @@map("popes")
+}
+
+model PapalEvent {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  eventDate   DateTime
+  eventType   PapalEventType
+  location    String?
+  significance String? // Brief note on historical significance
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  popeId      String
+  pope        Pope     @relation(fields: [popeId], references: [id], onDelete: Cascade)
+
+  @@map("papal_events")
+}
+
+model PapalAchievement {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  category    PapalAchievementCategory
+  year        Int?
+  significance String? // Historical impact
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  popeId      String
+  pope        Pope     @relation(fields: [popeId], references: [id], onDelete: Cascade)
+
+  @@map("papal_achievements")
+}
+
+// Church Division models
+model ChurchDivision {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  year        Int
+  cause       String?  // What caused the division
+  outcome     String?  // Result of the division
+  parentId    String?  // For hierarchical divisions
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  parent      ChurchDivision? @relation("DivisionHierarchy", fields: [parentId], references: [id])
+  children    ChurchDivision[] @relation("DivisionHierarchy")
+  relatedPopes Pope[]         @relation("PopeDivisions")
+
+  @@map("church_divisions")
+}
+
+// Bible History models
+model BibleManuscript {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  date        String   // e.g., "4th century AD"
+  language    String
+  location    String?  // Where it was found/kept
+  significance String? // Why it's important
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("bible_manuscripts")
+}
+
+model BibleTranslation {
+  id          String   @id @default(cuid())
+  name        String
+  language    String
+  year        Int
+  translator  String?
+  description String
+  significance String? // Historical importance
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("bible_translations")
+}
+
+// Enums for new models
+enum PapalEventType {
+  ELECTION
+  CORONATION
+  CANONIZATION
+  COUNCIL
+  ENCYCLICAL
+  TRAVEL
+  MEETING
+  OTHER
+}
+
+enum PapalAchievementCategory {
+  DOCTRINE
+  REFORM
+  DIPLOMACY
+  CANONIZATION
+  COUNCIL
+  MISSIONARY
+  EDUCATION
+  SOCIAL_JUSTICE
+  OTHER
+}

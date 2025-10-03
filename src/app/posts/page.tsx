@@ -1,8 +1,20 @@
-import Header from "@/components/Header"
 import Link from "next/link"
-import Image from "next/image"
+import OptimizedImage from "@/components/OptimizedImage"
+import LazyLoad from "@/components/LazyLoad"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
+
+type PostListItem = {
+  id: string
+  title: string
+  slug: string
+  excerpt: string | null
+  featuredImage: string | null
+  publishedAt: Date | null
+  author: { name: string | null; email: string }
+  categories: { category: { id: string; name: string } }[]
+  tags: { tag: { id: string; name: string } }[]
+}
 
 async function getPosts() {
   try {
@@ -43,13 +55,10 @@ export default async function PostsPage() {
   const posts = await getPosts()
 
   return (
-    <div className="min-h-screen bg-primary-cream">
-      <Header />
-      
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-serif text-primary-navy mb-4">
-            Catholic Commentary
+            All Posts
           </h1>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
             Explore thoughtful reflections on Catholic teachings, scripture, and spiritual life.
@@ -78,21 +87,23 @@ export default async function PostsPage() {
           </div>
         ) : (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                {post.featuredImage && (
-                  <div className="aspect-video bg-primary-gold">
-                    <Image
-                      src={post.featuredImage}
-                      alt={post.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
+            {posts.map((post: PostListItem) => (
+              <LazyLoad key={post.id}>
+                <article data-testid="post-card" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                  {post.featuredImage && (
+                    <div className="aspect-video bg-primary-gold">
+                      <OptimizedImage
+                        src={post.featuredImage}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                  )}
                 <div className="p-6">
                   <div className="flex flex-wrap gap-2 mb-3">
-                    {post.categories.map(({ category }) => (
+                    {post.categories.map(({ category }: { category: { id: string; name: string } }) => (
                       <span
                         key={category.id}
                         className="px-2 py-1 bg-primary-gold text-primary-navy text-xs font-medium rounded-full"
@@ -122,7 +133,7 @@ export default async function PostsPage() {
                   </div>
                   {post.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-3">
-                      {post.tags.map(({ tag }) => (
+                      {post.tags.map(({ tag }: { tag: { id: string; name: string } }) => (
                         <span
                           key={tag.id}
                           className="px-2 py-1 bg-neutral-100 text-neutral-600 text-xs rounded"
@@ -133,22 +144,11 @@ export default async function PostsPage() {
                     </div>
                   )}
                 </div>
-              </article>
+                </article>
+              </LazyLoad>
             ))}
           </div>
         )}
-      </main>
-
-      <footer className="bg-primary-navy text-white py-8 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-primary-gold font-serif text-lg mb-2">
-            Ajay&apos;s Catholic Commentary
-          </p>
-          <p className="text-sm text-neutral-300">
-            Sharing the beauty of Catholic faith and tradition
-          </p>
-        </div>
-      </footer>
     </div>
   )
 }

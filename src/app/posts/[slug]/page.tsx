@@ -1,9 +1,11 @@
 import Header from "@/components/Header"
+import DatabaseTestButton from "@/components/DatabaseTestButton"
 import CommentForm from "./CommentForm"
 import Link from "next/link"
-import Image from "next/image"
+import OptimizedImage from "@/components/OptimizedImage"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
+import DOMPurify from "isomorphic-dompurify"
 import { notFound } from "next/navigation"
 
 async function getPost(slug: string) {
@@ -82,11 +84,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           {/* Featured Image */}
           {post.featuredImage && (
             <div className="aspect-video bg-primary-gold">
-              <Image
+              <OptimizedImage
                 src={post.featuredImage}
                 alt={post.title}
                 fill
                 className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
               />
             </div>
           )}
@@ -95,7 +99,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             {/* Categories */}
             {post.categories.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-4">
-                {post.categories.map(({ category }) => (
+                {post.categories.map(({ category }: { category: { id: string; name: string } }) => (
                   <span
                     key={category.id}
                     className="px-3 py-1 bg-primary-gold text-primary-navy text-sm font-medium rounded-full"
@@ -128,7 +132,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             {/* Content */}
             <div 
               className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-primary-navy prose-a:text-primary-navy prose-a:no-underline hover:prose-a:underline prose-strong:text-primary-navy"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              data-testid="post-content"
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content.replace(/<\/h1>/gi, '</h2>').replace(/<h1/gi, '<h2')) }}
             />
 
             {/* Tags */}
@@ -136,7 +141,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               <div className="mt-8 pt-6 border-t border-neutral-200">
                 <h3 className="text-sm font-medium text-neutral-700 mb-3">Tags:</h3>
                 <div className="flex flex-wrap gap-2">
-                  {post.tags.map(({ tag }) => (
+                  {post.tags.map(({ tag }: { tag: { id: string; name: string } }) => (
                     <span
                       key={tag.id}
                       className="px-3 py-1 bg-neutral-100 text-neutral-600 text-sm rounded-full"
@@ -162,7 +167,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </div>
           ) : (
             <div className="space-y-6">
-              {post.comments.map((comment) => (
+              {post.comments.map((comment: { id: string; content: string; createdAt: Date; author: { name: string | null; email: string } }) => (
                 <div key={comment.id} className="border-b border-neutral-200 pb-6 last:border-b-0">
                   <div className="flex items-center space-x-3 mb-3">
                     <div className="w-8 h-8 bg-primary-gold rounded-full flex items-center justify-center">
@@ -192,14 +197,44 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </div>
       </main>
 
-      <footer className="bg-primary-navy text-white py-8 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-primary-gold font-serif text-lg mb-2">
-            Ajay&apos;s Catholic Commentary
-          </p>
-          <p className="text-sm text-neutral-300">
-            Sharing the beauty of Catholic faith and tradition
-          </p>
+      <footer className="bg-gray-800 text-white py-12 mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="font-serif text-xl font-bold text-amber-400 mb-4">
+                Ajay&apos;s Catholic Commentary
+              </h3>
+              <p className="text-gray-300 text-sm">
+                Sharing the beauty of Catholic faith and tradition through thoughtful commentary and historical exploration.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-amber-400 mb-4">Quick Links</h4>
+              <div className="space-y-2">
+                <Link href="/" className="block text-gray-300 hover:text-white text-sm transition-colors">Home</Link>
+                <Link href="/posts" className="block text-gray-300 hover:text-white text-sm transition-colors">All Posts</Link>
+                <Link href="/about" className="block text-gray-300 hover:text-white text-sm transition-colors">About</Link>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold text-amber-400 mb-4">Coming Soon</h4>
+              <div className="space-y-2">
+                <span className="block text-gray-300 text-sm">Papal Timeline</span>
+                <span className="block text-gray-300 text-sm">Church History</span>
+                <span className="block text-gray-300 text-sm">Bible History</span>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-8 pt-8">
+            <div className="flex justify-between items-center">
+              <p className="text-gray-400 text-sm">
+                © 2024 Ajay&apos;s Catholic Commentary. All rights reserved.
+              </p>
+              <div className="flex justify-end">
+                <DatabaseTestButton />
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
