@@ -17,6 +17,30 @@ const popesData = [
     nationality: "Jewish (Bethsaida, Galilee)",
     previousOffice: "Apostle of Jesus Christ",
     biography: "The first Pope and Prince of the Apostles. Chosen by Jesus Christ to lead His Church. Martyred in Rome under Emperor Nero.",
+    historicalContext: "Saint Peter's papacy is documented in the New Testament, particularly in the Gospels and Acts of the Apostles. His role as the 'rock' upon which Jesus would build His Church (Matthew 16:18) is foundational to Catholic doctrine of papal primacy. Early Church fathers like Irenaeus and Eusebius confirm his episcopacy in Rome.",
+    references: JSON.stringify([
+      {
+        title: "Matthew 16:18-19",
+        url: "https://www.biblegateway.com/passage/?search=Matthew+16%3A18-19&version=NIV",
+        type: "Scripture"
+      },
+      {
+        title: "Acts of the Apostles",
+        url: "https://www.biblegateway.com/passage/?search=Acts+1-12&version=NIV",
+        type: "Scripture"
+      },
+      {
+        title: "Catholic Encyclopedia - St. Peter",
+        url: "https://www.newadvent.org/cathen/11744a.htm",
+        type: "Reference"
+      },
+      {
+        title: "Eusebius - Church History",
+        url: "https://www.newadvent.org/fathers/2501.htm",
+        type: "Historical"
+      }
+    ]),
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Saint_Peter_by_Guido_Reni.jpg/400px-Saint_Peter_by_Guido_Reni.jpg",
     isCurrent: false,
     events: [
       {
@@ -73,6 +97,25 @@ const popesData = [
     nationality: "Roman (Tuscia)",
     previousOffice: "Bishop of Rome",
     biography: "Second Pope, successor to Saint Peter. Mentioned by Saint Paul in his letters.",
+    historicalContext: "Pope Linus is mentioned by Saint Paul in 2 Timothy 4:21, providing biblical evidence for his existence and role in the early Church. Irenaeus of Lyons (c. 180 AD) lists him as the second bishop of Rome after Peter. His papacy occurred during the period of early Christian persecution under Emperor Nero and the Flavian dynasty.",
+    references: JSON.stringify([
+      {
+        title: "2 Timothy 4:21",
+        url: "https://www.biblegateway.com/passage/?search=2+Timothy+4%3A21&version=NIV",
+        type: "Scripture"
+      },
+      {
+        title: "Irenaeus - Against Heresies",
+        url: "https://www.newadvent.org/fathers/0103.htm",
+        type: "Historical"
+      },
+      {
+        title: "Catholic Encyclopedia - Pope Linus",
+        url: "https://www.newadvent.org/cathen/09267a.htm",
+        type: "Reference"
+      }
+    ]),
+    imageUrl: null, // No known historical image
     isCurrent: false,
     events: [
       {
@@ -646,6 +689,25 @@ const popesData = [
     nationality: "Argentine (Buenos Aires)",
     previousOffice: "Archbishop of Buenos Aires",
     biography: "First pope from the Americas. First Jesuit pope. Known for his humility, concern for the poor, and environmental advocacy.",
+    historicalContext: "Pope Francis is the first pope from the Americas and the first Jesuit to be elected pope. His election in 2013 marked a significant shift in the Church's direction, emphasizing humility, social justice, and environmental stewardship. He has been particularly vocal about climate change, economic inequality, and the need for Church reform.",
+    references: JSON.stringify([
+      {
+        title: "Vatican Official Biography",
+        url: "https://www.vatican.va/content/francesco/en/biography/documents/papa-francesco-biografia-bergoglio.html",
+        type: "Official"
+      },
+      {
+        title: "Encyclical Laudato Si'",
+        url: "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html",
+        type: "Document"
+      },
+      {
+        title: "Britannica Biography",
+        url: "https://www.britannica.com/biography/Francis-I-pope",
+        type: "Reference"
+      }
+    ]),
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pope_Francis_2019.jpg/400px-Pope_Francis_2019.jpg",
     isCurrent: true,
     events: [
       {
