@@ -47,7 +47,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   '${pope.id}',
   '${pope.name.replace(/'/g, "''")}',

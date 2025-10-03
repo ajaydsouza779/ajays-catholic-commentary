@@ -9,7 +9,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7860k00008z6mwiql02bj',
   'Peter',
@@ -36,7 +36,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7860z00038z6m316sd2pk',
   'Linus',
@@ -63,7 +63,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7861400048z6mphtn6smk',
   'Anacletus',
@@ -90,7 +90,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7861c00058z6mnzgjwrt8',
   'Clement',
@@ -117,7 +117,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7861h00068z6mk7e33jhl',
   'Evaristus',
@@ -144,7 +144,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7861m00078z6m4lfma4vg',
   'Alexander I',
@@ -171,7 +171,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7861s00088z6mixzbbbm7',
   'Sixtus I',
@@ -198,7 +198,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7861x00098z6mi4t9vju5',
   'Telesphorus',
@@ -225,7 +225,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb78628000a8z6ms4glbk3d',
   'Hyginus',
@@ -252,7 +252,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7862i000b8z6mvfkz5q2k',
   'Pius I',
@@ -279,7 +279,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7862p000c8z6mk3wcgu3t',
   'Anicetus',
@@ -306,7 +306,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7862t000d8z6miyd2sr79',
   'Soterus',
@@ -333,7 +333,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7862x000e8z6mqlx6fjy1',
   'Eleutherius',
@@ -360,7 +360,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb78634000f8z6mcnvdaan6',
   'Victor I',
@@ -387,7 +387,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb78639000g8z6m3l0tiyy5',
   'Zephyrinus',
@@ -414,7 +414,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7863e000h8z6m4vd09o6c',
   'Callistus I',
@@ -441,7 +441,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7863i000i8z6mgrcgusfo',
   'Urban I',
@@ -468,7 +468,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7863n000j8z6mwk1u1sn9',
   'Pontianus',
@@ -495,7 +495,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7863r000k8z6mgdlssdjs',
   'Anterus',
@@ -522,7 +522,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7863u000l8z6mk6xxmwnq',
   'Fabian',
@@ -549,7 +549,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7863z000m8z6mq53xvhwt',
   'Cornelius',
@@ -576,7 +576,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb78645000n8z6mwblzspny',
   'Lucius I',
@@ -603,7 +603,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb78649000o8z6mnt833wuq',
   'Stephen I',
@@ -630,7 +630,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7864g000p8z6m8w0aboji',
   'Sixtus II',
@@ -657,7 +657,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7864m000q8z6mhzqh4tcy',
   'Dionysius',
@@ -684,7 +684,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7864q000r8z6m1fbl1tfu',
   'Felix I',
@@ -711,7 +711,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7864w000s8z6myjptzfp4',
   'Eutichianus',
@@ -738,7 +738,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb78653000t8z6mq76q5k2g',
   'Caius',
@@ -765,7 +765,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb78659000u8z6mos6j3d5x',
   'Marcellinus',
@@ -792,7 +792,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7865d000v8z6m8g511jp2',
   'Marcellus I',
@@ -819,7 +819,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7865k000w8z6mmtvp0ufn',
   'Eusebius',
@@ -846,7 +846,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7865q000x8z6m6n5ekh2n',
   'Miltiades',
@@ -873,7 +873,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7865x000y8z6m7p9ggzu9',
   'Sylvester I',
@@ -900,7 +900,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb78664000z8z6moqlzx98b',
   'Mark',
@@ -927,7 +927,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7866b00108z6mjpczfet5',
   'Julius I',
@@ -954,7 +954,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7866k00118z6myj3o0nkz',
   'Liberius',
@@ -981,7 +981,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7866u00128z6mpvc898d8',
   'Damasus I',
@@ -1008,7 +1008,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7866z00138z6mzpm49ij7',
   'Siricius',
@@ -1035,7 +1035,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7867800148z6moumkb5yb',
   'Anastasius I',
@@ -1062,7 +1062,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7867h00158z6mljpb65qv',
   'Innocent I',
@@ -1089,7 +1089,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7867o00168z6mvi4cwzng',
   'Zosimus',
@@ -1116,7 +1116,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7867y00178z6m5k9sw9r1',
   'Boniface I',
@@ -1143,7 +1143,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7868600188z6m8s96335s',
   'Celestine I',
@@ -1170,7 +1170,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7868f00198z6mhzeq7d4b',
   'Sixtus III',
@@ -1197,7 +1197,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7868o001a8z6mqwxylgos',
   'Leo I',
@@ -1224,7 +1224,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7868y001b8z6mndurjo3o',
   'Hilarius',
@@ -1251,7 +1251,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb78693001c8z6me3k63d8i',
   'Simplicius',
@@ -1278,7 +1278,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7869a001d8z6mfsleqe4c',
   'Felix III',
@@ -1305,7 +1305,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7869l001e8z6mxodfsvl6',
   'Gelasius I',
@@ -1332,7 +1332,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb7869t001f8z6mv4g3wuvk',
   'Anastasius II',
@@ -1359,7 +1359,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786a3001g8z6mn8zikdpj',
   'Gregory I',
@@ -1386,7 +1386,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786ab001h8z6mwystbmdl',
   'Sergius I',
@@ -1413,7 +1413,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786ag001i8z6mdnt8wuqk',
   'Leo III',
@@ -1440,7 +1440,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786ao001j8z6mww0mpt8o',
   'Nicholas I',
@@ -1467,7 +1467,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786at001k8z6mqkcrqmbx',
   'Sylvester II',
@@ -1494,7 +1494,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786b0001l8z6mhjzkjh3q',
   'Gregory VII',
@@ -1521,7 +1521,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786b7001m8z6m0lcgtbwx',
   'Innocent II',
@@ -1548,7 +1548,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786bm001n8z6mqf14yas9',
   'Innocent III',
@@ -1575,7 +1575,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786c2001s8z6m6q5kvf83',
   'Boniface VIII',
@@ -1602,7 +1602,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786c8001t8z6mwqg7i4j8',
   'Nicholas V',
@@ -1629,7 +1629,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786ch001u8z6mkyh1non4',
   'Julius II',
@@ -1656,7 +1656,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786cm001v8z6m1x525stv',
   'Leo X',
@@ -1683,7 +1683,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786cv001w8z6mh4nfjx49',
   'Clement IX',
@@ -1710,7 +1710,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786d1001x8z6mlal6nyyo',
   'Benedict XIV',
@@ -1737,7 +1737,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786d7001y8z6me484adki',
   'Pius IX',
@@ -1764,7 +1764,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786dd001z8z6mhtp67lw7',
   'Leo XIII',
@@ -1791,7 +1791,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786di00208z6m9rzwoqlb',
   'Pius X',
@@ -1818,7 +1818,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786dy00218z6m9ekcthwj',
   'Benedict XV',
@@ -1845,7 +1845,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786eg00228z6mtlcx3zem',
   'Pius XI',
@@ -1872,7 +1872,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786eu00238z6mk1txqctw',
   'Pius XII',
@@ -1899,7 +1899,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786ez00248z6mu30mvrn1',
   'John XXIII',
@@ -1926,7 +1926,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786f900258z6mbnhy1wrs',
   'Paul VI',
@@ -1953,7 +1953,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786fi00268z6m1rzf36w3',
   'John Paul I',
@@ -1980,7 +1980,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786fy00278z6mxm1nuq09',
   'John Paul II',
@@ -2007,7 +2007,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786gb00288z6mez5g43gg',
   'Benedict XVI',
@@ -2034,7 +2034,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786gl00298z6mmusfoft3',
   'Francis',
@@ -2061,7 +2061,7 @@ INSERT INTO popes (
   id, name, "regnalName", "birthName", "birthDate", "deathDate", 
   "papacyStart", "papacyEnd", "papacyNumber", nationality, 
   "previousOffice", "notableEvents", biography, "imageUrl", 
-  "historicalContext", references, "isCurrent", "createdAt", "updatedAt"
+  "historicalContext", "references", "isCurrent", "createdAt", "updatedAt"
 ) VALUES (
   'cmgb786gr002a8z6m3d7rm5iq',
   'Leo XIV',
