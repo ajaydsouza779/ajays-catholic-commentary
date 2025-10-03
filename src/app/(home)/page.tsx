@@ -66,7 +66,8 @@ export default function Home() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Hero / Author Section */}
+        {/* Hero / Author Section (temporarily hidden) */}
+        {false && (
         <div className="relative overflow-hidden rounded-2xl mb-8">
           <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-amber-100 to-white" />
           <div className="absolute -top-20 -right-24 w-80 h-80 rounded-full opacity-20" style={{backgroundColor:'#D4AF37'}} />
@@ -132,6 +133,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        )}
 
         {/* Navigation Tabs */}
         <div className="bg-white/90 rounded-xl shadow mb-8">

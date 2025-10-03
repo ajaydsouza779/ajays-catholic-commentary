@@ -328,3 +328,6 @@ npx tsx scripts/seed-database.ts
   - What was just completed
   - Any blockers or waits (e.g., network/build)
   - Next immediate action
+
+### Deferred UI Elements (Reminders)
+- Homepage hero (author photo, name, intro text and CTAs) is temporarily hidden. Restore this section later when content is ready and styling is finalized.
