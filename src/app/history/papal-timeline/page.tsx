@@ -152,7 +152,7 @@ export default function PapalTimelinePage() {
           <h2 className="text-xl font-bold text-gray-800 mb-4">Papal Succession: From St. Peter to Today</h2>
           <div className="overflow-x-auto">
             <div className="flex space-x-2 min-w-max">
-              {popes.slice(0, 20).map((pope, index) => (
+              {popes.slice(0, 20).reverse().map((pope, index) => (
                 <button
                   key={pope.id}
                   onClick={() => setSelectedPope(pope)}
