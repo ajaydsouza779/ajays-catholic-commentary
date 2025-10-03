@@ -85,6 +85,12 @@ export default function PapalTimelinePage() {
     return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
   }
 
+  const formatYearOnly = (dateString: string) => {
+    const d = new Date(dateString)
+    const year = d.getUTCFullYear()
+    return `${year} AD`
+  }
+
   const getEventTypeIcon = (eventType: string) => {
     switch (eventType) {
       case 'ELECTION': return <Users className="w-4 h-4" />
@@ -152,7 +158,7 @@ export default function PapalTimelinePage() {
           <h2 className="text-xl font-bold text-gray-800 mb-4">Papal Succession: From St. Peter to Today</h2>
           <div className="overflow-x-auto">
             <div className="flex space-x-2 min-w-max">
-              {popes.slice(0, 20).reverse().map((pope, index) => (
+              {popes.slice(0, 20).map((pope, index) => (
                 <button
                   key={pope.id}
                   onClick={() => setSelectedPope(pope)}
@@ -165,7 +171,7 @@ export default function PapalTimelinePage() {
                   <div className="text-center">
                     <div className="font-bold text-sm leading-tight break-words">{pope.regnalName}</div>
                     <div className="text-xs text-gray-500 mt-1">
-                      {formatDate(pope.papacyStart).split(' ')[0]}
+                      {formatYearOnly(pope.papacyStart)}
                     </div>
                   </div>
                 </button>
