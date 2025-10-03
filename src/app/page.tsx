@@ -71,7 +71,8 @@ export default function Home() {
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Author Section */}
+        {/* Author Section (temporarily hidden) */}
+        {false && (
         <div className="relative overflow-hidden rounded-2xl mb-8">
           <div className="absolute inset-0 bg-gradient-to-r from-amber-100 via-rose-100 to-sky-100" />
           <div className="relative p-6 sm:p-8 border border-amber-200/60 backdrop-blur-sm">
@@ -127,6 +128,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        )}
 
         {/* Navigation Tabs */}
         <div className="bg-white/90 rounded-xl shadow-lg mb-8">
