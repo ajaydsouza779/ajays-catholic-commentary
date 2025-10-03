@@ -706,6 +706,15 @@ async function seedPopes() {
     for (const popeData of popesData) {
       const { events, achievements, ...popeInfo } = popeData
 
+      // Helper to construct a Date for historical years, preserving years 0-99
+      const historicalDate = (year) => {
+        const d = new Date(0)
+        d.setUTCMonth(0, 1)
+        d.setUTCHours(0, 0, 0, 0)
+        d.setUTCFullYear(year)
+        return d
+      }
+
       // Helper function to parse historical dates
       const parseHistoricalDate = (dateStr) => {
         if (!dateStr) return null
@@ -716,9 +725,10 @@ async function seedPopes() {
           if (year) {
             // For BC dates, use a large offset to avoid negative years
             if (dateStr.includes('BC')) {
-              return new Date(2000 - parseInt(year), 0, 1)
+              return historicalDate(2000 - parseInt(year))
             } else {
-              return new Date(parseInt(year), 0, 1)
+              const y = parseInt(year)
+              return y < 100 ? historicalDate(y) : historicalDate(y)
             }
           }
         }
@@ -727,11 +737,8 @@ async function seedPopes() {
         const yearMatch = dateStr.match(/\d{1,4}/)
         if (yearMatch) {
           const year = parseInt(yearMatch[0])
-          // If it's a 1-2 digit year, assume it's AD
-          if (year < 100) {
-            return new Date(year + 1000, 0, 1) // Add 1000 for 1-2 digit years
-          }
-          return new Date(year, 0, 1)
+          // If it's a 1-2 digit year, treat as AD with proper year handling
+          return historicalDate(year)
         }
         
         return null
@@ -742,7 +749,7 @@ async function seedPopes() {
           ...popeInfo,
           birthDate: parseHistoricalDate(popeInfo.birthDate),
           deathDate: parseHistoricalDate(popeInfo.deathDate),
-          papacyStart: parseHistoricalDate(popeInfo.papacyStart) || new Date(100, 0, 1), // Fallback for required field
+          papacyStart: parseHistoricalDate(popeInfo.papacyStart) || historicalDate(30), // reasonable fallback
           papacyEnd: parseHistoricalDate(popeInfo.papacyEnd),
         }
       })
