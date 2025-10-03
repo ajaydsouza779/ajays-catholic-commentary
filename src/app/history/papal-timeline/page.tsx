@@ -151,19 +151,19 @@ export default function PapalTimelinePage() {
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
           <h2 className="text-xl font-bold text-gray-800 mb-4">Papal Succession: From St. Peter to Today</h2>
           <div className="overflow-x-auto">
-            <div className="flex space-x-1 min-w-max">
+            <div className="flex space-x-2 min-w-max">
               {popes.slice(0, 20).map((pope, index) => (
                 <button
                   key={pope.id}
                   onClick={() => setSelectedPope(pope)}
-                  className={`flex-shrink-0 px-2 py-2 rounded-lg text-xs font-medium transition-colors min-w-[60px] ${
+                  className={`flex-shrink-0 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-w-[100px] max-w-[120px] ${
                     selectedPope?.id === pope.id
                       ? 'bg-amber-100 text-amber-800 border-2 border-amber-300'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-transparent'
                   }`}
                 >
                   <div className="text-center">
-                    <div className="font-bold text-xs leading-tight">{pope.regnalName.split(' ').pop()}</div>
+                    <div className="font-bold text-sm leading-tight break-words">{pope.regnalName}</div>
                     <div className="text-xs text-gray-500 mt-1">
                       {formatDate(pope.papacyStart).split(' ')[0]}
                     </div>
@@ -171,7 +171,7 @@ export default function PapalTimelinePage() {
                 </button>
               ))}
               {popes.length > 20 && (
-                <div className="flex-shrink-0 px-2 py-2 text-xs text-gray-500">
+                <div className="flex-shrink-0 px-3 py-3 text-sm text-gray-500">
                   ... and {popes.length - 20} more
                 </div>
               )}
@@ -318,7 +318,7 @@ export default function PapalTimelinePage() {
                               <p className="text-gray-700">{event.description}</p>
                               {event.significance && (
                                 <p className="text-sm text-amber-600 mt-2 font-medium">
-                                  Significance: {event.significance}
+                                  {event.significance}
                                 </p>
                               )}
                             </div>
@@ -336,18 +336,15 @@ export default function PapalTimelinePage() {
                       {selectedPope.achievements.map((achievement) => (
                         <div key={achievement.id} className="p-4 bg-gray-50 rounded-lg">
                           <h4 className="font-semibold text-gray-800 mb-2">{achievement.title}</h4>
-                          <p className="text-sm text-gray-600 mb-2">
-                            <span className="font-medium">Category:</span> {achievement.category}
-                            {achievement.year && (
-                              <span className="ml-2">
-                                <span className="font-medium">Year:</span> {achievement.year}
-                              </span>
-                            )}
-                          </p>
+                          {achievement.year && (
+                            <p className="text-sm text-gray-600 mb-2">
+                              <span className="font-medium">Year:</span> {achievement.year}
+                            </p>
+                          )}
                           <p className="text-gray-700 text-sm">{achievement.description}</p>
                           {achievement.significance && (
                             <p className="text-sm text-amber-600 mt-2 font-medium">
-                              Impact: {achievement.significance}
+                              {achievement.significance}
                             </p>
                           )}
                         </div>
