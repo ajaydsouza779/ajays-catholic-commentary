@@ -17,6 +17,30 @@ const popesData = [
     nationality: "Jewish (Bethsaida, Galilee)",
     previousOffice: "Apostle of Jesus Christ",
     biography: "The first Pope and Prince of the Apostles. Chosen by Jesus Christ to lead His Church. Martyred in Rome under Emperor Nero.",
+    historicalContext: "Saint Peter's papacy is documented in the New Testament, particularly in the Gospels and Acts of the Apostles. His role as the 'rock' upon which Jesus would build His Church (Matthew 16:18) is foundational to Catholic doctrine of papal primacy. Early Church fathers like Irenaeus and Eusebius confirm his episcopacy in Rome.",
+    references: JSON.stringify([
+      {
+        title: "Matthew 16:18-19",
+        url: "https://www.biblegateway.com/passage/?search=Matthew+16%3A18-19&version=NIV",
+        type: "Scripture"
+      },
+      {
+        title: "Acts of the Apostles",
+        url: "https://www.biblegateway.com/passage/?search=Acts+1-12&version=NIV",
+        type: "Scripture"
+      },
+      {
+        title: "Catholic Encyclopedia - St. Peter",
+        url: "https://www.newadvent.org/cathen/11744a.htm",
+        type: "Reference"
+      },
+      {
+        title: "Eusebius - Church History",
+        url: "https://www.newadvent.org/fathers/2501.htm",
+        type: "Historical"
+      }
+    ]),
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Saint_Peter_by_Guido_Reni.jpg/400px-Saint_Peter_by_Guido_Reni.jpg",
     isCurrent: false,
     events: [
       {
@@ -73,6 +97,25 @@ const popesData = [
     nationality: "Roman (Tuscia)",
     previousOffice: "Bishop of Rome",
     biography: "Second Pope, successor to Saint Peter. Mentioned by Saint Paul in his letters.",
+    historicalContext: "Pope Linus is mentioned by Saint Paul in 2 Timothy 4:21, providing biblical evidence for his existence and role in the early Church. Irenaeus of Lyons (c. 180 AD) lists him as the second bishop of Rome after Peter. His papacy occurred during the period of early Christian persecution under Emperor Nero and the Flavian dynasty.",
+    references: JSON.stringify([
+      {
+        title: "2 Timothy 4:21",
+        url: "https://www.biblegateway.com/passage/?search=2+Timothy+4%3A21&version=NIV",
+        type: "Scripture"
+      },
+      {
+        title: "Irenaeus - Against Heresies",
+        url: "https://www.newadvent.org/fathers/0103.htm",
+        type: "Historical"
+      },
+      {
+        title: "Catholic Encyclopedia - Pope Linus",
+        url: "https://www.newadvent.org/cathen/09267a.htm",
+        type: "Reference"
+      }
+    ]),
+    imageUrl: null, // No known historical image
     isCurrent: false,
     events: [
       {
@@ -633,20 +676,39 @@ const popesData = [
     ]
   },
 
-  // Current Pope
+  // Pope Francis (266th Pope)
   {
     name: "Francis",
     regnalName: "Pope Francis",
     birthName: "Jorge Mario Bergoglio",
     birthDate: "1936 AD",
-    deathDate: null,
+    deathDate: "2025 AD",
     papacyStart: "2013 AD",
-    papacyEnd: null,
+    papacyEnd: "2025 AD",
     papacyNumber: 266,
     nationality: "Argentine (Buenos Aires)",
     previousOffice: "Archbishop of Buenos Aires",
     biography: "First pope from the Americas. First Jesuit pope. Known for his humility, concern for the poor, and environmental advocacy.",
-    isCurrent: true,
+    historicalContext: "Pope Francis is the first pope from the Americas and the first Jesuit to be elected pope. His election in 2013 marked a significant shift in the Church's direction, emphasizing humility, social justice, and environmental stewardship. He has been particularly vocal about climate change, economic inequality, and the need for Church reform.",
+    references: JSON.stringify([
+      {
+        title: "Vatican Official Biography",
+        url: "https://www.vatican.va/content/francesco/en/biography/documents/papa-francesco-biografia-bergoglio.html",
+        type: "Official"
+      },
+      {
+        title: "Encyclical Laudato Si'",
+        url: "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html",
+        type: "Document"
+      },
+      {
+        title: "Britannica Biography",
+        url: "https://www.britannica.com/biography/Francis-I-pope",
+        type: "Reference"
+      }
+    ]),
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pope_Francis_2019.jpg/400px-Pope_Francis_2019.jpg",
+    isCurrent: false,
     events: [
       {
         title: "Election as Pope",
@@ -688,6 +750,55 @@ const popesData = [
         significance: "Improved relations with other faiths"
       }
     ]
+  },
+
+  // Current Pope
+  {
+    name: "Leo XIV",
+    regnalName: "Pope Leo XIV",
+    birthName: "Robert Francis Prevost",
+    birthDate: "1955 AD",
+    deathDate: null,
+    papacyStart: "2025 AD",
+    papacyEnd: null,
+    papacyNumber: 267,
+    nationality: "American (Chicago)",
+    previousOffice: "Prefect of the Dicastery for Bishops",
+    biography: "First American pope in history. Former Augustinian missionary and bishop. Known for his pastoral approach and commitment to Church renewal.",
+    historicalContext: "Pope Leo XIV is the first American pope in the history of the Catholic Church. Born in Chicago, he served as a missionary in Peru before being appointed Prefect of the Dicastery for Bishops. His election in 2025 marked a historic moment for the Church.",
+    references: JSON.stringify([
+      {
+        title: "Vatican Official Biography",
+        url: "https://www.vatican.va/content/vatican/en/holy-father/leone-xiv.html",
+        type: "Official"
+      },
+      {
+        title: "Vatican List of Popes",
+        url: "https://www.vatican.va/content/vatican/en/holy-father.html",
+        type: "Official"
+      }
+    ]),
+    imageUrl: null, // No image available yet
+    isCurrent: true,
+    events: [
+      {
+        title: "Election as Pope",
+        description: "Chosen as successor to Pope Francis, becoming the first American pope.",
+        eventDate: "2025 AD",
+        eventType: "ELECTION",
+        location: "Vatican",
+        significance: "First American pope in Church history"
+      }
+    ],
+    achievements: [
+      {
+        title: "First American Pope",
+        description: "Became the first pope from the United States of America.",
+        category: "OTHER",
+        year: 2025,
+        significance: "Historic milestone for the Catholic Church"
+      }
+    ]
   }
 ]
 
@@ -706,6 +817,15 @@ async function seedPopes() {
     for (const popeData of popesData) {
       const { events, achievements, ...popeInfo } = popeData
 
+      // Helper to construct a Date for historical years, preserving years 0-99
+      const historicalDate = (year) => {
+        const d = new Date(0)
+        d.setUTCMonth(0, 1)
+        d.setUTCHours(0, 0, 0, 0)
+        d.setUTCFullYear(year)
+        return d
+      }
+
       // Helper function to parse historical dates
       const parseHistoricalDate = (dateStr) => {
         if (!dateStr) return null
@@ -716,9 +836,10 @@ async function seedPopes() {
           if (year) {
             // For BC dates, use a large offset to avoid negative years
             if (dateStr.includes('BC')) {
-              return new Date(2000 - parseInt(year), 0, 1)
+              return historicalDate(2000 - parseInt(year))
             } else {
-              return new Date(parseInt(year), 0, 1)
+              const y = parseInt(year)
+              return y < 100 ? historicalDate(y) : historicalDate(y)
             }
           }
         }
@@ -727,11 +848,8 @@ async function seedPopes() {
         const yearMatch = dateStr.match(/\d{1,4}/)
         if (yearMatch) {
           const year = parseInt(yearMatch[0])
-          // If it's a 1-2 digit year, assume it's AD
-          if (year < 100) {
-            return new Date(year + 1000, 0, 1) // Add 1000 for 1-2 digit years
-          }
-          return new Date(year, 0, 1)
+          // If it's a 1-2 digit year, treat as AD with proper year handling
+          return historicalDate(year)
         }
         
         return null
@@ -742,7 +860,7 @@ async function seedPopes() {
           ...popeInfo,
           birthDate: parseHistoricalDate(popeInfo.birthDate),
           deathDate: parseHistoricalDate(popeInfo.deathDate),
-          papacyStart: parseHistoricalDate(popeInfo.papacyStart) || new Date(100, 0, 1), // Fallback for required field
+          papacyStart: parseHistoricalDate(popeInfo.papacyStart) || historicalDate(30), // reasonable fallback
           papacyEnd: parseHistoricalDate(popeInfo.papacyEnd),
         }
       })

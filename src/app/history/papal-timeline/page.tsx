@@ -17,6 +17,8 @@ interface Pope {
   previousOffice?: string
   biography?: string
   imageUrl?: string
+  historicalContext?: string
+  references?: string
   isCurrent: boolean
   events: PapalEvent[]
   achievements: PapalAchievement[]
@@ -72,11 +74,15 @@ export default function PapalTimelinePage() {
   }
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+    const d = new Date(dateString)
+    const year = d.getUTCFullYear()
+    const month = d.getUTCMonth()
+    const day = d.getUTCDate()
+    // If this is a synthesized historical date (Jan 1), show year only
+    if (day === 1 && month === 0) {
+      return `${year} AD`
+    }
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
   }
 
   const getEventTypeIcon = (eventType: string) => {
@@ -139,10 +145,38 @@ export default function PapalTimelinePage() {
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
             History of the Chair of St. Peter
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore the rich history of the papacy through an interactive timeline of popes, 
-            their achievements, and significant events in Church history.
-          </p>
+        </div>
+
+        {/* Papal Pipeline */}
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+          <h2 className="text-xl font-bold text-gray-800 mb-4">Papal Succession: From St. Peter to Today</h2>
+          <div className="overflow-x-auto">
+            <div className="flex space-x-2 min-w-max">
+              {popes.slice(0, 20).reverse().map((pope, index) => (
+                <button
+                  key={pope.id}
+                  onClick={() => setSelectedPope(pope)}
+                  className={`flex-shrink-0 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-w-[100px] max-w-[120px] ${
+                    selectedPope?.id === pope.id
+                      ? 'bg-amber-100 text-amber-800 border-2 border-amber-300'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-transparent'
+                  }`}
+                >
+                  <div className="text-center">
+                    <div className="font-bold text-sm leading-tight break-words">{pope.regnalName}</div>
+                    <div className="text-xs text-gray-500 mt-1">
+                      {formatDate(pope.papacyStart).split(' ')[0]}
+                    </div>
+                  </div>
+                </button>
+              ))}
+              {popes.length > 20 && (
+                <div className="flex-shrink-0 px-3 py-3 text-sm text-gray-500">
+                  ... and {popes.length - 20} more
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -192,19 +226,6 @@ export default function PapalTimelinePage() {
                 {/* Pope Header */}
                 <div className="bg-white rounded-lg shadow-lg p-6">
                   <div className="flex items-start space-x-6">
-                    <div className="w-24 h-24 bg-amber-100 rounded-full flex items-center justify-center">
-                      {selectedPope.imageUrl ? (
-                        <img
-                          src={selectedPope.imageUrl}
-                          alt={selectedPope.regnalName}
-                          className="w-24 h-24 rounded-full object-cover"
-                        />
-                      ) : (
-                        <span className="text-amber-600 font-bold text-2xl">
-                          {selectedPope.papacyNumber}
-                        </span>
-                      )}
-                    </div>
                     <div className="flex-1">
                       <h2 className="text-3xl font-bold text-gray-800 mb-2">
                         {selectedPope.regnalName}
@@ -235,12 +256,32 @@ export default function PapalTimelinePage() {
                         )}
                       </div>
                     </div>
+                    <div className="w-32 h-32 bg-amber-100 rounded-lg flex items-center justify-center">
+                      {selectedPope.imageUrl ? (
+                        <img
+                          src={selectedPope.imageUrl}
+                          alt={selectedPope.regnalName}
+                          className="w-32 h-32 rounded-lg object-cover"
+                        />
+                      ) : (
+                        <span className="text-amber-600 font-bold text-3xl">
+                          {selectedPope.papacyNumber}
+                        </span>
+                      )}
+                    </div>
                   </div>
                   
                   {selectedPope.biography && (
                     <div className="mt-6">
                       <h3 className="text-xl font-semibold text-gray-800 mb-3">Biography</h3>
                       <p className="text-gray-600 leading-relaxed">{selectedPope.biography}</p>
+                    </div>
+                  )}
+
+                  {selectedPope.historicalContext && (
+                    <div className="mt-6">
+                      <h3 className="text-xl font-semibold text-gray-800 mb-3">Historical Context</h3>
+                      <p className="text-gray-600 leading-relaxed">{selectedPope.historicalContext}</p>
                     </div>
                   )}
                 </div>
@@ -277,7 +318,7 @@ export default function PapalTimelinePage() {
                               <p className="text-gray-700">{event.description}</p>
                               {event.significance && (
                                 <p className="text-sm text-amber-600 mt-2 font-medium">
-                                  Significance: {event.significance}
+                                  {event.significance}
                                 </p>
                               )}
                             </div>
@@ -290,25 +331,55 @@ export default function PapalTimelinePage() {
                 {/* Achievements */}
                 {selectedPope.achievements && selectedPope.achievements.length > 0 && (
                   <div className="bg-white rounded-lg shadow-lg p-6">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-6">Major Achievements</h3>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-6">Known for</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {selectedPope.achievements.map((achievement) => (
                         <div key={achievement.id} className="p-4 bg-gray-50 rounded-lg">
                           <h4 className="font-semibold text-gray-800 mb-2">{achievement.title}</h4>
-                          <p className="text-sm text-gray-600 mb-2">
-                            <span className="font-medium">Category:</span> {achievement.category}
-                            {achievement.year && (
-                              <span className="ml-2">
-                                <span className="font-medium">Year:</span> {achievement.year}
-                              </span>
-                            )}
-                          </p>
+                          {achievement.year && (
+                            <p className="text-sm text-gray-600 mb-2">
+                              <span className="font-medium">Year:</span> {achievement.year}
+                            </p>
+                          )}
                           <p className="text-gray-700 text-sm">{achievement.description}</p>
                           {achievement.significance && (
                             <p className="text-sm text-amber-600 mt-2 font-medium">
-                              Impact: {achievement.significance}
+                              {achievement.significance}
                             </p>
                           )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* References */}
+                {selectedPope.references && (
+                  <div className="bg-white rounded-lg shadow-lg p-6">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-6">Data Sources</h3>
+                    <div className="space-y-3">
+                      {JSON.parse(selectedPope.references).map((ref: any, index: number) => (
+                        <div key={index} className="p-3 bg-gray-50 rounded-lg">
+                          <div className="flex items-start space-x-3">
+                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                              ref.type === 'Scripture' ? 'bg-blue-100 text-blue-800' :
+                              ref.type === 'Official' ? 'bg-green-100 text-green-800' :
+                              ref.type === 'Historical' ? 'bg-purple-100 text-purple-800' :
+                              'bg-gray-100 text-gray-800'
+                            }`}>
+                              {ref.type}
+                            </span>
+                            <div className="flex-1">
+                              <a 
+                                href={ref.url} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-blue-600 hover:text-blue-800 font-medium"
+                              >
+                                {ref.title}
+                              </a>
+                            </div>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -320,6 +391,44 @@ export default function PapalTimelinePage() {
                 <p className="text-gray-600">Select a pope to view their details</p>
               </div>
             )}
+          </div>
+        </div>
+
+        {/* General Data Sources */}
+        <div className="mt-12 bg-white rounded-lg shadow-lg p-6">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">General Data Sources</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <h3 className="font-semibold text-gray-800 mb-2">Vatican Sources</h3>
+              <ul className="text-sm text-gray-600 space-y-1">
+                <li>• <a href="https://www.vatican.va" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Vatican.va</a></li>
+                <li>• <a href="https://www.vatican.va/content/vatican/en/holy-father.html" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">List of Popes</a></li>
+                <li>• <a href="https://www.vatican.va/archive/hist_councils/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Ecumenical Councils</a></li>
+              </ul>
+            </div>
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <h3 className="font-semibold text-gray-800 mb-2">Historical References</h3>
+              <ul className="text-sm text-gray-600 space-y-1">
+                <li>• <a href="https://www.newadvent.org/cathen/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Catholic Encyclopedia</a></li>
+                <li>• <a href="https://www.britannica.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Encyclopaedia Britannica</a></li>
+                <li>• <a href="https://www.biblegateway.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Bible Gateway</a></li>
+              </ul>
+            </div>
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <h3 className="font-semibold text-gray-800 mb-2">Academic Sources</h3>
+              <ul className="text-sm text-gray-600 space-y-1">
+                <li>• <a href="https://en.wikipedia.org/wiki/List_of_popes" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Wikipedia - List of Popes</a></li>
+                <li>• <a href="https://www.oxfordreference.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Oxford Reference</a></li>
+                <li>• <a href="https://www.jstor.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">JSTOR Academic</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <p className="text-sm text-amber-800">
+              <strong>Note:</strong> This timeline is compiled from multiple historical sources. 
+              Some dates for early popes are approximate due to limited historical records. 
+              For the most current and authoritative information, please refer to official Vatican sources.
+            </p>
           </div>
         </div>
       </div>

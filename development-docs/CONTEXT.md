@@ -331,3 +331,37 @@ npx tsx scripts/seed-database.ts
 
 ### Deferred UI Elements (Reminders)
 - Homepage hero (author photo, name, intro text and CTAs) is temporarily hidden. Restore this section later when content is ready and styling is finalized.
+
+## 📚 Papal Timeline Enhancement Requirements (Current Focus)
+
+### Database Schema Updates
+- **New Fields Added**: `historicalContext` and `references` to Pope model
+- **Image Support**: Enhanced `imageUrl` field for pope portraits
+- **Credibility**: Each pope entry includes historical context and source references
+
+### Seed Data Enhancements
+- **Pope Francis**: Corrected as current pope (not Pope Leo XIV - no such pope exists)
+- **Historical Context**: Added detailed historical context for key popes (Peter, Linus, Francis)
+- **References**: JSON-structured references with types (Scripture, Official, Historical, Reference)
+- **Images**: Added Wikipedia/Wikimedia image URLs for popes with available portraits
+
+### UI/UX Improvements
+- **Pipeline View**: Horizontal scrollable timeline showing first 20 popes with clickable navigation
+- **Image Display**: Pope portraits displayed on right side of header section (32x32 rounded)
+- **References Section**: "Data Sources" section under each pope with categorized, clickable links
+- **General Sources**: Page-bottom section with Vatican, historical, and academic source links
+- **Credibility Note**: Disclaimer about historical accuracy and source recommendations
+
+### Content Structure
+- **Historical Context**: Detailed explanation of historical sources and significance
+- **Reference Types**: Scripture, Official (Vatican), Historical (Church Fathers), Reference (Encyclopedias)
+- **Source Links**: Direct links to authoritative sources for verification
+- **Continuity Narrative**: Emphasizes unbroken succession from St. Peter to current pope
+
+### Implementation Status
+- ✅ Schema updated with new fields
+- ✅ Seed data enhanced for key popes
+- ✅ UI updated with pipeline view and references
+- 🔄 Database migration needed
+- 🔄 Full seed data population (200+ popes)
+- 🔄 Image sourcing for all popes
