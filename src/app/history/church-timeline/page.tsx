@@ -1,46 +1,46 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronRight, ChevronDown, Calendar, Users, AlertTriangle, BookOpen } from 'lucide-react'
+import { ChevronRight, ChevronDown, Calendar, Users, BookOpen, Cross, Crown, Globe, Zap } from 'lucide-react'
 
-interface ChurchDivision {
+interface TimelineNode {
   id: string
-  name: string
+  title: string
   description: string
   year: number
-  cause?: string
-  outcome?: string
+  type: 'era' | 'event' | 'movement' | 'council' | 'saint' | 'heresy'
   parentId?: string
-  imageUrl?: string
-  children: ChurchDivision[]
+  children: TimelineNode[]
   relatedPopes: any[]
+  significance: string
+  imageUrl?: string
 }
 
-export default function ChurchDivisionsPage() {
-  const [divisions, setDivisions] = useState<ChurchDivision[]>([])
+export default function ChurchTimelinePage() {
+  const [timeline, setTimeline] = useState<TimelineNode[]>([])
   const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set())
-  const [selectedDivision, setSelectedDivision] = useState<ChurchDivision | null>(null)
+  const [selectedNode, setSelectedNode] = useState<TimelineNode | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetchDivisions()
+    fetchTimeline()
   }, [])
 
-  const fetchDivisions = async () => {
+  const fetchTimeline = async () => {
     try {
-      const response = await fetch('/api/history/church-divisions')
+      const response = await fetch('/api/history/church-timeline')
       if (!response.ok) {
-        throw new Error('Failed to fetch church divisions data')
+        throw new Error('Failed to fetch church timeline data')
       }
       const data = await response.json()
-      setDivisions(data)
+      setTimeline(data)
       if (data.length > 0) {
-        setSelectedDivision(data[0]) // Select first division by default
+        setSelectedNode(data[0]) // Select first node by default
         // Expand first level by default
-        data.forEach((division: ChurchDivision) => {
-          if (!division.parentId) {
-            setExpandedNodes(prev => new Set([...prev, division.id]))
+        data.forEach((node: TimelineNode) => {
+          if (!node.parentId) {
+            setExpandedNodes(prev => new Set([...prev, node.id]))
           }
         })
       }
@@ -63,13 +63,37 @@ export default function ChurchDivisionsPage() {
     })
   }
 
-  const renderDivisionNode = (division: ChurchDivision, level: number = 0) => {
-    const isExpanded = expandedNodes.has(division.id)
-    const hasChildren = division.children && division.children.length > 0
-    const isSelected = selectedDivision?.id === division.id
+  const getTypeIcon = (type: string) => {
+    switch (type) {
+      case 'era': return <Globe className="w-5 h-5" />
+      case 'event': return <Calendar className="w-5 h-5" />
+      case 'movement': return <Users className="w-5 h-5" />
+      case 'council': return <BookOpen className="w-5 h-5" />
+      case 'saint': return <Cross className="w-5 h-5" />
+      case 'heresy': return <Zap className="w-5 h-5" />
+      default: return <Calendar className="w-5 h-5" />
+    }
+  }
+
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case 'era': return 'bg-blue-100 text-blue-800'
+      case 'event': return 'bg-green-100 text-green-800'
+      case 'movement': return 'bg-purple-100 text-purple-800'
+      case 'council': return 'bg-amber-100 text-amber-800'
+      case 'saint': return 'bg-red-100 text-red-800'
+      case 'heresy': return 'bg-orange-100 text-orange-800'
+      default: return 'bg-gray-100 text-gray-800'
+    }
+  }
+
+  const renderTimelineNode = (node: TimelineNode, level: number = 0) => {
+    const isExpanded = expandedNodes.has(node.id)
+    const hasChildren = node.children && node.children.length > 0
+    const isSelected = selectedNode?.id === node.id
 
     return (
-      <div key={division.id} className="mb-2">
+      <div key={node.id} className="mb-2">
         <div
           className={`flex items-center p-3 rounded-lg cursor-pointer transition-colors ${
             isSelected
@@ -77,13 +101,13 @@ export default function ChurchDivisionsPage() {
               : 'bg-white hover:bg-gray-50 border-2 border-transparent'
           }`}
           style={{ marginLeft: `${level * 20}px` }}
-          onClick={() => setSelectedDivision(division)}
+          onClick={() => setSelectedNode(node)}
         >
           <button
             onClick={(e) => {
               e.stopPropagation()
               if (hasChildren) {
-                toggleNode(division.id)
+                toggleNode(node.id)
               }
             }}
             className="mr-2 p-1 hover:bg-gray-200 rounded"
@@ -102,20 +126,26 @@ export default function ChurchDivisionsPage() {
           
           <div className="flex-1">
             <div className="flex items-center space-x-2">
-              <h3 className="font-semibold text-gray-800">{division.name}</h3>
+              <div className={`p-1 rounded-full ${getTypeColor(node.type)}`}>
+                {getTypeIcon(node.type)}
+              </div>
+              <h3 className="font-semibold text-gray-800">{node.title}</h3>
               <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
-                {division.year}
+                {node.year}
+              </span>
+              <span className={`px-2 py-1 rounded-full text-xs ${getTypeColor(node.type)}`}>
+                {node.type}
               </span>
             </div>
             <p className="text-sm text-gray-600 mt-1 line-clamp-2">
-              {division.description}
+              {node.description}
             </p>
           </div>
         </div>
 
         {isExpanded && hasChildren && (
           <div className="mt-2">
-            {division.children.map(child => renderDivisionNode(child, level + 1))}
+            {node.children.map(child => renderTimelineNode(child, level + 1))}
           </div>
         )}
       </div>
@@ -128,7 +158,7 @@ export default function ChurchDivisionsPage() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Loading church divisions...</p>
+            <p className="mt-4 text-gray-600">Loading church timeline...</p>
           </div>
         </div>
       </div>
@@ -141,7 +171,7 @@ export default function ChurchDivisionsPage() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-              <p className="font-bold">Error loading church divisions</p>
+              <p className="font-bold">Error loading church timeline</p>
               <p>{error}</p>
             </div>
           </div>
@@ -156,48 +186,52 @@ export default function ChurchDivisionsPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            Divisions in the Church
+            Church Timeline
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore the historical divisions and schisms that have shaped Christianity 
-            throughout history, from the Great Schism to the Protestant Reformation.
+            Explore the rich history of the Catholic Church from the time of Jesus 
+            through the Apostles, early Church, councils, saints, and movements that 
+            have shaped Christianity throughout the centuries.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Division Tree */}
+          {/* Timeline Tree */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-lg p-6 sticky top-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Church Divisions</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">Church History</h2>
               <div className="space-y-2">
-                {divisions.map((division: ChurchDivision) => renderDivisionNode(division))}
+                {timeline.map((node: TimelineNode) => renderTimelineNode(node))}
               </div>
             </div>
           </div>
 
-          {/* Division Details */}
+          {/* Timeline Details */}
           <div className="lg:col-span-2">
-            {selectedDivision ? (
+            {selectedNode ? (
               <div className="space-y-6">
-                {/* Division Header */}
+                {/* Node Header */}
                 <div className="bg-white rounded-lg shadow-lg p-6">
                   <div className="flex items-start space-x-6">
-                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
-                      <AlertTriangle className="w-8 h-8 text-red-600" />
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center ${getTypeColor(selectedNode.type)}`}>
+                      {getTypeIcon(selectedNode.type)}
                     </div>
                     <div className="flex-1">
                       <h2 className="text-3xl font-bold text-gray-800 mb-2">
-                        {selectedDivision.name}
+                        {selectedNode.title}
                       </h2>
                       <div className="flex items-center space-x-4 text-sm text-gray-600 mb-4">
                         <div className="flex items-center space-x-1">
                           <Calendar className="w-4 h-4" />
-                          <span>{selectedDivision.year}</span>
+                          <span>{selectedNode.year}</span>
                         </div>
-                        {selectedDivision.relatedPopes && selectedDivision.relatedPopes.length > 0 && (
+                        <span className={`px-2 py-1 rounded-full text-xs ${getTypeColor(selectedNode.type)}`}>
+                          {selectedNode.type}
+                        </span>
+                        {selectedNode.relatedPopes && selectedNode.relatedPopes.length > 0 && (
                           <div className="flex items-center space-x-1">
                             <Users className="w-4 h-4" />
-                            <span>{selectedDivision.relatedPopes.length} related popes</span>
+                            <span>{selectedNode.relatedPopes.length} related popes</span>
                           </div>
                         )}
                       </div>
@@ -206,30 +240,23 @@ export default function ChurchDivisionsPage() {
                   
                   <div className="mt-6">
                     <h3 className="text-xl font-semibold text-gray-800 mb-3">Description</h3>
-                    <p className="text-gray-600 leading-relaxed">{selectedDivision.description}</p>
+                    <p className="text-gray-600 leading-relaxed">{selectedNode.description}</p>
                   </div>
 
-                  {selectedDivision.cause && (
+                  {selectedNode.significance && (
                     <div className="mt-6">
-                      <h3 className="text-xl font-semibold text-gray-800 mb-3">Causes</h3>
-                      <p className="text-gray-600 leading-relaxed">{selectedDivision.cause}</p>
-                    </div>
-                  )}
-
-                  {selectedDivision.outcome && (
-                    <div className="mt-6">
-                      <h3 className="text-xl font-semibold text-gray-800 mb-3">Outcome</h3>
-                      <p className="text-gray-600 leading-relaxed">{selectedDivision.outcome}</p>
+                      <h3 className="text-xl font-semibold text-gray-800 mb-3">Historical Significance</h3>
+                      <p className="text-gray-600 leading-relaxed">{selectedNode.significance}</p>
                     </div>
                   )}
                 </div>
 
                 {/* Related Popes */}
-                {selectedDivision.relatedPopes && selectedDivision.relatedPopes.length > 0 && (
+                {selectedNode.relatedPopes && selectedNode.relatedPopes.length > 0 && (
                   <div className="bg-white rounded-lg shadow-lg p-6">
                     <h3 className="text-2xl font-bold text-gray-800 mb-6">Related Popes</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {selectedDivision.relatedPopes.map((pope: any) => (
+                      {selectedNode.relatedPopes.map((pope: any) => (
                         <div key={pope.id} className="p-4 bg-gray-50 rounded-lg">
                           <h4 className="font-semibold text-gray-800 mb-2">{pope.regnalName}</h4>
                           <p className="text-sm text-gray-600">
@@ -249,21 +276,21 @@ export default function ChurchDivisionsPage() {
                   <h3 className="text-2xl font-bold text-gray-800 mb-6">Historical Context</h3>
                   <div className="prose max-w-none">
                     <p className="text-gray-600 leading-relaxed">
-                      The {selectedDivision.name} represents a significant moment in Church history. 
-                      Understanding these divisions helps us appreciate the complexity of Christian 
-                      history and the ongoing work of Christian unity.
+                      The {selectedNode.title} represents a significant moment in Church history. 
+                      Understanding these events helps us appreciate the continuity of the Catholic 
+                      faith from the time of Christ to the present day.
                     </p>
                     <p className="text-gray-600 leading-relaxed mt-4">
-                      While divisions have occurred throughout history, they have also led to 
-                      important theological developments and, in many cases, eventual reconciliation 
-                      and dialogue between different Christian traditions.
+                      Each era, event, and movement in Church history has contributed to the 
+                      development of doctrine, the growth of the Church, and the spread of 
+                      Christianity throughout the world.
                     </p>
                   </div>
                 </div>
               </div>
             ) : (
               <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-                <p className="text-gray-600">Select a division to view its details</p>
+                <p className="text-gray-600">Select a timeline node to view its details</p>
               </div>
             )}
           </div>

@@ -50,6 +50,8 @@ export default function PapalTimelinePage() {
   const [selectedPope, setSelectedPope] = useState<Pope | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [pipelineStartIndex, setPipelineStartIndex] = useState(0)
+  const pipelinePageSize = 15
 
   useEffect(() => {
     fetchPopes()
@@ -157,8 +159,21 @@ export default function PapalTimelinePage() {
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
           <h2 className="text-xl font-bold text-gray-800 mb-4">Papal Succession: From St. Peter to Today</h2>
           <div className="overflow-x-auto">
-            <div className="flex space-x-2 min-w-max">
-              {popes.slice(0, 20).map((pope, index) => (
+            <div className="flex items-center space-x-2 min-w-max">
+              {/* Prev page control */}
+              {pipelineStartIndex > 0 && (
+                <button
+                  aria-label="Show previous"
+                  className="flex-shrink-0 px-3 py-3 rounded-lg text-sm font-medium transition-colors bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-transparent"
+                  onClick={() => setPipelineStartIndex(Math.max(0, pipelineStartIndex - pipelinePageSize))}
+                >
+                  <span className="mr-1">«</span> Show previous
+                </button>
+              )}
+
+              {popes
+                .slice(pipelineStartIndex, pipelineStartIndex + pipelinePageSize)
+                .map((pope) => (
                 <button
                   key={pope.id}
                   onClick={() => setSelectedPope(pope)}
@@ -176,18 +191,24 @@ export default function PapalTimelinePage() {
                   </div>
                 </button>
               ))}
-              {popes.length > 20 && (
-                <div className="flex-shrink-0 px-3 py-3 text-sm text-gray-500">
-                  ... and {popes.length - 20} more
-                </div>
+
+              {/* Next page control */}
+              {pipelineStartIndex + pipelinePageSize < popes.length && (
+                <button
+                  aria-label="Show more"
+                  className="flex-shrink-0 px-3 py-3 rounded-lg text-sm font-medium transition-colors bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-transparent"
+                  onClick={() => setPipelineStartIndex(Math.min(popes.length - 1, pipelineStartIndex + pipelinePageSize))}
+                >
+                  Show more <span className="ml-1">»</span>
+                </button>
               )}
             </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Pope List */}
-          <div className="lg:col-span-1">
+          {/* Pope List (hidden on mobile; visible from lg+) */}
+          <div className="hidden lg:block lg:col-span-1">
             <div className="bg-white rounded-lg shadow-lg p-6 sticky top-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Popes</h2>
               <div className="space-y-2 max-h-96 overflow-y-auto">
