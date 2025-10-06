@@ -64,6 +64,7 @@ function generatePopeData(popeInfo) {
     papacyStart: parseDate(startYear),
     papacyEnd: parseDate(endYear),
     nationality: popeInfo.nationality,
+    previousOffice: "Apostle of Jesus Christ",
     previousOffice: "Bishop of Rome",
     notableEvents: generateNotableEvents(popeInfo),
     biography: generateBiography(popeInfo),

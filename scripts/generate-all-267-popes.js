@@ -15,6 +15,9 @@ const prisma = new PrismaClient({
 function generateAll267PopesData() {
   const popes = [];
   
+  // Import canonical Vatican names
+  const canonicalPopes = require('./canonical-vatican-267-names.js');
+  
   // Early Popes (1-50) - 1st to 5th centuries
   const earlyPopes = [
     { num: 1, name: "Peter", regnal: "Saint Peter", start: "30", end: "64", nationality: "Bethsaida, Galilee" },
@@ -82,29 +85,9 @@ function generateAll267PopesData() {
     { num: 267, name: "Leo", regnal: "Pope Leo XIV", start: "2025", end: null, nationality: "United States", isCurrent: true }
   ];
   
-  // Combine all popes
-  const allPopes = [...earlyPopes, ...keyPopes];
-  
-  // Generate missing popes programmatically
-  for (let i = 1; i <= 267; i++) {
-    if (!allPopes.find(p => p.num === i)) {
-      // Generate a pope for this number
-      const century = Math.ceil(i / 10);
-      const startYear = 30 + (i - 1) * 7; // Approximate years
-      const endYear = startYear + 7;
-      
-      allPopes.push({
-        num: i,
-        name: `Pope${i}`,
-        regnal: `Pope ${i}`,
-        start: startYear.toString(),
-        end: endYear.toString(),
-        nationality: "Various"
-      });
-    }
-  }
-  
-  return allPopes.sort((a, b) => a.num - b.num);
+  // Use canonical Vatican names as primary source
+  const allPopes = canonicalPopes.sort((a, b) => a.num - b.num);
+  return allPopes;
 }
 
 function generatePopeData(popeInfo) {
