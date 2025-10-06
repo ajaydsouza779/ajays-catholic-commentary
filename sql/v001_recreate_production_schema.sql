@@ -107,3 +107,47 @@ WHERE table_name = 'popes'
 ORDER BY ordinal_position;
 
 SELECT 'Schema recreation completed successfully!' as status;
+
+-- Ensure required tables exist for history exports
+
+-- Church Divisions
+CREATE TABLE IF NOT EXISTS church_divisions (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT NOT NULL,
+  year INTEGER NOT NULL,
+  cause TEXT,
+  outcome TEXT,
+  "parentId" TEXT,
+  "imageUrl" TEXT,
+  "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  "updatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+-- Bible Manuscripts
+CREATE TABLE IF NOT EXISTS bible_manuscripts (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT NOT NULL,
+  date TEXT NOT NULL,
+  language TEXT NOT NULL,
+  location TEXT,
+  significance TEXT,
+  "imageUrl" TEXT,
+  "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  "updatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+-- Bible Translations
+CREATE TABLE IF NOT EXISTS bible_translations (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  language TEXT NOT NULL,
+  year INTEGER NOT NULL,
+  translator TEXT,
+  description TEXT NOT NULL,
+  significance TEXT,
+  "imageUrl" TEXT,
+  "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  "updatedAt" TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
