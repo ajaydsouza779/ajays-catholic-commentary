@@ -203,23 +203,23 @@ export default function BibleOriginPage() {
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Canon Formation</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Old Testament Canon</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Old Testament Canon (Catholic - 46 books)</h3>
                   <p className="text-gray-600 mb-4">
-                    The Hebrew Bible (Tanakh) was established by Jewish scholars around 100 AD. 
-                    It consists of 39 books organized into three sections: Torah (Law), Nevi'im (Prophets), 
-                    and Ketuvim (Writings).
+                    The Catholic Old Testament canon follows the Septuagint tradition and contains 46 books, 
+                    including the Deuterocanonical books received by the early Church.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
-                    <li>Torah: Genesis, Exodus, Leviticus, Numbers, Deuteronomy</li>
-                    <li>Nevi'im: Joshua, Judges, Samuel, Kings, Isaiah, Jeremiah, Ezekiel, Minor Prophets</li>
-                    <li>Ketuvim: Psalms, Proverbs, Job, Song of Songs, Ruth, Lamentations, Ecclesiastes, Esther, Daniel, Ezra-Nehemiah, Chronicles</li>
+                    <li><strong>Pentateuch (5)</strong>: Genesis, Exodus, Leviticus, Numbers, Deuteronomy</li>
+                    <li><strong>Historical (16)</strong>: Joshua, Judges, Ruth, 1–2 Samuel, 1–2 Kings, 1–2 Chronicles, Ezra, Nehemiah, Tobit, Judith, Esther (with additions), 1–2 Maccabees</li>
+                    <li><strong>Wisdom (7)</strong>: Job, Psalms, Proverbs, Ecclesiastes, Song of Songs, Wisdom, Sirach</li>
+                    <li><strong>Prophets (18)</strong>: Isaiah, Jeremiah, Lamentations, Baruch, Ezekiel, Daniel (with additions), and the Twelve Minor Prophets</li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">New Testament Canon</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">New Testament Canon (27 books)</h3>
                   <p className="text-gray-600 mb-4">
-                    The New Testament canon was gradually established through consensus among early Christian communities. 
-                    The 27 books were officially recognized by the 4th century.
+                    The New Testament canon was gradually established through consensus among early Christian communities 
+                    and affirmed by the Church. The 27 books were recognized by the 4th century.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Gospels: Matthew, Mark, Luke, John</li>
@@ -238,8 +238,8 @@ export default function BibleOriginPage() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">66 Books</h3>
-                <p className="text-gray-600">Total books in the Protestant Bible</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">73 Books</h3>
+                <p className="text-gray-600">Total books in the Catholic Bible</p>
               </div>
               <div className="bg-white rounded-lg shadow-lg p-6 text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
