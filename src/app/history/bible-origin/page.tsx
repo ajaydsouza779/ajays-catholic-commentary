@@ -301,12 +301,68 @@ export default function BibleOriginPage() {
               </div>
             </div>
 
+            {/* New Testament Canon - Formation and Recognition */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">New Testament Canon (27 Books)</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">How the NT Canon Emerged</h3>
+                  <p className="text-gray-600 mb-4">
+                    The New Testament canon developed within the early Church as communities read, copied, and proclaimed
+                    apostolic writings in the liturgy. By the 4th century, the Church widely recognized the same 27 books
+                    we have today.
+                  </p>
+                  <div className="bg-amber-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-amber-800 mb-2">Key Recognition Criteria:</h4>
+                    <ul className="text-amber-800 space-y-1">
+                      <li>• <strong>Apostolicity</strong>: written by an apostle or close companion</li>
+                      <li>• <strong>Orthodoxy</strong>: consistent with the rule of faith handed on by the Church</li>
+                      <li>• <strong>Catholicity</strong>: widely used across Christian communities in the liturgy</li>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Historical Witnesses</h3>
+                  <div className="bg-purple-50 p-4 rounded-lg space-y-2">
+                    <p className="text-purple-800">
+                      • <strong>Muratorian Fragment</strong> (c. 170): earliest list of many NT books
+                    </p>
+                    <p className="text-purple-800">
+                      • <strong>Eusebius</strong> (early 4th c.): distinguishes universally acknowledged vs. disputed books
+                    </p>
+                    <p className="text-purple-800">
+                      • <strong>Synod of Rome</strong> (382), <strong>Hippo</strong> (393), <strong>Carthage</strong> (397, 419): catalog the 27-book NT
+                    </p>
+                    <p className="text-purple-800">
+                      • <strong>St. Athanasius</strong> (Festal Letter 39, 367): lists the same 27 NT books
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6">
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">The 27 Books</h3>
+                <div className="grid md:grid-cols-2 gap-4 text-gray-700">
+                  <ul className="list-disc list-inside space-y-1">
+                    <li><strong>Gospels</strong>: Matthew, Mark, Luke, John</li>
+                    <li><strong>Acts</strong>: Acts of the Apostles</li>
+                    <li><strong>Pauline Letters</strong>: Romans, 1–2 Corinthians, Galatians, Ephesians, Philippians, Colossians, 1–2 Thessalonians, 1–2 Timothy, Titus, Philemon</li>
+                  </ul>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li><strong>Catholic Letters</strong>: Hebrews, James, 1–2 Peter, 1–3 John, Jude</li>
+                    <li><strong>Apocalypse</strong>: Revelation</li>
+                  </ul>
+                </div>
+                <p className="text-sm text-gray-600 mt-4">
+                  Recognized and proclaimed by the Church in council and tradition; preserved in the Latin Vulgate and later Catholic editions.
+                </p>
+              </div>
+            </div>
+
             {/* New Testament Usage of Septuagint */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">New Testament and the Septuagint</h2>
-              <div className="space-y-6">
+          <div className="space-y-6">
                 <div className="bg-amber-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-amber-800 mb-3">Why the New Testament Used the Septuagint</h3>
                   <p className="text-amber-700 mb-4">
                     The New Testament authors, writing in Greek, frequently quoted from the Septuagint rather than 
                     the Hebrew text. This was because:
@@ -336,8 +392,8 @@ export default function BibleOriginPage() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+                      </div>
+                      </div>
 
             {/* Saint Jerome and the Vulgate */}
             <div className="bg-white rounded-lg shadow-lg p-8">
@@ -346,7 +402,7 @@ export default function BibleOriginPage() {
                 <div className="flex items-start space-x-6">
                   <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
                     <BookOpen className="w-8 h-8 text-purple-600" />
-                  </div>
+                        </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-800 mb-3">The Vulgate Translation (382-405 AD)</h3>
                     <p className="text-gray-600 mb-4">
@@ -418,6 +474,31 @@ export default function BibleOriginPage() {
                   </ul>
                 </div>
               </div>
+            </div>
+
+            {/* Historic Recognition of the 73-Book Canon */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Historic Recognition of the 73‑Book Catholic Canon</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">4th–5th Century Witnesses</h3>
+                  <div className="bg-gray-50 p-4 rounded-lg space-y-3 text-gray-700">
+                    <p>• <strong>St. Athanasius</strong> (Festal Letter 39, 367): lists the 27 NT books; receives the Septuagint OT used in the Church.</p>
+                    <p>• <strong>Decree of Pope Damasus I</strong> (Synod of Rome, 382): catalog of Scripture aligning with the Catholic 73‑book canon.</p>
+                    <p>• <strong>Council of Hippo</strong> (393) and <strong>Carthage</strong> (397, 419): regional councils confirm the same list of OT + NT books used in the liturgy.</p>
+                    <p>• <strong>Pope Innocent I</strong> (Letter to Exsuperius, 405): affirms the canonical list received and proclaimed by the Church.</p>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Continuity and Reaffirmations</h3>
+                  <div className="bg-amber-50 p-4 rounded-lg space-y-3 text-amber-900">
+                    <p>• <strong>Vulgate</strong> (St. Jerome, late 4th–early 5th c.): Latin translation received and used by the Western Church; preserves the canon in liturgy and teaching.</p>
+                    <p>• <strong>Ecumenical Reception</strong>: Later councils and papal approvals reflect the same canonical usage across the Latin West.</p>
+                    <p>• <strong>Council of Trent</strong> (1546): solemn reaffirmation of the traditional 73‑book canon in response to controversies, confirming continuous usage from antiquity.</p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600 mt-6">In summary, the Church’s 73‑book canon—46 Old Testament (including the Deuterocanon) and 27 New Testament—was recognized and proclaimed in the 4th–5th centuries and faithfully transmitted in the life of the Church.</p>
             </div>
           </div>
         )}
@@ -542,7 +623,7 @@ export default function BibleOriginPage() {
             {/* Translation Challenges and Issues */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Translation Challenges and Issues</h2>
-              <div className="space-y-6">
+          <div className="space-y-6">
                 <div className="bg-red-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-red-800 mb-3">Common Translation Pitfalls</h3>
                   <div className="space-y-4">
@@ -611,10 +692,10 @@ export default function BibleOriginPage() {
                     <p className="text-blue-600 text-sm"><strong>Examples:</strong> NIV, NLT, Good News Bible</p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        )}
+                      </div>
+                      </div>
+                        </div>
+                      )}
 
         {activeTab === 'magisterium' && (
           <div className="space-y-8">

@@ -1,6 +1,7 @@
 "use client"
 
 import Header from "@/components/Header"
+import HistoryNavigation from "@/components/HistoryNavigation"
 import DatabaseTestButton from "@/components/DatabaseTestButton"
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
@@ -69,6 +70,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-neutral-50">
       <Header />
+      <HistoryNavigation />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Author Section (temporarily hidden) */}
