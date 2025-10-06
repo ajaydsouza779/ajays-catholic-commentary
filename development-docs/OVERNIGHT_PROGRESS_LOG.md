@@ -70,3 +70,33 @@ If session is interrupted, resume by:
 
 **Last Updated:** Starting overnight session  
 **Next Checkpoint:** After canonical names wired (Target: 1 hour)
+
+## ⚠️ IMPORTANT CONTEXT PRESERVATION
+
+**User Feedback:** "but you have overridden previously good 77 records.. can you revert to those..? I had said update more data similar :("
+
+**Key Requirements:**
+- User said previous 77 records were GOOD and should be preserved
+- User specifically mentioned Saint Peter data was good with Scripture references
+- User wants to EXPAND from 77 to 267, not replace the good 77
+- User wants similar quality data for the additional 190 popes
+
+**Action Required:** 
+- ✅ Restore the good 77 records from complete-deployment-with-schema.sql
+- ✅ Add Saint Peter back with Scripture references (Matthew 16:18-19, John 21:15-17)
+- 🔄 Add remaining 190 popes with similar quality (rich biographies, references)
+- 🔄 Expand from 77 to 267 without losing the good existing data
+
+## 📊 CURRENT STATUS: 93/267 Popes (35% Complete)
+
+**Progress Update:**
+- ✅ Original 77 popes preserved with rich content
+- ✅ Saint Peter restored with Scripture references
+- ✅ Added 16 additional popes (78-83, 51-60)
+- 🔄 Still need 174 more popes to reach 267
+- 📈 Current completion: 35%
+
+**Next Steps:**
+- Continue adding missing popes in batches
+- Focus on major historical periods (medieval, renaissance, modern)
+- Ensure all popes have basic biographical content and references
