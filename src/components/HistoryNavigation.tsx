@@ -44,7 +44,7 @@ export default function HistoryNavigation() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className="absolute left-0 mt-1 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+            <div className="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
               <div className="py-1">
                 <Link
                   href="/history/church-divisions"
@@ -65,6 +65,17 @@ export default function HistoryNavigation() {
                   }`}
                 >
                   Church Timeline
+                </Link>
+                <div className="border-t my-1" />
+                <Link
+                  href="/history/experiments"
+                  className={`block px-4 py-2 text-sm transition-colors ${
+                    isActive('/history/experiments')
+                      ? 'bg-amber-50 text-amber-700'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Experiments (UI Prototypes)
                 </Link>
               </div>
             </div>
