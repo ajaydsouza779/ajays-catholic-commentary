@@ -200,7 +200,7 @@ export default function ChurchTimelinePage() {
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-lg p-6 sticky top-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Church History</h2>
-              <div className="space-y-2 max-h-96 overflow-y-auto">
+              <div className="space-y-2">
                 {timeline.map((node: TimelineNode) => renderTimelineNode(node))}
               </div>
             </div>

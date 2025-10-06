@@ -169,7 +169,7 @@ export default function ChurchDivisionsPage() {
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-lg p-6 sticky top-8">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Church Divisions</h2>
-              <div className="space-y-2 max-h-96 overflow-y-auto">
+              <div className="space-y-2">
                 {divisions.map((division: ChurchDivision) => renderDivisionNode(division))}
               </div>
             </div>
