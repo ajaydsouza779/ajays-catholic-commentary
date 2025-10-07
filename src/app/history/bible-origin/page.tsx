@@ -670,6 +670,32 @@ export default function BibleOriginPage() {
                   </p>
                 </div>
               </div>
+              <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-blue-800 mb-2">Timeline Highlights</h3>
+                  <ul className="text-blue-700 space-y-2">
+                    <li>• <strong>c. 250–150 BC</strong>: Core LXX books translated in Alexandria</li>
+                    <li>• <strong>1st c. AD</strong>: LXX widely used by Christians; NT quotes align with LXX often</li>
+                    <li>• <strong>4th–5th c. AD</strong>: Councils and Fathers witness to canon received in the Church</li>
+                  </ul>
+                </div>
+                <div className="bg-amber-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-amber-800 mb-2">Time of Christ</h3>
+                  <p className="text-amber-700">
+                    In Roman Palestine, <strong>Aramaic</strong> was daily speech, <strong>Hebrew</strong> used for Scripture,
+                    and <strong>Greek</strong> functioned as a common lingua franca. The LXX enabled rapid Gospel spread to
+                    Gentile audiences accustomed to Greek Scripture.
+                  </p>
+                </div>
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">Why It Matters for Translation</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• NT authors often follow LXX wording and interpretive choices</li>
+                    <li>• LXX preserves readings reflecting older Hebrew exemplars</li>
+                    <li>• Understanding LXX clarifies many OT citations in the NT</li>
+                  </ul>
+                </div>
+              </div>
             </div>
             {/* Translation Timeline */}
             <div className="bg-white rounded-lg shadow-lg p-8">
