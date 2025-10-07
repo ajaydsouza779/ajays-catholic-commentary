@@ -419,3 +419,135 @@ npx tsx scripts/seed-database.ts
 - Each pope has historical context and references
 - No performance issues with larger dataset
 - All existing functionality preserved
+
+## 🆕 NEW REQUIREMENTS: Additional Content Tabs
+
+### Phase 5: Movements Tab (PENDING)
+**New Tab**: Movements
+**Subtabs**:
+- **Catholic Charismatic Movement**: History, growth, issues, relevance to modern Church
+- **Pro-life Movement**: Origins, development, current status, Church teaching
+- **Other Relevant Movements**: Additional Catholic movements (e.g., Opus Dei, Focolare, etc.)
+
+**Content Requirements**:
+- Historical development and timeline
+- Key figures and leaders
+- Church approval/recognition status
+- Current relevance and impact
+- Controversies or issues (if any)
+- Spiritual and theological significance
+
+### Phase 6: Revelations Tab (PENDING)
+**New Tab**: Revelations
+**Header Section**: Distinction between Public and Private Revelations
+
+**Subtabs**:
+1. **Public Revelation**:
+   - **Story of Jesus**: Historicity, archaeological evidence, biblical accounts
+   - **Relics**: Shroud of Turin, True Cross, other authenticated relics
+   - **Christology**: Development of Christological doctrine, councils, heresies
+
+2. **Private Revelations**:
+   - **Apparitions/Visions**: Lourdes, Fatima, Guadalupe, approved apparitions
+   - **Eucharistic Miracles**: Lanciano, Buenos Aires, other authenticated miracles
+   - **Incorruptible Saints**: Saint Bernadette, Saint Catherine Labouré, others
+   - **Mystical Phenomena**: Stigmata, bilocation, levitation, other documented cases
+
+**Content Requirements**:
+- Church approval process and criteria
+- Historical documentation and witnesses
+- Scientific investigation results
+- Theological significance and interpretation
+- Distinction between public and private revelation
+- Current status and ongoing investigations
+
+### Phase 7: Devotions Tab (PENDING)
+**New Tab**: Devotions
+**Subtabs**:
+1. **Holy Mass**: History, development, changes, understanding, spiritual enrichment
+2. **Eucharistic Adoration**: Origins, development, practices, spiritual benefits
+3. **Rosary**: History, evolution, mysteries, spiritual significance
+4. **Litany**: Various litanies, history, usage, spiritual purpose
+5. **Angelus**: Origins, timing, prayers, cultural significance
+6. **Other Devotions**: Stations of the Cross, Novenas, etc.
+
+**Content Requirements**:
+- Historical development and timeline
+- Changes and reforms over time
+- Spiritual understanding and theology
+- Practical guidance for participation
+- Cultural and social impact
+- Modern relevance and adaptation
+
+### Phase 8: Holy Mass Tab (PENDING - Optional)
+**Dedicated Tab**: Holy Mass (if comprehensive coverage needed)
+**Potential Sections**:
+- **History**: From Last Supper to present
+- **Structure**: Parts of the Mass, their meaning and development
+- **Liturgical Changes**: Evolution from Latin to vernacular, Vatican II reforms
+- **Theology**: Real Presence, sacrifice, communion
+- **Cultural Impact**: Art, music, architecture influenced by the Mass
+- **Modern Practices**: Different rites, special celebrations
+- **Spiritual Enrichment**: How to participate more fully
+
+**Decision Point**: Determine if Holy Mass deserves its own comprehensive tab or if it's adequately covered in the Devotions tab.
+
+### Phase 9: Reason with Science Tab (PENDING)
+**New Tab**: Reason with Science
+**Subtabs**:
+
+1. **Catholic Discoveries & Inventions**:
+   - **Led by Catholics**: Scientific discoveries and inventions by Catholic scientists, priests, and scholars
+   - **Suppressed by Catholics**: Historical cases where Church or Catholic authorities opposed certain scientific developments
+   - **Timeline**: Chronological development of Catholic contributions to science
+
+2. **Church Views on Scientific Theories**:
+   - **Big Bang Theory**: Church's acceptance and theological implications
+   - **Evolution of Man**: Catholic understanding of human evolution vs. biblical accounts
+   - **Biblical Interpretation**: How Church approaches scientific theories in relation to Scripture
+   - **Historical Context**: Development of Church's relationship with science over time
+
+3. **Medical & Ethical Issues**:
+   - **Cloning**: Church teaching on human cloning and therapeutic cloning
+   - **Surrogacy**: Catholic perspective on assisted reproduction
+   - **Gender Change**: Church teaching on gender identity and medical procedures
+   - **Abortion**: Comprehensive Catholic teaching and scientific aspects
+   - **Euthanasia**: End-of-life issues and Church guidance
+   - **Stem Cell Research**: Catholic position on embryonic vs. adult stem cells
+
+4. **Other Relevant Topics**:
+   - **Environmental Science**: Catholic environmental teaching and climate science
+   - **Technology Ethics**: AI, genetic engineering, and other modern technologies
+   - **Space Exploration**: Catholic perspectives on space science and exploration
+   - **Psychology & Mental Health**: Catholic understanding of mental health and therapy
+
+**Content Requirements**:
+- **Scientific Accuracy**: All scientific content must be accurate and well-sourced
+- **Church Teaching**: Clear presentation of official Catholic positions
+- **Historical Context**: Development of Church-science relationship over time
+- **Balanced Perspective**: Fair presentation of controversies and debates
+- **Educational Value**: Help readers understand both science and faith perspectives
+- **Credible Sources**: Use Vatican documents, scientific journals, and reputable sources
+
+**Admin Control Feature (Optional)**:
+- **Tab Visibility Toggle**: Admin can enable/disable this tab in profile settings
+- **Content Approval System**: Individual subtabs can be published when ready
+- **Draft Mode**: Allow content creation without public visibility
+- **Priority**: This feature is lowest priority - implement only if it doesn't impact app performance or user experience
+
+### Implementation Priority
+1. **Current Focus**: Complete Church History Tree with filters
+2. **Next**: Movements Tab (Catholic Charismatic Movement, Pro-life)
+3. **Then**: Revelations Tab (Public/Private distinction)
+4. **Then**: Devotions Tab (Holy Mass, Rosary, etc.)
+5. **Then**: Reason with Science Tab (Catholic discoveries, Church-science relationship)
+6. **Optional**: Dedicated Holy Mass Tab (if needed)
+7. **Optional**: Admin control features for tab visibility (lowest priority)
+
+### Content Standards
+- **Historical Accuracy**: All content must be historically accurate and well-sourced
+- **Church Teaching**: Align with official Catholic teaching and Magisterium
+- **Credible Sources**: Use Vatican documents, Church Fathers, approved sources
+- **Balanced Perspective**: Present controversies fairly while maintaining orthodoxy
+- **User Engagement**: Make content accessible and spiritually enriching
+- **Visual Design**: Consistent with existing UI/UX patterns
