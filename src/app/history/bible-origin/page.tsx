@@ -813,6 +813,7 @@ export default function BibleOriginPage() {
                     <h4 className="font-semibold mb-1">Manuscript copying (c. 2nd–15th c. AD)</h4>
                     <ul className="text-sm space-y-1 list-disc list-inside">
                       <li><strong>Where</strong>: Monastic <em>scriptoria</em>, cathedral schools, later universities.</li>
+                      <li><strong>Who</strong>: Ordained clergy (priests/monks), lay scribes, students/seminarians; in the Hebrew tradition, trained <em>soferim</em> (scribes) under rabbinic oversight.</li>
                       <li><strong>How</strong>: Exemplar comparison, line/column counting, marginal correction notes.</li>
                       <li><strong>Helps</strong>: Headings, lectionary cues; Masoretic notes preserved Hebrew reading traditions.</li>
                     </ul>
