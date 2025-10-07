@@ -812,6 +812,7 @@ export default function BibleOriginPage() {
                   <div className="mt-3 text-blue-700">
                     <h4 className="font-semibold mb-1">Manuscript copying (c. 2nd–15th c. AD)</h4>
                     <ul className="text-sm space-y-1 list-disc list-inside">
+                      <li><strong>Scroll → Codex shift</strong> (c. 1st–4th c. AD): Christians rapidly favored the codex (book) format.</li>
                       <li><strong>Where</strong>: Monastic <em>scriptoria</em>, cathedral schools, later universities.</li>
                       <li><strong>Who</strong>: Ordained clergy (priests/monks), lay scribes, students/seminarians; in the Hebrew tradition, trained <em>soferim</em> (scribes) under rabbinic oversight.</li>
                       <li><strong>How</strong>: Exemplar comparison, line/column counting, marginal correction notes.</li>
@@ -851,15 +852,7 @@ export default function BibleOriginPage() {
                   </ul>
                 </div>
 
-                <div className="bg-amber-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-amber-800 mb-3">Scrolls to Codices</h3>
-                  <ul className="text-amber-700 space-y-2 list-disc list-inside">
-                    <li><strong>Scroll → Codex shift</strong> (c. 1st–4th c. AD): Christians rapidly favored the codex (book) format.</li>
-                    <li><strong>Benefits</strong>: Easier navigation, bookmarking, and binding multiple books into one volume.</li>
-                    <li><strong>Impact</strong>: Helped circulate complete Testaments, canon lists, and study tools for theology and liturgy.</li>
-                    <li><strong>Major codices</strong>: Sinaiticus, Vaticanus (4th c.) preserve large parts of OT (LXX) and NT.</li>
-                  </ul>
-                </div>
+                
                 
               </div>
               
