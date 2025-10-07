@@ -552,21 +552,22 @@ export default function BibleOriginPage() {
                   </ul>
                 </div>
                 <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Media: From Papyrus Scrolls to Parchment</h3>
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">How Were They Written?</h3>
                   <ul className="text-blue-700 space-y-2">
-                    <li>• <strong>Papyrus Scrolls</strong>: Early/mediterranean use; joined sheets; columns of script</li>
-                    <li>• <strong>Parchment/Vellum</strong>: Durable skins; later scrolls and <strong>codices</strong> (book form)</li>
-                    <li>• <strong>Scripts</strong>: Paleo‑Hebrew (early), square Aramaic script (later Hebrew script)</li>
-                    <li>• <strong>Vowels/Accents</strong>: Added by Masoretes (c. 6th–10th c. AD) preserving pronunciation</li>
+                    <li>• <strong>Materials</strong>: Papyrus sheets (early) and parchment/vellum (later), penned with quills</li>
+                    <li>• <strong>Formats</strong>: Scrolls first; later <strong>codices</strong> (book‑form, bound pages) for durability and reference</li>
+                    <li>• <strong>Scripts</strong>: Early Paleo‑Hebrew; later square script (Aramaic‑derived) for Hebrew Bible</li>
+                    <li>• <strong>Masoretic Marking</strong>: Vowel points/accents added (6th–10th c. AD) to preserve pronunciation</li>
                   </ul>
+                  <p className="mt-3 text-sm text-blue-700"><strong>What is a codex?</strong> A codex is an early <em>book</em>: folded sheets bound on one side, replacing scrolls and enabling easier indexing, bookmarking, and compiling multiple works together.</p>
                 </div>
                 <div className="bg-amber-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-amber-800 mb-3">Key Witnesses</h3>
+                  <h3 className="text-xl font-semibold text-amber-800 mb-3">Proof They Were in Hebrew (Key Witnesses)</h3>
                   <ul className="text-amber-800 space-y-2">
-                    <li>• <strong>Dead Sea Scrolls</strong> (3rd c. BC–1st c. AD): Earliest Hebrew/Aramaic OT manuscripts</li>
-                    <li>• <strong>Masoretic Text</strong> (medieval): Standard Hebrew tradition used in many editions</li>
-                    <li>• <strong>Septuagint (LXX)</strong>: Greek translation reflecting earlier Hebrew exemplars</li>
-                    <li>• <strong>Major Codices</strong>: Aleppo, Leningrad (Hebrew); Vaticanus, Sinaiticus (Greek LXX/NT)</li>
+                    <li>• <strong>Dead Sea Scrolls</strong> (3rd c. BC–1st c. AD): Hebrew/Aramaic biblical manuscripts confirm Hebrew textual base</li>
+                    <li>• <strong>Masoretic Text</strong> (medieval codices): Standardized Hebrew consonantal text with vowels/accents</li>
+                    <li>• <strong>Septuagint (LXX)</strong>: Greek translation reflecting earlier Hebrew exemplars now lost</li>
+                    <li>• <strong>Major Codices</strong>: Aleppo & Leningrad (Hebrew MT); Vaticanus & Sinaiticus (Greek LXX/NT) corroborate transmission</li>
                   </ul>
                 </div>
               </div>
