@@ -558,6 +558,27 @@ export default function BibleOriginPage() {
                   </ul>
                 </div>
               </div>
+              <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Timeline Context</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>6th–5th c. BC</strong>: Post‑Exilic period; Aramaic gains everyday use among Jews.</li>
+                    <li>• <strong>5th–1st c. BC</strong>: Oral Aramaic synagogue renderings (early Targum practice).</li>
+                    <li>• <strong>1st c. BC – 3rd c. AD</strong>: Written Targum traditions take shape and circulate.</li>
+                    <li>• <strong>2nd–5th c. AD</strong>: Syriac <em>Peshitta</em> becomes normative in Syriac Churches.</li>
+                  </ul>
+                </div>
+                <div className="bg-purple-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-purple-800 mb-3">Aramaic Within the Old Testament</h3>
+                  <ul className="text-purple-700 space-y-2">
+                    <li>• <strong>Daniel 2:4b–7:28</strong>: Court narratives and visions preserved in Aramaic.</li>
+                    <li>• <strong>Ezra 4:8–6:18; 7:12–26</strong>: Imperial correspondence and decrees in Aramaic.</li>
+                    <li>• <strong>Select Aramaic words/phrases</strong> appear elsewhere (e.g., place names, loanwords).</li>
+                    <li>• <strong>Transmission:</strong> Hebrew remained the sacred textual base; Aramaic served
+                      proclamation and administration where understood by the people.</li>
+                  </ul>
+                </div>
+              </div>
               <div className="mt-6 bg-green-50 p-6 rounded-lg">
                 <h3 className="text-xl font-semibold text-green-800 mb-3">The Syriac Peshitta (Early Christian Aramaic)</h3>
                 <p className="text-green-700">
