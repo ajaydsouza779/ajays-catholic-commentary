@@ -803,42 +803,40 @@ export default function BibleOriginPage() {
                   </ul>
                 </div>
                 <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Copy of the Copies (Scribes, Monks, and Scriptoria)</h3>
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Copy of the Copies</h3>
                   <p className="text-blue-700 text-sm mb-2">
                     The <strong>original autographs</strong> of biblical books no longer exist. What we have are
                     <strong> thousands of manuscript copies</strong> across centuries and regions. Scholars compare these
                     witnesses ("textual criticism") to reconstruct the earliest attainable text with high confidence.
                   </p>
-                  <ul className="text-blue-700 space-y-2 list-disc list-inside">
-                    <li><strong>Where copying happened</strong>: Monastic <em>scriptoria</em>, cathedral schools, later universities.</li>
-                    <li><strong>Who copied</strong>: Trained scribes and religious who specialized in biblical hands (scripts).</li>
-                    <li><strong>How accuracy was kept</strong>: Line/column counts, exemplar comparison, and corrections noted in margins.</li>
-                    <li><strong>What got added</strong>: Headings, chapter markers, lectionary cues; later, marginal notes (e.g., Masorah in Hebrew tradition).</li>
-                    <li><strong>Why it mattered</strong>: Copying controlled errors, preserved sacred texts, and standardized public reading.</li>
-                  </ul>
                   <div className="mt-3 text-blue-700">
-                    <h4 className="font-semibold mb-1">Copying workflow (at a glance)</h4>
+                    <h4 className="font-semibold mb-1">Manuscript copying (c. 2nd–15th c. AD)</h4>
                     <ul className="text-sm space-y-1 list-disc list-inside">
-                      <li>Prepare quills/ink and rule the page for straight baselines.</li>
-                      <li>Copy from an approved exemplar; check line lengths and column totals.</li>
-                      <li>Proofread against the exemplar; mark corrections in margin or interline.</li>
-                      <li>Bind gatherings into a codex; add protective covers.</li>
+                      <li><strong>Where</strong>: Monastic <em>scriptoria</em>, cathedral schools, later universities.</li>
+                      <li><strong>How</strong>: Exemplar comparison, line/column counting, marginal correction notes.</li>
+                      <li><strong>Helps</strong>: Headings, lectionary cues; Masoretic notes preserved Hebrew reading traditions.</li>
                     </ul>
                   </div>
                   <div className="mt-3 text-blue-700">
-                    <h4 className="font-semibold mb-1">Chapters and verses (when added)</h4>
+                    <h4 className="font-semibold mb-1">Chapters and verses (timeline)</h4>
                     <ul className="text-sm space-y-1 list-disc list-inside">
-                      <li><strong>Chapters</strong>: Commonly attributed to <em>Stephen Langton</em>, c. AD 1200 (Latin manuscripts).</li>
-                      <li><strong>OT verses</strong>: Ancient Hebrew tradition formalized by the <em>Masoretes</em> (c. AD 600–1000).</li>
-                      <li><strong>NT verses</strong>: Modern numbering by <em>Robert Estienne (Stephanus)</em>, AD 1551 (Greek/Latin editions).</li>
+                      <li><strong>Chapters</strong> — c. AD 1200: Stephen Langton’s chapter scheme spreads in Latin Bibles.</li>
+                      <li><strong>OT verses</strong> — c. AD 600–1000: Masoretes formalize verse divisions in Hebrew manuscripts.</li>
+                      <li><strong>NT verses</strong> — AD 1551: Robert Estienne (Stephanus) adds verse numbers in Greek/Latin editions.</li>
+                    </ul>
+                  </div>
+                  <div className="mt-3 text-blue-700">
+                    <h4 className="font-semibold mb-1">From hand‑copied to print to digital</h4>
+                    <ul className="text-sm space-y-1 list-disc list-inside">
+                      <li><strong>Print standardization</strong> — from c. AD 1450: Printed editions (e.g., Sixto‑Clementine Vulgate; critical Greek texts) reduced copy‑to‑copy drift.</li>
+                      <li><strong>Modern translations</strong> — 19th–21st c.: Differ in philosophy (formal vs. dynamic equivalence) but rely on converging critical editions.</li>
+                      <li><strong>Digital copying</strong> — 2000s–present: Global distribution, searchability, and version tracking improve consistency and access.</li>
                     </ul>
                   </div>
                   <p className="mt-3 text-blue-700 text-sm">
-                    After the printing press, biblical texts were <strong>standardized into printed editions</strong>
-                    (e.g., Sixto‑Clementine Vulgate; critical Greek editions). Today’s <strong>translations</strong> differ in
-                    style and philosophy (formal vs. dynamic) but draw on converging critical texts. See also
+                    See also
                     <a className="underline ml-1" href="https://www.vatican.va/archive/ENG0839/_INDEX.HTM" target="_blank" rel="noreferrer">CCC §§105–108</a>
-                    <span> and </span>
+                    <span> and this </span>
                     <a className="underline" href="https://www.britannica.com/topic/textual-criticism" target="_blank" rel="noreferrer">overview of textual criticism</a>.
                   </p>
                 </div>
