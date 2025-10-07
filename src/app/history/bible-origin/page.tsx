@@ -588,6 +588,30 @@ export default function BibleOriginPage() {
                   living languages for proclamation and catechesis.
                 </p>
               </div>
+
+              <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-white p-6 rounded-lg border">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Aramaic Influence in Today’s Bible</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>Embedded Aramaic Words</strong>: <em>Abba</em> (Mk 14:36), <em>Talitha koum</em> (Mk 5:41), <em>Eloi/Eli, Eloi/Eli, lema sabachthani</em> (Mk 15:34/Mt 27:46), <em>Raca</em> (Mt 5:22), <em>Maranatha</em> (1 Cor 16:22), <em>Cephas</em> (Jn 1:42).</li>
+                    <li>• <strong>Names & Titles</strong>: Many personal/place names and titles (e.g., <em>Golgotha</em>) reflect Aramaic forms.</li>
+                    <li>• <strong>Textual Tradition</strong>: The Syriac <em>Peshitta</em> remains a significant witness in textual criticism and patristic citations.</li>
+                    <li>• <strong>Liturgy & Devotion</strong>: Eastern Churches preserve Aramaic/Syriac hymns and prayers informing translation choices and spirituality.</li>
+                  </ul>
+                </div>
+                <div className="bg-white p-6 rounded-lg border">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Time of Jesus: Language and Setting</h3>
+                  <p className="text-gray-700 mb-2">
+                    In the 1st century AD, Jesus’ everyday speech was <strong>Aramaic</strong> (Galilean dialect); He likely used
+                    <strong>Hebrew</strong> in synagogue/Scripture contexts and <strong>Greek</strong> when needed in broader society.
+                  </p>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>Gospel Echoes</strong>: Direct Aramaic quotes preserved (see above) to retain historical immediacy.</li>
+                    <li>• <strong>Historical Context</strong>: Jesus’ birth under Herod the Great (late 1st c. BC) and ministry in Roman Palestine fit a multilingual environment (Aramaic‑Hebrew‑Greek).</li>
+                    <li>• <strong>Implication for Translation</strong>: Awareness of Semitic idioms informs how sayings are rendered into modern languages.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             {/* Hebrew to Greek: The Septuagint Bridge */}
