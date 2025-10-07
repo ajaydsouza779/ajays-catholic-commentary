@@ -746,11 +746,13 @@ export default function BibleOriginPage() {
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">Materials and Media</h3>
                   <ul className="text-gray-700 space-y-2">
-                    <li>• <strong>Stone & Clay (Ancient Near East)</strong>: Early inscriptions and records</li>
-                    <li>• <strong>Papyrus (Egypt, Mediterranean)</strong>: Pressed reeds; used for scrolls (OT/NT era)</li>
-                    <li>• <strong>Parchment/Vellum</strong>: Treated animal skin; durable, used for codices (book form)</li>
-                    <li>• <strong>Paper</strong>: Gradual medieval adoption in Europe; widespread by late Middle Ages</li>
-                    <li>• <strong>Ink & Quills</strong>: Carbon/iron‑gall inks, feather quills for manuscript copying</li>
+                    <li>• <strong>Stone & Clay (c. 2000–1200 BC)</strong>: Early inscriptions and covenant records</li>
+                    <li>• <strong>Papyrus Scrolls (c. 1200–200 BC)</strong>: Pressed reeds; primary for OT/Second Temple writings</li>
+                    <li>• <strong>Parchment/Vellum (c. 400 BC – AD 1500)</strong>: Durable skins; enabled bound <em>codices</em> (book form)</li>
+                    <li>• <strong>Paper Manuscripts (c. AD 1200–1450)</strong>: Late medieval Europe; wider availability and copying</li>
+                    <li>• <strong>Ink & Quills (antiquity–medieval)</strong>: Carbon/iron‑gall inks with reed/quill pens for manuscripts</li>
+                    <li>• <strong>Printing Press (from c. AD 1450)</strong>: Movable type; standardized, scalable printed Bibles</li>
+                    <li>• <strong>Digital Media (from c. AD 2000)</strong>: E‑Bibles, mobile apps, audio Bibles, searchable editions</li>
                   </ul>
                 </div>
                 <div className="bg-blue-50 p-6 rounded-lg">
