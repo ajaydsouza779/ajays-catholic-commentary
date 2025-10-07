@@ -818,7 +818,7 @@ export default function BibleOriginPage() {
                     </ul>
                   </div>
                   <div className="mt-3 text-blue-700">
-                    <h4 className="font-semibold mb-1">Modifications during copying (what was added and when)</h4>
+                    <h4 className="font-semibold mb-1">Modifications during copying</h4>
                     <ul className="text-sm space-y-1 list-disc list-inside">
                       <li><strong>Headings & section titles</strong> — gradually in late antiquity–medieval period to aid public reading.</li>
                       <li><strong>Lectionary cues</strong> — medieval rubrics marking readings for feasts and Sundays.</li>
