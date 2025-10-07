@@ -696,6 +696,30 @@ export default function BibleOriginPage() {
                   </ul>
                 </div>
               </div>
+
+              <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="bg-white p-6 rounded-lg border">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">Old Testament Books Preserved/Composed in Greek</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>Wisdom (of Solomon)</strong> — composed in Greek</li>
+                    <li>• <strong>2 Maccabees</strong> — composed in Greek</li>
+                    <li>• <strong>Sirach (Ecclesiasticus)</strong> — Hebrew original; Greek translation widely preserved</li>
+                    <li>• <strong>Tobit</strong> — Hebrew/Aramaic originals; Greek versions in LXX are primary witnesses</li>
+                    <li>• <strong>Judith</strong> — likely Hebrew/Aramaic origin; preserved chiefly in Greek</li>
+                    <li>• <strong>Baruch</strong> — associated with Jeremiah; preserved in Greek tradition</li>
+                    <li>• <strong>Additions</strong>: Greek additions to <em>Esther</em> and <em>Daniel</em> (Prayer of Azariah, Song of the Three, Susanna, Bel and the Dragon)</li>
+                  </ul>
+                  <p className="text-sm text-gray-600 mt-3">Note: The Catholic canon receives these Deuterocanonical books; many are preserved chiefly in Greek within the Septuagint tradition.</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg border">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">New Testament Language</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>All 27 NT books</strong> are written in <strong>Koine Greek</strong> (with Semitic influence)</li>
+                    <li>• Traditional note: an early <em>Hebrew/Aramaic</em> form of Matthew is mentioned by some Fathers; canonical text is Greek</li>
+                    <li>• Aramaic sayings of Jesus are preserved within the Greek Gospels (e.g., <em>Talitha koum</em>)</li>
+                  </ul>
+                </div>
+              </div>
             </div>
             {/* Translation Timeline */}
             <div className="bg-white rounded-lg shadow-lg p-8">
