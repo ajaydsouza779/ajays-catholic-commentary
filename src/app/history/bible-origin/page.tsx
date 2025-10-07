@@ -791,7 +791,12 @@ export default function BibleOriginPage() {
                     </li>
                     <li>
                       <div className="font-semibold">• Printing Press (from c. AD 1450)</div>
-                      <div className="text-sm">Gutenberg’s <em>movable metal type</em> (Mainz, c. 1450)—building on earlier East Asian printing—standardized pages and references. Printed Bibles scaled distribution dramatically, from the Gutenberg Bible (c. 1455) to widely available Catholic and vernacular editions.</div>
+                      <div className="text-sm">
+                        <div>• <strong>Invented by</strong>: Johannes Gutenberg</div>
+                        <div>• <strong>Where/When</strong>: Mainz, Germany, around AD 1450</div>
+                        <div>• <strong>First great work</strong>: Gutenberg Bible (c. 1455)</div>
+                        <div>• <strong>Why it mattered</strong>: Movable metal type standardized pages and references and made large‑scale, affordable Scripture printing possible (Catholic and vernacular editions).</div>
+                      </div>
                     </li>
                     <li>
                       <div className="font-semibold">• Digital Media (from c. AD 2000)</div>
