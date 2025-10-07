@@ -562,13 +562,37 @@ export default function BibleOriginPage() {
                   <p className="mt-3 text-sm text-blue-700"><strong>What is a codex?</strong> A codex is an early <em>book</em>: folded sheets bound on one side, replacing scrolls and enabling easier indexing, bookmarking, and compiling multiple works together.</p>
                 </div>
                 <div className="bg-amber-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-amber-800 mb-3">Proof They Were in Hebrew (Key Witnesses)</h3>
-                  <ul className="text-amber-800 space-y-2">
-                    <li>• <strong>Dead Sea Scrolls</strong> (3rd c. BC–1st c. AD): Hebrew/Aramaic biblical manuscripts confirm Hebrew textual base</li>
-                    <li>• <strong>Masoretic Text</strong> (medieval codices): Standardized Hebrew consonantal text with vowels/accents</li>
-                    <li>• <strong>Septuagint (LXX)</strong>: Greek translation reflecting earlier Hebrew exemplars now lost</li>
-                    <li>• <strong>Major Codices</strong>: Aleppo & Leningrad (Hebrew MT); Vaticanus & Sinaiticus (Greek LXX/NT) corroborate transmission</li>
-                  </ul>
+                  <h3 className="text-xl font-semibold text-amber-800 mb-3">When Were They Written? (Hebrew Timeline)</h3>
+                  <div className="text-amber-900 text-sm space-y-3">
+                    <div>
+                      <div className="font-semibold">c. 13th–11th c. BC (Early Traditions)</div>
+                      <p>Oral patriarchal narratives and early poetic pieces later embedded within the Pentateuch and historical books.</p>
+                    </div>
+                    <div>
+                      <div className="font-semibold">c. 10th–7th c. BC (Monarchy Period)</div>
+                      <p>Core Pentateuchal materials finalized; royal chronicles; early prophetic oracles; Psalms attributed to Davidic/Temple settings.</p>
+                    </div>
+                    <div>
+                      <div className="font-semibold">c. 7th–6th c. BC (Late Monarchic → Exile)</div>
+                      <p>Jeremiah, Habakkuk, Zephaniah; Deuteronomistic history shaped; Lamentations after 586 BC.</p>
+                    </div>
+                    <div>
+                      <div className="font-semibold">c. 6th c. BC (Exilic)</div>
+                      <p>Ezekiel; parts of Daniel set in exile (Aramaic portions: Dan 2:4b–7:28); editorial work on Torah/Histories.</p>
+                    </div>
+                    <div>
+                      <div className="font-semibold">c. 6th–5th c. BC (Return/Second Temple)</div>
+                      <p>Haggai, Zechariah, Malachi; Ezra–Nehemiah; Chronicles; wisdom literature growth.</p>
+                    </div>
+                    <div>
+                      <div className="font-semibold">c. 3rd–1st c. BC (Late Second Temple)</div>
+                      <p>Sirach (Hebrew, preserved in Greek); Tobit/Judith (Heb/Aram with Greek preservation); Maccabees (Greek composition for 2 Maccabees).</p>
+                    </div>
+                    <div className="pt-2 border-t border-amber-200">
+                      <div className="font-semibold">c. 6th–10th c. AD (Masoretic Stabilization)</div>
+                      <p>Masoretes add vowel points and accents to the Hebrew consonantal text, standardizing synagogue reading.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <p className="mt-6 text-sm text-gray-600">Note: The New Testament was composed in <strong>Koine Greek</strong> (with Semitic influence), while the Old Testament was primarily Hebrew with notable <strong>Aramaic</strong> passages (Daniel 2:4b–7:28; Ezra 4:8–6:18; 7:12–26).</p>
