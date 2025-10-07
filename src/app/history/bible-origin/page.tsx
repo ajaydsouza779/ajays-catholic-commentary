@@ -740,7 +740,8 @@ export default function BibleOriginPage() {
           <div className="space-y-8">
             {/* Foundations: How Scripture Was Transmitted */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">How Scripture Was Transmitted: From Oral → Stone → Scroll → Book → Printed Book → E‑Book/Audio Book</h2>
+              <h2 className="text-3xl font-bold text-gray-800">How Scripture Was Transmitted</h2>
+              <p className="mt-1 text-sm text-gray-600 mb-5">From Oral → Stone → Scroll → Book → Printed Book → E‑Book/Audio Book</p>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">Materials and Media</h3>
