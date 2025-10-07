@@ -833,14 +833,6 @@ export default function BibleOriginPage() {
                     </ul>
                   </div>
                   <div className="mt-3 text-blue-700">
-                    <h4 className="font-semibold mb-1">Chapters and verses (timeline)</h4>
-                    <ul className="text-sm space-y-1 list-disc list-inside">
-                      <li><strong>Chapters</strong> — c. AD 1200: Stephen Langton’s chapter scheme spreads in Latin Bibles.</li>
-                      <li><strong>OT verses</strong> — c. AD 600–1000: Masoretes formalize verse divisions in Hebrew manuscripts.</li>
-                      <li><strong>NT verses</strong> — AD 1551: Robert Estienne (Stephanus) adds verse numbers in Greek/Latin editions.</li>
-                    </ul>
-                  </div>
-                  <div className="mt-3 text-blue-700">
                     <h4 className="font-semibold mb-1">From hand‑copied to print to digital</h4>
                     <ul className="text-sm space-y-1 list-disc list-inside">
                       <li><strong>Print standardization</strong> — from c. AD 1450: Printed editions (e.g., Sixto‑Clementine Vulgate; critical Greek texts) reduced copy‑to‑copy drift.</li>
