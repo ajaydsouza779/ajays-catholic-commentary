@@ -792,10 +792,8 @@ export default function BibleOriginPage() {
                     <li>
                       <div className="font-semibold">• Printing Press (from c. AD 1450)</div>
                       <div className="text-sm">
-                        <div>• <strong>Invented by</strong>: Johannes Gutenberg</div>
-                        <div>• <strong>Where/When</strong>: Mainz, Germany, around AD 1450</div>
-                        <div>• <strong>First great work</strong>: Gutenberg Bible (c. 1455)</div>
-                        <div>• <strong>Why it mattered</strong>: Movable metal type standardized pages and references and made large‑scale, affordable Scripture printing possible (Catholic and vernacular editions).</div>
+                        <div className="mb-1">The first movable‑type printer was invented by <strong>Johannes Gutenberg</strong> in <strong>Mainz, Germany</strong>, around <strong>AD 1450</strong>, and was used to produce the celebrated <strong>Gutenberg Bible</strong> (c. 1455).</div>
+                        <div><strong>Why it mattered</strong>: Movable metal type standardized pages and references and made large‑scale, affordable Scripture printing possible (Catholic and vernacular editions).</div>
                       </div>
                     </li>
                     <li>
