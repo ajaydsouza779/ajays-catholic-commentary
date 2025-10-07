@@ -28,7 +28,7 @@ interface BibleTranslation {
 export default function BibleOriginPage() {
   const [manuscripts, setManuscripts] = useState<BibleManuscript[]>([])
   const [translations, setTranslations] = useState<BibleTranslation[]>([])
-  const [activeTab, setActiveTab] = useState<'overview' | 'canon' | 'translations' | 'magisterium'>('overview')
+  const [activeTab, setActiveTab] = useState<'overview' | 'canon' | 'origins' | 'translations' | 'magisterium'>('overview')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -123,6 +123,16 @@ export default function BibleOriginPage() {
               }`}
             >
               Canon Formation
+            </button>
+            <button
+              onClick={() => setActiveTab('origins')}
+              className={`px-6 py-3 rounded-md transition-colors ${
+                activeTab === 'origins'
+                  ? 'bg-amber-100 text-amber-800 font-semibold'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              Language & Origins
             </button>
             <button
               onClick={() => setActiveTab('translations')}
@@ -420,7 +430,7 @@ export default function BibleOriginPage() {
                       </ul>
                   </div>
               </div>
-                </div>
+            </div>
                 
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">Impact on Canon Formation</h3>
@@ -499,6 +509,228 @@ export default function BibleOriginPage() {
                 </div>
               </div>
               <p className="text-sm text-gray-600 mt-6">In summary, the Church’s 73‑book canon—46 Old Testament (including the Deuterocanon) and 27 New Testament—was recognized and proclaimed in the 4th–5th centuries and faithfully transmitted in the life of the Church.</p>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'origins' && (
+          <div className="space-y-8">
+            {/* Hebrew Scriptures */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Hebrew Scriptures</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Which Books Were in Hebrew?</h3>
+                  <p className="text-gray-700 mb-2">The Old Testament (Catholic OT = 46 books) was written <strong>primarily in Hebrew</strong>.</p>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>Torah (Pentateuch)</strong>: Genesis–Deuteronomy</li>
+                    <li>• <strong>Prophets</strong>: Joshua, Judges, Samuel, Kings, Isaiah, Jeremiah, Ezekiel, the Twelve</li>
+                    <li>• <strong>Writings</strong>: Psalms, Proverbs, Job, Ruth, Song, Ecclesiastes, Lamentations, Esther (Hebrew base with additions), Daniel (Hebrew + Aramaic), Ezra–Nehemiah, Chronicles</li>
+                    <li>• <strong>Deuterocanonical</strong> (received in the Church; Greek or Hebrew/Hebrew-lost traditions): Tobit, Judith, Wisdom, Sirach, Baruch, 1–2 Maccabees, additions to Esther/Daniel</li>
+                  </ul>
+                  </div>
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">How Were They Written?</h3>
+                  <ul className="text-blue-700 space-y-2">
+                    <li>• <strong>Materials</strong>: Papyrus sheets (early) and parchment/vellum (later), penned with quills</li>
+                    <li>• <strong>Formats</strong>: Scrolls first; later <strong>codices</strong> (book‑form, bound pages) for durability and reference</li>
+                    <li>• <strong>Scripts</strong>: Early Paleo‑Hebrew; later square script (Aramaic‑derived) for Hebrew Bible</li>
+                    <li>• <strong>Masoretic Marking</strong>: Vowel points/accents added (6th–10th c. AD) to preserve pronunciation</li>
+                  </ul>
+                  <p className="mt-3 text-sm text-blue-700"><strong>What is a codex?</strong> A codex is an early <em>book</em>: folded sheets bound on one side, replacing scrolls and enabling easier indexing, bookmarking, and compiling multiple works together.</p>
+              </div>
+                <div className="bg-amber-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-amber-800 mb-3">When Were They Written? (Hebrew Timeline)</h3>
+                  <div className="text-amber-900 text-sm space-y-3">
+                    <div>
+                      <div className="font-semibold">c. 13th–11th c. BC (Early Traditions)</div>
+                      <p>Oral patriarchal narratives and early poetic pieces later embedded within the Pentateuch and historical books.</p>
+                    </div>
+                    <div>
+                      <div className="font-semibold">c. 10th–7th c. BC (Monarchy Period)</div>
+                      <p>Core Pentateuchal materials finalized; royal chronicles; early prophetic oracles; Psalms attributed to Davidic/Temple settings.</p>
+                    </div>
+                    <div>
+                      <div className="font-semibold">c. 7th–6th c. BC (Late Monarchic → Exile)</div>
+                      <p>Jeremiah, Habakkuk, Zephaniah; Deuteronomistic history shaped; Lamentations after 586 BC.</p>
+                    </div>
+                    <div>
+                      <div className="font-semibold">c. 6th c. BC (Exilic)</div>
+                      <p>Ezekiel; parts of Daniel set in exile (Aramaic portions: Dan 2:4b–7:28); editorial work on Torah/Histories.</p>
+                    </div>
+                    <div>
+                      <div className="font-semibold">c. 6th–5th c. BC (Return/Second Temple)</div>
+                      <p>Haggai, Zechariah, Malachi; Ezra–Nehemiah; Chronicles; wisdom literature growth.</p>
+                    </div>
+                    <div>
+                      <div className="font-semibold">c. 3rd–1st c. BC (Late Second Temple)</div>
+                      <p>Sirach (Hebrew, preserved in Greek); Tobit/Judith (Heb/Aram with Greek preservation); Maccabees (Greek composition for 2 Maccabees).</p>
+                    </div>
+                    <div className="pt-2 border-t border-amber-200">
+                      <div className="font-semibold">c. 6th–10th c. AD (Masoretic Stabilization)</div>
+                      <p>Masoretes add vowel points and accents to the Hebrew consonantal text, standardizing synagogue reading.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p className="mt-6 text-sm text-gray-600">Note: The New Testament was composed in <strong>Koine Greek</strong> (with Semitic influence), while the Old Testament was primarily Hebrew with notable <strong>Aramaic</strong> passages (Daniel 2:4b–7:28; Ezra 4:8–6:18; 7:12–26).</p>
+              <div className="mt-4 bg-white border rounded-lg p-5">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Language of the Jews across the Ages</h3>
+                <ul className="text-gray-700 text-sm space-y-2">
+                  <li>• <strong>Patriarchal Era (Abraham, c. 2000–1500 BC)</strong>: Northwest Semitic dialects in Canaan; ancestral speech preceding biblical Hebrew.</li>
+                  <li>• <strong>Biblical Hebrew (c. 1000–100 BC)</strong>: Canaanite branch of Northwest Semitic; primary language of Israel’s Scriptures and worship.</li>
+                  <li>• <strong>Aramaic (Post‑Exilic, c. 600–100 BC and later)</strong>: Becomes common spoken language; used in administration, daily life, and some Scripture passages.</li>
+                  <li>• <strong>Greek (Hellenistic/Roman, c. 300 BC – AD 100)</strong>: Koine Greek as regional lingua franca; Septuagint used widely by diaspora Jews and the early Church.</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Hebrew to Aramaic: Targum Tradition and the Peshitta */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">From Hebrew to Aramaic: Targumim and Early Aramaic Usage</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-amber-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-amber-800 mb-3">Why Aramaic?</h3>
+                  <p className="text-amber-700">
+                    After the Babylonian Exile, <strong>Aramaic</strong> became a common spoken language among Jews across the
+                    Near East. In synagogues, Scripture read in Hebrew was often <strong>rendered orally into Aramaic</strong>
+                    so the people could understand—this practice gave rise to the <strong>Targum</strong> tradition.
+                  </p>
+                </div>
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Targumim (Aramaic Renderings)</h3>
+                  <ul className="text-blue-700 space-y-2">
+                    <li>• <strong>Targum Onkelos</strong> (Pentateuch): A careful Aramaic rendering used widely in synagogues.</li>
+                    <li>• <strong>Targum Jonathan</strong> (Prophets): Aramaic rendering with explanatory paraphrase.</li>
+                    <li>• <strong>Function:</strong> Maintain Hebrew text while providing an <em>understood</em> proclamation.</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Timeline Context</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>6th–5th c. BC</strong>: Post‑Exilic period; Aramaic gains everyday use among Jews.</li>
+                    <li>• <strong>5th–1st c. BC</strong>: Oral Aramaic synagogue renderings (early Targum practice).</li>
+                    <li>• <strong>1st c. BC – 3rd c. AD</strong>: Written Targum traditions take shape and circulate.</li>
+                    <li>• <strong>2nd–5th c. AD</strong>: Syriac <em>Peshitta</em> becomes normative in Syriac Churches.</li>
+                  </ul>
+                </div>
+                <div className="bg-purple-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-purple-800 mb-3">Aramaic Within the Old Testament</h3>
+                  <ul className="text-purple-700 space-y-2">
+                    <li>• <strong>Daniel 2:4b–7:28</strong>: Court narratives and visions preserved in Aramaic.</li>
+                    <li>• <strong>Ezra 4:8–6:18; 7:12–26</strong>: Imperial correspondence and decrees in Aramaic.</li>
+                    <li>• <strong>Select Aramaic words/phrases</strong> appear elsewhere (e.g., place names, loanwords).</li>
+                    <li>• <strong>Transmission:</strong> Hebrew remained the sacred textual base; Aramaic served
+                      proclamation and administration where understood by the people.</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-6 bg-green-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-green-800 mb-3">The Syriac Peshitta (Early Christian Aramaic)</h3>
+                <p className="text-green-700">
+                  In parallel, early Christians of the Syriac tradition produced the <strong>Peshitta</strong>, an Aramaic
+                  translation of the Old Testament (from Hebrew and the Septuagint) and the New Testament. The Peshitta became
+                  the normative Bible for Syriac‑speaking Churches and reflects how Scripture moved from Hebrew/Greek into
+                  living languages for proclamation and catechesis.
+                </p>
+              </div>
+
+              <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-white p-6 rounded-lg border">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Aramaic Influence in Today’s Bible</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>Embedded Aramaic Words</strong>: <em>Abba</em> (Mk 14:36), <em>Talitha koum</em> (Mk 5:41), <em>Eloi/Eli, Eloi/Eli, lema sabachthani</em> (Mk 15:34/Mt 27:46), <em>Raca</em> (Mt 5:22), <em>Maranatha</em> (1 Cor 16:22), <em>Cephas</em> (Jn 1:42).</li>
+                    <li>• <strong>Names & Titles</strong>: Many personal/place names and titles (e.g., <em>Golgotha</em>) reflect Aramaic forms.</li>
+                    <li>• <strong>Textual Tradition</strong>: The Syriac <em>Peshitta</em> remains a significant witness in textual criticism and patristic citations.</li>
+                    <li>• <strong>Liturgy & Devotion</strong>: Eastern Churches preserve Aramaic/Syriac hymns and prayers informing translation choices and spirituality.</li>
+                  </ul>
+                </div>
+                <div className="bg-white p-6 rounded-lg border">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Time of Jesus: Language and Setting</h3>
+                  <p className="text-gray-700 mb-2">
+                    In the 1st century AD, Jesus’ everyday speech was <strong>Aramaic</strong> (Galilean dialect); He likely used
+                    <strong>Hebrew</strong> in synagogue/Scripture contexts and <strong>Greek</strong> when needed in broader society.
+                  </p>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>Gospel Echoes</strong>: Direct Aramaic quotes preserved (see above) to retain historical immediacy.</li>
+                    <li>• <strong>Historical Context</strong>: Jesus’ birth under Herod the Great (late 1st c. BC) and ministry in Roman Palestine fit a multilingual environment (Aramaic‑Hebrew‑Greek).</li>
+                    <li>• <strong>Implication for Translation</strong>: Awareness of Semitic idioms informs how sayings are rendered into modern languages.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Hebrew to Greek: The Septuagint Bridge */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">From Hebrew to Greek: The Septuagint as a Bridge</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-green-800 mb-3">Jewish Diaspora and Greek</h3>
+                  <p className="text-green-700">
+                    By the 3rd–2nd centuries BC, many Jews lived in Greek‑speaking regions. Translators produced the
+                    <strong>Septuagint (LXX)</strong>, rendering Hebrew Scriptures into Greek so diaspora communities could read
+                    and hear God’s Word in their common language.
+                  </p>
+                </div>
+                <div className="bg-purple-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-purple-800 mb-3">Influence on Early Christians</h3>
+                  <p className="text-purple-700">
+                    The New Testament frequently cites the LXX. Early Christians, evangelizing a Greek‑speaking world,
+                    relied on this translation—shaping how Scripture was proclaimed, interpreted, and translated in the Church.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-blue-800 mb-2">Timeline Highlights</h3>
+                  <ul className="text-blue-700 space-y-2">
+                    <li>• <strong>c. 250–150 BC</strong>: Core LXX books translated in Alexandria</li>
+                    <li>• <strong>1st c. AD</strong>: LXX widely used by Christians; NT quotes align with LXX often</li>
+                    <li>• <strong>4th–5th c. AD</strong>: Councils and Fathers witness to canon received in the Church</li>
+                  </ul>
+                </div>
+                <div className="bg-amber-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-amber-800 mb-2">Time of Christ</h3>
+                  <p className="text-amber-700">
+                    In Roman Palestine, <strong>Aramaic</strong> was daily speech, <strong>Hebrew</strong> used for Scripture,
+                    and <strong>Greek</strong> functioned as a common lingua franca. The LXX enabled rapid Gospel spread to
+                    Gentile audiences accustomed to Greek Scripture.
+                  </p>
+                </div>
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">Why It Matters for Translation</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• NT authors often follow LXX wording and interpretive choices</li>
+                    <li>• LXX preserves readings reflecting older Hebrew exemplars</li>
+                    <li>• Understanding LXX clarifies many OT citations in the NT</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="bg-white p-6 rounded-lg border">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">Old Testament Books Preserved/Composed in Greek</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>Wisdom (of Solomon)</strong> — composed in Greek</li>
+                    <li>• <strong>2 Maccabees</strong> — composed in Greek</li>
+                    <li>• <strong>Sirach (Ecclesiasticus)</strong> — Hebrew original; Greek translation widely preserved</li>
+                    <li>• <strong>Tobit</strong> — Hebrew/Aramaic originals; Greek versions in LXX are primary witnesses</li>
+                    <li>• <strong>Judith</strong> — likely Hebrew/Aramaic origin; preserved chiefly in Greek</li>
+                    <li>• <strong>Baruch</strong> — associated with Jeremiah; preserved in Greek tradition</li>
+                    <li>• <strong>Additions</strong>: Greek additions to <em>Esther</em> and <em>Daniel</em> (Prayer of Azariah, Song of the Three, Susanna, Bel and the Dragon)</li>
+                  </ul>
+                  <p className="text-sm text-gray-600 mt-3">Note: The Catholic canon receives these Deuterocanonical books; many are preserved chiefly in Greek within the Septuagint tradition.</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg border">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">New Testament Language</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>All 27 NT books</strong> are written in <strong>Koine Greek</strong> (with Semitic influence)</li>
+                    <li>• Traditional note: an early <em>Hebrew/Aramaic</em> form of Matthew is mentioned by some Fathers; canonical text is Greek</li>
+                    <li>• Aramaic sayings of Jesus are preserved within the Greek Gospels (e.g., <em>Talitha koum</em>)</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         )}
