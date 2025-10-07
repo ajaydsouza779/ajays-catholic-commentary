@@ -856,54 +856,9 @@ export default function BibleOriginPage() {
                     <li><strong>Major codices</strong>: Sinaiticus, Vaticanus (4th c.) preserve large parts of OT (LXX) and NT.</li>
                   </ul>
                 </div>
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-green-800 mb-3">Illumination, Binding, and Durability</h3>
-                  <ul className="text-green-700 space-y-2 list-disc list-inside">
-                    <li><strong>Illumination</strong>: Decorative initials, gold leaf, and artwork highlighted sacred text and feast readings.</li>
-                    <li><strong>Bindings</strong>: Wooden boards, leather covers, clasps kept pages flat and protected.</li>
-                    <li><strong>Durability</strong>: Parchment codices outlast papyrus; many medieval Bibles survive due to these methods.</li>
-                  </ul>
-                </div>
+                
               </div>
-              <div className="mt-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="text-gray-900 font-medium">c. 2000–1200 BC (Patriarchal/Ancient Near East)</div>
-                    <div className="text-gray-700 text-sm">Read and write medium: Stone, clay tablets; early inscriptions</div>
-                    <div className="text-gray-600 text-xs mt-1">Content: Ten Commandment tablets; covenant steles; ancestral narratives later preserved in Hebrew</div>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="text-gray-900 font-medium">c. 1200–600 BC (Israelite/Monarchy)</div>
-                    <div className="text-gray-700 text-sm">Read and write medium: Papyrus scrolls (ink/quill)</div>
-                    <div className="text-gray-600 text-xs mt-1">Content: Torah cores; royal annals; early prophetic oracles; Psalms</div>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="text-gray-900 font-medium">c. 600–200 BC (Exilic & Second Temple)</div>
-                    <div className="text-gray-700 text-sm">Read and write medium: Papyrus and rising parchment; Hebrew with Aramaic sections</div>
-                    <div className="text-gray-600 text-xs mt-1">Content: Jeremiah, Ezekiel, Ezra–Nehemiah; Daniel (Heb/Aram)</div>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="text-gray-900 font-medium">c. 250–50 BC (Diaspora/Hellenistic)</div>
-                    <div className="text-gray-700 text-sm">Read and write medium: Papyrus scrolls; Greek translations (LXX)</div>
-                    <div className="text-gray-600 text-xs mt-1">Content: Septuagint translation; Deuterocanon preserved in Greek</div>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="text-gray-900 font-medium">c. AD 50–400 (Early Church)</div>
-                    <div className="text-gray-700 text-sm">Read and write medium: Parchment <strong>codices</strong> (book form)</div>
-                    <div className="text-gray-600 text-xs mt-1">Content: NT in Greek; major codices (Sinaiticus, Vaticanus)</div>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="text-gray-900 font-medium">c. AD 400–1450 (Medieval)</div>
-                    <div className="text-gray-700 text-sm">Read and write medium: Parchment codices; illuminated manuscripts</div>
-                    <div className="text-gray-600 text-xs mt-1">Content: Vulgate copies; monastic scriptoria</div>
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg md:col-span-2 lg:col-span-3">
-                    <div className="text-gray-900 font-medium">c. AD 1450–Present (Printing → Digital)</div>
-                    <div className="text-gray-700 text-sm">Read and write medium: Paper & movable‑type press → modern print → digital editions</div>
-                    <div className="text-gray-600 text-xs mt-1">Content: Gutenberg Bible; printed Catholic & vernacular editions (printing dominant c. 1500–2000); electronic Bibles, mobile apps, audio Bibles (dominant 2000s–present)</div>
-                  </div>
-                </div>
-              </div>
+              
             </div>
             
             {/* Translation Timeline */}
