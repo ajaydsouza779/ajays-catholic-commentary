@@ -811,6 +811,7 @@ export default function BibleOriginPage() {
                   </p>
                   <div className="mt-3 text-blue-700">
                     <h4 className="font-semibold mb-1">Manuscript copying (c. 2nd–15th c. AD)</h4>
+                    <p className="text-sm mb-2">As Christian communities spread, the Scriptures were <strong>hand‑copied repeatedly</strong> to supply parishes, monasteries, scholars, and missionaries—so the same books could be read, taught, and proclaimed across regions and centuries.</p>
                     <ul className="text-sm space-y-1 list-disc list-inside">
                       <li><strong>Scroll → Codex shift</strong> (c. 1st–4th c. AD): Christians rapidly favored the codex (book) format.</li>
                       <li><strong>Where</strong>: Monastic <em>scriptoria</em> (e.g., Benedictine/Cistercian houses), cathedral schools, urban workshops; later, university stations.</li>
