@@ -780,18 +780,39 @@ export default function BibleOriginPage() {
                 </div>
                 <div className="bg-blue-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-blue-800 mb-3">Scribes, Monks, and Scriptoria</h3>
-                  <p className="text-blue-700">
-                    Before printing, Scripture was <strong>hand‑copied</strong> by trained scribes and religious in monastic
-                    <em>scriptoria</em>. Accuracy was paramount: line checks, margin notes, and exemplar comparison reduced errors.
-                    Many medieval Bibles and lectionaries were produced in monasteries, cathedral schools, and later universities.
-                  </p>
+                  <ul className="text-blue-700 space-y-2 list-disc list-inside">
+                    <li><strong>Where copying happened</strong>: Monastic <em>scriptoria</em>, cathedral schools, later universities.</li>
+                    <li><strong>Who copied</strong>: Trained scribes and religious who specialized in biblical hands (scripts).</li>
+                    <li><strong>How accuracy was kept</strong>: Line/column counts, exemplar comparison, and corrections noted in margins.</li>
+                    <li><strong>What got added</strong>: Headings, chapter markers, lectionary cues; later, marginal notes (e.g., Masorah in Hebrew tradition).</li>
+                    <li><strong>Why it mattered</strong>: Copying controlled errors, preserved sacred texts, and standardized public reading.</li>
+                  </ul>
+                  <div className="mt-3 text-blue-700">
+                    <h4 className="font-semibold mb-1">Copying workflow (at a glance)</h4>
+                    <ul className="text-sm space-y-1 list-disc list-inside">
+                      <li>Prepare quills/ink and rule the page for straight baselines.</li>
+                      <li>Copy from an approved exemplar; check line lengths and column totals.</li>
+                      <li>Proofread against the exemplar; mark corrections in margin or interline.</li>
+                      <li>Bind gatherings into a codex; add protective covers.</li>
+                    </ul>
+                  </div>
                 </div>
                 <div className="bg-amber-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-amber-800 mb-3">Scrolls to Codices</h3>
-                  <p className="text-amber-700">
-                    The early Church adopted the <strong>codex (book)</strong> format rapidly: easier reference, multiple works bound
-                    together, and durability. This shift aided canon lists, liturgical use, and theological study.
-                  </p>
+                  <ul className="text-amber-700 space-y-2 list-disc list-inside">
+                    <li><strong>Scroll → Codex shift</strong> (c. 1st–4th c. AD): Christians rapidly favored the codex (book) format.</li>
+                    <li><strong>Benefits</strong>: Easier navigation, bookmarking, and binding multiple books into one volume.</li>
+                    <li><strong>Impact</strong>: Helped circulate complete Testaments, canon lists, and study tools for theology and liturgy.</li>
+                    <li><strong>Major codices</strong>: Sinaiticus, Vaticanus (4th c.) preserve large parts of OT (LXX) and NT.</li>
+                  </ul>
+                </div>
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-green-800 mb-3">Illumination, Binding, and Durability</h3>
+                  <ul className="text-green-700 space-y-2 list-disc list-inside">
+                    <li><strong>Illumination</strong>: Decorative initials, gold leaf, and artwork highlighted sacred text and feast readings.</li>
+                    <li><strong>Bindings</strong>: Wooden boards, leather covers, clasps kept pages flat and protected.</li>
+                    <li><strong>Durability</strong>: Parchment codices outlast papyrus; many medieval Bibles survive due to these methods.</li>
+                  </ul>
                 </div>
               </div>
               <div className="mt-8">
