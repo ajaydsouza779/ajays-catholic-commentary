@@ -783,7 +783,7 @@ export default function BibleOriginPage() {
                     </li>
                     <li>
                       <div className="font-semibold">• Paper Manuscripts (c. AD 1200–1450)</div>
-                      <div className="text-sm">Paper spread through medieval Europe, lowering costs and boosting manuscript production—more copies for schools, parishes, and monasteries.</div>
+                      <div className="text-sm">Paper—<em>invented in China (trad. Cai Lun, c. AD 105)</em>—spread via the Islamic world into Europe by the 12th–13th centuries, lowering costs and boosting manuscript production for schools, parishes, and monasteries.</div>
                     </li>
                     <li>
                       <div className="font-semibold">• Ink & Quills (antiquity–medieval)</div>
@@ -791,7 +791,7 @@ export default function BibleOriginPage() {
                     </li>
                     <li>
                       <div className="font-semibold">• Printing Press (from c. AD 1450)</div>
-                      <div className="text-sm">Movable type standardized pages and references. Printed Bibles scaled distribution dramatically—from the Gutenberg Bible to widely available Catholic and vernacular editions.</div>
+                      <div className="text-sm">Gutenberg’s <em>movable metal type</em> (Mainz, c. 1450)—building on earlier East Asian printing—standardized pages and references. Printed Bibles scaled distribution dramatically, from the Gutenberg Bible (c. 1455) to widely available Catholic and vernacular editions.</div>
                     </li>
                     <li>
                       <div className="font-semibold">• Digital Media (from c. AD 2000)</div>
