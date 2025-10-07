@@ -537,6 +537,38 @@ export default function BibleOriginPage() {
               </div>
             </div>
 
+            {/* Hebrew to Aramaic: Targum Tradition and the Peshitta */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">From Hebrew to Aramaic: Targumim and Early Aramaic Usage</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-amber-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-amber-800 mb-3">Why Aramaic?</h3>
+                  <p className="text-amber-700">
+                    After the Babylonian Exile, <strong>Aramaic</strong> became a common spoken language among Jews across the
+                    Near East. In synagogues, Scripture read in Hebrew was often <strong>rendered orally into Aramaic</strong>
+                    so the people could understand—this practice gave rise to the <strong>Targum</strong> tradition.
+                  </p>
+                </div>
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Targumim (Aramaic Renderings)</h3>
+                  <ul className="text-blue-700 space-y-2">
+                    <li>• <strong>Targum Onkelos</strong> (Pentateuch): A careful Aramaic rendering used widely in synagogues.</li>
+                    <li>• <strong>Targum Jonathan</strong> (Prophets): Aramaic rendering with explanatory paraphrase.</li>
+                    <li>• <strong>Function:</strong> Maintain Hebrew text while providing an <em>understood</em> proclamation.</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-6 bg-green-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold text-green-800 mb-3">The Syriac Peshitta (Early Christian Aramaic)</h3>
+                <p className="text-green-700">
+                  In parallel, early Christians of the Syriac tradition produced the <strong>Peshitta</strong>, an Aramaic
+                  translation of the Old Testament (from Hebrew and the Septuagint) and the New Testament. The Peshitta became
+                  the normative Bible for Syriac‑speaking Churches and reflects how Scripture moved from Hebrew/Greek into
+                  living languages for proclamation and catechesis.
+                </p>
+              </div>
+            </div>
+
             {/* Hebrew to Greek: The Septuagint Bridge */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">From Hebrew to Greek: The Septuagint as a Bridge</h2>
@@ -972,9 +1004,9 @@ export default function BibleOriginPage() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        )}
+                      </div>
+                        </div>
+                      )}
 
         {activeTab === 'magisterium' && (
           <div className="space-y-8">
