@@ -39,6 +39,7 @@
 #### Phase 4 - Bible History (COMPLETED ✅)
 - **Comprehensive Bible History** - Origin and development of the Bible
 - **Canon Formation** - Hebrew Canon vs Septuagint, New Testament usage, Saint Jerome's Vulgate
+- **Book Origins & Timeline (NEW Planned Sub‑Tab)** - Per‑book origin notes and chronology placed beside Canon Formation and before Translation History
 - **Translation History** - Complete timeline from Vulgate to modern versions
 - **Magisterium & Interpretation** - Church authority in biblical interpretation
 - **Translation Challenges** - Real examples of translation errors and doctrinal impacts
@@ -317,9 +318,9 @@ npx tsx scripts/seed-database.ts
 
 ---
 
-**Last Updated**: December 2024  
-**Current Phase**: Issue Resolution & Testing  
-**Next Milestone**: All Tests Passing
+**Last Updated**: October 2025  
+**Current Phase**: Content/UI refinements  
+**Next Milestone**: Expand Church History Tree; plan Movements/Revelations/Devotions tabs
 
 ## UI-First Working Agreement (Session Expectations)
 - Focus order: Homepage UI first, then other pages.
@@ -541,6 +542,7 @@ npx tsx scripts/seed-database.ts
 3. **Then**: Revelations Tab (Public/Private distinction)
 4. **Then**: Devotions Tab (Holy Mass, Rosary, etc.)
 5. **Then**: Reason with Science Tab (Catholic discoveries, Church-science relationship)
+6. **Planned**: Bible History – Book Origins & Timeline sub‑tab (between Canon and Translation)
 6. **Optional**: Dedicated Holy Mass Tab (if needed)
 7. **Optional**: Admin control features for tab visibility (lowest priority)
 

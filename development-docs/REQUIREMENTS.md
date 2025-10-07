@@ -1,3 +1,8 @@
+- Bible History – Language & Origins: refine “How Scripture Was Transmitted” with:
+  - “Copy of the Copies” expanded (hand‑copying context; Where/Who/How clarified)
+  - “Modifications during copying” elaborated; dates emphasized; numbering aids box
+  - Merged “Scrolls to Codices” key line into Copy section (no extra card)
+  - Reader‑friendly wording for Old/New Testament labels
 # Ajay's Catholic Commentary - Requirements Document
 
 ## Project Overview
