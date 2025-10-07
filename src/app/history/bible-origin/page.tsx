@@ -805,7 +805,12 @@ export default function BibleOriginPage() {
                   </ul>
                 </div>
                 <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Scribes, Monks, and Scriptoria</h3>
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Copy of the Copies (Scribes, Monks, and Scriptoria)</h3>
+                  <p className="text-blue-700 text-sm mb-2">
+                    The <strong>original autographs</strong> of biblical books no longer exist. What we have are
+                    <strong> thousands of manuscript copies</strong> across centuries and regions. Scholars compare these
+                    witnesses ("textual criticism") to reconstruct the earliest attainable text with high confidence.
+                  </p>
                   <ul className="text-blue-700 space-y-2 list-disc list-inside">
                     <li><strong>Where copying happened</strong>: Monastic <em>scriptoria</em>, cathedral schools, later universities.</li>
                     <li><strong>Who copied</strong>: Trained scribes and religious who specialized in biblical hands (scripts).</li>
@@ -822,6 +827,22 @@ export default function BibleOriginPage() {
                       <li>Bind gatherings into a codex; add protective covers.</li>
                     </ul>
                   </div>
+                  <div className="mt-3 text-blue-700">
+                    <h4 className="font-semibold mb-1">Chapters and verses (when added)</h4>
+                    <ul className="text-sm space-y-1 list-disc list-inside">
+                      <li><strong>Chapters</strong>: Commonly attributed to <em>Stephen Langton</em>, c. AD 1200 (Latin manuscripts).</li>
+                      <li><strong>OT verses</strong>: Ancient Hebrew tradition formalized by the <em>Masoretes</em> (c. AD 600–1000).</li>
+                      <li><strong>NT verses</strong>: Modern numbering by <em>Robert Estienne (Stephanus)</em>, AD 1551 (Greek/Latin editions).</li>
+                    </ul>
+                  </div>
+                  <p className="mt-3 text-blue-700 text-sm">
+                    After the printing press, biblical texts were <strong>standardized into printed editions</strong>
+                    (e.g., Sixto‑Clementine Vulgate; critical Greek editions). Today’s <strong>translations</strong> differ in
+                    style and philosophy (formal vs. dynamic) but draw on converging critical texts. See also
+                    <a className="underline ml-1" href="https://www.vatican.va/archive/ENG0839/_INDEX.HTM" target="_blank" rel="noreferrer">CCC §§105–108</a>
+                    <span> and </span>
+                    <a className="underline" href="https://www.britannica.com/topic/textual-criticism" target="_blank" rel="noreferrer">overview of textual criticism</a>.
+                  </p>
                 </div>
                 <div className="bg-amber-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-amber-800 mb-3">Scrolls to Codices</h3>
