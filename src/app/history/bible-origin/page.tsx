@@ -814,9 +814,9 @@ export default function BibleOriginPage() {
                     <p className="text-sm mb-2">As Christian communities spread, the Scriptures were <strong>hand‑copied repeatedly</strong> to supply parishes, monasteries, scholars, and missionaries—so the same books could be read, taught, and proclaimed across regions and centuries.</p>
                     <ul className="text-sm space-y-1 list-disc list-inside">
                       <li><strong>Scroll → Codex shift</strong> (c. 1st–4th c. AD): Christians rapidly favored the codex (book) format.</li>
-                      <li><strong>Where</strong>: Monastic <em>scriptoria</em> (e.g., Benedictine/Cistercian houses), cathedral schools, urban workshops; later, university stations.</li>
-                      <li><strong>Who</strong>: Ordained clergy (priests/monks), trained lay scribes, students/seminarians; in the Hebrew tradition, expert <em>soferim</em> operating under rabbinic norms (Masoretic line).</li>
-                      <li><strong>How</strong>: Copying from an exemplar, <em>stichometry</em> (line/column counts), aloud collation, marginal <em>corrigenda</em>, and master‑copy checks to limit drift.</li>
+                      <li><strong>Where (hand‑copying)</strong>: Monastic <em>scriptoria</em> (e.g., Benedictine/Cistercian houses), cathedral schools, urban workshops; later, university stations.</li>
+                      <li><strong>Who (hand‑copying)</strong>: Ordained clergy (priests/monks), trained lay scribes, students/seminarians; in the Hebrew tradition, expert <em>soferim</em> operating under rabbinic norms (Masoretic line).</li>
+                      <li><strong>How (hand‑copying)</strong>: Copying from an exemplar, <em>stichometry</em> (line/column counts), aloud collation, marginal <em>corrigenda</em>, and master‑copy checks to limit drift.</li>
                       <li><strong>Added Helps</strong>: Headings, lectionary cues; Masoretic notes preserved Hebrew reading traditions.</li>
                     </ul>
                   </div>
