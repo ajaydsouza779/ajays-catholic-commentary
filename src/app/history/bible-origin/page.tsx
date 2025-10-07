@@ -818,20 +818,7 @@ export default function BibleOriginPage() {
                       <li><strong>Helps</strong>: Headings, lectionary cues; Masoretic notes preserved Hebrew reading traditions.</li>
                     </ul>
                   </div>
-                  <div className="mt-3 text-blue-700">
-                    <h4 className="font-semibold mb-1">Modifications during copying</h4>
-                    <ul className="text-sm space-y-1 list-disc list-inside">
-                      <li><strong>Headings & section titles</strong> — gradually in late antiquity–medieval period to aid public reading.</li>
-                      <li><strong>Lectionary cues</strong> — medieval rubrics marking readings for feasts and Sundays.</li>
-                      <li><strong>Marginal notes/glosses</strong> — explanatory comments by scribes and scholars; the <em>Glossa Ordinaria</em> (12th c.) compiled standard commentary around the biblical text.</li>
-                      <li><strong>Masoretic notes</strong> — c. AD 600–1000; Hebrew consonantal text annotated with vowel points, accents, and notes preserving traditional reading.</li>
-                      <li><strong>Chapters</strong> — c. AD 1200; Stephen Langton’s chapter divisions spread in Latin Bibles and later translations.</li>
-                      <li><strong>OT verse divisions</strong> — c. AD 600–1000; formalized by Masoretes in Hebrew manuscripts.</li>
-                      <li><strong>NT verse numbers</strong> — AD 1551; Robert Estienne (Stephanus) added modern verse numbering in Greek/Latin printed editions.</li>
-                      <li><strong>Cross‑references & apparatus</strong> — 16th–20th c.; printers and editors added cross‑refs, footnotes, maps; 19th–20th c. critical editions included textual apparatus for variant readings.</li>
-                      <li><strong>Punctuation & spacing</strong> — evolved from scriptio continua (no spaces) in antiquity to spaced words and standardized punctuation in medieval/early modern periods.</li>
-                    </ul>
-                  </div>
+                  
                   <div className="mt-3 text-blue-700">
                     <h4 className="font-semibold mb-1">From hand‑copied to print to digital</h4>
                     <ul className="text-sm space-y-1 list-disc list-inside">
@@ -847,6 +834,22 @@ export default function BibleOriginPage() {
                     <a className="underline" href="https://www.britannica.com/topic/textual-criticism" target="_blank" rel="noreferrer">overview of textual criticism</a>.
                   </p>
                 </div>
+                {/* Modifications moved out of blue panel to standalone card */}
+                <div className="bg-white rounded-lg shadow-lg p-8">
+                  <h2 className="text-2xl font-bold text-gray-800 mb-3">Modifications during copying</h2>
+                  <ul className="text-gray-700 text-sm space-y-1 list-disc list-inside">
+                    <li><strong>Headings & section titles</strong> — gradually in late antiquity–medieval period to aid public reading.</li>
+                    <li><strong>Lectionary cues</strong> — medieval rubrics marking readings for feasts and Sundays.</li>
+                    <li><strong>Marginal notes/glosses</strong> — explanatory comments by scribes and scholars; the <em>Glossa Ordinaria</em> (12th c.) compiled standard commentary around the biblical text.</li>
+                    <li><strong>Masoretic notes</strong> — c. AD 600–1000; Hebrew consonantal text annotated with vowel points, accents, and notes preserving traditional reading.</li>
+                    <li><strong>Chapters</strong> — c. AD 1200; Stephen Langton’s chapter divisions spread in Latin Bibles and later translations.</li>
+                    <li><strong>OT verse divisions</strong> — c. AD 600–1000; formalized by Masoretes in Hebrew manuscripts.</li>
+                    <li><strong>NT verse numbers</strong> — AD 1551; Robert Estienne (Stephanus) added modern verse numbering in Greek/Latin printed editions.</li>
+                    <li><strong>Cross‑references & apparatus</strong> — 16th–20th c.; printers and editors added cross‑refs, footnotes, maps; 19th–20th c. critical editions included textual apparatus for variant readings.</li>
+                    <li><strong>Punctuation & spacing</strong> — evolved from scriptio continua (no spaces) in antiquity to spaced words and standardized punctuation in medieval/early modern periods.</li>
+                  </ul>
+                </div>
+
                 <div className="bg-amber-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-amber-800 mb-3">Scrolls to Codices</h3>
                   <ul className="text-amber-700 space-y-2 list-disc list-inside">
