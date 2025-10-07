@@ -835,9 +835,10 @@ export default function BibleOriginPage() {
                   </p>
                 </div>
                 {/* Modifications moved out of blue panel to standalone card */}
-                <div className="bg-white rounded-lg shadow-lg p-8">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-3">Modifications during copying</h2>
-                  <ul className="text-gray-700 text-sm space-y-1 list-disc list-inside">
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Modifications during copying</h3>
+                  <p className="text-blue-700 text-sm mb-2">As scribes copied Scripture for public reading and study, helpful features were introduced to improve clarity, proclamation, and navigation.</p>
+                  <ul className="text-blue-700 text-sm space-y-1 list-disc list-inside">
                     <li><strong>Headings & section titles</strong> — gradually in late antiquity–medieval period to aid public reading.</li>
                     <li><strong>Lectionary cues</strong> — medieval rubrics marking readings for feasts and Sundays.</li>
                     <li><strong>Marginal notes/glosses</strong> — explanatory comments by scribes and scholars; the <em>Glossa Ordinaria</em> (12th c.) compiled standard commentary around the biblical text.</li>
