@@ -813,10 +813,10 @@ export default function BibleOriginPage() {
                     <h4 className="font-semibold mb-1">Manuscript copying (c. 2nd–15th c. AD)</h4>
                     <ul className="text-sm space-y-1 list-disc list-inside">
                       <li><strong>Scroll → Codex shift</strong> (c. 1st–4th c. AD): Christians rapidly favored the codex (book) format.</li>
-                      <li><strong>Where</strong>: Monastic <em>scriptoria</em>, cathedral schools, later universities.</li>
-                      <li><strong>Who</strong>: Ordained clergy (priests/monks), lay scribes, students/seminarians; in the Hebrew tradition, trained <em>soferim</em> (scribes) under rabbinic oversight.</li>
-                      <li><strong>How</strong>: Exemplar comparison, line/column counting, marginal correction notes.</li>
-                      <li><strong>Helps</strong>: Headings, lectionary cues; Masoretic notes preserved Hebrew reading traditions.</li>
+                      <li><strong>Where</strong>: Monastic <em>scriptoria</em> (e.g., Benedictine/Cistercian houses), cathedral schools, urban workshops; later, university stations.</li>
+                      <li><strong>Who</strong>: Ordained clergy (priests/monks), trained lay scribes, students/seminarians; in the Hebrew tradition, expert <em>soferim</em> operating under rabbinic norms (Masoretic line).</li>
+                      <li><strong>How</strong>: Copying from an exemplar, <em>stichometry</em> (line/column counts), aloud collation, marginal <em>corrigenda</em>, and master‑copy checks to limit drift.</li>
+                      <li><strong>Added Helps</strong>: Headings, lectionary cues; Masoretic notes preserved Hebrew reading traditions.</li>
                     </ul>
                   </div>
                   
