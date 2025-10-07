@@ -768,14 +768,35 @@ export default function BibleOriginPage() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">Materials and Media</h3>
-                  <ul className="text-gray-700 space-y-2">
-                    <li>• <strong>Stone & Clay (c. 2000–1200 BC)</strong>: Early inscriptions and covenant records</li>
-                    <li>• <strong>Papyrus Scrolls (c. 1200–200 BC)</strong>: Pressed reeds; primary for OT/Second Temple writings</li>
-                    <li>• <strong>Parchment/Vellum (c. 400 BC – AD 1500)</strong>: Durable skins; enabled bound <em>codices</em> (book form)</li>
-                    <li>• <strong>Paper Manuscripts (c. AD 1200–1450)</strong>: Late medieval Europe; wider availability and copying</li>
-                    <li>• <strong>Ink & Quills (antiquity–medieval)</strong>: Carbon/iron‑gall inks with reed/quill pens for manuscripts</li>
-                    <li>• <strong>Printing Press (from c. AD 1450)</strong>: Movable type; standardized, scalable printed Bibles</li>
-                    <li>• <strong>Digital Media (from c. AD 2000)</strong>: E‑Bibles, mobile apps, audio Bibles, searchable editions</li>
+                  <ul className="text-gray-700 space-y-3">
+                    <li>
+                      <div className="font-semibold">• Stone & Clay (c. 2000–1200 BC)</div>
+                      <div className="text-sm">Early inscriptions and covenant records were inscribed on stone or clay tablets. Think treaty steles and law codes—durable media that preserved sacred words for public reading.</div>
+                    </li>
+                    <li>
+                      <div className="font-semibold">• Papyrus Scrolls (c. 1200–200 BC)</div>
+                      <div className="text-sm">Sheets of pressed reeds glued into long rolls. Most early biblical books were copied on papyrus; scrolls were read column by column in synagogues and assemblies.</div>
+                    </li>
+                    <li>
+                      <div className="font-semibold">• Parchment/Vellum (c. 400 BC – AD 1500)</div>
+                      <div className="text-sm">Prepared animal skins offered strength and longevity. This enabled the move from scrolls to bound <em>codices</em> (books), combining many writings in one durable volume.</div>
+                    </li>
+                    <li>
+                      <div className="font-semibold">• Paper Manuscripts (c. AD 1200–1450)</div>
+                      <div className="text-sm">Paper spread through medieval Europe, lowering costs and boosting manuscript production—more copies for schools, parishes, and monasteries.</div>
+                    </li>
+                    <li>
+                      <div className="font-semibold">• Ink & Quills (antiquity–medieval)</div>
+                      <div className="text-sm">Carbon and iron‑gall inks with reed/quill pens. Scribes ruled lines, counted columns, and proofread against exemplars to keep the text faithful.</div>
+                    </li>
+                    <li>
+                      <div className="font-semibold">• Printing Press (from c. AD 1450)</div>
+                      <div className="text-sm">Movable type standardized pages and references. Printed Bibles scaled distribution dramatically—from the Gutenberg Bible to widely available Catholic and vernacular editions.</div>
+                    </li>
+                    <li>
+                      <div className="font-semibold">• Digital Media (from c. AD 2000)</div>
+                      <div className="text-sm">E‑Bibles, mobile apps, and audio editions made Scripture searchable, portable, and globally accessible—while print remains vital for liturgy, study, and preservation.</div>
+                    </li>
                   </ul>
                 </div>
                 <div className="bg-blue-50 p-6 rounded-lg">
