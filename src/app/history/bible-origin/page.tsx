@@ -537,6 +537,42 @@ export default function BibleOriginPage() {
               </div>
             </div>
 
+            {/* Hebrew Scriptures: Language and Media */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Hebrew Scriptures: Language and Media</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Which Books Were in Hebrew?</h3>
+                  <p className="text-gray-700 mb-2">The Old Testament (Catholic OT = 46 books) was written <strong>primarily in Hebrew</strong>.</p>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>Torah (Pentateuch)</strong>: Genesis–Deuteronomy</li>
+                    <li>• <strong>Prophets</strong>: Joshua, Judges, Samuel, Kings, Isaiah, Jeremiah, Ezekiel, the Twelve</li>
+                    <li>• <strong>Writings</strong>: Psalms, Proverbs, Job, Ruth, Song, Ecclesiastes, Lamentations, Esther (Hebrew base with additions), Daniel (Hebrew + Aramaic), Ezra–Nehemiah, Chronicles</li>
+                    <li>• <strong>Deuterocanonical</strong> (received in the Church; Greek or Hebrew/Hebrew-lost traditions): Tobit, Judith, Wisdom, Sirach, Baruch, 1–2 Maccabees, additions to Esther/Daniel</li>
+                  </ul>
+                </div>
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Media: From Papyrus Scrolls to Parchment</h3>
+                  <ul className="text-blue-700 space-y-2">
+                    <li>• <strong>Papyrus Scrolls</strong>: Early/mediterranean use; joined sheets; columns of script</li>
+                    <li>• <strong>Parchment/Vellum</strong>: Durable skins; later scrolls and <strong>codices</strong> (book form)</li>
+                    <li>• <strong>Scripts</strong>: Paleo‑Hebrew (early), square Aramaic script (later Hebrew script)</li>
+                    <li>• <strong>Vowels/Accents</strong>: Added by Masoretes (c. 6th–10th c. AD) preserving pronunciation</li>
+                  </ul>
+                </div>
+                <div className="bg-amber-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-amber-800 mb-3">Key Witnesses</h3>
+                  <ul className="text-amber-800 space-y-2">
+                    <li>• <strong>Dead Sea Scrolls</strong> (3rd c. BC–1st c. AD): Earliest Hebrew/Aramaic OT manuscripts</li>
+                    <li>• <strong>Masoretic Text</strong> (medieval): Standard Hebrew tradition used in many editions</li>
+                    <li>• <strong>Septuagint (LXX)</strong>: Greek translation reflecting earlier Hebrew exemplars</li>
+                    <li>• <strong>Major Codices</strong>: Aleppo, Leningrad (Hebrew); Vaticanus, Sinaiticus (Greek LXX/NT)</li>
+                  </ul>
+                </div>
+              </div>
+              <p className="mt-6 text-sm text-gray-600">Note: The New Testament was composed in <strong>Koine Greek</strong> (with Semitic influence), while the Old Testament was primarily Hebrew with notable <strong>Aramaic</strong> passages (Daniel 2:4b–7:28; Ezra 4:8–6:18; 7:12–26).</p>
+            </div>
+
             {/* Hebrew to Aramaic: Targum Tradition and the Peshitta */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">From Hebrew to Aramaic: Targumim and Early Aramaic Usage</h2>
