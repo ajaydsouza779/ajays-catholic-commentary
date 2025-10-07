@@ -792,7 +792,7 @@ export default function BibleOriginPage() {
                     <li>
                       <div className="font-semibold">• Printing Press (from c. AD 1450)</div>
                       <div className="text-sm">
-                        <div className="mb-1">The first movable‑type printer was invented by Johannes Gutenberg and was used to produce the Gutenberg Bible.</div>
+                        <div className="mb-1">The first movable‑type printer was invented by Johannes Gutenberg in Mainz, Germany, around AD 1450, and was used to produce the first printed Bible Gutenberg Bible (c. 1455).</div>
                         <div><strong>Why it mattered</strong>: Movable metal type standardized pages and references and made large‑scale, affordable Scripture printing possible (Catholic and vernacular editions).</div>
                       </div>
                     </li>
