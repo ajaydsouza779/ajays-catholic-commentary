@@ -567,6 +567,92 @@ export default function BibleOriginPage() {
               </div>
             </div>
 
+            {/* Printing Revolution - Detailed History */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Printing Revolution (1450–1600 AD)</h2>
+              <div className="space-y-6">
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Gutenberg and the Birth of Mass Scripture</h3>
+                  <p className="text-blue-700 mb-3">
+                    Johannes Gutenberg’s movable-type printing press (c. 1450) transformed the production of books. The 42‑line
+                    Gutenberg Bible (1455) demonstrated that Scripture could be reproduced with unprecedented accuracy and scale,
+                    reducing copying errors common in the manuscript era and dramatically lowering costs over time.
+                  </p>
+                  <ul className="text-blue-700 space-y-2">
+                    <li>• <strong>Standardization:</strong> Printed editions stabilized text traditions and page layout.</li>
+                    <li>• <strong>Accessibility:</strong> Gradual cost reduction expanded Scripture access beyond monasteries.</li>
+                    <li>• <strong>Diffusion of Learning:</strong> Facilitated biblical scholarship, concordances, and commentaries.</li>
+                  </ul>
+                </div>
+
+                <div className="bg-amber-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-amber-800 mb-3">The Church’s Role and Caution</h3>
+                  <p className="text-amber-700 mb-4">
+                    The Catholic Church supported printed liturgical and biblical texts but exercised prudent oversight to
+                    safeguard doctrinal integrity. Printing magnified the risk of rapidly spreading errors or polemics;
+                    ecclesial approval (imprimatur, nihil obstat) emerged to ensure faithful editions for catechesis and worship.
+                  </p>
+                  <ul className="text-amber-800 space-y-2">
+                    <li>• <strong>Authorized Editions:</strong> Promotion of vetted Latin Vulgate and approved vernaculars.</li>
+                    <li>• <strong>Errata Control:</strong> Review structures to catch typographic and doctrinal errors.</li>
+                    <li>• <strong>Pastoral Aim:</strong> Encourage reading within the Church’s living Tradition and liturgy.</li>
+                  </ul>
+                </div>
+
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-green-800 mb-3">Reconciliation and Outcomes</h3>
+                  <p className="text-green-700">
+                    Over the 16th century, printing matured into a partner of the Church’s mission: approved Bibles, catechisms,
+                    and missals spread widely; universities and seminaries leveraged print for biblical languages and exegesis.
+                    The Church’s prudence helped unite fidelity to Revelation with the benefits of mass literacy and scholarship.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Vernacular Translations - Detailed History */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Vernacular Translations (1500–1800 AD)</h2>
+              <div className="space-y-6">
+                <div className="bg-purple-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-purple-800 mb-3">From Latin to the Languages of the People</h3>
+                  <p className="text-purple-700 mb-3">
+                    As literacy grew, demand for Scripture in local languages accelerated. Catholic territories produced
+                    approved vernaculars (e.g., <em>Douay‑Rheims</em> 1582/1609‑10) while also maintaining the Vulgate’s
+                    normative role in theology and liturgy. The aim: faithful renderings guided by Tradition and sound exegesis.
+                  </p>
+                  <ul className="text-purple-700 space-y-2">
+                    <li>• <strong>Scholarship:</strong> Development of Hebrew/Greek studies informed translation quality.</li>
+                    <li>• <strong>Catechesis:</strong> Vernaculars used alongside catechisms to prevent misinterpretation.</li>
+                    <li>• <strong>Unity of Faith:</strong> Vernacular use was encouraged within the Church’s interpretive authority.</li>
+                  </ul>
+                </div>
+
+                <div className="bg-red-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-red-800 mb-3">Why the Church Was Cautious</h3>
+                  <p className="text-red-700 mb-4">
+                    Isolated readings detached from Tradition risk doctrinal confusion. The Church’s caution focused on ensuring
+                    accurate texts, notes, and contexts—especially amid polemical editions that omitted the Deuterocanon or
+                    introduced tendentious commentary. Guidance sought to protect unity of faith and morals.
+                  </p>
+                  <ul className="text-red-800 space-y-2">
+                    <li>• <strong>Textual Integrity:</strong> Avoiding omissions/alterations (e.g., deuterocanonical books).</li>
+                    <li>• <strong>Doctrinal Notes:</strong> Providing reliable annotations to prevent misreadings.</li>
+                    <li>• <strong>Pastoral Oversight:</strong> Ensuring editions serve evangelization and holiness.</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Long‑Term Reconciliation</h3>
+                  <p className="text-gray-700">
+                    By the 17th–18th centuries, approved vernacular Bibles became common in Catholic lands. The Church paired them
+                    with catechesis, homilies, and sacramental life—integrating personal reading with the communal, liturgical
+                    proclamation of the Word, in continuity with apostolic faith.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Catholic vs Protestant Translation Approaches */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Catholic vs Protestant Translation Approaches</h2>
@@ -692,10 +778,116 @@ export default function BibleOriginPage() {
                     <p className="text-blue-600 text-sm"><strong>Examples:</strong> NIV, NLT, Good News Bible</p>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Recent Archaeological Discoveries */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Recent Archaeological Discoveries and Their Impact on Translation</h2>
+              <div className="space-y-6">
+                <div className="bg-amber-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-amber-800 mb-3">The Dead Sea Scrolls (1947-1956)</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-amber-800 mb-2">Discovery Story</h4>
+                      <p className="text-amber-700 mb-3">
+                        In 1947, a Bedouin shepherd named Muhammed edh-Dhib discovered the first scrolls in caves near Qumran, 
+                        on the northwest shore of the Dead Sea. Over the next decade, archaeologists found approximately 900 
+                        manuscripts in 11 caves, dating from 250 BC to 68 AD.
+                      </p>
+                      <div className="bg-white p-4 rounded-lg">
+                        <p className="text-amber-600 text-sm">
+                          <strong>Key Finding:</strong> The scrolls included the oldest known copies of Hebrew Bible books, 
+                          some 1,000 years older than the previously oldest manuscripts (Masoretic Text).
+                        </p>
                       </div>
-                      </div>
-                        </div>
-                      )}
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-amber-800 mb-2">Impact on Translation</h4>
+                      <ul className="text-amber-700 space-y-2">
+                        <li>• <strong>Textual Accuracy:</strong> Confirmed the remarkable accuracy of the Masoretic Text tradition</li>
+                        <li>• <strong>Septuagint Validation:</strong> Showed that many Septuagint readings were based on older Hebrew texts</li>
+                        <li>• <strong>Canon Development:</strong> Revealed which books were considered authoritative in the 1st century BC</li>
+                        <li>• <strong>Translation Methods:</strong> Provided insights into how ancient translators worked</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-green-800 mb-3">Other Significant Discoveries</h3>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-2">Codex Sinaiticus (1844)</h4>
+                      <p className="text-green-700 mb-2">
+                        Discovered by Constantin von Tischendorf at St. Catherine's Monastery in Sinai. This 4th-century 
+                        Greek manuscript contains the complete New Testament and most of the Old Testament.
+                      </p>
+                      <p className="text-green-600 text-sm">
+                        <strong>Impact:</strong> Provided the oldest complete New Testament text, influencing modern translations.
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-2">Codex Vaticanus (15th century discovery)</h4>
+                      <p className="text-green-700 mb-2">
+                        A 4th-century Greek manuscript held in the Vatican Library, containing most of the Bible in Greek.
+                      </p>
+                      <p className="text-green-600 text-sm">
+                        <strong>Impact:</strong> One of the most important witnesses to the original text, used in critical editions.
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-2">Oxyrhynchus Papyri (1897-1907)</h4>
+                      <p className="text-green-700 mb-2">
+                        Thousands of papyrus fragments discovered in Egypt, including early New Testament texts from the 2nd-3rd centuries.
+                      </p>
+                      <p className="text-green-600 text-sm">
+                        <strong>Impact:</strong> Provided the earliest known fragments of New Testament books, confirming early circulation.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">How These Discoveries Improved Modern Translations</h3>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-blue-700 font-medium">Textual Criticism</p>
+                      <p className="text-blue-600 text-sm">
+                        Scholars can now compare thousands of manuscripts to determine the most likely original text, 
+                        leading to more accurate translations.
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-blue-700 font-medium">Historical Context</p>
+                      <p className="text-blue-600 text-sm">
+                        Understanding the historical and cultural context of biblical texts helps translators 
+                        convey the original meaning more accurately.
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-blue-700 font-medium">Canon Development</p>
+                      <p className="text-blue-600 text-sm">
+                        Archaeological evidence supports the Catholic Church's traditional understanding of 
+                        which books belong in the biblical canon.
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-blue-700 font-medium">Translation Philosophy</p>
+                      <p className="text-blue-600 text-sm">
+                        Modern translators can make more informed decisions about when to use formal vs. 
+                        dynamic equivalence based on manuscript evidence.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {activeTab === 'magisterium' && (
           <div className="space-y-8">
