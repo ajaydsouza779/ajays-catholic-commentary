@@ -373,7 +373,7 @@ export default function BibleOriginPage() {
                     <li>• Many New Testament quotations match the Septuagint text exactly</li>
                     <li>• The Septuagint was considered inspired Scripture by early Christians</li>
                   </ul>
-                </div>
+                      </div>
                 
                 <div className="bg-blue-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-blue-800 mb-3">Examples of Septuagint Usage</h3>
@@ -381,11 +381,11 @@ export default function BibleOriginPage() {
                     <div>
                       <p className="text-blue-700 font-medium">Matthew 1:23 (Isaiah 7:14)</p>
                       <p className="text-blue-600 text-sm">"Behold, a virgin shall conceive" - uses Greek "parthenos" (virgin) from Septuagint</p>
-                    </div>
+                      </div>
                     <div>
                       <p className="text-blue-700 font-medium">Acts 2:17-21 (Joel 2:28-32)</p>
                       <p className="text-blue-600 text-sm">Peter's Pentecost sermon quotes directly from the Septuagint</p>
-                    </div>
+                        </div>
                     <div>
                       <p className="text-blue-700 font-medium">Hebrews 1:6 (Deuteronomy 32:43)</p>
                       <p className="text-blue-600 text-sm">Quote appears only in the Septuagint, not in Hebrew Masoretic text</p>
@@ -418,8 +418,8 @@ export default function BibleOriginPage() {
                         <li>• Included Deuterocanonical books from Septuagint</li>
                         <li>• Created a unified Latin Bible for the Western Church</li>
                       </ul>
-                    </div>
                   </div>
+              </div>
                 </div>
                 
                 <div className="bg-gray-50 p-6 rounded-lg">
@@ -537,9 +537,9 @@ export default function BibleOriginPage() {
               </div>
             </div>
 
-            {/* Hebrew Scriptures: Language and Media */}
+            {/* Hebrew Scriptures */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Hebrew Scriptures: Language and Media</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Hebrew Scriptures</h2>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">Which Books Were in Hebrew?</h3>
@@ -596,6 +596,15 @@ export default function BibleOriginPage() {
                 </div>
               </div>
               <p className="mt-6 text-sm text-gray-600">Note: The New Testament was composed in <strong>Koine Greek</strong> (with Semitic influence), while the Old Testament was primarily Hebrew with notable <strong>Aramaic</strong> passages (Daniel 2:4b–7:28; Ezra 4:8–6:18; 7:12–26).</p>
+              <div className="mt-4 bg-white border rounded-lg p-5">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Language of the Jews across the Ages (Brief)</h3>
+                <ul className="text-gray-700 text-sm space-y-2">
+                  <li>• <strong>Patriarchal Era (Abraham, c. 2nd millennium BC)</strong>: Northwest Semitic dialects in Canaan; ancestral speech preceding biblical Hebrew.</li>
+                  <li>• <strong>Biblical Hebrew (c. 1st millennium BC)</strong>: Canaanite branch of Northwest Semitic; primary language of Israel’s Scriptures and worship.</li>
+                  <li>• <strong>Aramaic (Post‑Exilic, 6th c. BC onward)</strong>: Becomes common spoken language; used in administration, daily life, and some Scripture passages.</li>
+                  <li>• <strong>Greek (Hellenistic/Roman Eras)</strong>: Koine Greek as regional lingua franca; Septuagint used widely by diaspora Jews and the early Church.</li>
+                </ul>
+              </div>
             </div>
 
             {/* Hebrew to Aramaic: Targum Tradition and the Peshitta */}
@@ -749,7 +758,7 @@ export default function BibleOriginPage() {
             {/* Translation Timeline */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Translation Timeline: From Vulgate to Modern Versions</h2>
-              <div className="space-y-6">
+          <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                     <BookOpen className="w-6 h-6 text-purple-600" />
@@ -1040,8 +1049,8 @@ export default function BibleOriginPage() {
                     <p className="text-purple-600 text-sm"><strong>Pros:</strong> Maintains original meaning, preserves theological terms</p>
                     <p className="text-purple-600 text-sm"><strong>Cons:</strong> Can be difficult to read, may lose clarity</p>
                     <p className="text-purple-600 text-sm"><strong>Examples:</strong> NASB, ESV, Douay-Rheims</p>
-                  </div>
-                </div>
+                      </div>
+                      </div>
                 <div className="bg-blue-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-blue-800 mb-3">Dynamic Equivalence</h3>
                   <p className="text-blue-700 mb-3">
@@ -1051,8 +1060,8 @@ export default function BibleOriginPage() {
                     <p className="text-blue-600 text-sm"><strong>Pros:</strong> Easier to read, clearer meaning</p>
                     <p className="text-blue-600 text-sm"><strong>Cons:</strong> May lose nuances, more interpretive</p>
                     <p className="text-blue-600 text-sm"><strong>Examples:</strong> NIV, NLT, Good News Bible</p>
-                  </div>
-                </div>
+                        </div>
+                    </div>
               </div>
             </div>
 
@@ -1181,7 +1190,7 @@ export default function BibleOriginPage() {
                     <div>
                       <p className="text-blue-700 font-medium">Extraordinary Magisterium</p>
                       <p className="text-blue-600 text-sm">Solemn definitions by Pope or Ecumenical Councils (infallible)</p>
-                    </div>
+                  </div>
                     <div>
                       <p className="text-blue-700 font-medium">Ordinary Magisterium</p>
                       <p className="text-blue-600 text-sm">Regular teaching of bishops in communion with Pope</p>
