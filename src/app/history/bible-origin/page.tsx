@@ -101,6 +101,36 @@ export default function BibleOriginPage() {
           </p>
         </div>
 
+          {/* Language of the Jews across the Ages (Independent) */}
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">Language of the Jews across the Ages</h2>
+            <ul className="text-gray-700 text-sm space-y-2">
+              <li>• <strong>Patriarchal Era (Abraham, c. 2000–1500 BC)</strong>: Northwest Semitic dialects in Canaan; ancestral speech preceding biblical Hebrew.</li>
+              <li>• <strong>Biblical Hebrew (c. 1000–100 BC)</strong>: Canaanite branch of Northwest Semitic; primary language of Israel’s Scriptures and worship.</li>
+              <li>• <strong>Aramaic (Post‑Exilic, c. 600–100 BC and later)</strong>: Common spoken language; used in administration, daily life, and some Scripture passages.</li>
+              <li>• <strong>Greek (Hellenistic/Roman, c. 300 BC – AD 100)</strong>: Koine Greek as lingua franca; Septuagint used widely by diaspora Jews and the early Church.</li>
+            </ul>
+          </div>
+
+          {/* Canon Closure and Public Revelation */}
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">Canon Closed and Public Revelation</h2>
+            <div className="space-y-3 text-gray-700 text-sm">
+              <p>
+                By the <strong>late 4th–early 5th century</strong>, the Catholic Church definitively received and proclaimed the
+                same scriptural canon the Church uses today. Key witnesses include the <strong>Synod of Rome (382)</strong>,
+                <strong> Councils of Hippo (393)</strong> and <strong>Carthage (397, 419)</strong>, and papal affirmations (e.g.,
+                <strong> Pope Innocent I</strong>). This canonical reception reflects the Church’s <strong>teaching authority</strong>
+                (Magisterium) to safeguard and attest the books inspired by God.
+              </p>
+              <p>
+                Catholic teaching also holds that <strong>Public Revelation</strong>—God’s self‑revelation for our salvation—
+                is <strong>complete in Christ and the Apostolic age</strong>. Therefore, no new books are added to Scripture, and
+                later private revelations, even when approved, do not belong to the deposit of faith nor alter the biblical canon.
+              </p>
+              <p className="text-gray-600">References: Denzinger–Hünermann (Decrees), Council of Trent (1546) reaffirmation; Catechism of the Catholic Church §§66–67, 120.</p>
+            </div>
+          </div>
         {/* Tabs */}
         <div className="flex justify-center mb-8">
           <div className="bg-white rounded-lg shadow-lg p-1">
@@ -575,15 +605,6 @@ export default function BibleOriginPage() {
                 </div>
               </div>
               <p className="mt-6 text-sm text-gray-600">Note: The New Testament was composed in <strong>Koine Greek</strong> (with Semitic influence), while the Old Testament was primarily Hebrew with notable <strong>Aramaic</strong> passages (Daniel 2:4b–7:28; Ezra 4:8–6:18; 7:12–26).</p>
-              <div className="mt-4 bg-white border rounded-lg p-5">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Language of the Jews across the Ages</h3>
-                <ul className="text-gray-700 text-sm space-y-2">
-                  <li>• <strong>Patriarchal Era (Abraham, c. 2000–1500 BC)</strong>: Northwest Semitic dialects in Canaan; ancestral speech preceding biblical Hebrew.</li>
-                  <li>• <strong>Biblical Hebrew (c. 1000–100 BC)</strong>: Canaanite branch of Northwest Semitic; primary language of Israel’s Scriptures and worship.</li>
-                  <li>• <strong>Aramaic (Post‑Exilic, c. 600–100 BC and later)</strong>: Becomes common spoken language; used in administration, daily life, and some Scripture passages.</li>
-                  <li>• <strong>Greek (Hellenistic/Roman, c. 300 BC – AD 100)</strong>: Koine Greek as regional lingua franca; Septuagint used widely by diaspora Jews and the early Church.</li>
-                </ul>
-              </div>
             </div>
 
             {/* Hebrew to Aramaic: Targum Tradition and the Peshitta */}
