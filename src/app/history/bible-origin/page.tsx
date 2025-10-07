@@ -740,7 +740,7 @@ export default function BibleOriginPage() {
           <div className="space-y-8">
             {/* Foundations: How Scripture Was Transmitted */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">From Stone to Scroll to Book: How Scripture Was Transmitted</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">How Scripture Was Transmitted: From Oral → Stone → Scroll → Book → Printed Book → E‑Book/Audio Book</h2>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">Materials and Media</h3>
@@ -769,42 +769,41 @@ export default function BibleOriginPage() {
                 </div>
               </div>
               <div className="mt-8">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Era → Medium → Examples</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="text-gray-900 font-medium">c. 2000–1200 BC (Patriarchal/Ancient Near East)</div>
-                    <div className="text-gray-700 text-sm">Medium: Stone, clay tablets; early inscriptions</div>
-                    <div className="text-gray-600 text-xs mt-1">Examples: Covenant steles; ancestral narratives later preserved in Hebrew</div>
+                    <div className="text-gray-700 text-sm">Read and write medium: Stone, clay tablets; early inscriptions</div>
+                    <div className="text-gray-600 text-xs mt-1">Texts of Bible: Ten Commandment tablets; covenant steles; ancestral narratives later preserved in Hebrew</div>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="text-gray-900 font-medium">c. 1200–600 BC (Israelite/Monarchy)</div>
-                    <div className="text-gray-700 text-sm">Medium: Papyrus scrolls (ink/quill)</div>
-                    <div className="text-gray-600 text-xs mt-1">Examples: Torah cores; royal annals; early prophetic oracles; Psalms</div>
+                    <div className="text-gray-700 text-sm">Read and write medium: Papyrus scrolls (ink/quill)</div>
+                    <div className="text-gray-600 text-xs mt-1">Texts of Bible: Torah cores; royal annals; early prophetic oracles; Psalms</div>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="text-gray-900 font-medium">c. 600–200 BC (Exilic & Second Temple)</div>
-                    <div className="text-gray-700 text-sm">Medium: Papyrus and rising parchment; Hebrew with Aramaic sections</div>
-                    <div className="text-gray-600 text-xs mt-1">Examples: Jeremiah, Ezekiel, Ezra–Nehemiah; Daniel (Heb/Aram)</div>
+                    <div className="text-gray-700 text-sm">Read and write medium: Papyrus and rising parchment; Hebrew with Aramaic sections</div>
+                    <div className="text-gray-600 text-xs mt-1">Texts of Bible: Jeremiah, Ezekiel, Ezra–Nehemiah; Daniel (Heb/Aram)</div>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="text-gray-900 font-medium">c. 250–50 BC (Diaspora/Hellenistic)</div>
-                    <div className="text-gray-700 text-sm">Medium: Papyrus scrolls; Greek translations (LXX)</div>
-                    <div className="text-gray-600 text-xs mt-1">Examples: Septuagint translation; Deuterocanon preserved in Greek</div>
+                    <div className="text-gray-700 text-sm">Read and write medium: Papyrus scrolls; Greek translations (LXX)</div>
+                    <div className="text-gray-600 text-xs mt-1">Texts of Bible: Septuagint translation; Deuterocanon preserved in Greek</div>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="text-gray-900 font-medium">c. AD 50–400 (Early Church)</div>
-                    <div className="text-gray-700 text-sm">Medium: Parchment <strong>codices</strong> (book form)</div>
-                    <div className="text-gray-600 text-xs mt-1">Examples: NT in Greek; major codices (Sinaiticus, Vaticanus)</div>
+                    <div className="text-gray-700 text-sm">Read and write medium: Parchment <strong>codices</strong> (book form)</div>
+                    <div className="text-gray-600 text-xs mt-1">Texts of Bible: NT in Greek; major codices (Sinaiticus, Vaticanus)</div>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <div className="text-gray-900 font-medium">c. AD 400–1450 (Medieval)</div>
-                    <div className="text-gray-700 text-sm">Medium: Parchment codices; illuminated manuscripts</div>
-                    <div className="text-gray-600 text-xs mt-1">Examples: Vulgate copies; monastic scriptoria</div>
+                    <div className="text-gray-700 text-sm">Read and write medium: Parchment codices; illuminated manuscripts</div>
+                    <div className="text-gray-600 text-xs mt-1">Texts of Bible: Vulgate copies; monastic scriptoria</div>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-lg md:col-span-2 lg:col-span-3">
                     <div className="text-gray-900 font-medium">c. AD 1450–Present (Printing → Digital)</div>
-                    <div className="text-gray-700 text-sm">Medium: Paper & movable‑type press → modern print & digital editions</div>
-                    <div className="text-gray-600 text-xs mt-1">Examples: Gutenberg Bible; Catholic & vernacular editions; critical texts; electronic Bibles</div>
+                    <div className="text-gray-700 text-sm">Read and write medium: Paper & movable‑type press → modern print → digital editions</div>
+                    <div className="text-gray-600 text-xs mt-1">Texts of Bible: Gutenberg Bible; printed Catholic & vernacular editions (printing dominant c. 1500–2000); electronic Bibles, mobile apps, audio Bibles (dominant 2000s–present)</div>
                   </div>
                 </div>
               </div>
