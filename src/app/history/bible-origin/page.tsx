@@ -839,17 +839,18 @@ export default function BibleOriginPage() {
                 {/* Modifications moved out of panel to standalone card (match Scrolls to Codices styling) */}
                 <div className="bg-amber-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-amber-800 mb-3">Modifications during copying</h3>
-                  <p className="text-amber-700 text-sm mb-2">As scribes copied Scripture for public reading and study, helpful features were introduced to improve clarity, proclamation, and navigation.</p>
+                  <p className="text-amber-700 text-sm mb-2">These features were <strong>added centuries later</strong> to help people read, navigate, and study Scripture. They are <strong>not part of the original inspired wording</strong> of the biblical authors.</p>
                   <ul className="text-amber-700 text-sm space-y-1 list-disc list-inside">
-                    <li><strong>Headings & section titles</strong> — gradually in late antiquity–medieval period to aid public reading.</li>
-                    <li><strong>Lectionary cues</strong> — medieval rubrics marking readings for feasts and Sundays.</li>
-                    <li><strong>Marginal notes/glosses</strong> — explanatory comments by scribes and scholars; the <em>Glossa Ordinaria</em> (12th c.) compiled standard commentary around the biblical text.</li>
-                    <li><strong>Masoretic notes</strong> — c. AD 600–1000; Hebrew consonantal text annotated with vowel points, accents, and notes preserving traditional reading.</li>
-                    <li><strong>Chapters (not in originals)</strong> — c. AD 1200; Stephen Langton’s scheme spread in Latin Bibles and later translations as a navigation aid.</li>
-                    <li><strong>OT verse divisions (later standardization)</strong> — c. AD 600–1000; Masoretes formalized verse divisions in Hebrew; early manuscripts lacked this numbering.</li>
-                    <li><strong>NT verse numbers (added in print era)</strong> — AD 1551; Robert Estienne (Stephanus) introduced modern verse numbering in Greek/Latin printed editions.</li>
-                    <li><strong>Cross‑references & apparatus</strong> — 16th–20th c.; printers and editors added cross‑refs, footnotes, maps; 19th–20th c. critical editions included textual apparatus for variant readings.</li>
-                    <li><strong>Punctuation & spacing</strong> — evolved from scriptio continua (no spaces) in antiquity to spaced words and standardized punctuation in medieval/early modern periods.</li>
+                    <li><strong>Headings & section titles</strong> — c. 4th–13th c. AD; brief titles introduced for public reading and teaching, later standardized by printers.</li>
+                    <li><strong>Lectionary cues (rubrics)</strong> — c. 6th–13th c. AD; marks indicating readings for Sundays/feasts to guide liturgical proclamation.</li>
+                    <li><strong>Marginal notes & glosses</strong> — c. 9th–12th c. AD; explanatory comments by scholars and scribes; the <em>Glossa Ordinaria</em> (12th c.) arranged standard commentary around the text.</li>
+                    <li><strong>Masoretic notes (Hebrew tradition)</strong> — c. AD 600–1000; vowel points, accents, and notes added to the Hebrew consonantal text to preserve traditional reading.</li>
+                    <li><strong>Chapters (not in originals)</strong> — c. AD 1200; Stephen Langton’s chapter scheme spread in Latin Bibles and later translations as a navigation aid.</li>
+                    <li><strong>Old Testament verse divisions (later standardization)</strong> — c. AD 600–1000; Masoretes formalized verse divisions in Hebrew; earlier manuscripts lacked this numbering.</li>
+                    <li><strong>New Testament verse numbers (added in print era)</strong> — AD 1551; Robert Estienne (Stephanus) introduced modern verse numbering in Greek/Latin printed editions.</li>
+                    <li><strong>Cross‑references</strong> — from 16th c.; printers/editors linked parallel passages to aid study and teaching.</li>
+                    <li><strong>Footnotes & study helps</strong> — 16th–20th c.; doctrinal notes, translation choices, maps, and introductions expanded; 19th–20th c. critical editions added detailed textual apparatus of variant readings.</li>
+                    <li><strong>Punctuation & spacing</strong> — evolved from <em>scriptio continua</em> (no spaces) to spaced words and standardized punctuation across medieval/early modern periods.</li>
                   </ul>
                 </div>
 
