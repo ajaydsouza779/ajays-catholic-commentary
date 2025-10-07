@@ -505,6 +505,59 @@ export default function BibleOriginPage() {
 
         {activeTab === 'translations' && (
           <div className="space-y-8">
+            {/* Foundations: How Scripture Was Transmitted */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">From Stone to Scroll to Book: How Scripture Was Transmitted</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Materials and Media</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>Stone & Clay (Ancient Near East)</strong>: Early inscriptions and records</li>
+                    <li>• <strong>Papyrus (Egypt, Mediterranean)</strong>: Pressed reeds; used for scrolls (OT/NT era)</li>
+                    <li>• <strong>Parchment/Vellum</strong>: Treated animal skin; durable, used for codices (book form)</li>
+                    <li>• <strong>Paper</strong>: Gradual medieval adoption in Europe; widespread by late Middle Ages</li>
+                    <li>• <strong>Ink & Quills</strong>: Carbon/iron‑gall inks, feather quills for manuscript copying</li>
+                  </ul>
+                </div>
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Scribes, Monks, and Scriptoria</h3>
+                  <p className="text-blue-700">
+                    Before printing, Scripture was <strong>hand‑copied</strong> by trained scribes and religious in monastic
+                    <em>scriptoria</em>. Accuracy was paramount: line checks, margin notes, and exemplar comparison reduced errors.
+                    Many medieval Bibles and lectionaries were produced in monasteries, cathedral schools, and later universities.
+                  </p>
+                </div>
+                <div className="bg-amber-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-amber-800 mb-3">Scrolls to Codices</h3>
+                  <p className="text-amber-700">
+                    The early Church adopted the <strong>codex (book)</strong> format rapidly: easier reference, multiple works bound
+                    together, and durability. This shift aided canon lists, liturgical use, and theological study.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Hebrew to Greek: The Septuagint Bridge */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">From Hebrew to Greek: The Septuagint as a Bridge</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-green-800 mb-3">Jewish Diaspora and Greek</h3>
+                  <p className="text-green-700">
+                    By the 3rd–2nd centuries BC, many Jews lived in Greek‑speaking regions. Translators produced the
+                    <strong>Septuagint (LXX)</strong>, rendering Hebrew Scriptures into Greek so diaspora communities could read
+                    and hear God’s Word in their common language.
+                  </p>
+                </div>
+                <div className="bg-purple-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-purple-800 mb-3">Influence on Early Christians</h3>
+                  <p className="text-purple-700">
+                    The New Testament frequently cites the LXX. Early Christians, evangelizing a Greek‑speaking world,
+                    relied on this translation—shaping how Scripture was proclaimed, interpreted, and translated in the Church.
+                  </p>
+                </div>
+              </div>
+            </div>
             {/* Translation Timeline */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Translation Timeline: From Vulgate to Modern Versions</h2>
@@ -572,16 +625,22 @@ export default function BibleOriginPage() {
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Printing Revolution (1450–1600 AD)</h2>
               <div className="space-y-6">
                 <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Gutenberg and the Birth of Mass Scripture</h3>
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Before Printing: Hand‑Written Bibles</h3>
                   <p className="text-blue-700 mb-3">
-                    Johannes Gutenberg’s movable-type printing press (c. 1450) transformed the production of books. The 42‑line
-                    Gutenberg Bible (1455) demonstrated that Scripture could be reproduced with unprecedented accuracy and scale,
-                    reducing copying errors common in the manuscript era and dramatically lowering costs over time.
+                    Prior to printing, most Bibles and lectionaries were <strong>hand‑copied</strong> by clerics and monks in
+                    seminaries and monasteries. Materials evolved from papyrus scrolls to parchment/vellum codices; paper and
+                    durable inks improved availability by the late Middle Ages, but each copy remained labor‑intensive.
+                  </p>
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3 mt-4">Gutenberg and the First Printed Bible</h3>
+                  <p className="text-blue-700 mb-3">
+                    Around 1450, <strong>Johannes Gutenberg</strong> introduced movable‑type printing in Mainz. The 42‑line
+                    <strong>Gutenberg Bible (c.1455)</strong> proved Scripture could be reproduced consistently and at scale,
+                    dramatically reducing scribal errors and costs over time.
                   </p>
                   <ul className="text-blue-700 space-y-2">
-                    <li>• <strong>Standardization:</strong> Printed editions stabilized text traditions and page layout.</li>
-                    <li>• <strong>Accessibility:</strong> Gradual cost reduction expanded Scripture access beyond monasteries.</li>
-                    <li>• <strong>Diffusion of Learning:</strong> Facilitated biblical scholarship, concordances, and commentaries.</li>
+                    <li>• <strong>Standardization:</strong> Stabilized text, pagination, and reference systems.</li>
+                    <li>• <strong>Accessibility:</strong> Gradually expanded access beyond monastic libraries.</li>
+                    <li>• <strong>Scholarship:</strong> Enabled concordances, grammars, and commentaries to flourish.</li>
                   </ul>
                 </div>
 
@@ -599,6 +658,20 @@ export default function BibleOriginPage() {
                   </ul>
                 </div>
 
+                <div className="bg-red-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-red-800 mb-3">Controversies and the Protestant Factor</h3>
+                  <p className="text-red-700 mb-3">
+                    Printing also accelerated <strong>polemical editions</strong> and unauthorized translations. Some reformers
+                    used the press to promote novel doctrines, remove the Deuterocanon, or add partisan notes—prompting the
+                    Church’s caution. At the same time, printing helped legitimate Catholic editions reach more faithful.
+                  </p>
+                  <ul className="text-red-800 space-y-2">
+                    <li>• <strong>Rapid Diffusion:</strong> Ideas—good or erroneous—spread faster than ever.</li>
+                    <li>• <strong>Response:</strong> Catholic publishers produced approved Bibles and catechisms for clarity.</li>
+                    <li>• <strong>Outcome:</strong> Over time, print became a powerful ally of sound catechesis and mission.</li>
+                  </ul>
+                </div>
+
                 <div className="bg-green-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-green-800 mb-3">Reconciliation and Outcomes</h3>
                   <p className="text-green-700">
@@ -610,7 +683,7 @@ export default function BibleOriginPage() {
               </div>
             </div>
 
-            {/* Vernacular Translations - Detailed History */}
+            {/* Vernacular Translations - Detailed History */
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Vernacular Translations (1500–1800 AD)</h2>
               <div className="space-y-6">
@@ -640,6 +713,20 @@ export default function BibleOriginPage() {
                     <li>• <strong>Doctrinal Notes:</strong> Providing reliable annotations to prevent misreadings.</li>
                     <li>• <strong>Pastoral Oversight:</strong> Ensuring editions serve evangelization and holiness.</li>
                   </ul>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Key Milestones and Protestant/Catholic Paths</h3>
+                  <ul className="text-blue-700 space-y-2">
+                    <li>• <strong>Luther (1522)</strong>: German NT; later OT; relegated Deuterocanon ("Apocrypha").</li>
+                    <li>• <strong>Tyndale (1526)</strong>: Early English NT; influenced KJV; faced opposition for unauthorized editions.</li>
+                    <li>• <strong>Douay‑Rheims (1582/1609‑10)</strong>: Catholic English translation from the Vulgate with notes.</li>
+                    <li>• <strong>King James Version (1611)</strong>: Royally sponsored English translation (initially with Apocrypha section).</li>
+                  </ul>
+                  <p className="text-blue-700 mt-2">
+                    In Catholic life, vernaculars were increasingly used for <em>devotion and catechesis</em>, while the Vulgate
+                    remained the liturgical and doctrinal norm—later complemented by approved critical editions and modern Catholic translations.
+                  </p>
                 </div>
 
                 <div className="bg-gray-50 p-6 rounded-lg">
