@@ -515,6 +515,78 @@ export default function BibleOriginPage() {
 
         {activeTab === 'origins' && (
           <div className="space-y-8">
+            {/* Foundations: How Scripture Was Transmitted */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">From Stone to Scroll to Book: How Scripture Was Transmitted</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Materials and Media</h3>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>• <strong>Stone & Clay (Ancient Near East)</strong>: Early inscriptions and records</li>
+                    <li>• <strong>Papyrus (Egypt, Mediterranean)</strong>: Pressed reeds; used for scrolls (OT/NT era)</li>
+                    <li>• <strong>Parchment/Vellum</strong>: Treated animal skin; durable, used for codices (book form)</li>
+                    <li>• <strong>Paper</strong>: Gradual medieval adoption in Europe; widespread by late Middle Ages</li>
+                    <li>• <strong>Ink & Quills</strong>: Carbon/iron‑gall inks, feather quills for manuscript copying</li>
+                  </ul>
+                </div>
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-blue-800 mb-3">Scribes, Monks, and Scriptoria</h3>
+                  <p className="text-blue-700">
+                    Before printing, Scripture was <strong>hand‑copied</strong> by trained scribes and religious in monastic
+                    <em>scriptoria</em>. Accuracy was paramount: line checks, margin notes, and exemplar comparison reduced errors.
+                    Many medieval Bibles and lectionaries were produced in monasteries, cathedral schools, and later universities.
+                  </p>
+                </div>
+                <div className="bg-amber-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-amber-800 mb-3">Scrolls to Codices</h3>
+                  <p className="text-amber-700">
+                    The early Church adopted the <strong>codex (book)</strong> format rapidly: easier reference, multiple works bound
+                    together, and durability. This shift aided canon lists, liturgical use, and theological study.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-8">
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">Era → Medium → Examples</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="text-gray-900 font-medium">c. 2000–1200 BC (Patriarchal/Ancient Near East)</div>
+                    <div className="text-gray-700 text-sm">Medium: Stone, clay tablets; early inscriptions</div>
+                    <div className="text-gray-600 text-xs mt-1">Examples: Covenant steles; ancestral narratives later preserved in Hebrew</div>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="text-gray-900 font-medium">c. 1200–600 BC (Israelite/Monarchy)</div>
+                    <div className="text-gray-700 text-sm">Medium: Papyrus scrolls (ink/quill)</div>
+                    <div className="text-gray-600 text-xs mt-1">Examples: Torah cores; royal annals; early prophetic oracles; Psalms</div>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="text-gray-900 font-medium">c. 600–200 BC (Exilic & Second Temple)</div>
+                    <div className="text-gray-700 text-sm">Medium: Papyrus and rising parchment; Hebrew with Aramaic sections</div>
+                    <div className="text-gray-600 text-xs mt-1">Examples: Jeremiah, Ezekiel, Ezra–Nehemiah; Daniel (Heb/Aram)</div>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="text-gray-900 font-medium">c. 250–50 BC (Diaspora/Hellenistic)</div>
+                    <div className="text-gray-700 text-sm">Medium: Papyrus scrolls; Greek translations (LXX)</div>
+                    <div className="text-gray-600 text-xs mt-1">Examples: Septuagint translation; Deuterocanon preserved in Greek</div>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="text-gray-900 font-medium">c. AD 50–400 (Early Church)</div>
+                    <div className="text-gray-700 text-sm">Medium: Parchment <strong>codices</strong> (book form)</div>
+                    <div className="text-gray-600 text-xs mt-1">Examples: NT in Greek; major codices (Sinaiticus, Vaticanus)</div>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="text-gray-900 font-medium">c. AD 400–1450 (Medieval)</div>
+                    <div className="text-gray-700 text-sm">Medium: Parchment codices; illuminated manuscripts</div>
+                    <div className="text-gray-600 text-xs mt-1">Examples: Vulgate copies; monastic scriptoria</div>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg md:col-span-2 lg:col-span-3">
+                    <div className="text-gray-900 font-medium">c. AD 1450–Present (Printing → Digital)</div>
+                    <div className="text-gray-700 text-sm">Medium: Paper & movable‑type press → modern print & digital editions</div>
+                    <div className="text-gray-600 text-xs mt-1">Examples: Gutenberg Bible; Catholic & vernacular editions; critical texts; electronic Bibles</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Hebrew Scriptures */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Hebrew Scriptures</h2>
