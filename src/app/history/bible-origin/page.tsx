@@ -683,7 +683,7 @@ export default function BibleOriginPage() {
               </div>
             </div>
 
-            {/* Vernacular Translations - Detailed History */
+            {/* Vernacular Translations - Detailed History */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Vernacular Translations (1500–1800 AD)</h2>
               <div className="space-y-6">
