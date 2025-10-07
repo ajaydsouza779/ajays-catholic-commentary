@@ -845,9 +845,9 @@ export default function BibleOriginPage() {
                     <li><strong>Lectionary cues</strong> — medieval rubrics marking readings for feasts and Sundays.</li>
                     <li><strong>Marginal notes/glosses</strong> — explanatory comments by scribes and scholars; the <em>Glossa Ordinaria</em> (12th c.) compiled standard commentary around the biblical text.</li>
                     <li><strong>Masoretic notes</strong> — c. AD 600–1000; Hebrew consonantal text annotated with vowel points, accents, and notes preserving traditional reading.</li>
-                    <li><strong>Chapters</strong> — c. AD 1200; Stephen Langton’s chapter divisions spread in Latin Bibles and later translations.</li>
-                    <li><strong>OT verse divisions</strong> — c. AD 600–1000; formalized by Masoretes in Hebrew manuscripts.</li>
-                    <li><strong>NT verse numbers</strong> — AD 1551; Robert Estienne (Stephanus) added modern verse numbering in Greek/Latin printed editions.</li>
+                    <li><strong>Chapters (not in originals)</strong> — c. AD 1200; Stephen Langton’s scheme spread in Latin Bibles and later translations as a navigation aid.</li>
+                    <li><strong>OT verse divisions (later standardization)</strong> — c. AD 600–1000; Masoretes formalized verse divisions in Hebrew; early manuscripts lacked this numbering.</li>
+                    <li><strong>NT verse numbers (added in print era)</strong> — AD 1551; Robert Estienne (Stephanus) introduced modern verse numbering in Greek/Latin printed editions.</li>
                     <li><strong>Cross‑references & apparatus</strong> — 16th–20th c.; printers and editors added cross‑refs, footnotes, maps; 19th–20th c. critical editions included textual apparatus for variant readings.</li>
                     <li><strong>Punctuation & spacing</strong> — evolved from scriptio continua (no spaces) in antiquity to spaced words and standardized punctuation in medieval/early modern periods.</li>
                   </ul>
