@@ -528,7 +528,7 @@ export default function BibleOriginPage() {
                     <li>• <strong>Paper</strong>: Gradual medieval adoption in Europe; widespread by late Middle Ages</li>
                     <li>• <strong>Ink & Quills</strong>: Carbon/iron‑gall inks, feather quills for manuscript copying</li>
                   </ul>
-                </div>
+                  </div>
                 <div className="bg-blue-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-blue-800 mb-3">Scribes, Monks, and Scriptoria</h3>
                   <p className="text-blue-700">
@@ -589,7 +589,7 @@ export default function BibleOriginPage() {
 
             {/* Hebrew Scriptures */}
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Hebrew Scriptures</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Initial Hebrew Scriptures</h2>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3">Which Books Were in Hebrew?</h3>
