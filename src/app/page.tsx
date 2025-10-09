@@ -32,10 +32,11 @@ export default function Home() {
   }, [])
 
   const tabs = [
-    { id: 'posts', label: 'Posts', icon: BookOpen, href: '/posts' },
-    { id: 'papal-timeline', label: 'Papal Timeline', icon: History, href: '/history/papal-timeline' },
-    { id: 'church-divisions', label: 'Church History', icon: Users, href: '/history/church-divisions' },
-    { id: 'bible-origin', label: 'Bible History', icon: FileText, href: '/history/bible-origin' },
+    { id: 'all-posts', label: 'All Posts', icon: BookOpen, href: '/posts' },
+    { id: 'scripture-study', label: 'Scripture Study', icon: FileText, href: '/posts?category=scripture-study' },
+    { id: 'catholic-tradition', label: 'Catholic Tradition', icon: Users, href: '/posts?category=catholic-tradition' },
+    { id: 'spiritual-life', label: 'Spiritual Life', icon: BookOpen, href: '/posts?category=spiritual-life' },
+    { id: 'history', label: 'History', icon: History, href: '/history/papal-timeline' },
   ]
 
   function handlePhotoChange(event: React.ChangeEvent<HTMLInputElement>) {

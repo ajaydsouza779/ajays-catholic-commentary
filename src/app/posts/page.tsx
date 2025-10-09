@@ -16,12 +16,24 @@ type PostListItem = {
   tags: { tag: { id: string; name: string } }[]
 }
 
-async function getPosts() {
+async function getPosts(categorySlug?: string) {
   try {
+    const whereClause: any = {
+      status: "PUBLISHED"
+    }
+    
+    if (categorySlug) {
+      whereClause.categories = {
+        some: {
+          category: {
+            slug: categorySlug
+          }
+        }
+      }
+    }
+    
     const posts = await prisma.post.findMany({
-      where: {
-        status: "PUBLISHED"
-      },
+      where: whereClause,
       include: {
         author: {
           select: {
@@ -51,17 +63,31 @@ async function getPosts() {
   }
 }
 
-export default async function PostsPage() {
-  const posts = await getPosts()
+interface PostsPageProps {
+  searchParams: { category?: string }
+}
+
+export default async function PostsPage({ searchParams }: PostsPageProps) {
+  const posts = await getPosts(searchParams.category)
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-serif text-primary-navy mb-4">
-            All Posts
+            {searchParams.category ? 
+              searchParams.category.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+              ).join(' ') : 
+              'All Posts'
+            }
           </h1>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Explore thoughtful reflections on Catholic teachings, scripture, and spiritual life.
+            {searchParams.category ? 
+              `Explore ${searchParams.category.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+              ).join(' ')} content and reflections.` :
+              'Explore thoughtful reflections on Catholic teachings, scripture, and spiritual life.'
+            }
           </p>
         </div>
 
