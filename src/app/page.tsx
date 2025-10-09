@@ -6,7 +6,7 @@ import DatabaseTestButton from "@/components/DatabaseTestButton"
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
 import { useSession } from "next-auth/react"
-import { User, Edit3 } from "lucide-react"
+import { User, Edit3, Crown } from "lucide-react"
 
 export default function Home() {
   const { data: session } = useSession()
@@ -142,7 +142,9 @@ export default function Home() {
                 <p className="text-sm text-gray-600">Catholic commentary and theological reflections</p>
               </div>
               <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
-                <div className="text-2xl mb-2">🔑</div>
+                <div className="flex justify-center mb-2">
+                  <Crown className="w-8 h-8 text-amber-600" />
+                </div>
                 <h3 className="font-semibold text-gray-800 mb-1">Papal Timeline</h3>
                 <p className="text-sm text-gray-600">History of the Chair of St. Peter</p>
               </div>
