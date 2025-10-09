@@ -851,9 +851,9 @@ export default function BibleOriginPage() {
                   <div className="mb-4 border border-amber-200 bg-amber-100/70 rounded-md p-4">
                     <h4 className="font-semibold text-amber-900 mb-2">Structural aids (added later)</h4>
                     <ul className="text-sm text-amber-900 space-y-1 list-disc list-inside">
-                      <li><strong>Chapter headers & section titles</strong> — c. 4th–13th c. AD; brief titles introduced for public reading and teaching, later standardized by printers.</li>
-                      <li><strong>Paragraph divisions</strong> — c. 4th–13th c. AD; logical breaks and indentation to improve readability and liturgical use.</li>
                       <li><strong>Punctuation & spacing</strong> — evolved from <em>scriptio continua</em> (no spaces) to spaced words and standardized punctuation across medieval/early modern periods.</li>
+                      <li><strong>Paragraph divisions</strong> — c. 4th–13th c. AD; logical breaks and indentation to improve readability and liturgical use.</li>
+                      <li><strong>Chapter headers & section titles</strong> — c. 4th–13th c. AD; brief titles introduced for public reading and teaching, later standardized by printers.</li>
                     </ul>
                   </div>
                   <ul className="text-amber-700 text-sm space-y-1 list-disc list-inside">
