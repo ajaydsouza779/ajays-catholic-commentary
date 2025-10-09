@@ -841,7 +841,7 @@ export default function BibleOriginPage() {
                   <h3 className="text-xl font-semibold text-amber-800 mb-3">Modifications during copying</h3>
                   <p className="text-amber-700 text-sm mb-3">These features were <strong>added centuries later</strong> to help people read, navigate, and study Scripture. They are <strong>not part of the original inspired wording</strong> of the biblical authors.</p>
                   <div className="mb-4 border border-amber-200 bg-amber-100/70 rounded-md p-4">
-                    <h4 className="font-semibold text-amber-900 mb-2">Numbering aids (added later)</h4>
+                    <h4 className="font-semibold text-amber-900 mb-2">Numbering aids</h4>
                     <ul className="text-sm text-amber-900 space-y-1 list-disc list-inside">
                       <li><strong>Chapter numbers</strong> — added c. AD 1200; Stephen Langton's chapter scheme spread in Latin Bibles and later translations as a navigation aid.</li>
                       <li><strong>Verse numbers in Old Testament</strong> — added c. AD 600–1000; Masoretes formalized verse divisions in Hebrew; earlier manuscripts lacked this numbering.</li>
@@ -849,7 +849,7 @@ export default function BibleOriginPage() {
                     </ul>
                   </div>
                   <div className="mb-4 border border-amber-200 bg-amber-100/70 rounded-md p-4">
-                    <h4 className="font-semibold text-amber-900 mb-2">Structural aids (added later)</h4>
+                    <h4 className="font-semibold text-amber-900 mb-2">Structural aids</h4>
                     <ul className="text-sm text-amber-900 space-y-1 list-disc list-inside">
                       <li><strong>Punctuation & spacing</strong> — evolved from <em>scriptio continua</em> (no spaces) to spaced words and standardized punctuation across medieval/early modern periods.</li>
                       <li><strong>Paragraph divisions</strong> — c. 4th–13th c. AD; logical breaks and indentation to improve readability and liturgical use.</li>
