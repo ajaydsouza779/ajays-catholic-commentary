@@ -133,27 +133,6 @@ export default function Home() {
         </div>
         )}
 
-        {/* Navigation Tabs */}
-        <div className="bg-white/90 rounded-xl shadow-lg mb-8">
-          <div className="border-b border-amber-200/60">
-            <nav className="flex flex-wrap gap-2 px-2 sm:px-6 py-2" aria-label="Tabs">
-              {tabs.map((tab) => {
-                const Icon = tab.icon
-                return (
-                  <Link
-                    key={tab.id}
-                    href={tab.href}
-                    className="inline-flex items-center gap-2 py-1.5 px-3 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-amber-50 hover:text-amber-800"
-                  >
-                    <Icon className="w-4 h-4" />
-                    {tab.label}
-                  </Link>
-                )
-              })}
-            </nav>
-          </div>
-        </div>
-
         {/* Hero Section */}
         <div className="bg-gradient-to-br from-amber-50 via-white to-amber-50 rounded-2xl shadow-lg p-8 mb-8 border border-amber-100">
           <div className="text-center max-w-4xl mx-auto">
@@ -202,6 +181,27 @@ export default function Home() {
               <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
               Coming Soon - First Reflection This Sunday
             </div>
+          </div>
+        </div>
+
+        {/* Navigation Tabs */}
+        <div className="bg-white/90 rounded-xl shadow-lg mb-8">
+          <div className="border-b border-amber-200/60">
+            <nav className="flex flex-wrap gap-2 px-2 sm:px-6 py-2" aria-label="Tabs">
+              {tabs.map((tab) => {
+                const Icon = tab.icon
+                return (
+                  <Link
+                    key={tab.id}
+                    href={tab.href}
+                    className="inline-flex items-center gap-2 py-1.5 px-3 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-amber-50 hover:text-amber-800"
+                  >
+                    <Icon className="w-4 h-4" />
+                    {tab.label}
+                  </Link>
+                )
+              })}
+            </nav>
           </div>
         </div>
       </main>
