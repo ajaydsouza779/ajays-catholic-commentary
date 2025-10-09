@@ -15,6 +15,14 @@
 - **Sunday Gospel Reflections**: Weekly posts covering Sunday Mass readings and Gospel reflections
 - **Regular Posts**: Additional Catholic commentary and theological content
 - **Content Focus**: Scripture, Church teaching, spiritual reflection, historical insights
+
+## Sunday Gospel Reflection Pattern
+Each Sunday reflection should include:
+1. **Reading Reference** - Complete liturgical readings for the day
+2. **Historical Context** - Background of the readings and their significance
+3. **Church Fathers & Saints** - Insights from traditional Catholic sources
+4. **Pope's Message** - Recent papal teachings related to the readings
+5. **Practical Takeaway** - How to implement the Gospel message in daily life
 # Ajay's Catholic Commentary - Requirements Document
 
 ## Project Overview
