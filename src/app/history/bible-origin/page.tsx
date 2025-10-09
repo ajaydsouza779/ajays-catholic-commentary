@@ -856,10 +856,15 @@ export default function BibleOriginPage() {
                       <li><strong>Chapter headers & section titles</strong> — c. 4th–13th c. AD; brief titles introduced for public reading and teaching, later standardized by printers.</li>
                     </ul>
                   </div>
+                  <div className="mb-4 border border-amber-200 bg-amber-100/70 rounded-md p-4">
+                    <h4 className="font-semibold text-amber-900 mb-2">Commentary</h4>
+                    <ul className="text-sm text-amber-900 space-y-1 list-disc list-inside">
+                      <li><strong>Marginal notes & glosses</strong> — c. 9th–12th c. AD; explanatory comments by scholars and scribes; the <em>Glossa Ordinaria</em> (12th c.) arranged standard commentary around the text.</li>
+                      <li><strong>Masoretic notes (Hebrew tradition)</strong> — c. AD 600–1000; vowel points, accents, and notes added to the Hebrew consonantal text to preserve traditional reading.</li>
+                      <li><strong>Lectionary cues (rubrics)</strong> — c. 6th–13th c. AD; marks indicating readings for Sundays/feasts to guide liturgical proclamation.</li>
+                    </ul>
+                  </div>
                   <ul className="text-amber-700 text-sm space-y-1 list-disc list-inside">
-                    <li><strong>Lectionary cues (rubrics)</strong> — c. 6th–13th c. AD; marks indicating readings for Sundays/feasts to guide liturgical proclamation.</li>
-                    <li><strong>Marginal notes & glosses</strong> — c. 9th–12th c. AD; explanatory comments by scholars and scribes; the <em>Glossa Ordinaria</em> (12th c.) arranged standard commentary around the text.</li>
-                    <li><strong>Masoretic notes (Hebrew tradition)</strong> — c. AD 600–1000; vowel points, accents, and notes added to the Hebrew consonantal text to preserve traditional reading.</li>
                     <li><strong>Maps, introductions, footnotes, cross-references and other Bible study helps</strong> — from 16th c.; 19th–20th c. critical editions added detailed textual apparatus of variant readings.</li>
                   </ul>
                 </div>
