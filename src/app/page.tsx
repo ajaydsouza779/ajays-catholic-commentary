@@ -6,7 +6,7 @@ import DatabaseTestButton from "@/components/DatabaseTestButton"
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
 import { useSession } from "next-auth/react"
-import { BookOpen, History, Users, FileText, User, Edit3 } from "lucide-react"
+import { User, Edit3 } from "lucide-react"
 
 export default function Home() {
   const { data: session } = useSession()
@@ -31,13 +31,6 @@ export default function Home() {
     fetchProfilePhoto()
   }, [])
 
-  const tabs = [
-    { id: 'all-posts', label: 'All Posts', icon: BookOpen, href: '/posts' },
-    { id: 'scripture-study', label: 'Scripture Study', icon: FileText, href: '/posts?category=scripture-study' },
-    { id: 'catholic-tradition', label: 'Catholic Tradition', icon: Users, href: '/posts?category=catholic-tradition' },
-    { id: 'spiritual-life', label: 'Spiritual Life', icon: BookOpen, href: '/posts?category=spiritual-life' },
-    { id: 'history', label: 'History', icon: History, href: '/history/papal-timeline' },
-  ]
 
   function handlePhotoChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0]
@@ -149,12 +142,12 @@ export default function Home() {
                 <p className="text-sm text-gray-600">Catholic commentary and theological reflections</p>
               </div>
               <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
-                <div className="text-2xl mb-2">👑</div>
+                <div className="text-2xl mb-2">⛪</div>
                 <h3 className="font-semibold text-gray-800 mb-1">Papal Timeline</h3>
                 <p className="text-sm text-gray-600">History of the Chair of St. Peter</p>
               </div>
               <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
-                <div className="text-2xl mb-2">⛪</div>
+                <div className="text-2xl mb-2">🌳</div>
                 <h3 className="font-semibold text-gray-800 mb-1">Church History</h3>
                 <p className="text-sm text-gray-600">Divisions and unity in Church history</p>
               </div>
@@ -184,26 +177,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Navigation Tabs */}
-        <div className="bg-white/90 rounded-xl shadow-lg mb-8">
-          <div className="border-b border-amber-200/60">
-            <nav className="flex flex-wrap gap-2 px-2 sm:px-6 py-2" aria-label="Tabs">
-              {tabs.map((tab) => {
-                const Icon = tab.icon
-                return (
-                  <Link
-                    key={tab.id}
-                    href={tab.href}
-                    className="inline-flex items-center gap-2 py-1.5 px-3 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-amber-50 hover:text-amber-800"
-                  >
-                    <Icon className="w-4 h-4" />
-                    {tab.label}
-                  </Link>
-                )
-              })}
-            </nav>
-          </div>
-        </div>
       </main>
 
       {/* Footer */}
