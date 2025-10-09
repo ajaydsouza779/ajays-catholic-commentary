@@ -6,7 +6,125 @@ import DatabaseTestButton from "@/components/DatabaseTestButton"
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
 import { useSession } from "next-auth/react"
-import { User, Edit3, Crown } from "lucide-react"
+import { User, Edit3, Crown, Calendar, ArrowRight } from "lucide-react"
+
+// Latest Posts Section Component
+async function LatestPostsSection() {
+  try {
+    const response = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3001'}/api/posts?limit=3`, {
+      cache: 'no-store'
+    })
+    
+    if (!response.ok) {
+      return (
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+          <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Latest Posts</h2>
+          <div className="text-center py-8">
+            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">📝</span>
+            </div>
+            <p className="text-gray-600">No posts available yet. Check back soon for Catholic commentary and reflections!</p>
+          </div>
+        </div>
+      )
+    }
+    
+    const posts = await response.json()
+    
+    if (posts.length === 0) {
+      return (
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+          <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Latest Posts</h2>
+          <div className="text-center py-8">
+            <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl">📝</span>
+            </div>
+            <p className="text-gray-600">No posts available yet. Check back soon for Catholic commentary and reflections!</p>
+          </div>
+        </div>
+      )
+    }
+    
+    return (
+      <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-serif font-bold text-gray-900">Latest Posts</h2>
+          <Link 
+            href="/posts" 
+            className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-medium"
+          >
+            View All Posts
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post: any) => (
+            <article key={post.id} className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow">
+              <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                <Calendar className="w-4 h-4" />
+                <time dateTime={post.publishedAt}>
+                  {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+              </div>
+              
+              <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+                <Link 
+                  href={`/posts/${post.slug}`}
+                  className="hover:text-amber-600 transition-colors"
+                >
+                  {post.title}
+                </Link>
+              </h3>
+              
+              {post.excerpt && (
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  {post.excerpt}
+                </p>
+              )}
+              
+              <div className="flex flex-wrap gap-2 mb-4">
+                {post.categories?.map((cat: any) => (
+                  <span 
+                    key={cat.id}
+                    className="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-medium rounded-full"
+                  >
+                    {cat.name}
+                  </span>
+                ))}
+              </div>
+              
+              <Link 
+                href={`/posts/${post.slug}`}
+                className="inline-flex items-center gap-1 text-amber-600 hover:text-amber-700 font-medium text-sm"
+              >
+                Read More
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+            </article>
+          ))}
+        </div>
+      </div>
+    )
+  } catch (error) {
+    console.error('Error fetching posts:', error)
+    return (
+      <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Latest Posts</h2>
+        <div className="text-center py-8">
+          <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl">📝</span>
+          </div>
+          <p className="text-gray-600">Unable to load posts. Please try again later.</p>
+        </div>
+      </div>
+    )
+  }
+}
 
 export default function Home() {
   const { data: session } = useSession()
@@ -161,6 +279,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Latest Posts Section */}
+        <LatestPostsSection />
 
         {/* Coming Soon - Sunday Reflections */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg p-8 mb-8 border border-blue-200">

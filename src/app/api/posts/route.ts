@@ -6,11 +6,6 @@ import { prisma } from "@/lib/prisma"
 export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions)
-    
-    if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
-    }
-
     const { searchParams } = new URL(request.url)
     const status = searchParams.get("status")
     const limit = parseInt(searchParams.get("limit") || "50")
@@ -19,8 +14,8 @@ export async function GET(request: NextRequest) {
     // Build where clause
     const where: { status?: "PUBLISHED" | "DRAFT" } = {}
     
-    // If user is not admin, only show published posts
-    if (session.user?.role !== "ADMIN") {
+    // If no session or user is not admin, only show published posts
+    if (!session || session.user?.role !== "ADMIN") {
       where.status = "PUBLISHED"
     } else if (status && (status === "PUBLISHED" || status === "DRAFT")) {
       where.status = status as "PUBLISHED" | "DRAFT"
@@ -63,6 +58,7 @@ export async function GET(request: NextRequest) {
       status: post.status,
       createdAt: post.createdAt,
       updatedAt: post.updatedAt,
+      publishedAt: post.publishedAt,
       author: post.author,
       categories: post.categories.map(pc => pc.category),
       tags: post.tags.map(pt => pt.tag)
