@@ -142,12 +142,12 @@ export default function Home() {
                 <p className="text-sm text-gray-600">Catholic commentary and theological reflections</p>
               </div>
               <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
-                <div className="text-2xl mb-2">⛪</div>
+                <div className="text-2xl mb-2">🔑</div>
                 <h3 className="font-semibold text-gray-800 mb-1">Papal Timeline</h3>
                 <p className="text-sm text-gray-600">History of the Chair of St. Peter</p>
               </div>
               <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
-                <div className="text-2xl mb-2">🌳</div>
+                <div className="text-2xl mb-2">⛪</div>
                 <h3 className="font-semibold text-gray-800 mb-1">Church History</h3>
                 <p className="text-sm text-gray-600">Divisions and unity in Church history</p>
               </div>
