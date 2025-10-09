@@ -71,9 +71,9 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
   const posts = await getPosts(searchParams.category)
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-serif text-primary-navy mb-4">
+          <h1 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">
             {searchParams.category ? 
               searchParams.category.split('-').map(word => 
                 word.charAt(0).toUpperCase() + word.slice(1)
@@ -81,7 +81,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
               'All Posts'
             }
           </h1>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {searchParams.category ? 
               `Explore ${searchParams.category.split('-').map(word => 
                 word.charAt(0).toUpperCase() + word.slice(1)
@@ -94,18 +94,18 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
         {posts.length === 0 ? (
           <div className="text-center py-16">
             <div className="bg-white rounded-lg shadow-md p-12 max-w-2xl mx-auto">
-              <div className="w-16 h-16 bg-primary-gold rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-primary-navy font-bold text-2xl">📖</span>
+              <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl">📖</span>
               </div>
-              <h2 className="text-2xl font-serif text-primary-navy mb-4">
+              <h2 className="text-2xl font-serif text-gray-900 mb-4">
                 Coming Soon
               </h2>
-              <p className="text-neutral-600 mb-6">
+              <p className="text-gray-600 mb-6">
                 Ajay is preparing his first Catholic commentary. Check back soon for insightful reflections on faith, scripture, and Catholic tradition.
               </p>
               <Link
                 href="/auth/signup"
-                className="inline-block bg-primary-navy text-white px-6 py-3 rounded-md font-medium hover:bg-primary-gold hover:text-primary-navy transition-colors"
+                className="inline-block bg-amber-600 text-white px-6 py-3 rounded-md font-medium hover:bg-amber-700 transition-colors"
               >
                 Get Notified
               </Link>
@@ -117,7 +117,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
               <LazyLoad key={post.id}>
                 <article data-testid="post-card" className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                   {post.featuredImage && (
-                    <div className="aspect-video bg-primary-gold">
+                    <div className="aspect-video bg-amber-100">
                       <OptimizedImage
                         src={post.featuredImage}
                         alt={post.title}
@@ -132,26 +132,26 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
                     {post.categories.map(({ category }: { category: { id: string; name: string } }) => (
                       <span
                         key={category.id}
-                        className="px-2 py-1 bg-primary-gold text-primary-navy text-xs font-medium rounded-full"
+                        className="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-medium rounded-full"
                       >
                         {category.name}
                       </span>
                     ))}
                   </div>
-                  <h2 className="text-xl font-serif text-primary-navy mb-3 line-clamp-2">
+                  <h2 className="text-xl font-serif text-gray-900 mb-3 line-clamp-2">
                     <Link
                       href={`/posts/${post.slug}`}
-                      className="hover:text-primary-gold transition-colors"
+                      className="hover:text-amber-600 transition-colors"
                     >
                       {post.title}
                     </Link>
                   </h2>
                   {post.excerpt && (
-                    <p className="text-neutral-600 mb-4 line-clamp-3">
+                    <p className="text-gray-600 mb-4 line-clamp-3">
                       {post.excerpt}
                     </p>
                   )}
-                  <div className="flex items-center justify-between text-sm text-neutral-500">
+                  <div className="flex items-center justify-between text-sm text-gray-500">
                     <span>By {post.author.name || post.author.email}</span>
                     <time dateTime={post.publishedAt?.toISOString()}>
                       {post.publishedAt && formatDate(post.publishedAt)}
@@ -162,7 +162,7 @@ export default async function PostsPage({ searchParams }: PostsPageProps) {
                       {post.tags.map(({ tag }: { tag: { id: string; name: string } }) => (
                         <span
                           key={tag.id}
-                          className="px-2 py-1 bg-neutral-100 text-neutral-600 text-xs rounded"
+                          className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded"
                         >
                           #{tag.name}
                         </span>
