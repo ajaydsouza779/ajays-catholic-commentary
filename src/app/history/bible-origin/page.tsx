@@ -859,8 +859,8 @@ export default function BibleOriginPage() {
                   <div className="mb-4 border border-amber-200 bg-amber-100/70 rounded-md p-4">
                     <h4 className="font-semibold text-amber-900 mb-2">Commentary</h4>
                     <ul className="text-sm text-amber-900 space-y-1 list-disc list-inside">
-                      <li><strong>Explanatory notes in margins</strong> — c. 9th–12th c. AD; scholars and scribes added comments in the margins to explain difficult passages; the <em>Glossa Ordinaria</em> (12th c.) arranged standard commentary around the text.</li>
                       <li><strong>Lectionary cues (rubrics)</strong> — c. 6th–13th c. AD; marks indicating readings for Sundays/feasts.</li>
+                      <li><strong>Explanatory notes in margins</strong> — c. 9th–12th c. AD; scholars and scribes added comments in the margins to explain difficult passages; the <em>Glossa Ordinaria</em> (12th c.) arranged standard commentary around the text.</li>
                       <li><strong>Maps, introductions, footnotes, cross-references and other Bible study helps</strong> — from 16th c.</li>
                     </ul>
                   </div>
