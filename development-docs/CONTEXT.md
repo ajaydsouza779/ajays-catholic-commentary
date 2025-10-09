@@ -319,8 +319,8 @@ npx tsx scripts/seed-database.ts
 ---
 
 **Last Updated**: October 2025  
-**Current Phase**: Content/UI refinements  
-**Next Milestone**: Expand Church History Tree; plan Movements/Revelations/Devotions tabs
+**Current Phase**: Homepage redesign and content strategy  
+**Next Milestone**: First Sunday Gospel reflection post; expand Church History Tree
 
 ## UI-First Working Agreement (Session Expectations)
 - Focus order: Homepage UI first, then other pages.
