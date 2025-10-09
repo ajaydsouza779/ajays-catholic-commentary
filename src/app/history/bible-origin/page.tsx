@@ -843,13 +843,19 @@ export default function BibleOriginPage() {
                   <div className="mb-4 border border-amber-200 bg-amber-100/70 rounded-md p-4">
                     <h4 className="font-semibold text-amber-900 mb-2">Numbering aids (added later)</h4>
                     <ul className="text-sm text-amber-900 space-y-1 list-disc list-inside">
-                      <li><strong>Chapter numbers in Bible</strong> — c. AD 1200; Stephen Langton’s chapter scheme spread in Latin Bibles and later translations as a navigation aid.</li>
-                      <li><strong>Old Testament verse divisions</strong> — c. AD 600–1000; Masoretes formalized verse divisions in Hebrew; earlier manuscripts lacked this numbering.</li>
-                      <li><strong>New Testament verse numbers</strong> — AD 1551; Robert Estienne (Stephanus) introduced modern verse numbering in Greek/Latin printed editions.</li>
+                      <li><strong>Chapter numbers</strong> — added c. AD 1200; Stephen Langton's chapter scheme spread in Latin Bibles and later translations as a navigation aid.</li>
+                      <li><strong>Verse numbers in Old Testament</strong> — added c. AD 600–1000; Masoretes formalized verse divisions in Hebrew; earlier manuscripts lacked this numbering.</li>
+                      <li><strong>Verse numbers in New Testament</strong> — added AD 1551; Robert Estienne (Stephanus) introduced modern verse numbering in Greek/Latin printed editions.</li>
+                    </ul>
+                  </div>
+                  <div className="mb-4 border border-amber-200 bg-amber-100/70 rounded-md p-4">
+                    <h4 className="font-semibold text-amber-900 mb-2">Structural aids (added later)</h4>
+                    <ul className="text-sm text-amber-900 space-y-1 list-disc list-inside">
+                      <li><strong>Chapter headers & section titles</strong> — c. 4th–13th c. AD; brief titles introduced for public reading and teaching, later standardized by printers.</li>
+                      <li><strong>Paragraph divisions</strong> — c. 4th–13th c. AD; logical breaks and indentation to improve readability and liturgical use.</li>
                     </ul>
                   </div>
                   <ul className="text-amber-700 text-sm space-y-1 list-disc list-inside">
-                    <li><strong>Headings & section titles</strong> — c. 4th–13th c. AD; brief titles introduced for public reading and teaching, later standardized by printers.</li>
                     <li><strong>Lectionary cues (rubrics)</strong> — c. 6th–13th c. AD; marks indicating readings for Sundays/feasts to guide liturgical proclamation.</li>
                     <li><strong>Marginal notes & glosses</strong> — c. 9th–12th c. AD; explanatory comments by scholars and scribes; the <em>Glossa Ordinaria</em> (12th c.) arranged standard commentary around the text.</li>
                     <li><strong>Masoretic notes (Hebrew tradition)</strong> — c. AD 600–1000; vowel points, accents, and notes added to the Hebrew consonantal text to preserve traditional reading.</li>
