@@ -35,7 +35,7 @@ export default function HistoryNavigation() {
           </Link>
           <div className="relative group">
             <button className={`py-4 px-1 border-b-2 transition-colors flex items-center ${
-              isActive('/history/church-divisions') || isActive('/history/church-timeline')
+              isActive('/history/church-divisions') || isActive('/history/church-timeline') || isActive('/history/church-tree')
                 ? 'border-amber-500 text-amber-600'
                 : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
             }`}>
@@ -44,7 +44,7 @@ export default function HistoryNavigation() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div className="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+            <div className="absolute left-0 mt-1 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
               <div className="py-1">
                 <Link
                   href="/history/church-divisions"
@@ -56,7 +56,8 @@ export default function HistoryNavigation() {
                 >
                   Divisions in the Church
                 </Link>
-                <Link
+                {/* TODO: Cleanup - Hidden for now */}
+                {/* <Link
                   href="/history/church-timeline"
                   className={`block px-4 py-2 text-sm transition-colors ${
                     isActive('/history/church-timeline')
@@ -65,8 +66,19 @@ export default function HistoryNavigation() {
                   }`}
                 >
                   Church Timeline
+                </Link> */}
+                <Link
+                  href="/history/church-tree"
+                  className={`block px-4 py-2 text-sm transition-colors ${
+                    isActive('/history/church-tree')
+                      ? 'bg-amber-50 text-amber-700'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Church History Tree
                 </Link>
-                <div className="border-t my-1" />
+                {/* TODO: Cleanup - Hidden for now */}
+                {/* <div className="border-t my-1" />
                 <Link
                   href="/history/experiments"
                   className={`block px-4 py-2 text-sm transition-colors ${
@@ -76,7 +88,7 @@ export default function HistoryNavigation() {
                   }`}
                 >
                   Experiments (UI Prototypes)
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

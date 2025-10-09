@@ -193,6 +193,19 @@ export default function ChurchHistoryTree() {
 
   return (
     <div className="py-8">
+      {/* Development Progress Notification */}
+      <div className="container mx-auto px-4 mb-6">
+        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></div>
+            <span className="text-amber-800 font-medium text-sm">Development in Progress</span>
+          </div>
+          <p className="text-amber-700 text-sm mt-1">
+            This Church History Tree is under active development. Content, filters, and interactions are being refined.
+          </p>
+        </div>
+      </div>
+      
       <div className="container mx-auto px-4 grid lg:grid-cols-4 gap-6">
         {/* Left Sidebar Filters */}
         <div className="bg-white rounded-lg border p-4 h-fit">
