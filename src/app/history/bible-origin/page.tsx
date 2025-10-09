@@ -859,8 +859,7 @@ export default function BibleOriginPage() {
                     <li><strong>Lectionary cues (rubrics)</strong> — c. 6th–13th c. AD; marks indicating readings for Sundays/feasts to guide liturgical proclamation.</li>
                     <li><strong>Marginal notes & glosses</strong> — c. 9th–12th c. AD; explanatory comments by scholars and scribes; the <em>Glossa Ordinaria</em> (12th c.) arranged standard commentary around the text.</li>
                     <li><strong>Masoretic notes (Hebrew tradition)</strong> — c. AD 600–1000; vowel points, accents, and notes added to the Hebrew consonantal text to preserve traditional reading.</li>
-                    <li><strong>Cross‑references</strong> — from 16th c.; printers/editors linked parallel passages to aid study and teaching.</li>
-                    <li><strong>Footnotes & study helps</strong> — 16th–20th c.; doctrinal notes, translation choices, maps, and introductions expanded; 19th–20th c. critical editions added detailed textual apparatus of variant readings.</li>
+                    <li><strong>Cross‑references & study helps</strong> — from 16th c.; printers/editors linked parallel passages, added doctrinal notes, translation choices, maps, and introductions; 19th–20th c. critical editions added detailed textual apparatus of variant readings to aid study and teaching.</li>
                     <li><strong>Punctuation & spacing</strong> — evolved from <em>scriptio continua</em> (no spaces) to spaced words and standardized punctuation across medieval/early modern periods.</li>
                   </ul>
                 </div>
