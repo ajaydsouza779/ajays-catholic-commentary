@@ -36,14 +36,19 @@ async function getPost(slug: string) {
           where: {
             status: "APPROVED"
           },
-          include: {
+          select: {
+            id: true,
+            content: true,
+            createdAt: true,
             author: {
               select: {
                 id: true,
                 name: true,
                 email: true
               }
-            }
+            },
+            guestName: true,
+            guestEmail: true
           },
           orderBy: {
             createdAt: "asc"

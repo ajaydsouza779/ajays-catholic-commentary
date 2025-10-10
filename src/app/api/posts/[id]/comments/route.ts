@@ -12,7 +12,14 @@ export async function GET(
     const comments = await prisma.comment.findMany({
       where: { postId: id, status: "APPROVED" },
       orderBy: { createdAt: "asc" },
-      include: { author: { select: { id: true, name: true, email: true } } }
+      select: {
+        id: true,
+        content: true,
+        createdAt: true,
+        author: { select: { id: true, name: true, email: true } },
+        guestName: true,
+        guestEmail: true
+      }
     })
     return NextResponse.json(comments)
   } catch (error) {
@@ -74,7 +81,13 @@ export async function POST(
       }
     })
 
-    return NextResponse.json(comment, { status: 201 })
+    // Transform the response to include guestName in the response
+    const responseComment = {
+      ...comment,
+      guestName: comment.guestName || null
+    }
+
+    return NextResponse.json(responseComment, { status: 201 })
   } catch (error) {
     console.error("Error creating comment:", error)
     return NextResponse.json(
