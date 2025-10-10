@@ -1,11 +1,153 @@
 "use client"
 
 import Header from "@/components/Header"
+import HistoryNavigation from "@/components/HistoryNavigation"
 import DatabaseTestButton from "@/components/DatabaseTestButton"
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
 import { useSession } from "next-auth/react"
-import { BookOpen, History, Users, FileText, User, Edit3 } from "lucide-react"
+import { User, Edit3, Crown, Calendar, ArrowRight } from "lucide-react"
+
+// Latest Posts Section Component
+function LatestPostsSection() {
+  const [posts, setPosts] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch('/api/posts?limit=3', {
+          cache: 'no-store'
+        })
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch posts')
+        }
+        
+        const data = await response.json()
+        setPosts(data)
+        setError(null)
+      } catch (err) {
+        console.error('Error fetching posts:', err)
+        setError('Unable to load posts. Please try again later.')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchPosts()
+  }, []) // Empty dependency array to run only once
+
+  if (loading) {
+    return (
+      <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Latest Posts</h2>
+        <div className="text-center py-8">
+          <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl">📝</span>
+          </div>
+          <p className="text-gray-600">Loading posts...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Latest Posts</h2>
+        <div className="text-center py-8">
+          <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl">📝</span>
+          </div>
+          <p className="text-gray-600">{error}</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (posts.length === 0) {
+    return (
+      <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Latest Posts</h2>
+        <div className="text-center py-8">
+          <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl">📝</span>
+          </div>
+          <p className="text-gray-600">No posts available yet. Check back soon for Catholic commentary and reflections!</p>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-2xl font-serif font-bold text-gray-900">Latest Posts</h2>
+        <Link 
+          href="/posts" 
+          className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-medium"
+        >
+          View All Posts
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </div>
+      
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post: any) => (
+          <article key={post.id} className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <Calendar className="w-4 h-4" />
+              <time dateTime={post.publishedAt}>
+                {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+            </div>
+            
+            <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+              <Link 
+                href={`/posts/${post.slug}`}
+                className="hover:text-amber-600 transition-colors"
+              >
+                {post.title}
+              </Link>
+            </h3>
+            
+            {post.excerpt && (
+              <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                {post.excerpt}
+              </p>
+            )}
+            
+            <div className="flex flex-wrap gap-2 mb-4">
+              {post.categories?.map((cat: any) => (
+                <span 
+                  key={cat.id}
+                  className="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-medium rounded-full"
+                >
+                  {cat.name}
+                </span>
+              ))}
+            </div>
+            
+            <Link 
+              href={`/posts/${post.slug}`}
+              className="inline-flex items-center gap-1 text-amber-600 hover:text-amber-700 font-medium text-sm"
+            >
+              Read More
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          </article>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
   const { data: session } = useSession()
@@ -30,12 +172,6 @@ export default function Home() {
     fetchProfilePhoto()
   }, [])
 
-  const tabs = [
-    { id: 'posts', label: 'Posts', icon: BookOpen, href: '/posts' },
-    { id: 'papal-timeline', label: 'Papal Timeline', icon: History, href: '/history/papal-timeline' },
-    { id: 'church-divisions', label: 'Church History', icon: Users, href: '/history/church-divisions' },
-    { id: 'bible-origin', label: 'Bible History', icon: FileText, href: '/history/bible-origin' },
-  ]
 
   function handlePhotoChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0]
@@ -69,6 +205,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-neutral-50">
       <Header />
+      <HistoryNavigation />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Author Section (temporarily hidden) */}
@@ -130,123 +267,62 @@ export default function Home() {
         </div>
         )}
 
-        {/* Navigation Tabs */}
-        <div className="bg-white/90 rounded-xl shadow-lg mb-8">
-          <div className="border-b border-amber-200/60">
-            <nav className="flex flex-wrap gap-2 px-2 sm:px-6 py-2" aria-label="Tabs">
-              {tabs.map((tab) => {
-                const Icon = tab.icon
-                return (
-                  <Link
-                    key={tab.id}
-                    href={tab.href}
-                    className="inline-flex items-center gap-2 py-1.5 px-3 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-amber-50 hover:text-amber-800"
-                  >
-                    <Icon className="w-4 h-4" />
-                    {tab.label}
-                  </Link>
-                )
-              })}
-            </nav>
-          </div>
-        </div>
-
-        {/* Welcome Content */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2">
-            <div className="bg-white/95 rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
-              <div className="flex items-center gap-3 mb-6">
-                <BookOpen className="w-6 h-6 text-amber-700" />
-                <h2 className="text-2xl font-serif font-bold text-gray-900">Welcome to Ajay&apos;s Catholic Commentary</h2>
+        {/* Hero Section */}
+        <div className="bg-gradient-to-br from-amber-50 via-white to-amber-50 rounded-2xl shadow-lg p-8 mb-8 border border-amber-100">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
+              Welcome to Ajay&apos;s Catholic Commentary
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              Explore the rich tapestry of Catholic faith through commentary, historical research, and spiritual reflection.
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
+                <div className="text-2xl mb-2">📝</div>
+                <h3 className="font-semibold text-gray-800 mb-1">Posts</h3>
+                <p className="text-sm text-gray-600">Catholic commentary and theological reflections</p>
               </div>
-              <div className="text-gray-600 space-y-4">
-                <p>
-                  Explore the rich tapestry of Catholic faith through commentary, historical research, and spiritual reflection. 
-                  Use the navigation tabs above to discover different aspects of our faith tradition.
-                </p>
-                <div className="grid md:grid-cols-2 gap-4 mt-6">
-                  <div className="p-4 bg-amber-50 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 mb-2">📝 Posts</h3>
-                    <p className="text-sm text-gray-600">Read insightful Catholic commentary and theological reflections.</p>
-                  </div>
-                  <div className="p-4 bg-amber-50 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 mb-2">👑 Papal Timeline</h3>
-                    <p className="text-sm text-gray-600">Explore the history of the Chair of St. Peter through interactive timelines.</p>
-                  </div>
-                  <div className="p-4 bg-amber-50 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 mb-2">⛪ Church History</h3>
-                    <p className="text-sm text-gray-600">Discover the divisions and unity in Church history through interactive trees.</p>
-                  </div>
-                  <div className="p-4 bg-amber-50 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 mb-2">📖 Bible History</h3>
-                    <p className="text-sm text-gray-600">Learn about the formation of the Bible, manuscripts, and translations.</p>
-                  </div>
+              <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
+                <div className="flex justify-center mb-2">
+                  <Crown className="w-8 h-8 text-amber-600" />
                 </div>
+                <h3 className="font-semibold text-gray-800 mb-1">Papal Timeline</h3>
+                <p className="text-sm text-gray-600">History of the Chair of St. Peter</p>
               </div>
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* About Section */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-serif font-bold text-gray-800 mb-4">About This Platform</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                This platform is dedicated to exploring Catholic faith through commentary, 
-                historical research, and spiritual reflection. Join our community of seekers 
-                and believers as we journey together in faith.
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
-              <h3 className="text-lg font-serif font-bold text-gray-800 mb-4">Quick Links</h3>
-              <div className="space-y-2">
-                <Link href="/posts" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
-                  <BookOpen className="w-4 h-4" />
-                  <span className="text-sm">All Posts</span>
-                </Link>
-                <Link href="/history/papal-timeline" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
-                  <History className="w-4 h-4" />
-                  <span className="text-sm">Papal Timeline</span>
-                </Link>
-                <Link href="/history/church-divisions" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
-                  <Users className="w-4 h-4" />
-                  <span className="text-sm">Church History</span>
-                </Link>
-                <Link href="/history/bible-origin" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
-                  <FileText className="w-4 h-4" />
-                  <span className="text-sm">Bible History</span>
-                </Link>
-                <Link href="/search" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                  <span className="text-sm">Search</span>
-                </Link>
-                <Link href="/about" className="inline-flex items-center gap-2 text-gray-600 hover:text-amber-600 transition-colors">
-                  <User className="w-4 h-4" />
-                  <span className="text-sm">About Ajay</span>
-                </Link>
+              <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
+                <div className="text-2xl mb-2">⛪</div>
+                <h3 className="font-semibold text-gray-800 mb-1">Church History</h3>
+                <p className="text-sm text-gray-600">Divisions and unity in Church history</p>
               </div>
-            </div>
-
-            {/* Newsletter Signup */}
-            <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl shadow-lg p-6 border border-amber-200">
-              <h3 className="text-lg font-serif font-bold text-gray-800 mb-2">Stay Updated</h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Get notified when new content is published.
-              </p>
-              <Link
-                href="/auth/signup"
-                className="inline-block w-full text-center bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-700 transition-colors"
-              >
-                Sign Up for Updates
-              </Link>
+              <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
+                <div className="text-2xl mb-2">📖</div>
+                <h3 className="font-semibold text-gray-800 mb-1">Bible History</h3>
+                <p className="text-sm text-gray-600">Formation, manuscripts, and translations</p>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Latest Posts Section */}
+        <LatestPostsSection />
+
+        {/* Coming Soon - Sunday Reflections */}
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg p-8 mb-8 border border-blue-200">
+          <div className="text-center">
+            <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">
+              🕊️ Sunday Gospel Reflections
+            </h2>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              Join me every Sunday as I share reflections on the Gospel readings and Sunday Mass. 
+              These weekly reflections will help deepen your understanding of Scripture and strengthen your faith.
+            </p>
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+              <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+              Coming Soon - First Reflection This Sunday
+            </div>
+          </div>
+        </div>
+
       </main>
 
       {/* Footer */}

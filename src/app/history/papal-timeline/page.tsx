@@ -80,7 +80,6 @@ export default function PapalTimelinePage() {
     const year = d.getUTCFullYear()
     const month = d.getUTCMonth()
     const day = d.getUTCDate()
-    // If this is a synthesized historical date (Jan 1), show year only
     if (day === 1 && month === 0) {
       return `${year} AD`
     }
@@ -155,35 +154,22 @@ export default function PapalTimelinePage() {
           </h1>
         </div>
 
-        {/* Papal Pipeline */}
+        {/* Papal Pipeline - single row (horizontal scroll) */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
           <h2 className="text-xl font-bold text-gray-800 mb-4">Papal Succession: From St. Peter to Today</h2>
           <div className="overflow-x-auto">
             <div className="flex items-center space-x-2 min-w-max">
-              {/* Prev page control */}
-              {pipelineStartIndex > 0 && (
-                <button
-                  aria-label="Show previous"
-                  className="flex-shrink-0 px-3 py-3 rounded-lg text-sm font-medium transition-colors bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-transparent"
-                  onClick={() => setPipelineStartIndex(Math.max(0, pipelineStartIndex - pipelinePageSize))}
-                >
-                  <span className="mr-1">«</span> Show previous
-                </button>
-              )}
-
-              {popes
-                .slice(pipelineStartIndex, pipelineStartIndex + pipelinePageSize)
-                .map((pope) => (
+              {popes.map((pope) => (
                 <button
                   key={pope.id}
                   onClick={() => setSelectedPope(pope)}
-                  className={`flex-shrink-0 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-w-[100px] max-w-[120px] ${
+                  className={`flex-shrink-0 px-3 py-3 rounded-lg text-sm font-medium transition-colors min-w-[140px] ${
                     selectedPope?.id === pope.id
                       ? 'bg-amber-100 text-amber-800 border-2 border-amber-300'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-transparent'
                   }`}
                 >
-                  <div className="text-center">
+                  <div className="text-left">
                     <div className="font-bold text-sm leading-tight break-words">{pope.regnalName}</div>
                     <div className="text-xs text-gray-500 mt-1">
                       {formatYearOnly(pope.papacyStart)}
@@ -191,17 +177,6 @@ export default function PapalTimelinePage() {
                   </div>
                 </button>
               ))}
-
-              {/* Next page control */}
-              {pipelineStartIndex + pipelinePageSize < popes.length && (
-                <button
-                  aria-label="Show more"
-                  className="flex-shrink-0 px-3 py-3 rounded-lg text-sm font-medium transition-colors bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-transparent"
-                  onClick={() => setPipelineStartIndex(Math.min(popes.length - 1, pipelineStartIndex + pipelinePageSize))}
-                >
-                  Show more <span className="ml-1">»</span>
-                </button>
-              )}
             </div>
           </div>
         </div>

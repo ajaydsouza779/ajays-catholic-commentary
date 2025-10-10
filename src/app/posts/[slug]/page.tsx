@@ -1,12 +1,12 @@
-import Header from "@/components/Header"
-import DatabaseTestButton from "@/components/DatabaseTestButton"
-import CommentForm from "./CommentForm"
+import CommentsWrapper from "@/components/CommentsWrapper"
 import Link from "next/link"
 import OptimizedImage from "@/components/OptimizedImage"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
 import DOMPurify from "isomorphic-dompurify"
 import { notFound } from "next/navigation"
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "../../api/auth/[...nextauth]/route"
 
 async function getPost(slug: string) {
   try {
@@ -39,6 +39,7 @@ async function getPost(slug: string) {
           include: {
             author: {
               select: {
+                id: true,
                 name: true,
                 email: true
               }
@@ -60,21 +61,19 @@ async function getPost(slug: string) {
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = await getPost(slug)
+  const session = await getServerSession(authOptions)
 
   if (!post) {
     notFound()
   }
 
   return (
-    <div className="min-h-screen bg-primary-cream">
-      <Header />
-      
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
         <nav className="mb-8">
           <Link
             href="/posts"
-            className="text-primary-gold hover:text-primary-navy transition-colors"
+            className="text-amber-600 hover:text-amber-700 transition-colors"
           >
             ← Back to Posts
           </Link>
@@ -83,7 +82,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <article className="bg-white rounded-lg shadow-md overflow-hidden">
           {/* Featured Image */}
           {post.featuredImage && (
-            <div className="aspect-video bg-primary-gold">
+            <div className="aspect-video bg-amber-100">
               <OptimizedImage
                 src={post.featuredImage}
                 alt={post.title}
@@ -102,7 +101,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 {post.categories.map(({ category }: { category: { id: string; name: string } }) => (
                   <span
                     key={category.id}
-                    className="px-3 py-1 bg-primary-gold text-primary-navy text-sm font-medium rounded-full"
+                    className="px-3 py-1 bg-amber-100 text-amber-800 text-sm font-medium rounded-full"
                   >
                     {category.name}
                   </span>
@@ -111,12 +110,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             )}
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl font-serif text-primary-navy mb-4">
+            <h1 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">
               {post.title}
             </h1>
 
             {/* Meta */}
-            <div className="flex items-center justify-between text-neutral-600 mb-6 pb-6 border-b border-neutral-200">
+            <div className="flex items-center justify-between text-gray-600 mb-6 pb-6 border-b border-gray-200">
               <div className="flex items-center space-x-4">
                 <span>By {post.author.name || post.author.email}</span>
                 <span>•</span>
@@ -131,20 +130,20 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             {/* Content */}
             <div 
-              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-primary-navy prose-a:text-primary-navy prose-a:no-underline hover:prose-a:underline prose-strong:text-primary-navy"
+              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-gray-900 prose-a:text-amber-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900"
               data-testid="post-content"
               dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content.replace(/<\/h1>/gi, '</h2>').replace(/<h1/gi, '<h2')) }}
             />
 
             {/* Tags */}
             {post.tags.length > 0 && (
-              <div className="mt-8 pt-6 border-t border-neutral-200">
-                <h3 className="text-sm font-medium text-neutral-700 mb-3">Tags:</h3>
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <h3 className="text-sm font-medium text-gray-700 mb-3">Tags:</h3>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map(({ tag }: { tag: { id: string; name: string } }) => (
                     <span
                       key={tag.id}
-                      className="px-3 py-1 bg-neutral-100 text-neutral-600 text-sm rounded-full"
+                      className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full"
                     >
                       #{tag.name}
                     </span>
@@ -157,86 +156,17 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
         {/* Comments Section */}
         <div className="mt-12 bg-white rounded-lg shadow-md p-8">
-          <h2 className="text-2xl font-serif text-primary-navy mb-6">
+          <h2 className="text-2xl font-serif text-gray-900 mb-6">
             Comments ({post.comments.length})
           </h2>
 
-          {post.comments.length === 0 ? (
-            <div className="text-center py-8 text-neutral-600">
-              <p>No comments yet. Be the first to share your thoughts!</p>
-            </div>
-          ) : (
-            <div className="space-y-6">
-              {post.comments.map((comment: { id: string; content: string; createdAt: Date; author: { name: string | null; email: string } }) => (
-                <div key={comment.id} className="border-b border-neutral-200 pb-6 last:border-b-0">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-8 h-8 bg-primary-gold rounded-full flex items-center justify-center">
-                      <span className="text-primary-navy font-bold text-sm">
-                        {(comment.author.name || comment.author.email).charAt(0).toUpperCase()}
-                      </span>
-                    </div>
-                    <div>
-                      <div className="font-medium text-primary-navy">
-                        {comment.author.name || comment.author.email}
-                      </div>
-                      <time className="text-sm text-neutral-500">
-                        {formatDate(comment.createdAt)}
-                      </time>
-                    </div>
-                  </div>
-                  <div className="text-neutral-700">
-                    {comment.content}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Comment Form (only visible when signed in) */}
-          <CommentForm postId={post.id} />
+          <CommentsWrapper
+            comments={post.comments}
+            isAdmin={session?.user?.role === 'ADMIN'}
+            currentUserId={session?.user?.id}
+            postId={post.id}
+          />
         </div>
-      </main>
-
-      <footer className="bg-gray-800 text-white py-12 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-serif text-xl font-bold text-amber-400 mb-4">
-                Ajay&apos;s Catholic Commentary
-              </h3>
-              <p className="text-gray-300 text-sm">
-                Sharing the beauty of Catholic faith and tradition through thoughtful commentary and historical exploration.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-amber-400 mb-4">Quick Links</h4>
-              <div className="space-y-2">
-                <Link href="/" className="block text-gray-300 hover:text-white text-sm transition-colors">Home</Link>
-                <Link href="/posts" className="block text-gray-300 hover:text-white text-sm transition-colors">All Posts</Link>
-                <Link href="/about" className="block text-gray-300 hover:text-white text-sm transition-colors">About</Link>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-semibold text-amber-400 mb-4">Coming Soon</h4>
-              <div className="space-y-2">
-                <span className="block text-gray-300 text-sm">Papal Timeline</span>
-                <span className="block text-gray-300 text-sm">Church History</span>
-                <span className="block text-gray-300 text-sm">Bible History</span>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 mt-8 pt-8">
-            <div className="flex justify-between items-center">
-              <p className="text-gray-400 text-sm">
-                © 2024 Ajay&apos;s Catholic Commentary. All rights reserved.
-              </p>
-              <div className="flex justify-end">
-                <DatabaseTestButton />
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

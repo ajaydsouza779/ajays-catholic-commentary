@@ -41,6 +41,8 @@
 - [ ] Phase 3: Divisions in the Church (Interactive Church Division Tree)
 - [ ] Phase 4: History and Origin of the Bible section
 
+> Note (Oct 2025): Bible History – Language & Origins refined. “Copy of the Copies” clarified (hand‑copying context; Where/Who/How). “Modifications during copying” elaborated with dates; numbering aids highlighted; “Scroll → Codex shift” merged into Copy section (no separate card).
+
 ## 🛠️ **Technology Stack (Confirmed & Deployed)**
 - **Frontend**: Next.js 14 with TypeScript
 - **Styling**: Tailwind CSS with Catholic-themed colors
@@ -274,7 +276,30 @@ Please:
 Project location: /Users/ajaydsouza/Documents/New-Web-001/ajays-catholic-commentary/
 ```
 
-### **Prompt 5: Post Management System**
+### **Prompt 5: Bible History – Book Origins & Timeline Sub‑Tab**
+```
+I'm continuing work on "Ajay's Catholic Commentary" – Bible History section.
+
+New requirement: Add a sub‑tab named "Book Origins & Timeline" placed beside "Canon Formation" and before "Translation History".
+
+Scope:
+- Per‑book origin: authorship traditions, approximate dates, language (Heb/Aram/Grk), audience
+- Timeline view: OT/NT books with filters (period: pre‑exilic/exilic/post‑exilic; language; tradition)
+- Source witnesses: Septuagint, Dead Sea Scrolls, major codices (Vaticanus, Sinaiticus)
+- UX: Keep existing tabs unchanged; add a new tab with cards + timeline
+
+Tasks:
+1. Create new sub‑tab route/component in Bible History page
+2. Seed or stub a structured dataset for all 73 books with fields needed above
+3. Build filterable timeline visualization (simple responsive grid or horizontal timeline)
+4. Add per‑book drawer/modal with concise origin notes and references
+5. Tests: basic render, filter behavior, and links
+
+Project location: /Users/ajaydsouza/Documents/New-Web-001/ajays-catholic-commentary/
+Local server: http://localhost:3001
+```
+
+### **Prompt 6: Post Management System**
 ```
 I'm continuing work on "Ajay's Catholic Commentary" - a Next.js blog application.
 

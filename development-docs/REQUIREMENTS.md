@@ -1,3 +1,28 @@
+- Bible History – Language & Origins: refine "How Scripture Was Transmitted" with:
+  - "Copy of the Copies" expanded (hand‑copying context; Where/Who/How clarified)
+  - "Modifications during copying" elaborated; dates emphasized; numbering aids box
+  - Merged "Scrolls to Codices" key line into Copy section (no extra card)
+  - Reader‑friendly wording for Old/New Testament labels
+
+## 🏠 Homepage Redesign (Completed)
+- **Clean Hero Section**: Large welcome message with platform overview
+- **Feature Cards**: Visual cards for Posts, Papal Timeline, Church History, Bible History
+- **Sunday Reflections**: Dedicated section highlighting weekly Gospel reflections
+- **Removed Sections**: "About This Platform", "Quick Links", "Stay Updated" (moved to future todos)
+- **Database Cleanup**: Removed example posts, ready for first real content
+
+## 📝 Content Strategy
+- **Sunday Gospel Reflections**: Weekly posts covering Sunday Mass readings and Gospel reflections
+- **Regular Posts**: Additional Catholic commentary and theological content
+- **Content Focus**: Scripture, Church teaching, spiritual reflection, historical insights
+
+## Sunday Gospel Reflection Pattern
+Each Sunday reflection should include:
+1. **Reading Reference** - Complete liturgical readings for the day
+2. **Historical Context** - Background of the readings and their significance
+3. **Church Fathers & Saints** - Insights from traditional Catholic sources
+4. **Pope's Message** - Recent papal teachings related to the readings
+5. **Practical Takeaway** - How to implement the Gospel message in daily life
 # Ajay's Catholic Commentary - Requirements Document
 
 ## Project Overview

@@ -12,7 +12,7 @@ export async function GET(
     const comments = await prisma.comment.findMany({
       where: { postId: id, status: "APPROVED" },
       orderBy: { createdAt: "asc" },
-      include: { author: { select: { name: true, email: true } } }
+      include: { author: { select: { id: true, name: true, email: true } } }
     })
     return NextResponse.json(comments)
   } catch (error) {
@@ -30,17 +30,21 @@ export async function POST(
 ) {
   try {
     const session = await getServerSession(authOptions)
-    if (!session?.user?.id) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
-    }
-
     const { id } = await params
     const body = await request.json()
-    const { content, parentId } = body
+    const { content, parentId, guestName } = body
 
     if (!content || typeof content !== "string" || content.trim().length === 0) {
       return NextResponse.json(
         { error: "Content is required" },
+        { status: 400 }
+      )
+    }
+
+    // For guest comments, require a name
+    if (!session?.user?.id && (!guestName || typeof guestName !== "string" || guestName.trim().length === 0)) {
+      return NextResponse.json(
+        { error: "Name is required for guest comments" },
         { status: 400 }
       )
     }
@@ -51,18 +55,32 @@ export async function POST(
       return NextResponse.json({ error: "Post not found" }, { status: 404 })
     }
 
+    // Create comment data based on whether user is logged in or not
+    const commentData = {
+      postId: id,
+      content: content.trim(),
+      status: "APPROVED" as const, // MVP: auto-approve; can change to PENDING later
+      ...(parentId ? { parentId } : {}),
+      // For logged-in users
+      ...(session?.user?.id ? { authorId: session.user.id } : {}),
+      // For guest users
+      ...(!session?.user?.id ? { guestName: guestName.trim() } : {})
+    }
+
     const comment = await prisma.comment.create({
-      data: {
-        postId: id,
-        authorId: session.user.id,
-        content: content.trim(),
-        status: "APPROVED", // MVP: auto-approve; can change to PENDING later
-        ...(parentId ? { parentId } : {})
-      },
-      include: { author: { select: { name: true, email: true } } }
+      data: commentData,
+      include: { 
+        author: { select: { id: true, name: true, email: true } } 
+      }
     })
 
-    return NextResponse.json(comment, { status: 201 })
+    // Transform the response to include guestName in the response
+    const responseComment = {
+      ...comment,
+      guestName: comment.guestName || null
+    }
+
+    return NextResponse.json(responseComment, { status: 201 })
   } catch (error) {
     console.error("Error creating comment:", error)
     return NextResponse.json(
