@@ -10,9 +10,11 @@ interface CommentItemProps {
     content: string
     createdAt: Date
     author: {
+      id: string
       name: string | null
       email: string
-    }
+    } | null
+    guestName: string | null
   }
   isAdmin: boolean
   isAuthor: boolean
@@ -95,12 +97,18 @@ export default function CommentItem({ comment, isAdmin, isAuthor, onDelete, onUp
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
             <span className="text-amber-800 font-bold text-sm">
-              {(comment.author.name || comment.author.email).charAt(0).toUpperCase()}
+              {comment.author 
+                ? (comment.author.name || comment.author.email).charAt(0).toUpperCase()
+                : (comment.guestName || 'G').charAt(0).toUpperCase()
+              }
             </span>
           </div>
           <div>
             <div className="font-medium text-gray-900">
-              {comment.author.name || comment.author.email}
+              {comment.author 
+                ? (comment.author.name || comment.author.email)
+                : comment.guestName
+              }
             </div>
             <time className="text-sm text-gray-500">
               {formatDate(comment.createdAt)}

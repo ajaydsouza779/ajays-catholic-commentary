@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, forwardRef, useImperativeHandle, useEffect } from 'react'
 import CommentItem from './CommentItem'
 
 interface Comment {
@@ -8,9 +8,11 @@ interface Comment {
   content: string
   createdAt: Date
   author: {
+    id: string
     name: string | null
     email: string
-  }
+  } | null
+  guestName: string | null
 }
 
 interface CommentsSectionProps {
@@ -19,8 +21,17 @@ interface CommentsSectionProps {
   currentUserId?: string
 }
 
-export default function CommentsSection({ comments, isAdmin, currentUserId }: CommentsSectionProps) {
+export interface CommentsSectionRef {
+  addComment: (newComment: Comment) => void
+}
+
+const CommentsSection = forwardRef<CommentsSectionRef, CommentsSectionProps>(({ comments, isAdmin, currentUserId }, ref) => {
   const [commentsList, setCommentsList] = useState(comments)
+
+  // Sync comments list when initial comments change
+  useEffect(() => {
+    setCommentsList(comments)
+  }, [comments])
 
   const handleDelete = (commentId: string) => {
     setCommentsList(prev => prev.filter(comment => comment.id !== commentId))
@@ -36,18 +47,36 @@ export default function CommentsSection({ comments, isAdmin, currentUserId }: Co
     )
   }
 
+  const addComment = (newComment: Comment) => {
+    setCommentsList(prev => [...prev, newComment])
+  }
+
+  useImperativeHandle(ref, () => ({
+    addComment
+  }))
+
   return (
     <div className="space-y-6">
-      {commentsList.map((comment) => (
-        <CommentItem
-          key={comment.id}
-          comment={comment}
-          isAdmin={isAdmin}
-          isAuthor={currentUserId ? comment.author.email === currentUserId : false}
-          onDelete={handleDelete}
-          onUpdate={handleUpdate}
-        />
-      ))}
+      {commentsList.length === 0 ? (
+        <div className="text-center py-8 text-gray-600">
+          <p>No comments yet. Be the first to share your thoughts!</p>
+        </div>
+      ) : (
+        commentsList.map((comment) => (
+          <CommentItem
+            key={comment.id}
+            comment={comment}
+            isAdmin={isAdmin}
+            isAuthor={currentUserId && comment.author ? comment.author.id === currentUserId : false}
+            onDelete={handleDelete}
+            onUpdate={handleUpdate}
+          />
+        ))
+      )}
     </div>
   )
-}
+})
+
+CommentsSection.displayName = 'CommentsSection'
+
+export default CommentsSection

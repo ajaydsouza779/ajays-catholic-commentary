@@ -36,7 +36,7 @@ export async function DELETE(
 
     // Check if user is admin OR the comment author
     const isAdmin = session.user?.role === "ADMIN"
-    const isAuthor = comment.author.id === session.user?.id
+    const isAuthor = comment.author ? comment.author.id === session.user?.id : false
 
     if (!isAdmin && !isAuthor) {
       return NextResponse.json({ error: "Unauthorized to delete this comment" }, { status: 403 })
@@ -96,7 +96,7 @@ export async function PUT(
 
     // Check if user is admin OR the comment author
     const isAdmin = session.user?.role === "ADMIN"
-    const isAuthor = comment.author.id === session.user?.id
+    const isAuthor = comment.author ? comment.author.id === session.user?.id : false
 
     if (!isAdmin && !isAuthor) {
       return NextResponse.json({ error: "Unauthorized to edit this comment" }, { status: 403 })

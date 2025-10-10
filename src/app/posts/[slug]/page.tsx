@@ -1,5 +1,4 @@
-import CommentForm from "./CommentForm"
-import CommentsSection from "@/components/CommentsSection"
+import CommentsWrapper from "@/components/CommentsWrapper"
 import Link from "next/link"
 import OptimizedImage from "@/components/OptimizedImage"
 import { prisma } from "@/lib/prisma"
@@ -40,6 +39,7 @@ async function getPost(slug: string) {
           include: {
             author: {
               select: {
+                id: true,
                 name: true,
                 email: true
               }
@@ -160,20 +160,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             Comments ({post.comments.length})
           </h2>
 
-          {post.comments.length === 0 ? (
-            <div className="text-center py-8 text-gray-600">
-              <p>No comments yet. Be the first to share your thoughts!</p>
-            </div>
-          ) : (
-            <CommentsSection
-              comments={post.comments}
-              isAdmin={session?.user?.role === 'ADMIN'}
-              currentUserId={session?.user?.email}
-            />
-          )}
-
-          {/* Comment Form (only visible when signed in) */}
-          <CommentForm postId={post.id} />
+          <CommentsWrapper
+            comments={post.comments}
+            isAdmin={session?.user?.role === 'ADMIN'}
+            currentUserId={session?.user?.id}
+            postId={post.id}
+          />
         </div>
     </div>
   )
