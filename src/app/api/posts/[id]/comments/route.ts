@@ -74,13 +74,7 @@ export async function POST(
       }
     })
 
-    // Transform the response to include guestName in the response
-    const responseComment = {
-      ...comment,
-      guestName: comment.guestName || null
-    }
-
-    return NextResponse.json(responseComment, { status: 201 })
+    return NextResponse.json(comment, { status: 201 })
   } catch (error) {
     console.error("Error creating comment:", error)
     return NextResponse.json(
