@@ -1,10 +1,13 @@
 import CommentForm from "./CommentForm"
+import CommentsSection from "@/components/CommentsSection"
 import Link from "next/link"
 import OptimizedImage from "@/components/OptimizedImage"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
 import DOMPurify from "isomorphic-dompurify"
 import { notFound } from "next/navigation"
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "../../api/auth/[...nextauth]/route"
 
 async function getPost(slug: string) {
   try {
@@ -58,6 +61,7 @@ async function getPost(slug: string) {
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = await getPost(slug)
+  const session = await getServerSession(authOptions)
 
   if (!post) {
     notFound()
@@ -161,30 +165,11 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               <p>No comments yet. Be the first to share your thoughts!</p>
             </div>
           ) : (
-            <div className="space-y-6">
-              {post.comments.map((comment: { id: string; content: string; createdAt: Date; author: { name: string | null; email: string } }) => (
-                <div key={comment.id} className="border-b border-gray-200 pb-6 last:border-b-0">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
-                      <span className="text-amber-800 font-bold text-sm">
-                        {(comment.author.name || comment.author.email).charAt(0).toUpperCase()}
-                      </span>
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-900">
-                        {comment.author.name || comment.author.email}
-                      </div>
-                      <time className="text-sm text-gray-500">
-                        {formatDate(comment.createdAt)}
-                      </time>
-                    </div>
-                  </div>
-                  <div className="text-gray-700">
-                    {comment.content}
-                  </div>
-                </div>
-              ))}
-            </div>
+            <CommentsSection
+              comments={post.comments}
+              isAdmin={session?.user?.role === 'ADMIN'}
+              currentUserId={session?.user?.email}
+            />
           )}
 
           {/* Comment Form (only visible when signed in) */}
