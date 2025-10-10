@@ -7,7 +7,8 @@ A modern web application for sharing Catholic insights, teachings, and reflectio
 This is a full-stack blogging platform built with Next.js that allows you to:
 - Create and manage blog posts with rich text editing
 - Upload and manage images
-- Allow users to comment on posts
+- Allow users to comment on posts (with real-time updates)
+- Support both registered users and guest comments
 - Provide user authentication and registration
 - Admin dashboard for content management
 
@@ -58,6 +59,29 @@ npm run dev
 - **Rich Text Editor**: Tiptap
 - **Image Storage**: Cloudinary
 - **Hosting**: Vercel
+
+## 💬 Comment System Features
+
+The platform includes a comprehensive comment system with the following features:
+
+### User Experience
+- **Real-time Updates**: Comments appear immediately without page refresh
+- **Guest Comments**: Non-registered users can comment by providing their name
+- **User Comments**: Registered users can comment and manage their own comments
+- **Edit & Delete**: Users can edit/delete their own comments, admins can manage all comments
+
+### Technical Implementation
+- **Client-side State Management**: Uses React refs and state for real-time updates
+- **API Integration**: RESTful endpoints for comment CRUD operations
+- **Date Handling**: Proper date formatting for both Date objects and strings
+- **Permission System**: Role-based access control for comment management
+- **Guest Support**: Optional guest commenting with name requirement
+
+### Components
+- `CommentsWrapper`: Client-side wrapper for comment management
+- `CommentsSection`: Core comment display with real-time updates
+- `CommentForm`: Form for adding new comments (supports both user and guest)
+- `CommentItem`: Individual comment display with edit/delete controls
 
 ## 📚 Documentation
 
