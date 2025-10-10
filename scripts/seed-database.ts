@@ -191,25 +191,35 @@ async function main() {
     }
   })
 
-  // Connect posts to categories and tags
-  await prisma.postCategory.createMany({
-    data: [
-      { postId: post1.id, categoryId: spiritualityCategory.id },
-      { postId: post2.id, categoryId: traditionCategory.id },
-      { postId: post3.id, categoryId: traditionCategory.id }
-    ]
-  })
+  // Connect posts to categories and tags (idempotent)
+  const postCategories = [
+    { postId: post1.id, categoryId: spiritualityCategory.id },
+    { postId: post2.id, categoryId: traditionCategory.id },
+    { postId: post3.id, categoryId: traditionCategory.id }
+  ]
+  for (const pc of postCategories) {
+    await prisma.postCategory.upsert({
+      where: { postId_categoryId: { postId: pc.postId, categoryId: pc.categoryId } },
+      update: {},
+      create: pc,
+    })
+  }
 
-  await prisma.postTag.createMany({
-    data: [
-      { postId: post1.id, tagId: prayerTag.id },
-      { postId: post1.id, tagId: faithTag.id },
-      { postId: post2.id, tagId: faithTag.id },
-      { postId: post2.id, tagId: gospelTag.id },
-      { postId: post3.id, tagId: saintsTag.id },
-      { postId: post3.id, tagId: faithTag.id }
-    ]
-  })
+  const postTags = [
+    { postId: post1.id, tagId: prayerTag.id },
+    { postId: post1.id, tagId: faithTag.id },
+    { postId: post2.id, tagId: faithTag.id },
+    { postId: post2.id, tagId: gospelTag.id },
+    { postId: post3.id, tagId: saintsTag.id },
+    { postId: post3.id, tagId: faithTag.id }
+  ]
+  for (const pt of postTags) {
+    await prisma.postTag.upsert({
+      where: { postId_tagId: { postId: pt.postId, tagId: pt.tagId } },
+      update: {},
+      create: pt,
+    })
+  }
 
   console.log('✅ Database seeded successfully!')
   console.log('📝 Created 3 sample posts')

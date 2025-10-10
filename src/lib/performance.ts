@@ -70,12 +70,14 @@ export function measureWebVitals() {
     }
   }).observe({ entryTypes: ['largest-contentful-paint'] })
 
-  // First Input Delay
+  // First Input Delay (types for PerformanceEventTiming)
   new PerformanceObserver((list) => {
-    for (const entry of list.getEntries()) {
-      console.log('FID:', entry.processingStart - entry.startTime)
+    for (const entry of list.getEntries() as PerformanceEventTiming[]) {
+      if (typeof entry.processingStart === 'number') {
+        console.log('FID:', entry.processingStart - entry.startTime)
+      }
     }
-  }).observe({ entryTypes: ['first-input'] })
+  }).observe({ entryTypes: ['first-input'] as unknown as ('first-input')[] })
 
   // Cumulative Layout Shift
   new PerformanceObserver((list) => {

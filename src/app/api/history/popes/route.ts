@@ -17,7 +17,7 @@ export async function GET() {
         }
       },
       orderBy: {
-        papacyNumber: 'desc'
+        papacyNumber: 'asc'
       }
     })
 

@@ -26,7 +26,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans antialiased bg-primary-cream" style={{ backgroundColor: '#F5F5DC' }}>
+      <body className="font-sans antialiased bg-neutral-100">
+        {process.env.NEXT_PUBLIC_E2E === 'true' && (
+          <style suppressHydrationWarning>
+            {`[data-nextjs-dev-overlay], nextjs-portal, nextjs-portal * { pointer-events: none !important; display: none !important; visibility: hidden !important; opacity: 0 !important; }`}
+          </style>
+        )}
         <Providers>
           <PerformanceMonitor />
           {children}
