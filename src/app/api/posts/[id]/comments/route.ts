@@ -12,7 +12,17 @@ export async function GET(
     const comments = await prisma.comment.findMany({
       where: { postId: id, status: "APPROVED" },
       orderBy: { createdAt: "asc" },
-      include: { author: { select: { name: true, email: true } } }
+      include: { 
+        author: { select: { name: true, email: true } } 
+      },
+      select: {
+        id: true,
+        content: true,
+        createdAt: true,
+        author: { select: { name: true, email: true } },
+        guestName: true,
+        guestEmail: true
+      }
     })
     return NextResponse.json(comments)
   } catch (error) {
@@ -30,17 +40,21 @@ export async function POST(
 ) {
   try {
     const session = await getServerSession(authOptions)
-    if (!session?.user?.id) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
-    }
-
     const { id } = await params
     const body = await request.json()
-    const { content, parentId } = body
+    const { content, parentId, guestName } = body
 
     if (!content || typeof content !== "string" || content.trim().length === 0) {
       return NextResponse.json(
         { error: "Content is required" },
+        { status: 400 }
+      )
+    }
+
+    // For guest users, require a name
+    if (!session?.user?.id && !guestName?.trim()) {
+      return NextResponse.json(
+        { error: "Name is required for guest comments" },
         { status: 400 }
       )
     }
@@ -54,12 +68,15 @@ export async function POST(
     const comment = await prisma.comment.create({
       data: {
         postId: id,
-        authorId: session.user.id,
+        authorId: session?.user?.id || null,
         content: content.trim(),
         status: "APPROVED", // MVP: auto-approve; can change to PENDING later
+        guestName: !session?.user?.id ? guestName?.trim() : null,
         ...(parentId ? { parentId } : {})
       },
-      include: { author: { select: { name: true, email: true } } }
+      include: { 
+        author: { select: { name: true, email: true } } 
+      }
     })
 
     return NextResponse.json(comment, { status: 201 })
