@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronRight, ChevronDown, Calendar, Users, AlertTriangle, BookOpen } from 'lucide-react'
+import { ChevronRight, ChevronDown, Calendar, Users, AlertTriangle } from 'lucide-react'
 
 interface ChurchDivision {
   id: string
@@ -13,7 +13,7 @@ interface ChurchDivision {
   parentId?: string
   imageUrl?: string
   children: ChurchDivision[]
-  relatedPopes: any[]
+  relatedPopes: Array<{id: string, name: string, papalName: string}>
 }
 
 export default function ChurchDivisionsPage() {
@@ -229,7 +229,7 @@ export default function ChurchDivisionsPage() {
                   <div className="bg-white rounded-lg shadow-lg p-6">
                     <h3 className="text-2xl font-bold text-gray-800 mb-6">Related Popes</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {selectedDivision.relatedPopes.map((pope: any) => (
+                      {selectedDivision.relatedPopes.map((pope: {id: string, name: string, papalName: string}) => (
                         <div key={pope.id} className="p-4 bg-gray-50 rounded-lg">
                           <h4 className="font-semibold text-gray-800 mb-2">{pope.regnalName}</h4>
                           <p className="text-sm text-gray-600">

@@ -80,8 +80,8 @@ export function measureWebVitals() {
   // Cumulative Layout Shift
   new PerformanceObserver((list) => {
     for (const entry of list.getEntries()) {
-      if (!(entry as any).hadRecentInput) {
-        console.log('CLS:', (entry as any).value)
+      if (!(entry as {hadRecentInput: boolean}).hadRecentInput) {
+        console.log('CLS:', (entry as {value: number}).value)
       }
     }
   }).observe({ entryTypes: ['layout-shift'] })
@@ -99,7 +99,7 @@ export function getOptimizedImageUrl(
     const baseUrl = src.split('/upload/')[0] + '/upload/'
     const imagePath = src.split('/upload/')[1]
     
-    let transformations = []
+    const transformations = []
     if (width) transformations.push(`w_${width}`)
     if (height) transformations.push(`h_${height}`)
     transformations.push(`q_${quality}`)
@@ -128,7 +128,7 @@ export function createIntersectionObserver(
 }
 
 // Debounce utility for search and other frequent operations
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
@@ -141,7 +141,7 @@ export function debounce<T extends (...args: any[]) => any>(
 }
 
 // Throttle utility for scroll events
-export function throttle<T extends (...args: any[]) => any>(
+export function throttle<T extends (...args: unknown[]) => unknown>(
   func: T,
   limit: number
 ): (...args: Parameters<T>) => void {

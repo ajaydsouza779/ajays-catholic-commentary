@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Plus, Edit, Eye, Trash2, Calendar, User, Users, BarChart3, BookOpen, History, FileText, Settings } from "lucide-react"
+import { Plus, Edit, Eye, Trash2, Calendar, User, Users, BookOpen, History, FileText, Settings } from "lucide-react"
 
 interface Post {
   id: string
@@ -82,7 +82,7 @@ export default function AdminDashboard() {
 
       if (response.ok) {
         // Refresh the posts list
-        fetchPosts()
+        fetchData()
       } else {
         const error = await response.json()
         alert(error.error || "Failed to delete post")

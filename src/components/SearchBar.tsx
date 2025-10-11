@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Search, X, Clock, BookOpen, Users, AlertTriangle, FileText } from 'lucide-react'
+import { Search, X, BookOpen, Users, AlertTriangle, FileText } from 'lucide-react'
 import Link from 'next/link'
 
 interface SearchResult {

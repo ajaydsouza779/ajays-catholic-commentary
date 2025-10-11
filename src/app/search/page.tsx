@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { Search, BookOpen, Users, AlertTriangle, FileText, Calendar, MapPin } from 'lucide-react'
+import { Search, BookOpen, Users, AlertTriangle, FileText, Calendar } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
