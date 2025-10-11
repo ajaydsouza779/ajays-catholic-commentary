@@ -9,30 +9,50 @@
 postgresql://postgres:[YOUR-PASSWORD]@db.nxjtogogonbztiyympvb.supabase.co:5432/postgres
 ```
 
-#### Session Pooler (Recommended for Production)
+#### Transaction Pooler (Recommended for Production)
+```
+postgresql://postgres.nxjtogogonbztiyympvb:[YOUR-PASSWORD]@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres
+```
+
+#### Session Pooler (Alternative - Limited Connections)
 ```
 postgresql://postgres.nxjtogogonbztiyympvb:[YOUR-PASSWORD]@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres
 ```
 
 ### Database Details
-- **Host**: `db.nxjtogogonbztiyympvb.supabase.co`
-- **Port**: `5432`
+- **Direct Host**: `db.nxjtogogonbztiyympvb.supabase.co` (port 5432)
+- **Pooler Host**: `aws-1-ap-southeast-1.pooler.supabase.com`
+- **Transaction Pooler Port**: `6543` (Recommended)
+- **Session Pooler Port**: `5432` (Limited connections)
 - **Database**: `postgres`
-- **Username**: `postgres`
+- **Username**: `postgres.nxjtogogonbztiyympvb` (pooler) / `postgres` (direct)
 - **Region**: `ap-southeast-1` (AWS)
 - **Provider**: Supabase (PostgreSQL)
 
 ### Environment Variables
 ```bash
-# For production deployment
-DATABASE_URL="postgresql://postgres.nxjtogogonbztiyympvb:[YOUR-PASSWORD]@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres"
+# For production deployment (RECOMMENDED - Transaction Pooler)
+DATABASE_URL="postgresql://postgres.nxjtogogonbztiyympvb:[YOUR-PASSWORD]@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres"
+
+# Alternative - Session Pooler (Limited connections)
+# DATABASE_URL="postgresql://postgres.nxjtogogonbztiyympvb:[YOUR-PASSWORD]@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres"
+
+# Direct connection (for scripts/migrations)
+# DATABASE_URL="postgresql://postgres:[YOUR-PASSWORD]@db.nxjtogogonbztiyympvb.supabase.co:5432/postgres"
 ```
 
 ### Connection Notes
+- **Transaction Pooler (Port 6543)**: ✅ **RECOMMENDED** for production web applications
+- **Session Pooler (Port 5432)**: ⚠️ Limited connections, can hit `MaxClientsInSessionMode` error
 - **Direct Connection**: Use for one-time operations, migrations, or scripts
-- **Session Pooler**: Use for production applications (better performance, connection pooling)
-- **Password**: `#1Company@123` (tested - connection format may need verification)
+- **Password**: `ZsxWeTPQYLV3mglX` (updated October 10, 2025)
 - **SSL**: Automatically handled by Supabase
+
+### 🚨 Critical Troubleshooting Notes
+- **Port 5432 (Session Pooler)**: Can fail with `MaxClientsInSessionMode: max clients reached`
+- **Port 6543 (Transaction Pooler)**: ✅ **SOLUTION** - Use this for production
+- **Direct Connection**: May have DNS resolution issues (`ENOTFOUND`)
+- **Always test locally first**: Use the test scripts in `/scripts/` directory
 
 ## 🔧 **Development Database (SQLite)**
 
@@ -82,17 +102,18 @@ DATABASE_URL="postgresql://postgres.nxjtogogonbztiyympvb:[YOUR-PASSWORD]@aws-1-a
 
 ## 🔐 **Security Notes**
 
-- **Password**: `#1Company@123` (tested locally - may need network connectivity verification)
+- **Password**: `ZsxWeTPQYLV3mglX` (updated October 10, 2025)
 - **Connection Strings**: Use environment variables in production
 - **Access Control**: Supabase handles authentication and authorization
 - **SSL**: All connections are encrypted by default
 
 ## ⚠️ **Connection Testing Status**
 
-- **Password**: `#1Company@123` - ✅ Confirmed as correct password
-- **Network**: ❌ Connection testing failed due to network connectivity issues
-- **Next Steps**: Verify Supabase project status and network access
-- **Alternative**: Use Supabase dashboard for database operations
+- **Password**: `ZsxWeTPQYLV3mglX` - ✅ Updated October 10, 2025
+- **Transaction Pooler (Port 6543)**: ✅ **WORKING** - Production ready
+- **Session Pooler (Port 5432)**: ❌ **FAILED** - Max clients reached error
+- **Direct Connection**: ❌ **FAILED** - DNS resolution issues
+- **Solution**: Use Transaction Pooler (port 6543) for all production deployments
 
 ## 📊 **Database Management**
 
@@ -122,6 +143,30 @@ AND column_name = 'reflection';
 - **Prisma Migrate**: Use for schema changes and migrations
 
 ---
+## 🤖 **For Future AI Agents**
+
+### Critical Database Connection Information
+- **PRODUCTION CONNECTION**: `postgresql://postgres.nxjtogogonbztiyympvb:ZsxWeTPQYLV3mglX@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres`
+- **Connection Type**: Transaction Pooler (Port 6543)
+- **Why Port 6543**: Session Pooler (5432) hits `MaxClientsInSessionMode` error
+- **Direct Connection**: Fails with `ENOTFOUND` DNS resolution issues
+- **Test Scripts**: Available in `/scripts/` directory for connection testing
+
+### Common Issues & Solutions
+1. **"Can't reach database server"** → Use Transaction Pooler (port 6543)
+2. **"MaxClientsInSessionMode"** → Switch from Session Pooler (5432) to Transaction Pooler (6543)
+3. **"ENOTFOUND" errors** → Use pooler connection, not direct connection
+4. **Connection testing**: Always test locally with scripts before deploying
+
+### Vercel Environment Variables
+```bash
+# Set in Vercel dashboard or CLI
+vercel env add DATABASE_URL
+# Value: postgresql://postgres.nxjtogogonbztiyympvb:ZsxWeTPQYLV3mglX@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres
+```
+
+---
+
 **Last Updated**: October 10, 2025  
-**Status**: Production database active and configured  
+**Status**: ✅ Production database active and configured with Transaction Pooler  
 **Next**: Monitor performance and plan scaling if needed

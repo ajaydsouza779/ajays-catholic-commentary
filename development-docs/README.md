@@ -34,6 +34,13 @@ New-Web-001/
 - npm or yarn
 - Git
 
+### 🚨 Critical Database Connection Info
+- **Production Database**: Supabase PostgreSQL with Transaction Pooler
+- **Connection String**: `postgresql://postgres.nxjtogogonbztiyympvb:ZsxWeTPQYLV3mglX@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres`
+- **Port 6543**: Transaction Pooler (RECOMMENDED for production)
+- **Port 5432**: Session Pooler (Limited connections - avoid for production)
+- **See**: `DATABASE_CONNECTION.md` for detailed troubleshooting
+
 ### Installation
 ```bash
 # Clone the repository
