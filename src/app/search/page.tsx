@@ -177,7 +177,7 @@ export default function SearchPage() {
           <div>
             <div className="mb-6">
               <p className="text-gray-600">
-                {totalResults} result{totalResults !== 1 ? 's' : ''} found for "{query}"
+                {totalResults} result{totalResults !== 1 ? 's' : ''} found for &quot;{query}&quot;
               </p>
             </div>
 
@@ -270,7 +270,7 @@ export default function SearchPage() {
                 <Search className="h-16 w-16 mx-auto mb-4 text-gray-400" />
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">No results found</h3>
                 <p className="text-gray-600 mb-4">
-                  We couldn't find anything matching "{query}"
+                  We couldn&apos;t find anything matching &quot;{query}&quot;
                 </p>
                 <div className="text-sm text-gray-500">
                   <p>Try:</p>

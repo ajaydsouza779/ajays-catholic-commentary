@@ -196,12 +196,12 @@ export default function BibleOriginPage() {
                   <h3 className="text-xl font-semibold text-gray-800 mb-4">Old Testament Canon</h3>
                   <p className="text-gray-600 mb-4">
                     The Hebrew Bible (Tanakh) was established by Jewish scholars around 100 AD. 
-                    It consists of 39 books organized into three sections: Torah (Law), Nevi'im (Prophets), 
+                    It consists of 39 books organized into three sections: Torah (Law), Nevi&apos;im (Prophets), 
                     and Ketuvim (Writings).
                   </p>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>Torah: Genesis, Exodus, Leviticus, Numbers, Deuteronomy</li>
-                    <li>Nevi'im: Joshua, Judges, Samuel, Kings, Isaiah, Jeremiah, Ezekiel, Minor Prophets</li>
+                    <li>Nevi&apos;im: Joshua, Judges, Samuel, Kings, Isaiah, Jeremiah, Ezekiel, Minor Prophets</li>
                     <li>Ketuvim: Psalms, Proverbs, Job, Song of Songs, Ruth, Lamentations, Ecclesiastes, Esther, Daniel, Ezra-Nehemiah, Chronicles</li>
                   </ul>
                 </div>

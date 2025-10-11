@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import Link from "next/link"
 import DatabaseTestButton from "./DatabaseTestButton"
 
 export default function Footer() {
@@ -21,10 +21,10 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-serif font-bold text-gray-800 mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="/posts" className="text-gray-600 hover:text-amber-600 transition-colors">All Posts</a></li>
-              <li><a href="/history/papal-timeline" className="text-gray-600 hover:text-amber-600 transition-colors">Papal Timeline</a></li>
-              <li><a href="/history/church-divisions" className="text-gray-600 hover:text-amber-600 transition-colors">Church History</a></li>
-              <li><a href="/history/bible-origin" className="text-gray-600 hover:text-amber-600 transition-colors">Bible History</a></li>
+              <li><Link href="/posts" className="text-gray-600 hover:text-amber-600 transition-colors">All Posts</Link></li>
+              <li><Link href="/history/papal-timeline" className="text-gray-600 hover:text-amber-600 transition-colors">Papal Timeline</Link></li>
+              <li><Link href="/history/church-divisions" className="text-gray-600 hover:text-amber-600 transition-colors">Church History</Link></li>
+              <li><Link href="/history/bible-origin" className="text-gray-600 hover:text-amber-600 transition-colors">Bible History</Link></li>
             </ul>
           </div>
 
