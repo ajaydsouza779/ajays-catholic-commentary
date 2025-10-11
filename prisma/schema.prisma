@@ -117,7 +117,7 @@ model Comment {
   guestName  String?
   guestEmail String?
 
-  @@map("comments")
+  @@map("Comment")
 }
 
 // Category model for post categorization

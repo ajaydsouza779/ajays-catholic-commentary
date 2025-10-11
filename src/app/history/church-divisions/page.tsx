@@ -38,7 +38,7 @@ export default function ChurchDivisionsPage() {
       if (data.length > 0) {
         setSelectedDivision(data[0]) // Select first division by default
         // Expand first level by default
-        data.forEach(division => {
+        data.forEach((division: ChurchDivision) => {
           if (!division.parentId) {
             setExpandedNodes(prev => new Set([...prev, division.id]))
           }
@@ -231,12 +231,9 @@ export default function ChurchDivisionsPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {selectedDivision.relatedPopes.map((pope: {id: string, name: string, papalName: string}) => (
                         <div key={pope.id} className="p-4 bg-gray-50 rounded-lg">
-                          <h4 className="font-semibold text-gray-800 mb-2">{pope.regnalName}</h4>
+                          <h4 className="font-semibold text-gray-800 mb-2">{pope.papalName}</h4>
                           <p className="text-sm text-gray-600">
-                            Papacy: {pope.papacyStart} - {pope.papacyEnd || 'Present'}
-                          </p>
-                          <p className="text-sm text-gray-600">
-                            Papacy Number: {pope.papacyNumber}
+                            Name: {pope.name}
                           </p>
                         </div>
                       ))}

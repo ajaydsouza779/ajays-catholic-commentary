@@ -73,15 +73,15 @@ export function measureWebVitals() {
   // First Input Delay
   new PerformanceObserver((list) => {
     for (const entry of list.getEntries()) {
-      console.log('FID:', entry.processingStart - entry.startTime)
+      console.log('FID:', (entry as unknown as {processingStart: number}).processingStart - entry.startTime)
     }
   }).observe({ entryTypes: ['first-input'] })
 
   // Cumulative Layout Shift
   new PerformanceObserver((list) => {
     for (const entry of list.getEntries()) {
-      if (!(entry as {hadRecentInput: boolean}).hadRecentInput) {
-        console.log('CLS:', (entry as {value: number}).value)
+      if (!(entry as unknown as {hadRecentInput: boolean}).hadRecentInput) {
+        console.log('CLS:', (entry as unknown as {value: number}).value)
       }
     }
   }).observe({ entryTypes: ['layout-shift'] })
