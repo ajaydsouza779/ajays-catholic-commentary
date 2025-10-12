@@ -7,6 +7,7 @@ import DOMPurify from "isomorphic-dompurify"
 import { notFound } from "next/navigation"
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "../../api/auth/[...nextauth]/route"
+import type { Metadata } from "next"
 
 async function getPost(slug: string) {
   try {
@@ -63,6 +64,62 @@ async function getPost(slug: string) {
   }
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = await getPost(slug)
+  
+  if (!post) {
+    return {
+      title: "Post Not Found | Ajay's Catholic Commentary",
+      description: "The requested post could not be found.",
+    }
+  }
+
+  const excerpt = post.excerpt || post.content.replace(/<[^>]*>/g, '').substring(0, 160) + '...'
+  const categories = post.categories.map(c => c.category.name).join(', ')
+  
+  return {
+    title: post.title,
+    description: excerpt,
+    keywords: [
+      categories,
+      ...post.tags.map(t => t.tag.name),
+      "Catholic",
+      "Christianity",
+      "Faith",
+      "Scripture",
+      "Spiritual Reflection"
+    ],
+    authors: [{ name: post.author.name || post.author.email }],
+    openGraph: {
+      title: post.title,
+      description: excerpt,
+      type: "article",
+      url: `https://ajaycatholic.com/posts/${post.slug}`,
+      publishedTime: post.publishedAt?.toISOString(),
+      authors: [post.author.name || post.author.email],
+      tags: post.tags.map(t => t.tag.name),
+      images: post.featuredImage ? [
+        {
+          url: post.featuredImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        }
+      ] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: excerpt,
+      images: post.featuredImage ? [post.featuredImage] : undefined,
+    },
+    alternates: {
+      canonical: `/posts/${post.slug}`,
+    },
+  }
+}
+
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = await getPost(slug)
@@ -72,8 +129,76 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     notFound()
   }
 
+  // Structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt || post.content.replace(/<[^>]*>/g, '').substring(0, 160),
+    "image": post.featuredImage,
+    "author": {
+      "@type": "Person",
+      "name": post.author.name || post.author.email
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ajay's Catholic Commentary",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ajaycatholic.com/logo.png"
+      }
+    },
+    "datePublished": post.publishedAt?.toISOString(),
+    "dateModified": post.updatedAt?.toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://ajaycatholic.com/posts/${post.slug}`
+    },
+    "keywords": [
+      ...post.categories.map(c => c.category.name),
+      ...post.tags.map(t => t.tag.name)
+    ],
+    "articleSection": post.categories.map(c => c.category.name).join(', '),
+    "wordCount": post.content.replace(/<[^>]*>/g, '').split(' ').length
+  }
+
+  // Breadcrumb structured data
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ajaycatholic.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Posts",
+        "item": "https://ajaycatholic.com/posts"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title,
+        "item": `https://ajaycatholic.com/posts/${post.slug}`
+      }
+    ]
+  }
+
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+      />
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         {/* Breadcrumb */}
         <nav className="mb-4 sm:mb-8">
           <Link
@@ -172,6 +297,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             postId={post.id}
           />
         </div>
-    </div>
+      </div>
+    </>
   )
 }

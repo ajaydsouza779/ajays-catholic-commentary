@@ -3,6 +3,7 @@ import OptimizedImage from "@/components/OptimizedImage"
 import LazyLoad from "@/components/LazyLoad"
 import { prisma } from "@/lib/prisma"
 import { formatDate } from "@/lib/utils"
+import type { Metadata } from "next"
 
 type PostListItem = {
   id: string
@@ -65,6 +66,22 @@ async function getPosts(categorySlug?: string) {
 
 interface PostsPageProps {
   searchParams: { category?: string }
+}
+
+export const metadata: Metadata = {
+  title: "Catholic Commentary Posts",
+  description: "Explore thoughtful reflections on Catholic teachings, scripture, and spiritual life. Discover insights from Church history, papal teachings, and biblical studies.",
+  openGraph: {
+    title: "Catholic Commentary Posts | Ajay's Catholic Commentary",
+    description: "Explore thoughtful reflections on Catholic teachings, scripture, and spiritual life.",
+    type: "website",
+    url: "https://ajaycatholic.com/posts",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Catholic Commentary Posts | Ajay's Catholic Commentary",
+    description: "Explore thoughtful reflections on Catholic teachings, scripture, and spiritual life.",
+  },
 }
 
 export default async function PostsPage({ searchParams }: PostsPageProps) {

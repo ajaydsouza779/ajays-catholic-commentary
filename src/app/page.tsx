@@ -202,8 +202,39 @@ export default function Home() {
     reader.readAsDataURL(file)
   }
 
+  // Structured data for homepage
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ajay's Catholic Commentary",
+    "url": "https://ajaycatholic.com",
+    "description": "A platform for sharing Catholic insights, teachings, and reflections. Explore thoughtful commentary on Catholic faith, scripture, and spiritual life.",
+    "author": {
+      "@type": "Person",
+      "name": "Ajay D'Souza"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ajay's Catholic Commentary",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ajaycatholic.com/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://ajaycatholic.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="min-h-screen bg-neutral-50">
       <Header />
       <HistoryNavigation />
       
@@ -366,6 +397,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   )
 }
