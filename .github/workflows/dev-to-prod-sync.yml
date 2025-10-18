@@ -1,0 +1,102 @@
+name: Dev to Prod Sync (SAFE)
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_production:
+        description: '⚠️ CONFIRM: This will sync DEV data to PRODUCTION'
+        required: true
+        default: 'NO'
+        type: choice
+        options:
+          - 'NO'
+          - 'YES - I understand the risks'
+      backup_first:
+        description: 'Create backup before sync'
+        required: true
+        default: true
+        type: boolean
+      sync_tables:
+        description: 'Tables to sync (comma-separated)'
+        required: false
+        default: 'posts,comments,categories,tags'
+        type: string
+
+jobs:
+  safety-checks:
+    runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.verify.outputs.proceed }}
+    steps:
+      - name: ⚠️ Safety Verification
+        id: verify
+        run: |
+          if [ "${{ inputs.confirm_production }}" != "YES - I understand the risks" ]; then
+            echo "❌ Production sync cancelled - confirmation required"
+            echo "proceed=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+          echo "✅ Production sync confirmed"
+          echo "proceed=true" >> $GITHUB_OUTPUT
+
+  backup:
+    needs: safety-checks
+    if: needs.safety-checks.outputs.proceed == 'true' && inputs.backup_first == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Create Production Backup
+        run: node scripts/backup-production.js
+        env:
+          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL_RO }}
+
+  sync:
+    needs: [safety-checks, backup]
+    if: always() && needs.safety-checks.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Test Database Connections
+        run: node scripts/test-github-actions-sync.js
+        env:
+          DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
+          DATABASE_URL_TX: ${{ secrets.DEV_DATABASE_URL_TX }}
+          DATABASE_URL_PROD: ${{ secrets.PROD_DATABASE_URL_RO }}
+
+      - name: Generate Prisma Client
+        run: npx prisma generate --schema=prisma/schema.postgres.prisma
+        env:
+          DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
+
+      - name: Sync Dev to Prod (SAFE)
+        run: node scripts/safe-dev-to-prod-sync.js
+        env:
+          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+          DATABASE_URL_DEV: ${{ secrets.DEV_DATABASE_URL }}
+          SYNC_TABLES: ${{ inputs.sync_tables }}
+
+      - name: Verify Sync Success
+        run: node scripts/verify-sync-success.js
+        env:
+          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+          DATABASE_URL_DEV: ${{ secrets.DEV_DATABASE_URL }}

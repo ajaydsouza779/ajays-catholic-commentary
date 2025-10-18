@@ -1,16 +1,8 @@
-name: Database Sync
+name: Prod to Dev Sync (SAFE)
 
 on:
   workflow_dispatch:
     inputs:
-      sync_direction:
-        description: 'Sync direction'
-        required: true
-        default: 'prod-to-dev'
-        type: choice
-        options:
-          - 'prod-to-dev'
-          - 'dev-to-prod'
       skip_schema:
         description: 'Skip schema push (only sync data)'
         required: false
@@ -45,27 +37,18 @@ jobs:
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
 
       - name: Push schema to Dev (Transactional Pooler)
-        if: ${{ !inputs.skip_schema && inputs.sync_direction == 'prod-to-dev' }}
+        if: ${{ !inputs.skip_schema }}
         run: npx prisma db push --schema=prisma/schema.postgres.prisma --skip-generate
         env:
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL_TX }}
 
       - name: Sync data Prod -> Dev (Delete & Recreate)
-        if: ${{ inputs.sync_direction == 'prod-to-dev' }}
         run: node scripts/simple-prod-to-dev-sync.js
         env:
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
           DATABASE_URL_PROD: ${{ secrets.PROD_DATABASE_URL_RO }}
 
-      - name: Sync data Dev -> Prod
-        if: ${{ inputs.sync_direction == 'dev-to-prod' }}
-        run: node scripts/sync-databases.js
-        env:
-          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
-          DATABASE_URL_PROD: ${{ secrets.DEV_DATABASE_URL }}
-
       - name: Apply performance indexes
-        if: ${{ inputs.sync_direction == 'prod-to-dev' }}
         run: |
           node -e "
             const fs=require('fs');
