@@ -85,22 +85,23 @@ export const metadata: Metadata = {
 }
 
 export default async function PostsPage({ searchParams }: PostsPageProps) {
-  const posts = await getPosts(searchParams.category)
+  const resolvedSearchParams = await searchParams
+  const posts = await getPosts(resolvedSearchParams.category)
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-gray-900 mb-4 leading-tight">
-            {searchParams.category ? 
-              searchParams.category.split('-').map(word => 
+            {resolvedSearchParams.category ? 
+              resolvedSearchParams.category.split('-').map(word => 
                 word.charAt(0).toUpperCase() + word.slice(1)
               ).join(' ') : 
               'All Posts'
             }
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            {searchParams.category ? 
-              `Explore ${searchParams.category.split('-').map(word => 
+            {resolvedSearchParams.category ? 
+              `Explore ${resolvedSearchParams.category.split('-').map(word => 
                 word.charAt(0).toUpperCase() + word.slice(1)
               ).join(' ')} content and reflections.` :
               'Explore thoughtful reflections on Catholic teachings, scripture, and spiritual life.'

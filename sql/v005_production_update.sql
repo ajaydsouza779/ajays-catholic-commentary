@@ -178,3 +178,4 @@ WHERE slug = 'sunday-gospel-reflection-grateful-samaritan-october-12-2025';
 -- ==============================================
 
 COMMIT;
+  

@@ -1,69 +1,9 @@
-const { Client } = require('pg');
+const { PrismaClient } = require('@prisma/client');
 
-async function deleteAndRecreatePost() {
-  console.log('🔗 Connecting to Supabase...');
-  
-  const connectionString = `postgresql://postgres.nxjtogogonbztiyympvb:ZsxWeTPQYLV3mglX@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres`;
-  
-  const client = new Client({
-    connectionString: connectionString,
-    ssl: { rejectUnauthorized: false }
-  });
+const prisma = new PrismaClient();
 
-  try {
-    await client.connect();
-    console.log('✅ Connected to Supabase successfully!');
-    
-    // Step 1: Delete the existing post and related data
-    console.log('\n🗑️ Deleting existing post and related data...');
-    
-    // Delete post categories
-    await client.query(`
-      DELETE FROM post_categories 
-      WHERE "postId" = 'cmgjt6n1c00048zvn13156ums'
-    `);
-    console.log('✅ Deleted post categories');
-    
-    // Delete post tags
-    await client.query(`
-      DELETE FROM post_tags 
-      WHERE "postId" = 'cmgjt6n1c00048zvn13156ums'
-    `);
-    console.log('✅ Deleted post tags');
-    
-    // Delete comments
-    await client.query(`
-      DELETE FROM comments 
-      WHERE "postId" = 'cmgjt6n1c00048zvn13156ums'
-    `);
-    console.log('✅ Deleted comments');
-    
-    // Delete the post
-    await client.query(`
-      DELETE FROM posts 
-      WHERE id = 'cmgjt6n1c00048zvn13156ums'
-    `);
-    console.log('✅ Deleted post');
-    
-    // Step 2: Get author ID
-    console.log('\n👤 Getting author ID...');
-    const authorResult = await client.query(`
-      SELECT id FROM users WHERE email = 'ajay@example.com' LIMIT 1
-    `);
-    
-    if (authorResult.rows.length === 0) {
-      console.log('❌ Author not found!');
-      return;
-    }
-    
-    const authorId = authorResult.rows[0].id;
-    console.log('✅ Author ID:', authorId);
-    
-    // Step 3: Create the new post with updated content
-    console.log('\n📝 Creating new post with updated content...');
-    
-    const newContent = `
-<div class="max-w-4xl mx-auto">
+// Production post content (complete version)
+const productionPostContent = `<div class="max-w-4xl mx-auto">
   <h2 class="text-3xl font-bold text-gray-900 mb-6">📖 Sunday Readings - October 12, 2025</h2>
   <p class="text-lg text-gray-600 mb-8">28th Sunday in Ordinary Time</p>
   
@@ -134,18 +74,17 @@ async function deleteAndRecreatePost() {
       </div>
     </div>
 
-    <div class="bg-white border border-gray-200 rounded-lg p-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">🤔 Reflection</h2>
-      <div class="space-y-4 text-gray-700 leading-relaxed">
-        <p>Dear brothers and sisters in Christ,</p>
+    <!-- MY PERSONAL REFLECTION - POSITIONED RIGHT AFTER POPE'S MESSAGE -->
+    <div class="max-w-4xl mx-auto mt-8 p-8 bg-amber-50 border-l-4 border-amber-500 rounded-r-lg shadow-md">
+      <h3 class="text-2xl font-serif text-amber-900 mb-4">🙏 My Personal Reflection</h3>
+      <div class="space-y-4 text-gray-800 leading-relaxed">
+        <p>I feel we have more to thank Jesus than the leaper who was healed by Jesus. Jesus did have pity on us, and gave us himself - by becoming human (to see and imitate him), by sacrificing himself willing on the Cross (for our sins for making justice happen) and in Holy Mass by becoming Eucharist (bread of life) for us.</p>
         
-        <p>Today's Gospel presents us with a powerful lesson about gratitude and faith. Ten lepers were healed, but only one—a foreigner, a Samaritan—returned to give thanks. This story challenges us to examine our own hearts.</p>
-
-        <p><strong>How often do we receive God's blessings and fail to acknowledge them?</strong> Like the nine lepers who went on their way, we might be so focused on our own concerns that we forget to return to the source of our healing and joy.</p>
-
-        <p>The Samaritan's gratitude was not just a polite "thank you"—it was a recognition of Jesus as Lord and Savior. His faith was complete: he believed in Jesus' power to heal, and he believed in Jesus' authority to save. This is why Jesus said, "Your faith has saved you."</p>
-
-        <p>In our own lives, we are constantly receiving God's grace: the gift of life, family, friends, daily bread, and most importantly, the gift of salvation through Jesus Christ. Do we take these gifts for granted, or do we return to give thanks?</p>
+        <p>We as well as all the humanity should be grateful to Jesus, as he did to each and everyone what no-one, even the most loved one, can do - to be God and die as a friend. But not everyone knows what he did. And we who know may not remember that much has well.</p>
+        
+        <p>So may every Sunday, the Eucharist (which itself means thanksgiving too) be a reminder for us to do this. To thank Jesus for what he has done for us!</p>
+        
+        <p><strong>May the faith in Jesus, save us.</strong></p>
       </div>
     </div>
 
@@ -199,26 +138,18 @@ async function deleteAndRecreatePost() {
       </div>
     </div>
 
-    <!-- UPDATED REFLECTION SECTION -->
-    <div class="max-w-4xl mx-auto mt-8 p-8 bg-amber-50 border-l-4 border-amber-500 rounded-r-lg shadow-md">
-      <h3 class="text-2xl font-serif text-amber-900 mb-4">🙏 My Personal Reflection</h3>
-      <p class="text-gray-800 leading-relaxed mb-4">
-        I feel we have more to thank Jesus than the leaper who was healed by Jesus. Jesus did have pity on us, and gave us himself - by becoming human (to see and imitate him), by sacrificing himself willing on the Cross (for our sins for making justice happen) and in Holy Mass by becoming Eucharist (bread of life) for us.
-
-        We as well as all the humanity should be grateful to Jesus, as he did to each and everyone what no-one, even the most loved one, can do - to be God and die as a friend. But not everyone knows what he did. And we who know may not remember that much has well. 
-
-        So may every Sunday, the Eucharist (which itself means thanksgiving too) be a reminder for us to do this. To thank Jesus for what he has done for us!
-
-        May the faith in Jesus, save us.
-      </p>
-    </div>
-
-    <!-- UPDATED PRAYER SECTION -->
-    <div class="bg-amber-50 border-l-4 border-amber-400 p-6 rounded-r-lg">
-      <p class="text-amber-900 leading-relaxed italic">
-        Heavenly Father, I thank You for the gift of Your Son, Jesus in our lives. Thank you Jesus for what you have done for us.
-        Open my heart to recognize Your blessings in my life. Help me be like the Samaritan leper to acknowledge what you have done and to love and serve you. Amen.
-      </p>
+    <!-- IMPROVED PERSONAL PRAYER SECTION -->
+    <div class="bg-white border border-gray-200 rounded-lg p-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">🙏 Say a Small Prayer</h2>
+      <div class="bg-amber-50 border-l-4 border-amber-400 p-6 rounded-r-lg">
+        <div class="space-y-3 text-amber-900 leading-relaxed italic">
+          <p>Heavenly Father, I thank You for the gift of Your Son, Jesus in my life. Thank you Jesus, for what you have done for me.</p>
+          
+          <p>Open my heart to recognize Your blessings in my life. Help me be like the Samaritan leper to acknowledge what you have done and to love and serve you.</p>
+          
+          <p><strong>Amen.</strong></p>
+        </div>
+      </div>
     </div>
 
     <div class="bg-gray-50 border border-gray-200 rounded-lg p-8 mt-8">
@@ -230,85 +161,126 @@ async function deleteAndRecreatePost() {
   </div>
 </div>`;
 
-    const newPost = await client.query(`
-      INSERT INTO posts (
-        id,
-        title,
-        slug,
-        content,
-        excerpt,
-        status,
-        "publishedAt",
-        "createdAt",
-        "updatedAt",
-        "authorId"
-      ) VALUES (
-        'cmgjt6n1c00048zvn13156ums',
-        'Sunday Gospel Reflection: The Grateful Samaritan (Luke 17:11-19)',
-        'sunday-gospel-reflection-grateful-samaritan-october-12-2025',
-        $1,
-        'A reflection on Luke 17:11-19, the story of the grateful Samaritan leper, exploring themes of gratitude, faith, and God''s healing grace. Includes insights from Church Fathers and practical applications for daily life.',
-        'PUBLISHED',
-        '2025-10-12T00:00:00.000Z',
-        '2025-10-09T19:26:43.488Z',
-        NOW(),
-        $2
-      )
-    `, [newContent, authorId]);
+async function copyProductionPostToDev() {
+  try {
+    console.log('🔄 Copying production post to development database...');
     
-    console.log('✅ New post created');
+    // Test connection
+    await prisma.$connect();
+    console.log('✅ Connected to development database');
     
-    // Step 4: Add categories and tags
-    console.log('\n🏷️ Adding categories and tags...');
+    // Check if post already exists
+    const existingPost = await prisma.post.findFirst({
+      where: {
+        slug: 'sunday-gospel-reflection-grateful-samaritan-october-12-2025'
+      }
+    });
     
-    // Add Scripture Study category
-    await client.query(`
-      INSERT INTO post_categories ("postId", "categoryId")
-      VALUES (
-        'cmgjt6n1c00048zvn13156ums',
-        (SELECT id FROM categories WHERE name = 'Scripture Study' LIMIT 1)
-      )
-    `);
-    console.log('✅ Added Scripture Study category');
-    
-    // Add tags
-    const tags = ['Gospel', 'Gratitude', 'Healing'];
-    for (const tagName of tags) {
-      await client.query(`
-        INSERT INTO post_tags ("postId", "tagId")
-        VALUES (
-          'cmgjt6n1c00048zvn13156ums',
-          (SELECT id FROM tags WHERE name = $1 LIMIT 1)
-        )
-      `, [tagName]);
+    if (existingPost) {
+      console.log('⚠️  Post already exists in development database');
+      console.log('🔄 Updating existing post with production content...');
+      
+      await prisma.post.update({
+        where: { id: existingPost.id },
+        data: {
+          content: productionPostContent
+        }
+      });
+      
+      console.log('✅ Post updated with production content');
+    } else {
+      console.log('🔄 Creating new post in development database...');
+      
+      // First, ensure we have a user (author)
+      let author = await prisma.user.findFirst({
+        where: { role: 'ADMIN' }
+      });
+      
+      if (!author) {
+        console.log('⚠️  No admin user found. Creating one...');
+        author = await prisma.user.create({
+          data: {
+            email: 'admin@ajaycatholic.com',
+            name: 'Ajay D\'Souza',
+            role: 'ADMIN',
+            passwordHash: 'dev-password-hash'
+          }
+        });
+        console.log('✅ Admin user created');
+      }
+      
+      // Create the post
+      const newPost = await prisma.post.create({
+        data: {
+          title: 'Sunday Gospel Reflection: The Grateful Samaritan (Luke 17:11-19)',
+          slug: 'sunday-gospel-reflection-grateful-samaritan-october-12-2025',
+          content: productionPostContent,
+          excerpt: 'A reflection on the Gospel story of the ten lepers, focusing on the importance of gratitude in our spiritual lives and the example of the grateful Samaritan.',
+          status: 'PUBLISHED',
+          publishedAt: new Date('2025-10-12T00:00:00.000Z'),
+          authorId: author.id
+        }
+      });
+      
+      console.log('✅ Post created with ID:', newPost.id);
+      
+      // Add categories
+      const category1 = await prisma.category.upsert({
+        where: { slug: 'gospel-reflection' },
+        update: {},
+        create: { name: 'Gospel Reflection', slug: 'gospel-reflection' }
+      });
+      const category2 = await prisma.category.upsert({
+        where: { slug: 'sunday-mass' },
+        update: {},
+        create: { name: 'Sunday Mass', slug: 'sunday-mass' }
+      });
+
+      await prisma.postCategory.createMany({
+        data: [
+          { postId: newPost.id, categoryId: category1.id },
+          { postId: newPost.id, categoryId: category2.id }
+        ]
+      });
+
+      // Add tags
+      const tag1 = await prisma.tag.upsert({
+        where: { slug: 'faith' },
+        update: {},
+        create: { name: 'Faith', slug: 'faith' }
+      });
+      const tag2 = await prisma.tag.upsert({
+        where: { slug: 'gospel' },
+        update: {},
+        create: { name: 'Gospel', slug: 'gospel' }
+      });
+      const tag3 = await prisma.tag.upsert({
+        where: { slug: 'gratitude' },
+        update: {},
+        create: { name: 'Gratitude', slug: 'gratitude' }
+      });
+
+      await prisma.postTag.createMany({
+        data: [
+          { postId: newPost.id, tagId: tag1.id },
+          { postId: newPost.id, tagId: tag2.id },
+          { postId: newPost.id, tagId: tag3.id }
+        ]
+      });
+
+      console.log('✅ Added categories and tags');
     }
-    console.log('✅ Added tags:', tags);
     
-    // Step 5: Verify the new post
-    console.log('\n🔍 Verifying new post...');
-    const verifyPost = await client.query(`
-      SELECT 
-        id, 
-        title, 
-        slug, 
-        status,
-        LENGTH(content) as content_length,
-        "createdAt",
-        "updatedAt"
-      FROM posts 
-      WHERE id = 'cmgjt6n1c00048zvn13156ums'
-    `);
-    
-    console.log('📊 New post info:', verifyPost.rows[0]);
-    
-    console.log('\n🎉 Post successfully deleted and recreated with updated content!');
+    console.log('🎉 Production post successfully copied to development database!');
     
   } catch (error) {
-    console.error('❌ Error:', error);
+    console.error('❌ Error copying production post:', error);
   } finally {
-    await client.end();
-    console.log('🔚 Connection closed');
+    await prisma.$disconnect();
   }
 }
 
-deleteAndRecreatePost();
+copyProductionPostToDev();
+
+
+
