@@ -50,9 +50,9 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL_TX }}
 
-      - name: Sync data Prod -> Dev
+      - name: Sync data Prod -> Dev (Delete & Recreate)
         if: ${{ inputs.sync_direction == 'prod-to-dev' }}
-        run: node scripts/sync-databases.js
+        run: node scripts/simple-prod-to-dev-sync.js
         env:
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
           DATABASE_URL_PROD: ${{ secrets.PROD_DATABASE_URL_RO }}
