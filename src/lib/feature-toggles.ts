@@ -7,7 +7,7 @@ export interface FeatureToggle {
   description: string;
   enabled: boolean;
   category: 'UI' | 'FUNCTIONALITY' | 'EXPERIMENTAL' | 'ADMIN';
-  dependencies?: string[];
+  dependencies?: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
