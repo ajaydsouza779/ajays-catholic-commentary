@@ -38,7 +38,7 @@ jobs:
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
 
       - name: Push schema to Dev (Transactional Pooler)
-        if: ${{ !inputs.skip_schema && (inputs.sync_direction == 'prod-to-dev' || inputs.sync_direction == 'local-to-dev') }}
+        if: ${{ !inputs.skip_schema && inputs.sync_direction == 'prod-to-dev' }}
         run: npx prisma db push --skip-generate
         env:
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL_TX }}
@@ -57,15 +57,6 @@ jobs:
           DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
           DATABASE_URL_PROD: ${{ secrets.DEV_DATABASE_URL }}
 
-      - name: Sync data Local -> Dev
-        if: ${{ inputs.sync_direction == 'local-to-dev' }}
-        run: |
-          echo "❌ Local-to-dev sync cannot run in GitHub Actions"
-          echo "The local SQLite file only exists on your local machine."
-          echo "Please run this sync locally using:"
-          echo "DATABASE_URL='<DEV_DATABASE_URL>' DATABASE_URL_LOCAL='file:./dev.db' node scripts/sync-local-to-dev.js"
-          exit 1
-
       - name: Apply performance indexes
         if: ${{ inputs.sync_direction == 'prod-to-dev' }}
         run: |
@@ -78,7 +69,3 @@ jobs:
           "
         env:
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
-
-
-
-
