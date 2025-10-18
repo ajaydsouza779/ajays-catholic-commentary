@@ -32,14 +32,21 @@ jobs:
       - name: Install deps
         run: npm ci
 
+      - name: Test Database Connections
+        run: node scripts/test-github-actions-sync.js
+        env:
+          DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
+          DATABASE_URL_TX: ${{ secrets.DEV_DATABASE_URL_TX }}
+          DATABASE_URL_PROD: ${{ secrets.PROD_DATABASE_URL_RO }}
+
       - name: Generate Prisma Client
-        run: npx prisma generate
+        run: npx prisma generate --schema=prisma/schema.postgres.prisma
         env:
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
 
       - name: Push schema to Dev (Transactional Pooler)
         if: ${{ !inputs.skip_schema && inputs.sync_direction == 'prod-to-dev' }}
-        run: npx prisma db push --skip-generate
+        run: npx prisma db push --schema=prisma/schema.postgres.prisma --skip-generate
         env:
           DATABASE_URL: ${{ secrets.DEV_DATABASE_URL_TX }}
 
