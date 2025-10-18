@@ -34,6 +34,13 @@ New-Web-001/
 - npm or yarn
 - Git
 
+### 🚨 Critical Database Connection Info
+- **Production Database**: Supabase PostgreSQL with Transaction Pooler
+- **Connection String**: `postgresql://postgres.nxjtogogonbztiyympvb:ZsxWeTPQYLV3mglX@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres`
+- **Port 6543**: Transaction Pooler (RECOMMENDED for production)
+- **Port 5432**: Session Pooler (Limited connections - avoid for production)
+- **See**: `DATABASE_CONNECTION.md` for detailed troubleshooting
+
 ### Installation
 ```bash
 # Clone the repository
@@ -82,6 +89,33 @@ The platform includes a comprehensive comment system with the following features
 - `CommentsSection`: Core comment display with real-time updates
 - `CommentForm`: Form for adding new comments (supports both user and guest)
 - `CommentItem`: Individual comment display with edit/delete controls
+
+## 📝 Content Management Features
+
+### Post Content Structure
+- **Main Content**: Auto-generated sections (readings, context, Church Fathers, etc.)
+- **Reflection Field**: Admin-editable personal commentary section
+- **Content Separation**: Allows regeneration of main content while preserving personal reflections
+
+### Admin Features
+- **Post Management**: Create, edit, and publish posts
+- **User Management**: Admin dashboard for user oversight
+- **Comment Moderation**: Approve, edit, or delete comments
+- **Reflection Editing**: Edit personal commentary separately from main content (UI pending)
+
+## 🚀 Production Status
+
+### ✅ Currently Deployed
+- Homepage redesign with feature cards
+- Sunday Gospel reflection post with complete content
+- Guest comment system with real-time updates
+- User authentication and admin dashboard
+- Comment management for users and admins
+
+### 🔄 In Development
+- Admin interface for reflection editing
+- Enhanced post content management
+- Advanced comment moderation features
 
 ## 📚 Documentation
 

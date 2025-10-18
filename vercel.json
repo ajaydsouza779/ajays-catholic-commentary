@@ -1,0 +1,22 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "DATABASE_URL": "postgresql://postgres.kdmmosvpfvtfewkndlcu:koj8WbgGk57ixDJd@aws-1-us-east-1.pooler.supabase.com:6543/postgres",
+    "NEXTAUTH_URL": "https://ajays-catholic-commentary-dev.vercel.app",
+    "NEXTAUTH_SECRET": "dev-secret-key-change-this"
+  },
+  "build": {
+    "env": {
+      "DATABASE_URL": "postgresql://postgres.kdmmosvpfvtfewkndlcu:koj8WbgGk57ixDJd@aws-1-us-east-1.pooler.supabase.com:6543/postgres",
+      "NEXTAUTH_URL": "https://ajays-catholic-commentary-dev.vercel.app",
+      "NEXTAUTH_SECRET": "dev-secret-key-change-this"
+    }
+  }
+}
+
+
+

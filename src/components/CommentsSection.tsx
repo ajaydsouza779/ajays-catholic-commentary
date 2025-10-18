@@ -12,7 +12,8 @@ interface Comment {
     name: string | null
     email: string
   } | null
-  guestName: string | null
+  guestName?: string | null
+  guestEmail?: string | null
 }
 
 interface CommentsSectionProps {

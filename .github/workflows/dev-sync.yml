@@ -1,0 +1,71 @@
+name: Database Sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      sync_direction:
+        description: 'Sync direction'
+        required: true
+        default: 'prod-to-dev'
+        type: choice
+        options:
+          - 'prod-to-dev'
+          - 'dev-to-prod'
+      skip_schema:
+        description: 'Skip schema push (only sync data)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npx prisma generate
+        env:
+          DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
+
+      - name: Push schema to Dev (Transactional Pooler)
+        if: ${{ !inputs.skip_schema && inputs.sync_direction == 'prod-to-dev' }}
+        run: npx prisma db push --skip-generate
+        env:
+          DATABASE_URL: ${{ secrets.DEV_DATABASE_URL_TX }}
+
+      - name: Sync data Prod -> Dev
+        if: ${{ inputs.sync_direction == 'prod-to-dev' }}
+        run: node scripts/sync-databases.js
+        env:
+          DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
+          DATABASE_URL_PROD: ${{ secrets.PROD_DATABASE_URL_RO }}
+
+      - name: Sync data Dev -> Prod
+        if: ${{ inputs.sync_direction == 'dev-to-prod' }}
+        run: node scripts/sync-databases.js
+        env:
+          DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+          DATABASE_URL_PROD: ${{ secrets.DEV_DATABASE_URL }}
+
+      - name: Apply performance indexes
+        if: ${{ inputs.sync_direction == 'prod-to-dev' }}
+        run: |
+          node -e "
+            const fs=require('fs');
+            const {PrismaClient}=require('@prisma/client');
+            const sql=fs.readFileSync('sql/performance-optimization.sql','utf8');
+            const prisma=new PrismaClient();
+            (async()=>{for(const s of sql.split(';').map(x=>x.trim()).filter(Boolean)){try{await prisma.$executeRawUnsafe(s)}catch(e){}} await prisma.$disconnect();})();
+          "
+        env:
+          DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}

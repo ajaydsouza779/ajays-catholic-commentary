@@ -14,7 +14,8 @@ interface CommentItemProps {
       name: string | null
       email: string
     } | null
-    guestName: string | null
+    guestName?: string | null
+    guestEmail?: string | null
   }
   isAdmin: boolean
   isAuthor: boolean

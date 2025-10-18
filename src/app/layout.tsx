@@ -15,8 +15,76 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Ajay's Catholic Commentary",
-  description: "A platform for sharing Catholic insights, teachings, and reflections",
+  title: {
+    default: "Ajay's Catholic Commentary",
+    template: "%s | Ajay's Catholic Commentary"
+  },
+  description: "A platform for sharing Catholic insights, teachings, and reflections. Explore thoughtful commentary on Catholic faith, scripture, and spiritual life.",
+  keywords: [
+    "Catholic",
+    "Christianity", 
+    "Faith",
+    "Scripture",
+    "Church History",
+    "Papal Timeline",
+    "Bible Study",
+    "Catholic Commentary",
+    "Spiritual Reflection",
+    "Theology",
+    "Catholic Teaching",
+    "Religious Education"
+  ],
+  authors: [{ name: "Ajay D'Souza" }],
+  creator: "Ajay D'Souza",
+  publisher: "Ajay's Catholic Commentary",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://ajaycatholic.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://ajaycatholic.com',
+    siteName: "Ajay's Catholic Commentary",
+    title: "Ajay's Catholic Commentary",
+    description: "A platform for sharing Catholic insights, teachings, and reflections. Explore thoughtful commentary on Catholic faith, scripture, and spiritual life.",
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: "Ajay's Catholic Commentary - Catholic insights and spiritual reflections",
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Ajay's Catholic Commentary",
+    description: "A platform for sharing Catholic insights, teachings, and reflections. Explore thoughtful commentary on Catholic faith, scripture, and spiritual life.",
+    images: ['/og-image.jpg'],
+    creator: '@ajaycatholic',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+    yandex: 'your-yandex-verification-code',
+    yahoo: 'your-yahoo-verification-code',
+  },
 }
 
 export default function RootLayout({

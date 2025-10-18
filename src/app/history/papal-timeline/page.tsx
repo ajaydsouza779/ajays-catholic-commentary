@@ -50,6 +50,8 @@ export default function PapalTimelinePage() {
   const [selectedPope, setSelectedPope] = useState<Pope | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [pipelineStartIndex, setPipelineStartIndex] = useState(0)
+  const pipelinePageSize = 15
 
   useEffect(() => {
     fetchPopes()

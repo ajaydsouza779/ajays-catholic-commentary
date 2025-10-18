@@ -105,5 +105,3 @@ export default function CommentForm({ postId, onSubmitted }: { postId: string, o
     </div>
   )
 }
-
-
