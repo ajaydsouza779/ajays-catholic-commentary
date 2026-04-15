@@ -6,7 +6,7 @@ import { formatDate } from "@/lib/utils"
 import DOMPurify from "isomorphic-dompurify"
 import { notFound } from "next/navigation"
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "../../api/auth/[...nextauth]/route"
+import { authOptions } from "@/lib/auth"
 import type { Metadata } from "next"
 
 async function getPost(slug: string) {
