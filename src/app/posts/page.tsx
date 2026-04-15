@@ -65,7 +65,7 @@ async function getPosts(categorySlug?: string) {
 }
 
 interface PostsPageProps {
-  searchParams: { category?: string }
+  searchParams: Promise<{ category?: string }>
 }
 
 export const metadata: Metadata = {

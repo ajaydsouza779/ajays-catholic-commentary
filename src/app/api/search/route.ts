@@ -43,14 +43,14 @@ async function searchPosts(query: string, limit: number, offset: number) {
         { status: 'PUBLISHED' },
         {
           OR: [
-            { title: { contains: query, mode: 'insensitive' } },
-            { content: { contains: query, mode: 'insensitive' } },
-            { excerpt: { contains: query, mode: 'insensitive' } },
+            { title: { contains: query } },
+            { content: { contains: query } },
+            { excerpt: { contains: query } },
             {
               categories: {
                 some: {
                   category: {
-                    name: { contains: query, mode: 'insensitive' }
+                    name: { contains: query }
                   }
                 }
               }
@@ -59,7 +59,7 @@ async function searchPosts(query: string, limit: number, offset: number) {
               tags: {
                 some: {
                   tag: {
-                    name: { contains: query, mode: 'insensitive' }
+                    name: { contains: query }
                   }
                 }
               }
@@ -104,11 +104,11 @@ async function searchPopes(query: string, limit: number, offset: number) {
   const popes = await prisma.pope.findMany({
     where: {
       OR: [
-        { name: { contains: query, mode: 'insensitive' } },
-        { regnalName: { contains: query, mode: 'insensitive' } },
-        { birthName: { contains: query, mode: 'insensitive' } },
-        { nationality: { contains: query, mode: 'insensitive' } },
-        { biography: { contains: query, mode: 'insensitive' } }
+        { name: { contains: query } },
+        { regnalName: { contains: query } },
+        { birthName: { contains: query } },
+        { nationality: { contains: query } },
+        { biography: { contains: query } }
       ]
     },
     include: {
@@ -143,10 +143,10 @@ async function searchDivisions(query: string, limit: number, offset: number) {
   const divisions = await prisma.churchDivision.findMany({
     where: {
       OR: [
-        { name: { contains: query, mode: 'insensitive' } },
-        { description: { contains: query, mode: 'insensitive' } },
-        { cause: { contains: query, mode: 'insensitive' } },
-        { outcome: { contains: query, mode: 'insensitive' } }
+        { name: { contains: query } },
+        { description: { contains: query } },
+        { cause: { contains: query } },
+        { outcome: { contains: query } }
       ]
     },
     include: {
@@ -177,11 +177,11 @@ async function searchManuscripts(query: string, limit: number, offset: number) {
   const manuscripts = await prisma.bibleManuscript.findMany({
     where: {
       OR: [
-        { name: { contains: query, mode: 'insensitive' } },
-        { description: { contains: query, mode: 'insensitive' } },
-        { language: { contains: query, mode: 'insensitive' } },
-        { location: { contains: query, mode: 'insensitive' } },
-        { significance: { contains: query, mode: 'insensitive' } }
+        { name: { contains: query } },
+        { description: { contains: query } },
+        { language: { contains: query } },
+        { location: { contains: query } },
+        { significance: { contains: query } }
       ]
     },
     orderBy: {
