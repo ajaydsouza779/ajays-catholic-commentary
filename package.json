@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "prisma generate --schema=prisma/schema.prisma && next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint",
     "test": "playwright test",
@@ -17,12 +17,10 @@
     "ui:snap:update": "playwright test tests/homepage-visual.spec.ts -g 'Homepage Visual Validation' --update-snapshots --config=playwright.dev.config.ts",
     "ui:snap:headed": "playwright test tests/homepage-visual.spec.ts -g 'Homepage Visual Validation' --headed --config=playwright.dev.config.ts",
     "db:generate": "prisma generate",
-    "db:push": "prisma db push --schema=prisma/schema.prisma",
+    "db:push": "prisma db push",
     "db:seed": "tsx scripts/seed-database.ts",
-    "db:push:prod": "prisma db push --schema=prisma/schema.postgres.prisma",
-    "db:generate:prod": "prisma generate --schema=prisma/schema.postgres.prisma",
     "db:studio": "prisma studio",
-    "db:reset": "rm -f prisma/dev.db && npm run db:push && npm run db:seed"
+    "db:reset": "prisma db push --force-reset && npm run db:seed"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",

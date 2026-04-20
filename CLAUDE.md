@@ -11,9 +11,9 @@ A Catholic commentary platform built with Next.js 15 (App Router) where Ajay D'S
 - **Framework**: Next.js 15.5.4 (App Router), React 19.1.0, TypeScript 5
 - **Styling**: Tailwind CSS 4 with custom Catholic-themed palette (gold, navy, cream, burgundy, sage)
 - **Fonts**: Playfair Display (serif headings), Inter (sans body), JetBrains Mono (code)
-- **Database**: Prisma 6.16.2 ORM with dual schema strategy
-  - Local dev: SQLite (`prisma/schema.prisma`, `file:./dev.db`)
-  - Production: PostgreSQL on Supabase (`prisma/schema.postgres.prisma`)
+- **Database**: Prisma 6.16.2 ORM, PostgreSQL everywhere (single `prisma/schema.prisma`)
+  - Local dev: Docker PostgreSQL via `docker-compose.yml`
+  - Production: PostgreSQL on Supabase
 - **Auth**: NextAuth.js 4.24.11 with credentials provider (email/password), JWT sessions
 - **Rich Text**: TipTap 3.6.1 editor
 - **Images**: Cloudinary (upload, optimize, CDN)
@@ -31,19 +31,17 @@ npm run start        # Production server
 npm run lint         # ESLint
 npm run test         # Playwright tests (base URL: localhost:3010)
 npm run test:ui      # Playwright UI mode
-npm run db:push      # Push schema to SQLite (local)
-npm run db:push:prod # Push schema to PostgreSQL (production)
+npm run db:push      # Push schema to database
 npm run db:studio    # Prisma Studio (web DB browser)
 npm run db:seed      # Seed database (tsx scripts/seed-database.ts)
-npm run db:reset     # Delete & recreate SQLite
+npm run db:reset     # Force-reset database and re-seed
 ```
 
-## Database: Dual Schema Strategy
+## Database
 
-- **Local**: `prisma/schema.prisma` (SQLite) - used with `DATABASE_URL="file:./dev.db"`
-- **Production**: `prisma/schema.postgres.prisma` (PostgreSQL via Supabase)
-- **Switching**: `PRISMA_SCHEMA_PATH` env var controls which schema Prisma uses
-- **Connection pooling**: pgbouncer enabled for serverless (Vercel), `connection_limit=1`
+- **Single schema**: `prisma/schema.prisma` (PostgreSQL) -- used locally and in production
+- **Local dev**: Docker PostgreSQL via `docker-compose up -d` (see `docker-compose.yml`)
+- **Production**: Supabase PostgreSQL with pgbouncer connection pooling (auto-added in production by `src/lib/prisma.ts`)
 - **Sync workflows**: GitHub Actions for prod-to-dev and dev-to-prod database sync
 
 ### Key Models
@@ -106,7 +104,6 @@ Required in production (Vercel):
 - `NEXTAUTH_SECRET` - Auth secret
 - `NEXTAUTH_URL` - Canonical URL
 - `AUTH_TRUST_HOST` - "true" for Vercel
-- `PRISMA_SCHEMA_PATH` - "prisma/schema.postgres.prisma"
 - `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`
 
 ## Git Branching

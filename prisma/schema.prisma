@@ -1,12 +1,11 @@
-// Ajay's Catholic Commentary - Database Schema
-// This schema defines the data structure for the Catholic commentary blog
+// Ajay's Catholic Commentary - Database Schema (PostgreSQL)
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -202,25 +201,6 @@ model SiteSettings {
   updatedAt   DateTime @updatedAt
 }
 
-// Feature toggles for admin-controlled feature management
-model FeatureToggle {
-  id          String   @id @default(cuid())
-  name        String
-  description String
-  enabled     Boolean  @default(false)
-  category    FeatureCategory
-  dependencies String? // JSON array of feature IDs
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-
-enum FeatureCategory {
-  UI
-  FUNCTIONALITY
-  EXPERIMENTAL
-  ADMIN
-}
-
 // Papal Timeline models
 model Pope {
   id              String   @id @default(cuid())
@@ -362,4 +342,23 @@ enum PapalAchievementCategory {
   EDUCATION
   SOCIAL_JUSTICE
   OTHER
+}
+
+// Feature toggles for admin-controlled feature management
+model FeatureToggle {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  enabled     Boolean  @default(false)
+  category    FeatureCategory
+  dependencies String? // JSON array of feature IDs
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum FeatureCategory {
+  UI
+  FUNCTIONALITY
+  EXPERIMENTAL
+  ADMIN
 }
