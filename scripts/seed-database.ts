@@ -1,12 +1,14 @@
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 
 const prisma = new PrismaClient()
 
 async function main() {
   console.log('🌱 Seeding database...')
 
-  // Create categories
+  // ── Categories ──
   const scriptureCategory = await prisma.category.upsert({
     where: { slug: 'scripture-study' },
     update: {},
@@ -37,44 +39,32 @@ async function main() {
     }
   })
 
-  // Create tags
+  // ── Tags ──
   const faithTag = await prisma.tag.upsert({
     where: { slug: 'faith' },
     update: {},
-    create: {
-      name: 'Faith',
-      slug: 'faith'
-    }
+    create: { name: 'Faith', slug: 'faith' }
   })
 
   const prayerTag = await prisma.tag.upsert({
     where: { slug: 'prayer' },
     update: {},
-    create: {
-      name: 'Prayer',
-      slug: 'prayer'
-    }
+    create: { name: 'Prayer', slug: 'prayer' }
   })
 
   const gospelTag = await prisma.tag.upsert({
     where: { slug: 'gospel' },
     update: {},
-    create: {
-      name: 'Gospel',
-      slug: 'gospel'
-    }
+    create: { name: 'Gospel', slug: 'gospel' }
   })
 
   const saintsTag = await prisma.tag.upsert({
     where: { slug: 'saints' },
     update: {},
-    create: {
-      name: 'Saints',
-      slug: 'saints'
-    }
+    create: { name: 'Saints', slug: 'saints' }
   })
 
-  // Create admin user
+  // ── Admin user ──
   const hashedPassword = await bcrypt.hash('admin123', 12)
   const adminUser = await prisma.user.upsert({
     where: { email: 'ajay@example.com' },
@@ -87,7 +77,7 @@ async function main() {
     }
   })
 
-  // Create sample posts
+  // ── Sample posts ──
   const post1 = await prisma.post.upsert({
     where: { slug: 'the-beauty-of-daily-prayer' },
     update: {},
@@ -96,17 +86,17 @@ async function main() {
       slug: 'the-beauty-of-daily-prayer',
       content: `
         <p>In our fast-paced world, it's easy to overlook the profound beauty that lies in the simple act of daily prayer. As Catholics, we are blessed with a rich tradition of prayer that can transform even the most mundane moments into encounters with the divine.</p>
-        
+
         <h2>The Rhythm of Prayer</h2>
         <p>Prayer is not merely a religious obligation, but a lifeline that connects us to our Creator. When we establish a rhythm of daily prayer, we create space for God to speak to our hearts and guide our steps.</p>
-        
+
         <p>The Church offers us various forms of prayer - from the structured beauty of the Liturgy of the Hours to the spontaneous conversations we have with God throughout our day. Each form serves a unique purpose in our spiritual journey.</p>
-        
+
         <h2>Finding God in the Ordinary</h2>
         <p>One of the most beautiful aspects of Catholic spirituality is the recognition that God is present in all things. When we pray with intention, we begin to see His hand in the smallest details of our lives.</p>
-        
+
         <p>Whether it's offering a quick prayer of gratitude before a meal, or taking a moment to reflect on God's goodness during a quiet walk, these simple acts of prayer can become powerful moments of grace.</p>
-        
+
         <h2>Practical Steps</h2>
         <p>If you're looking to deepen your prayer life, consider these simple steps:</p>
         <ul>
@@ -115,7 +105,7 @@ async function main() {
           <li>End your day with an examination of conscience</li>
           <li>Keep a prayer journal to track your spiritual growth</li>
         </ul>
-        
+
         <p>Remember, prayer is not about perfection, but about presence. God meets us where we are, in our brokenness and our joy, and transforms our hearts through the simple act of turning to Him.</p>
       `,
       excerpt: 'Discover how daily prayer can transform ordinary moments into encounters with the divine, and learn practical steps to deepen your spiritual life.',
@@ -133,22 +123,22 @@ async function main() {
       slug: 'understanding-the-eucharist',
       content: `
         <p>The Eucharist stands at the very heart of Catholic faith and practice. As the Second Vatican Council teaches, it is "the source and summit of the Christian life." But what does this profound truth mean for us today?</p>
-        
+
         <h2>The Real Presence</h2>
         <p>At the center of our Eucharistic faith is the belief in the Real Presence of Jesus Christ. When the priest speaks the words of consecration, the bread and wine truly become the Body and Blood of Christ. This is not merely a symbol or a reminder, but a reality that transforms our very being.</p>
-        
+
         <p>This mystery, known as transubstantiation, has been a cornerstone of Catholic belief since the earliest days of the Church. It's a truth that requires faith to accept, but once embraced, it opens up infinite possibilities for spiritual growth.</p>
-        
+
         <h2>Communion and Community</h2>
         <p>The word "communion" itself reveals the communal nature of the Eucharist. When we receive the Body of Christ, we are not only united with Christ Himself, but with all the faithful throughout the world and throughout history.</p>
-        
+
         <p>This unity is not just a nice sentiment - it's a call to action. As members of the Body of Christ, we are called to live in harmony with one another, to support each other in our spiritual journeys, and to work together for the building of God's kingdom.</p>
-        
+
         <h2>Living the Eucharist</h2>
         <p>The Eucharist is not meant to be confined to the walls of the church. It's meant to transform how we live our daily lives. When we receive Christ in the Eucharist, we are called to become what we receive - to be Christ's presence in the world.</p>
-        
+
         <p>This means living with compassion, seeking justice, and serving others with love. It means seeing Christ in every person we meet, especially those who are suffering or in need.</p>
-        
+
         <p>As we approach the altar to receive the Eucharist, let us remember that we are not just receiving a sacrament - we are entering into the very life of God, and committing ourselves to share that life with the world.</p>
       `,
       excerpt: 'Explore the profound mystery of the Eucharist and discover how this central sacrament of our faith can transform our daily lives and relationships.',
@@ -166,22 +156,22 @@ async function main() {
       slug: 'saints-as-spiritual-companions',
       content: `
         <p>The saints are not distant figures from the past, but living companions who walk with us on our spiritual journey. They are proof that holiness is possible, even in the most challenging circumstances.</p>
-        
+
         <h2>The Communion of Saints</h2>
         <p>As Catholics, we believe in the communion of saints - the spiritual bond that unites all believers, both living and dead. This means that the saints are not just historical figures, but active participants in our spiritual lives.</p>
-        
+
         <p>When we pray to the saints, we're not worshiping them - we're asking for their intercession and guidance. They are our older siblings in faith, who have walked the path before us and can help us navigate the challenges of Christian life.</p>
-        
+
         <h2>Learning from Their Examples</h2>
         <p>Each saint offers us a unique example of how to live the Gospel in different circumstances. Saint Francis shows us how to embrace poverty and simplicity. Saint Teresa of Avila teaches us about contemplative prayer. Saint Mother Teresa demonstrates the power of serving the poorest of the poor.</p>
-        
+
         <p>But the saints are not perfect people. They struggled with sin, doubt, and human weakness just like we do. What makes them saints is not their perfection, but their willingness to let God work through their imperfections.</p>
-        
+
         <h2>Finding Your Patron Saints</h2>
         <p>Many Catholics have patron saints - particular saints they feel a special connection with. These relationships often develop naturally as we learn about different saints and their stories.</p>
-        
+
         <p>Consider spending time learning about different saints. Read their biographies, pray with their writings, and ask for their intercession. You might be surprised by the saints who become your spiritual companions.</p>
-        
+
         <p>Remember, the saints are not meant to be distant ideals, but close friends who understand our struggles and can help us grow in holiness. They are cheering us on from heaven, and they want nothing more than to see us become the saints God created us to be.</p>
       `,
       excerpt: 'Discover how the saints can become your spiritual companions and learn from their examples of faith, courage, and love.',
@@ -191,7 +181,7 @@ async function main() {
     }
   })
 
-  // Connect posts to categories and tags (idempotent)
+  // ── Post-Category links ──
   const postCategories = [
     { postId: post1.id, categoryId: spiritualityCategory.id },
     { postId: post2.id, categoryId: traditionCategory.id },
@@ -205,6 +195,7 @@ async function main() {
     })
   }
 
+  // ── Post-Tag links ──
   const postTags = [
     { postId: post1.id, tagId: prayerTag.id },
     { postId: post1.id, tagId: faithTag.id },
@@ -221,10 +212,108 @@ async function main() {
     })
   }
 
-  console.log('✅ Database seeded successfully!')
-  console.log('📝 Created 3 sample posts')
-  console.log('👤 Created admin user: ajay@example.com (password: admin123)')
-  console.log('🏷️ Created categories and tags')
+  console.log('✅ Core data seeded')
+  console.log('   📝 3 sample posts')
+  console.log('   👤 Admin: ajay@example.com / admin123')
+  console.log('   🏷️  3 categories, 4 tags')
+
+  // ── Historical data (popes, events, divisions) ──
+  await seedHistoricalData()
+}
+
+async function seedHistoricalData() {
+  const dataPath = join(__dirname, '..', 'prisma', 'seed-data.json')
+  let data: SeedData
+
+  try {
+    data = JSON.parse(readFileSync(dataPath, 'utf8'))
+  } catch {
+    console.log('⚠️  prisma/seed-data.json not found, skipping historical data')
+    return
+  }
+
+  // Check if already seeded
+  const existingPopes = await prisma.pope.count()
+  if (existingPopes > 0) {
+    console.log(`⏭️  Historical data already exists (${existingPopes} popes), skipping`)
+    return
+  }
+
+  // Seed popes
+  if (data.popes?.length) {
+    for (const pope of data.popes) {
+      await prisma.pope.create({
+        data: {
+          id: pope.id,
+          name: pope.name,
+          regnalName: pope.regnalName,
+          birthName: pope.birthName ?? null,
+          birthDate: pope.birthDate ? new Date(pope.birthDate) : null,
+          deathDate: pope.deathDate ? new Date(pope.deathDate) : null,
+          papacyStart: new Date(pope.papacyStart),
+          papacyEnd: pope.papacyEnd ? new Date(pope.papacyEnd) : null,
+          papacyNumber: pope.papacyNumber,
+          nationality: pope.nationality ?? null,
+          previousOffice: pope.previousOffice ?? null,
+          notableEvents: pope.notableEvents ?? null,
+          biography: pope.biography ?? null,
+          imageUrl: pope.imageUrl ?? null,
+          historicalContext: pope.historicalContext ?? null,
+          references: pope.references ?? null,
+          isCurrent: pope.isCurrent ?? false,
+        }
+      })
+    }
+    console.log(`   ⛪ ${data.popes.length} popes`)
+  }
+
+  // Seed papal events
+  if (data.papalEvents?.length) {
+    for (const event of data.papalEvents) {
+      await prisma.papalEvent.create({
+        data: {
+          id: event.id,
+          title: event.title,
+          description: event.description,
+          eventDate: new Date(event.eventDate),
+          eventType: event.eventType,
+          location: event.location ?? null,
+          significance: event.significance ?? null,
+          imageUrl: event.imageUrl ?? null,
+          popeId: event.popeId,
+        }
+      })
+    }
+    console.log(`   📜 ${data.papalEvents.length} papal events`)
+  }
+
+  // Seed church divisions (parent-first ordering is preserved in the JSON)
+  if (data.churchDivisions?.length) {
+    for (const division of data.churchDivisions) {
+      await prisma.churchDivision.create({
+        data: {
+          id: division.id,
+          name: division.name,
+          description: division.description,
+          year: division.year,
+          cause: division.cause ?? null,
+          outcome: division.outcome ?? null,
+          parentId: division.parentId ?? null,
+          imageUrl: division.imageUrl ?? null,
+        }
+      })
+    }
+    console.log(`   🌳 ${data.churchDivisions.length} church divisions`)
+  }
+
+  console.log('✅ Historical data seeded')
+}
+
+interface SeedData {
+  popes: Record<string, unknown>[]
+  papalEvents: Record<string, unknown>[]
+  churchDivisions: Record<string, unknown>[]
+  popeDivisions: Record<string, unknown>[]
 }
 
 main()
