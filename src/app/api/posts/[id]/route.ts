@@ -51,6 +51,7 @@ export async function GET(
       slug: post.slug,
       excerpt: post.excerpt,
       content: post.content,
+      reflection: post.reflection,
       status: post.status,
       createdAt: post.createdAt,
       updatedAt: post.updatedAt,
@@ -82,7 +83,7 @@ export async function PUT(
     }
 
     const body = await request.json()
-    const { title, slug, content, excerpt, status, categoryIds, tagIds } = body
+    const { title, slug, content, excerpt, reflection, status, categoryIds, tagIds } = body
 
     // Validate required fields
     if (!title || !slug || !content) {
@@ -115,6 +116,7 @@ export async function PUT(
         slug,
         content,
         excerpt: excerpt || content.substring(0, 200) + "...",
+        reflection: reflection ?? undefined,
         status: status || "DRAFT",
       }
     })

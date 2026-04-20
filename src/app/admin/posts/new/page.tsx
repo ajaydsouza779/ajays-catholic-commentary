@@ -32,6 +32,7 @@ export default function NewPost() {
     slug: "",
     content: "",
     excerpt: "",
+    reflection: "",
     status: "DRAFT",
     categoryIds: [] as string[],
     tagIds: [] as string[],
@@ -247,6 +248,21 @@ export default function NewPost() {
                 />
                 <p className="text-sm mt-1" style={{color: '#6B7280'}}>
                   Use the toolbar above to format your text with headings, bold, italic, lists, and quotes.
+                </p>
+              </div>
+
+              {/* Reflection */}
+              <div>
+                <label htmlFor="reflection" className="block text-sm font-medium mb-2" style={{color: '#1E3A8A'}}>
+                  Personal Reflection & Prayer
+                </label>
+                <RichTextEditor
+                  content={formData.reflection}
+                  onChange={(reflection) => setFormData(prev => ({ ...prev, reflection }))}
+                  placeholder="Write your personal reflection or prayer here..."
+                />
+                <p className="text-sm mt-1" style={{color: '#6B7280'}}>
+                  Optional. Your personal reflection or prayer will be displayed in a distinct section below the main content.
                 </p>
               </div>
 

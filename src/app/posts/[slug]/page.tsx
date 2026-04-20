@@ -265,6 +265,19 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content.replace(/<\/h1>/gi, '</h2>').replace(/<h1/gi, '<h2')) }}
             />
 
+            {/* Reflection */}
+            {post.reflection && (
+              <div className="mt-8 p-6 rounded-lg border-l-4" style={{ backgroundColor: '#FFFBEB', borderColor: '#D4AF37' }}>
+                <h2 className="text-xl font-serif text-gray-900 mb-4 flex items-center gap-2">
+                  Personal Reflection & Prayer
+                </h2>
+                <div
+                  className="prose prose-sm sm:prose-base max-w-none prose-headings:font-serif prose-headings:text-gray-900 prose-p:leading-relaxed prose-p:text-gray-700"
+                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.reflection) }}
+                />
+              </div>
+            )}
+
             {/* Tags */}
             {post.tags.length > 0 && (
               <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200">

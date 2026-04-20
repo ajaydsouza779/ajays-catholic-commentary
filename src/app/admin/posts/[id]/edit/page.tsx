@@ -25,6 +25,7 @@ interface Post {
   slug: string
   content: string
   excerpt: string
+  reflection: string | null
   status: string
   categories: Category[]
   tags: Tag[]
@@ -47,6 +48,7 @@ export default function EditPost() {
     slug: "",
     content: "",
     excerpt: "",
+    reflection: "",
     status: "DRAFT",
     categoryIds: [] as string[],
     tagIds: [] as string[]
@@ -68,6 +70,7 @@ export default function EditPost() {
           slug: postData.slug,
           content: postData.content,
           excerpt: postData.excerpt,
+          reflection: postData.reflection || "",
           status: postData.status,
           categoryIds: postData.categories.map((c: Category) => c.id),
           tagIds: postData.tags.map((t: Tag) => t.id)
@@ -277,6 +280,21 @@ export default function EditPost() {
                 />
                 <p className="text-sm mt-1" style={{color: '#6B7280'}}>
                   Use the toolbar above to format your text with headings, bold, italic, lists, and quotes.
+                </p>
+              </div>
+
+              {/* Reflection */}
+              <div>
+                <label htmlFor="reflection" className="block text-sm font-medium mb-2" style={{color: '#1E3A8A'}}>
+                  Personal Reflection & Prayer
+                </label>
+                <RichTextEditor
+                  content={formData.reflection}
+                  onChange={(reflection) => setFormData(prev => ({ ...prev, reflection }))}
+                  placeholder="Write your personal reflection or prayer here..."
+                />
+                <p className="text-sm mt-1" style={{color: '#6B7280'}}>
+                  Optional. Your personal reflection or prayer will be displayed in a distinct section below the main content.
                 </p>
               </div>
 

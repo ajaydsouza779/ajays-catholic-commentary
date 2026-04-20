@@ -309,11 +309,12 @@ async function seedHistoricalData() {
   console.log('✅ Historical data seeded')
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface SeedData {
-  popes: Record<string, unknown>[]
-  papalEvents: Record<string, unknown>[]
-  churchDivisions: Record<string, unknown>[]
-  popeDivisions: Record<string, unknown>[]
+  popes: any[]
+  papalEvents: any[]
+  churchDivisions: any[]
+  popeDivisions: any[]
 }
 
 main()

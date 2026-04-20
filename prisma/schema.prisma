@@ -79,6 +79,7 @@ model Post {
   slug          String      @unique
   content       String
   excerpt       String?
+  reflection    String?     // Admin's personal reflection/prayer, edited separately from content
   featuredImage String?
   status        PostStatus  @default(DRAFT)
   publishedAt   DateTime?
