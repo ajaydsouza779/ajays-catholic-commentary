@@ -102,6 +102,26 @@ export default function HistoryNavigation() {
           >
             Bible History
           </Link>
+          <Link
+            href="/history/mass-history"
+            className={`py-4 px-1 border-b-2 transition-colors ${
+              isActive('/history/mass-history')
+                ? 'border-amber-500 text-amber-600'
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+            }`}
+          >
+            Mass History
+          </Link>
+          <Link
+            href="/history/indian-church"
+            className={`py-4 px-1 border-b-2 transition-colors ${
+              isActive('/history/indian-church')
+                ? 'border-amber-500 text-amber-600'
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+            }`}
+          >
+            Indian Church
+          </Link>
         </nav>
       </div>
     </div>

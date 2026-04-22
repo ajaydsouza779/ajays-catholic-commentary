@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
 import { useSession } from "next-auth/react"
-import { BookOpen, History, Users, FileText, User, Edit3 } from "lucide-react"
+import { BookOpen, History, Users, FileText, User, Edit3, Church, MapPin } from "lucide-react"
 
 export default function Home() {
   const { data: session } = useSession()
@@ -33,6 +33,8 @@ export default function Home() {
     { id: 'papal-timeline', label: 'Papal Timeline', icon: History, href: '/history/papal-timeline' },
     { id: 'church-divisions', label: 'Church History', icon: Users, href: '/history/church-divisions' },
     { id: 'bible-origin', label: 'Bible History', icon: FileText, href: '/history/bible-origin' },
+    { id: 'mass-history', label: 'Mass History', icon: Church, href: '/history/mass-history' },
+    { id: 'indian-church', label: 'Indian Church', icon: MapPin, href: '/history/indian-church' },
   ]
 
   function handlePhotoChange(event: React.ChangeEvent<HTMLInputElement>) {
