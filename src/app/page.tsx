@@ -7,7 +7,6 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import {
   BookOpen,
-  History,
   Users,
   FileText,
   Church,
@@ -15,7 +14,10 @@ import {
   Crown,
   Calendar,
   ArrowRight,
-  Search,
+  Eye,
+  Heart,
+  Flame,
+  Star,
 } from "lucide-react"
 
 function LatestPostsSection() {
@@ -95,48 +97,26 @@ function LatestPostsSection() {
   )
 }
 
-const sections = [
+const exploreGroups = [
   {
-    title: "Posts",
-    description: "Catholic commentary and theological reflections",
-    icon: BookOpen,
-    href: "/posts",
-    color: "bg-amber-50 border-amber-200 text-amber-700",
+    heading: "History",
+    items: [
+      { title: "Papal Timeline", description: "History of the Chair of St. Peter", icon: Crown, href: "/history/papal-timeline", color: "bg-indigo-50 border-indigo-200 text-indigo-700" },
+      { title: "Church History", description: "Divisions and unity across the centuries", icon: Users, href: "/history/church-divisions", color: "bg-emerald-50 border-emerald-200 text-emerald-700" },
+      { title: "Bible History", description: "Formation, manuscripts, and translations", icon: FileText, href: "/history/bible-origin", color: "bg-sky-50 border-sky-200 text-sky-700" },
+      { title: "Mass History", description: "From the Last Supper to the modern liturgy", icon: Church, href: "/history/mass-history", color: "bg-purple-50 border-purple-200 text-purple-700" },
+      { title: "Indian Church", description: "Two millennia of Christianity in India", icon: MapPin, href: "/history/indian-church", color: "bg-orange-50 border-orange-200 text-orange-700" },
+    ],
   },
   {
-    title: "Papal Timeline",
-    description: "History of the Chair of St. Peter",
-    icon: Crown,
-    href: "/history/papal-timeline",
-    color: "bg-indigo-50 border-indigo-200 text-indigo-700",
-  },
-  {
-    title: "Church History",
-    description: "Divisions and unity across the centuries",
-    icon: Users,
-    href: "/history/church-divisions",
-    color: "bg-emerald-50 border-emerald-200 text-emerald-700",
-  },
-  {
-    title: "Bible History",
-    description: "Formation, manuscripts, and translations",
-    icon: FileText,
-    href: "/history/bible-origin",
-    color: "bg-sky-50 border-sky-200 text-sky-700",
-  },
-  {
-    title: "Mass History",
-    description: "From the Last Supper to the modern liturgy",
-    icon: Church,
-    href: "/history/mass-history",
-    color: "bg-purple-50 border-purple-200 text-purple-700",
-  },
-  {
-    title: "Indian Church",
-    description: "Two millennia of Christianity in India",
-    icon: MapPin,
-    href: "/history/indian-church",
-    color: "bg-orange-50 border-orange-200 text-orange-700",
+    heading: "Mysteries",
+    items: [
+      { title: "Public Revelation", description: "Scripture, Tradition, and the deposit of faith", icon: BookOpen, href: "/mysteries/public-revelation", color: "bg-blue-50 border-blue-200 text-blue-700" },
+      { title: "Private Revelations", description: "Approved visions, locutions, and mystical experiences", icon: Eye, href: "/mysteries/private-revelations", color: "bg-violet-50 border-violet-200 text-violet-700" },
+      { title: "Marian Apparitions", description: "Guadalupe, Lourdes, Fatima, and more", icon: Heart, href: "/mysteries/marian-apparitions", color: "bg-rose-50 border-rose-200 text-rose-700" },
+      { title: "Eucharistic Miracles", description: "Visible signs of the Real Presence", icon: Flame, href: "/mysteries/eucharistic-miracles", color: "bg-amber-50 border-amber-200 text-amber-700" },
+      { title: "Incorruptible Saints", description: "Bodies preserved from decay as signs of holiness", icon: Star, href: "/mysteries/incorruptible-saints", color: "bg-teal-50 border-teal-200 text-teal-700" },
+    ],
   },
 ]
 
@@ -169,37 +149,65 @@ export default function Home() {
         <main>
           {/* Explore Sections */}
           <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6 text-center">
+            <h2 className="text-2xl font-serif font-bold text-gray-900 mb-2 text-center">
               Explore
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {sections.map((section) => {
-                const Icon = section.icon
-                const [bg, border, text] = section.color.split(" ")
-                return (
-                  <Link
-                    key={section.title}
-                    href={section.href}
-                    className={`group rounded-xl p-5 border ${bg} ${border} hover:shadow-md transition-all`}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className={`p-2.5 rounded-lg bg-white/70 ${text}`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-amber-800 transition-colors">
-                          {section.title}
-                        </h3>
-                        <p className="text-sm text-gray-600 leading-relaxed">
-                          {section.description}
-                        </p>
-                      </div>
-                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-amber-600 mt-1 shrink-0 transition-colors" />
-                    </div>
-                  </Link>
-                )
-              })}
+            <p className="text-gray-500 text-center mb-8 text-sm">
+              Catholic commentary, historical research, and spiritual reflection
+            </p>
+
+            {/* Posts card standalone */}
+            <div className="mb-8">
+              <Link
+                href="/posts"
+                className="group rounded-xl p-5 border bg-amber-50 border-amber-200 hover:shadow-md transition-all block max-w-md mx-auto"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="p-2.5 rounded-lg bg-white/70 text-amber-700">
+                    <BookOpen className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-amber-800 transition-colors">Posts</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">Catholic commentary and theological reflections</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-amber-600 mt-1 shrink-0 transition-colors" />
+                </div>
+              </Link>
             </div>
+
+            {exploreGroups.map((group) => (
+              <div key={group.heading} className="mb-8">
+                <h3 className="text-lg font-serif font-semibold text-gray-800 mb-4">{group.heading}</h3>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {group.items.map((item) => {
+                    const Icon = item.icon
+                    const [bg, border, text] = item.color.split(" ")
+                    return (
+                      <Link
+                        key={item.title}
+                        href={item.href}
+                        className={`group rounded-xl p-5 border ${bg} ${border} hover:shadow-md transition-all`}
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className={`p-2.5 rounded-lg bg-white/70 ${text}`}>
+                            <Icon className="w-5 h-5" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-amber-800 transition-colors">
+                              {item.title}
+                            </h3>
+                            <p className="text-sm text-gray-600 leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-amber-600 mt-1 shrink-0 transition-colors" />
+                        </div>
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
+            ))}
           </section>
 
           {/* Latest Posts */}
