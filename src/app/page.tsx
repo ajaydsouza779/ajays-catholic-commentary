@@ -2,230 +2,158 @@
 
 import Header from "@/components/Header"
 import HistoryNavigation from "@/components/HistoryNavigation"
-import DatabaseTestButton from "@/components/DatabaseTestButton"
+import Footer from "@/components/Footer"
 import Link from "next/link"
-import { useState, useRef, useEffect } from "react"
-import { useSession } from "next-auth/react"
-import { User, Edit3, Crown, Calendar, ArrowRight } from "lucide-react"
+import { useState, useEffect } from "react"
+import {
+  BookOpen,
+  History,
+  Users,
+  FileText,
+  Church,
+  MapPin,
+  Crown,
+  Calendar,
+  ArrowRight,
+  Search,
+} from "lucide-react"
 
-// Latest Posts Section Component
 function LatestPostsSection() {
   const [posts, setPosts] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        setLoading(true)
-        const response = await fetch('/api/posts?limit=3', {
-          cache: 'no-store'
-        })
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch posts')
+        const response = await fetch("/api/posts?limit=3", { cache: "no-store" })
+        if (response.ok) {
+          setPosts(await response.json())
         }
-        
-        const data = await response.json()
-        setPosts(data)
-        setError(null)
       } catch (err) {
-        console.error('Error fetching posts:', err)
-        setError('Unable to load posts. Please try again later.')
+        console.error("Error fetching posts:", err)
       } finally {
         setLoading(false)
       }
     }
-
     fetchPosts()
-  }, []) // Empty dependency array to run only once
+  }, [])
 
   if (loading) {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
-        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Latest Posts</h2>
-        <div className="text-center py-8">
-          <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-2xl">📝</span>
-          </div>
-          <p className="text-gray-600">Loading posts...</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
-        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Latest Posts</h2>
-        <div className="text-center py-8">
-          <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-2xl">📝</span>
-          </div>
-          <p className="text-gray-600">{error}</p>
-        </div>
+      <div className="text-center py-12">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600 mx-auto"></div>
+        <p className="mt-3 text-sm text-gray-500">Loading posts...</p>
       </div>
     )
   }
 
   if (posts.length === 0) {
     return (
-      <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
-        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Latest Posts</h2>
-        <div className="text-center py-8">
-          <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-2xl">📝</span>
-          </div>
-          <p className="text-gray-600">No posts available yet. Check back soon for Catholic commentary and reflections!</p>
-        </div>
+      <div className="text-center py-12">
+        <BookOpen className="w-10 h-10 text-amber-300 mx-auto mb-3" />
+        <p className="text-gray-500">No posts yet. Check back soon!</p>
       </div>
     )
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-amber-100">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-serif font-bold text-gray-900">Latest Posts</h2>
-        <Link 
-          href="/posts" 
-          className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-medium"
+    <div className="grid md:grid-cols-3 gap-6">
+      {posts.map((post: any) => (
+        <article
+          key={post.id}
+          className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow"
         >
-          View All Posts
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      </div>
-      
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post: any) => (
-          <article key={post.id} className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
-              <Calendar className="w-4 h-4" />
+          <div className="p-6">
+            <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
+              <Calendar className="w-3.5 h-3.5" />
               <time dateTime={post.publishedAt}>
-                {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
+                {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
                 })}
               </time>
             </div>
-            
-            <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
-              <Link 
-                href={`/posts/${post.slug}`}
-                className="hover:text-amber-600 transition-colors"
-              >
+            <h3 className="font-serif text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+              <Link href={`/posts/${post.slug}`} className="hover:text-amber-700 transition-colors">
                 {post.title}
               </Link>
             </h3>
-            
             {post.excerpt && (
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                {post.excerpt}
-              </p>
+              <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
             )}
-            
-            <div className="flex flex-wrap gap-2 mb-4">
-              {post.categories?.map((cat: any) => (
-                <span 
-                  key={cat.id}
-                  className="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-medium rounded-full"
-                >
-                  {cat.name}
-                </span>
-              ))}
-            </div>
-            
-            <Link 
+            <Link
               href={`/posts/${post.slug}`}
-              className="inline-flex items-center gap-1 text-amber-600 hover:text-amber-700 font-medium text-sm"
+              className="inline-flex items-center gap-1 text-amber-600 hover:text-amber-700 text-sm font-medium"
             >
-              Read More
-              <ArrowRight className="w-3 h-3" />
+              Read More <ArrowRight className="w-3.5 h-3.5" />
             </Link>
-          </article>
-        ))}
-      </div>
+          </div>
+        </article>
+      ))}
     </div>
   )
 }
 
+const sections = [
+  {
+    title: "Posts",
+    description: "Catholic commentary and theological reflections",
+    icon: BookOpen,
+    href: "/posts",
+    color: "bg-amber-50 border-amber-200 text-amber-700",
+  },
+  {
+    title: "Papal Timeline",
+    description: "History of the Chair of St. Peter",
+    icon: Crown,
+    href: "/history/papal-timeline",
+    color: "bg-indigo-50 border-indigo-200 text-indigo-700",
+  },
+  {
+    title: "Church History",
+    description: "Divisions and unity across the centuries",
+    icon: Users,
+    href: "/history/church-divisions",
+    color: "bg-emerald-50 border-emerald-200 text-emerald-700",
+  },
+  {
+    title: "Bible History",
+    description: "Formation, manuscripts, and translations",
+    icon: FileText,
+    href: "/history/bible-origin",
+    color: "bg-sky-50 border-sky-200 text-sky-700",
+  },
+  {
+    title: "Mass History",
+    description: "From the Last Supper to the modern liturgy",
+    icon: Church,
+    href: "/history/mass-history",
+    color: "bg-purple-50 border-purple-200 text-purple-700",
+  },
+  {
+    title: "Indian Church",
+    description: "Two millennia of Christianity in India",
+    icon: MapPin,
+    href: "/history/indian-church",
+    color: "bg-orange-50 border-orange-200 text-orange-700",
+  },
+]
+
 export default function Home() {
-  const { data: session } = useSession()
-  const [photoPreview, setPhotoPreview] = useState<string | null>(null)
-  const [profilePhoto, setProfilePhoto] = useState<string | null>(null)
-  const fileInputRef = useRef<HTMLInputElement | null>(null)
-
-  // Fetch profile photo on component mount
-  useEffect(() => {
-    const fetchProfilePhoto = async () => {
-      try {
-        const response = await fetch('/api/admin/profile-photo')
-        if (response.ok) {
-          const data = await response.json()
-          setProfilePhoto(data.photo)
-        }
-      } catch (error) {
-        console.error('Error fetching profile photo:', error)
-      }
-    }
-    
-    fetchProfilePhoto()
-  }, [])
-
-
-  function handlePhotoChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0]
-    if (!file) return
-    const reader = new FileReader()
-    reader.onload = async () => {
-      const base64Data = reader.result as string
-      setPhotoPreview(base64Data)
-      
-      // Upload to server
-      try {
-        const response = await fetch('/api/admin/profile-photo', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ photo: base64Data })
-        })
-        
-        if (response.ok) {
-          setProfilePhoto(base64Data)
-          console.log('Profile photo updated successfully')
-        } else {
-          console.error('Failed to update profile photo')
-        }
-      } catch (error) {
-        console.error('Error uploading profile photo:', error)
-      }
-    }
-    reader.readAsDataURL(file)
-  }
-
-  // Structured data for homepage
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Ajay's Catholic Commentary",
-    "url": "https://ajaycatholic.com",
-    "description": "A platform for sharing Catholic insights, teachings, and reflections. Explore thoughtful commentary on Catholic faith, scripture, and spiritual life.",
-    "author": {
-      "@type": "Person",
-      "name": "Ajay D'Souza"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Ajay's Catholic Commentary",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://ajaycatholic.com/logo.png"
-      }
-    },
-    "potentialAction": {
+    name: "Ajay's Catholic Commentary",
+    url: "https://ajaycatholic.com",
+    description:
+      "A platform for sharing Catholic insights, teachings, and reflections.",
+    author: { "@type": "Person", name: "Ajay D'Souza" },
+    potentialAction: {
       "@type": "SearchAction",
-      "target": "https://ajaycatholic.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+      target: "https://ajaycatholic.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
   }
 
   return (
@@ -235,168 +163,86 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <div className="min-h-screen bg-neutral-50">
-      <Header />
-      <HistoryNavigation />
-      
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Author Section (temporarily hidden) */}
-        {false && (
-        <div className="relative overflow-hidden rounded-2xl mb-8">
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-100 via-rose-100 to-sky-100" />
-          <div className="relative p-6 sm:p-8 border border-amber-200/60 backdrop-blur-sm">
-            <div className="flex flex-col md:flex-row items-start gap-6">
-              {/* Left: Photo + name */}
-              <div className="flex items-center md:block">
-                <div className="relative">
-                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-amber-100 border-4 border-amber-300/60 overflow-hidden flex items-center justify-center shadow">
-                  {photoPreview || profilePhoto ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={photoPreview || profilePhoto || ''} alt="Author" className="w-full h-full object-cover" />
-                  ) : (
-                    <User className="w-14 h-14 sm:w-16 sm:h-16 text-amber-700" />
-                  )}
-                </div>
-                  {(session?.user as { role?: string })?.role === 'ADMIN' && (
-                    <button
-                      onClick={() => fileInputRef.current?.click()}
-                      className="absolute -bottom-2 right-0 bg-amber-600 hover:bg-amber-700 text-white text-xs px-3 py-1 rounded-full shadow"
-                    >
-                      Upload
-                    </button>
-                  )}
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    className="hidden"
-                    onChange={handlePhotoChange}
-                  />
-                </div>
-                <div className="ml-4 md:ml-0 md:mt-3 text-left md:text-center">
-                  <div className="text-base sm:text-lg text-gray-800 font-semibold">Ajay D&apos;Souza</div>
-                  <Link
-                    href="/about"
-                    className="inline-flex items-center gap-1.5 text-amber-800 hover:text-amber-900 text-sm font-medium mt-1"
-                  >
-                    <Edit3 className="w-4 h-4" />
-                    Learn more about me
-                  </Link>
-                </div>
-              </div>
+        <Header />
+        <HistoryNavigation />
 
-              {/* Right: Intro text */}
-              <div className="flex-1">
-                <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
-                  Welcome to my Catholic Commentary platform. Here, I share insights into Catholic teachings,
-                  explore the rich history of our Church, and reflect on the beauty of our faith tradition.
-                  Join me in discovering the depth and wisdom of Catholicism through thoughtful commentary,
-                  historical exploration, and spiritual reflection.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        )}
-
-        {/* Hero Section */}
-        <div className="bg-gradient-to-br from-amber-50 via-white to-amber-50 rounded-2xl shadow-lg p-8 mb-8 border border-amber-100">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
-              Welcome to Ajay&apos;s Catholic Commentary
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Explore the rich tapestry of Catholic faith through commentary, historical research, and spiritual reflection.
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
-                <div className="text-2xl mb-2">📝</div>
-                <h3 className="font-semibold text-gray-800 mb-1">Posts</h3>
-                <p className="text-sm text-gray-600">Catholic commentary and theological reflections</p>
-              </div>
-              <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
-                <div className="flex justify-center mb-2">
-                  <Crown className="w-8 h-8 text-amber-600" />
-                </div>
-                <h3 className="font-semibold text-gray-800 mb-1">Papal Timeline</h3>
-                <p className="text-sm text-gray-600">History of the Chair of St. Peter</p>
-              </div>
-              <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
-                <div className="text-2xl mb-2">⛪</div>
-                <h3 className="font-semibold text-gray-800 mb-1">Church History</h3>
-                <p className="text-sm text-gray-600">Divisions and unity in Church history</p>
-              </div>
-              <div className="p-4 bg-white/80 rounded-lg shadow-sm border border-amber-200">
-                <div className="text-2xl mb-2">📖</div>
-                <h3 className="font-semibold text-gray-800 mb-1">Bible History</h3>
-                <p className="text-sm text-gray-600">Formation, manuscripts, and translations</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Latest Posts Section */}
-        <LatestPostsSection />
-
-        {/* Coming Soon - Sunday Reflections */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg p-8 mb-8 border border-blue-200">
-          <div className="text-center">
-            <h2 className="text-2xl font-serif font-bold text-gray-900 mb-4">
-              🕊️ Sunday Gospel Reflections
+        <main>
+          {/* Explore Sections */}
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6 text-center">
+              Explore
             </h2>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Join me every Sunday as I share reflections on the Gospel readings and Sunday Mass. 
-              These weekly reflections will help deepen your understanding of Scripture and strengthen your faith.
-            </p>
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-              <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-              Coming Soon - First Reflection This Sunday
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {sections.map((section) => {
+                const Icon = section.icon
+                const [bg, border, text] = section.color.split(" ")
+                return (
+                  <Link
+                    key={section.title}
+                    href={section.href}
+                    className={`group rounded-xl p-5 border ${bg} ${border} hover:shadow-md transition-all`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className={`p-2.5 rounded-lg bg-white/70 ${text}`}>
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-amber-800 transition-colors">
+                          {section.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          {section.description}
+                        </p>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-amber-600 mt-1 shrink-0 transition-colors" />
+                    </div>
+                  </Link>
+                )
+              })}
             </div>
-          </div>
-        </div>
+          </section>
 
-      </main>
+          {/* Latest Posts */}
+          <section className="bg-white border-y border-gray-100">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl font-serif font-bold text-gray-900">
+                  Latest Posts
+                </h2>
+                <Link
+                  href="/posts"
+                  className="inline-flex items-center gap-1 text-amber-600 hover:text-amber-700 text-sm font-medium"
+                >
+                  View All <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+              <LatestPostsSection />
+            </div>
+          </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-serif text-xl font-bold text-amber-400 mb-4">
-                Ajay&apos;s Catholic Commentary
+          {/* About */}
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 max-w-2xl mx-auto text-center">
+              <h3 className="text-xl font-serif font-bold text-gray-900 mb-4">
+                About This Platform
               </h3>
-              <p className="text-gray-300 text-sm">
-                Sharing the beauty of Catholic faith and tradition through thoughtful commentary and historical exploration.
+              <p className="text-gray-600 leading-relaxed mb-4">
+                This platform is dedicated to exploring Catholic faith through
+                commentary, historical research, and spiritual reflection. From
+                the Apostolic era to the modern Church, discover the depth and
+                beauty of Catholic tradition.
               </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-1 text-amber-600 hover:text-amber-700 text-sm font-medium"
+              >
+                Learn more about Ajay <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-            <div>
-              <h4 className="font-semibold text-amber-400 mb-4">Quick Links</h4>
-              <div className="space-y-2">
-                <Link href="/posts" className="block text-gray-300 hover:text-white text-sm transition-colors">Posts</Link>
-                <Link href="/about" className="block text-gray-300 hover:text-white text-sm transition-colors">About</Link>
-                <Link href="/auth/signup" className="block text-gray-300 hover:text-white text-sm transition-colors">Join Community</Link>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-semibold text-amber-400 mb-4">Coming Soon</h4>
-              <div className="space-y-2">
-                <span className="block text-gray-300 text-sm">Papal Timeline</span>
-                <span className="block text-gray-300 text-sm">Church History</span>
-                <span className="block text-gray-300 text-sm">Bible History</span>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 mt-8 pt-8">
-            <div className="flex justify-between items-center">
-              <p className="text-gray-400 text-sm">
-                © 2024 Ajay&apos;s Catholic Commentary. All rights reserved.
-              </p>
-              <div className="flex justify-end">
-                <DatabaseTestButton />
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+          </section>
+        </main>
+
+        <Footer />
       </div>
     </>
   )
