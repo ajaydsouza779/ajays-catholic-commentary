@@ -27,6 +27,11 @@ const categories = [
       { href: '/mysteries/marian-apparitions', label: 'Marian Apparitions' },
       { href: '/mysteries/eucharistic-miracles', label: 'Eucharistic Miracles' },
       { href: '/mysteries/incorruptible-saints', label: 'Incorruptible Saints' },
+      { href: '/mysteries/stigmata', label: 'Stigmata' },
+      { href: '/mysteries/miraculous-images', label: 'Miraculous Images' },
+      { href: '/mysteries/weeping-statues', label: 'Weeping Statues' },
+      { href: '/mysteries/healing-miracles', label: 'Healing Miracles' },
+      { href: '/mysteries/mystical-phenomena', label: 'Mystical Phenomena' },
     ],
   },
 ]

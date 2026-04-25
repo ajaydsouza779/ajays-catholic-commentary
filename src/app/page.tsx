@@ -18,6 +18,11 @@ import {
   Heart,
   Flame,
   Star,
+  Cross,
+  Image,
+  Droplets,
+  Activity,
+  Sparkles,
 } from "lucide-react"
 
 function LatestPostsSection() {
@@ -116,6 +121,11 @@ const exploreGroups = [
       { title: "Marian Apparitions", description: "Guadalupe, Lourdes, Fatima, and more", icon: Heart, href: "/mysteries/marian-apparitions", color: "bg-rose-50 border-rose-200 text-rose-700" },
       { title: "Eucharistic Miracles", description: "Visible signs of the Real Presence", icon: Flame, href: "/mysteries/eucharistic-miracles", color: "bg-amber-50 border-amber-200 text-amber-700" },
       { title: "Incorruptible Saints", description: "Bodies preserved from decay as signs of holiness", icon: Star, href: "/mysteries/incorruptible-saints", color: "bg-teal-50 border-teal-200 text-teal-700" },
+      { title: "Stigmata", description: "The wounds of Christ on the bodies of saints", icon: Cross, href: "/mysteries/stigmata", color: "bg-red-50 border-red-200 text-red-700" },
+      { title: "Miraculous Images", description: "Guadalupe tilma, Shroud of Turin, and more", icon: Image, href: "/mysteries/miraculous-images", color: "bg-indigo-50 border-indigo-200 text-indigo-700" },
+      { title: "Weeping Statues", description: "Statues and icons that weep tears, blood, or oil", icon: Droplets, href: "/mysteries/weeping-statues", color: "bg-cyan-50 border-cyan-200 text-cyan-700" },
+      { title: "Healing Miracles", description: "Lourdes Medical Bureau and canonization cures", icon: Activity, href: "/mysteries/healing-miracles", color: "bg-emerald-50 border-emerald-200 text-emerald-700" },
+      { title: "Mystical Phenomena", description: "Levitation, bilocation, odor of sanctity, ecstasy", icon: Sparkles, href: "/mysteries/mystical-phenomena", color: "bg-purple-50 border-purple-200 text-purple-700" },
     ],
   },
 ]
