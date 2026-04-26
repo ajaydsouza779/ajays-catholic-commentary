@@ -19,6 +19,22 @@ const categories = [
     ],
   },
   {
+    id: 'science',
+    label: 'Science',
+    tabs: [
+      { href: '/science/faith-and-reason', label: 'Faith & Reason' },
+      { href: '/science/church-and-science', label: 'Church & Science' },
+      { href: '/science/galileo', label: 'The Galileo Affair' },
+      { href: '/science/evolution', label: 'Evolution & Creation' },
+      { href: '/science/big-bang', label: 'Big Bang & Cosmology' },
+      { href: '/science/reading-genesis', label: 'Reading Genesis' },
+      { href: '/science/archaeology', label: 'Archaeology & Bible' },
+      { href: '/science/catholic-scientists', label: 'Catholic Scientists' },
+      { href: '/science/saints-on-science', label: 'Saints on Science' },
+      { href: '/science/conflicts-and-myths', label: 'Conflicts & Myths' },
+    ],
+  },
+  {
     id: 'mysteries',
     label: 'Mysteries',
     tabs: [

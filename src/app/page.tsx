@@ -23,6 +23,15 @@ import {
   Droplets,
   Activity,
   Sparkles,
+  Telescope,
+  Dna,
+  Atom,
+  ScrollText,
+  Search,
+  GraduationCap,
+  Scale,
+  AlertTriangle,
+  Lightbulb,
 } from "lucide-react"
 
 function LatestPostsSection() {
@@ -126,6 +135,20 @@ const exploreGroups = [
       { title: "Weeping Statues", description: "Statues and icons that weep tears, blood, or oil", icon: Droplets, href: "/mysteries/weeping-statues", color: "bg-cyan-50 border-cyan-200 text-cyan-700" },
       { title: "Healing Miracles", description: "Lourdes Medical Bureau and canonization cures", icon: Activity, href: "/mysteries/healing-miracles", color: "bg-emerald-50 border-emerald-200 text-emerald-700" },
       { title: "Mystical Phenomena", description: "Levitation, bilocation, odor of sanctity, ecstasy", icon: Sparkles, href: "/mysteries/mystical-phenomena", color: "bg-purple-50 border-purple-200 text-purple-700" },
+    ],
+  },
+  {
+    heading: "Science & Faith",
+    items: [
+      { title: "Faith & Reason", description: "Two wings rising to truth — Fides et Ratio", icon: Scale, href: "/science/faith-and-reason", color: "bg-blue-50 border-blue-200 text-blue-700" },
+      { title: "The Galileo Affair", description: "What really happened — and his daughter the nun", icon: Telescope, href: "/science/galileo", color: "bg-orange-50 border-orange-200 text-orange-700" },
+      { title: "Evolution & Creation", description: "The Church's position on evolution and Genesis", icon: Dna, href: "/science/evolution", color: "bg-green-50 border-green-200 text-green-700" },
+      { title: "Big Bang & Cosmology", description: "A Catholic priest proposed the Big Bang theory", icon: Atom, href: "/science/big-bang", color: "bg-purple-50 border-purple-200 text-purple-700" },
+      { title: "Reading Genesis", description: "How the Church reads prehistoric biblical accounts", icon: ScrollText, href: "/science/reading-genesis", color: "bg-amber-50 border-amber-200 text-amber-700" },
+      { title: "Archaeology & Bible", description: "Dead Sea Scrolls, carbon dating, and biblical sites", icon: Search, href: "/science/archaeology", color: "bg-emerald-50 border-emerald-200 text-emerald-700" },
+      { title: "Catholic Scientists", description: "Mendel, Lemaître, Copernicus, and the Jesuits", icon: GraduationCap, href: "/science/catholic-scientists", color: "bg-indigo-50 border-indigo-200 text-indigo-700" },
+      { title: "Saints on Science", description: "Augustine, Aquinas, Albert the Great on reason", icon: Lightbulb, href: "/science/saints-on-science", color: "bg-sky-50 border-sky-200 text-sky-700" },
+      { title: "Conflicts & Myths", description: "Debunking the warfare thesis and flat-earth myth", icon: AlertTriangle, href: "/science/conflicts-and-myths", color: "bg-gray-50 border-gray-200 text-gray-700" },
     ],
   },
 ]
