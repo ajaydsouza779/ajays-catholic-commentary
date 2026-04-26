@@ -10,6 +10,8 @@ const categories = [
     id: 'history',
     label: 'History',
     tabs: [
+      { href: '/history/jesus', label: 'Jesus Christ' },
+      { href: '/history/apostles', label: 'The Apostles' },
       { href: '/history/papal-timeline', label: 'Papal Timeline' },
       { href: '/history/church-divisions', label: 'Church Divisions' },
       { href: '/history/church-tree', label: 'Church Tree' },
@@ -48,6 +50,13 @@ const categories = [
       { href: '/mysteries/weeping-statues', label: 'Weeping Statues' },
       { href: '/mysteries/healing-miracles', label: 'Healing Miracles' },
       { href: '/mysteries/mystical-phenomena', label: 'Mystical Phenomena' },
+    ],
+  },
+  {
+    id: 'commentary',
+    label: 'Bible Commentary',
+    tabs: [
+      { href: '/commentary', label: 'Sunday Gospel' },
     ],
   },
 ]

@@ -115,7 +115,9 @@ const exploreGroups = [
   {
     heading: "History",
     items: [
-      { title: "Papal Timeline", description: "History of the Chair of St. Peter", icon: Crown, href: "/history/papal-timeline", color: "bg-indigo-50 border-indigo-200 text-indigo-700" },
+      { title: "Jesus Christ", description: "The historical Jesus and the Gospel accounts", icon: Cross, href: "/history/jesus", color: "bg-amber-50 border-amber-200 text-amber-700" },
+      { title: "The Apostles", description: "The Twelve, their missions, and their martyrdom", icon: Users, href: "/history/apostles", color: "bg-indigo-50 border-indigo-200 text-indigo-700" },
+      { title: "Papal Timeline", description: "History of the Chair of St. Peter", icon: Crown, href: "/history/papal-timeline", color: "bg-violet-50 border-violet-200 text-violet-700" },
       { title: "Church History", description: "Divisions and unity across the centuries", icon: Users, href: "/history/church-divisions", color: "bg-emerald-50 border-emerald-200 text-emerald-700" },
       { title: "Bible History", description: "Formation, manuscripts, and translations", icon: FileText, href: "/history/bible-origin", color: "bg-sky-50 border-sky-200 text-sky-700" },
       { title: "Mass History", description: "From the Last Supper to the modern liturgy", icon: Church, href: "/history/mass-history", color: "bg-purple-50 border-purple-200 text-purple-700" },
@@ -149,6 +151,12 @@ const exploreGroups = [
       { title: "Catholic Scientists", description: "Mendel, Lemaître, Copernicus, and the Jesuits", icon: GraduationCap, href: "/science/catholic-scientists", color: "bg-indigo-50 border-indigo-200 text-indigo-700" },
       { title: "Saints on Science", description: "Augustine, Aquinas, Albert the Great on reason", icon: Lightbulb, href: "/science/saints-on-science", color: "bg-sky-50 border-sky-200 text-sky-700" },
       { title: "Conflicts & Myths", description: "Debunking the warfare thesis and flat-earth myth", icon: AlertTriangle, href: "/science/conflicts-and-myths", color: "bg-gray-50 border-gray-200 text-gray-700" },
+    ],
+  },
+  {
+    heading: "Bible Commentary",
+    items: [
+      { title: "Sunday Gospel", description: "Weekly commentary on the Sunday Gospel reading", icon: BookOpen, href: "/commentary", color: "bg-amber-50 border-amber-200 text-amber-700" },
     ],
   },
 ]
