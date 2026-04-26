@@ -99,171 +99,180 @@ export default function CommentaryPage() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
-      <div className="mb-10">
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-3">
-          Sunday Gospel Commentary
-        </h1>
-        <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
-          Weekly reflections on the Sunday Gospel reading, following the Catholic Lectionary&apos;s
-          three-year cycle (Year A: Matthew, Year B: Mark, Year C: Luke, with John woven throughout).
-          Each entry provides the Gospel text, historical context, theological commentary, and
-          practical application for daily life.
-        </p>
-      </div>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h1 className="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-6">
+        Sunday Gospel Commentary
+      </h1>
 
-      {/* Liturgical Year Info */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-        <div className="flex items-center gap-3 mb-3">
-          <div className="p-2 rounded-lg bg-amber-50">
-            <Calendar className="w-5 h-5 text-amber-700" />
-          </div>
-          <h2 className="text-lg font-serif font-semibold text-gray-900">Liturgical Year 2025-2026: Year A (Cycle II weekdays)</h2>
-        </div>
-        <p className="text-gray-600 text-sm leading-relaxed">
-          The current liturgical year features the Gospel of Matthew as the primary Sunday Gospel.
-          The three-year cycle ensures that Catholics hear the vast majority of the four Gospels
-          over the course of three years. Year A focuses on Matthew, Year B on Mark, and Year C on Luke,
-          with the Gospel of John appearing during special seasons (Lent, Easter) in all three years.
-        </p>
-      </div>
-
-      {/* Gospel Entries */}
-      <div className="space-y-6">
-        {gospelEntries.map((entry) => {
-          const isExpanded = expandedId === entry.id
-          return (
-            <article key={entry.id} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-              {/* Entry Header — always visible */}
-              <button
-                onClick={() => toggleEntry(entry.id)}
-                className="w-full text-left p-6 flex items-start justify-between gap-4 hover:bg-gray-50 transition-colors"
-              >
-                <div>
-                  <div className="flex items-center gap-2 text-sm text-amber-600 font-medium mb-1">
-                    <Calendar className="w-4 h-4" />
-                    {entry.date} — {entry.liturgicalYear}
-                  </div>
-                  <h3 className="text-xl font-serif font-bold text-gray-900 mb-1">
-                    {entry.sundayName}
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    Gospel: <span className="font-medium">{entry.gospelRef}</span>
-                  </p>
-                </div>
-                {isExpanded ? (
-                  <ChevronUp className="w-5 h-5 text-gray-400 shrink-0 mt-1" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400 shrink-0 mt-1" />
-                )}
-              </button>
-
-              {/* Expanded Content */}
-              {isExpanded && (
-                <div className="px-6 pb-8 border-t border-gray-100">
-                  {/* Readings Overview */}
-                  <div className="bg-blue-50 rounded-lg p-5 mt-6 mb-6">
-                    <h4 className="font-semibold text-blue-900 mb-3">Today&apos;s Readings</h4>
-                    <ul className="space-y-2 text-sm text-blue-800">
-                      <li><span className="font-medium">First Reading:</span> {entry.firstReading}</li>
-                      <li><span className="font-medium">Responsorial Psalm:</span> {entry.psalm}</li>
-                      <li><span className="font-medium">Second Reading:</span> {entry.secondReading}</li>
-                      <li><span className="font-medium">Gospel:</span> {entry.gospelRef}</li>
-                    </ul>
-                  </div>
-
-                  {/* Gospel Text */}
-                  <div className="bg-amber-50 rounded-lg p-6 mb-6 border-l-4 border-amber-400">
-                    <div className="flex items-center gap-2 mb-3">
-                      <BookOpen className="w-5 h-5 text-amber-700" />
-                      <h4 className="font-serif font-bold text-gray-900">Gospel — {entry.gospelRef}</h4>
+      <div className="grid lg:grid-cols-3 gap-8">
+        {/* Main Column — Gospel Entries */}
+        <div className="lg:col-span-2 space-y-6">
+          {gospelEntries.map((entry) => {
+            const isExpanded = expandedId === entry.id
+            return (
+              <article key={entry.id} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                {/* Entry Header — always visible */}
+                <button
+                  onClick={() => toggleEntry(entry.id)}
+                  className="w-full text-left p-6 flex items-start justify-between gap-4 hover:bg-gray-50 transition-colors"
+                >
+                  <div>
+                    <div className="flex items-center gap-2 text-sm text-amber-600 font-medium mb-1">
+                      <Calendar className="w-4 h-4" />
+                      {entry.date} — {entry.liturgicalYear}
                     </div>
-                    <div className="text-gray-800 leading-relaxed whitespace-pre-line text-[15px]">
-                      {entry.gospelText}
+                    <h3 className="text-xl font-serif font-bold text-gray-900 mb-1">
+                      {entry.sundayName}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      Gospel: <span className="font-medium">{entry.gospelRef}</span>
+                    </p>
+                  </div>
+                  {isExpanded ? (
+                    <ChevronUp className="w-5 h-5 text-gray-400 shrink-0 mt-1" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-gray-400 shrink-0 mt-1" />
+                  )}
+                </button>
+
+                {/* Expanded Content */}
+                {isExpanded && (
+                  <div className="px-6 pb-8 border-t border-gray-100">
+                    {/* Readings Overview */}
+                    <div className="bg-blue-50 rounded-lg p-5 mt-6 mb-6">
+                      <h4 className="font-semibold text-blue-900 mb-3">Today&apos;s Readings</h4>
+                      <ul className="space-y-2 text-sm text-blue-800">
+                        <li><span className="font-medium">First Reading:</span> {entry.firstReading}</li>
+                        <li><span className="font-medium">Responsorial Psalm:</span> {entry.psalm}</li>
+                        <li><span className="font-medium">Second Reading:</span> {entry.secondReading}</li>
+                        <li><span className="font-medium">Gospel:</span> {entry.gospelRef}</li>
+                      </ul>
                     </div>
-                  </div>
 
-                  {/* Historical & Literary Context */}
-                  <div className="mb-6">
-                    <h4 className="text-lg font-serif font-bold text-gray-900 mb-3">Historical & Literary Context</h4>
-                    <div className="text-gray-700 leading-relaxed whitespace-pre-line">
-                      {entry.context}
+                    {/* Gospel Text */}
+                    <div className="bg-amber-50 rounded-lg p-6 mb-6 border-l-4 border-amber-400">
+                      <div className="flex items-center gap-2 mb-3">
+                        <BookOpen className="w-5 h-5 text-amber-700" />
+                        <h4 className="font-serif font-bold text-gray-900">Gospel — {entry.gospelRef}</h4>
+                      </div>
+                      <div className="text-gray-800 leading-relaxed whitespace-pre-line text-[15px]">
+                        {entry.gospelText}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Key Themes */}
-                  <div className="bg-green-50 rounded-lg p-5 mb-6">
-                    <h4 className="font-semibold text-green-900 mb-3">Key Themes</h4>
-                    <ul className="space-y-2">
-                      {entry.themes.map((theme, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-green-800">
-                          <span className="text-green-600 mt-0.5">&#x2022;</span>
-                          {theme}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    {/* Historical & Literary Context */}
+                    <div className="mb-6">
+                      <h4 className="text-lg font-serif font-bold text-gray-900 mb-3">Historical & Literary Context</h4>
+                      <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                        {entry.context}
+                      </div>
+                    </div>
 
-                  {/* Commentary */}
-                  <div className="mb-6">
-                    <h4 className="text-lg font-serif font-bold text-gray-900 mb-3">Commentary</h4>
-                    <div className="prose prose-sm max-w-none text-gray-700 leading-relaxed">
-                      {entry.commentary.split('\n\n').map((para, i) => {
-                        if (para.startsWith('**') && para.includes('**\n')) {
-                          const [heading, ...rest] = para.split('\n')
-                          return (
-                            <div key={i} className="mb-4">
-                              <h5 className="font-semibold text-gray-900 mb-2">{heading.replace(/\*\*/g, '')}</h5>
-                              <p>{rest.join('\n')}</p>
-                            </div>
-                          )
-                        }
-                        if (para.startsWith('**')) {
-                          const cleaned = para.replace(/\*\*/g, '')
-                          const firstNewline = cleaned.indexOf('\n')
-                          if (firstNewline > -1) {
+                    {/* Key Themes */}
+                    <div className="bg-green-50 rounded-lg p-5 mb-6">
+                      <h4 className="font-semibold text-green-900 mb-3">Key Themes</h4>
+                      <ul className="space-y-2">
+                        {entry.themes.map((theme, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-green-800">
+                            <span className="text-green-600 mt-0.5">&#x2022;</span>
+                            {theme}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Commentary */}
+                    <div className="mb-6">
+                      <h4 className="text-lg font-serif font-bold text-gray-900 mb-3">Commentary</h4>
+                      <div className="prose prose-sm max-w-none text-gray-700 leading-relaxed">
+                        {entry.commentary.split('\n\n').map((para, i) => {
+                          if (para.startsWith('**') && para.includes('**\n')) {
+                            const [heading, ...rest] = para.split('\n')
                             return (
                               <div key={i} className="mb-4">
-                                <h5 className="font-semibold text-gray-900 mb-2">{cleaned.substring(0, firstNewline)}</h5>
-                                <p>{cleaned.substring(firstNewline + 1)}</p>
+                                <h5 className="font-semibold text-gray-900 mb-2">{heading.replace(/\*\*/g, '')}</h5>
+                                <p>{rest.join('\n')}</p>
                               </div>
                             )
                           }
-                          return <h5 key={i} className="font-semibold text-gray-900 mb-2 mt-4">{cleaned}</h5>
-                        }
-                        return <p key={i} className="mb-3">{para}</p>
-                      })}
+                          if (para.startsWith('**')) {
+                            const cleaned = para.replace(/\*\*/g, '')
+                            const firstNewline = cleaned.indexOf('\n')
+                            if (firstNewline > -1) {
+                              return (
+                                <div key={i} className="mb-4">
+                                  <h5 className="font-semibold text-gray-900 mb-2">{cleaned.substring(0, firstNewline)}</h5>
+                                  <p>{cleaned.substring(firstNewline + 1)}</p>
+                                </div>
+                              )
+                            }
+                            return <h5 key={i} className="font-semibold text-gray-900 mb-2 mt-4">{cleaned}</h5>
+                          }
+                          return <p key={i} className="mb-3">{para}</p>
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Practical Application */}
+                    <div className="bg-purple-50 rounded-lg p-6 mb-6">
+                      <h4 className="font-semibold text-purple-900 mb-3">Living the Gospel This Week</h4>
+                      <div className="text-sm text-purple-800 leading-relaxed whitespace-pre-line">
+                        {entry.application}
+                      </div>
+                    </div>
+
+                    {/* Sources */}
+                    <div className="bg-gray-50 rounded-lg p-5">
+                      <h4 className="font-semibold text-gray-800 mb-3">Sources & Further Reading</h4>
+                      <ol className="text-sm text-gray-600 space-y-1.5 list-decimal list-inside">
+                        {entry.sources.map((source, i) => (
+                          <li key={i}>{source}</li>
+                        ))}
+                      </ol>
                     </div>
                   </div>
+                )}
+              </article>
+            )
+          })}
 
-                  {/* Practical Application */}
-                  <div className="bg-purple-50 rounded-lg p-6 mb-6">
-                    <h4 className="font-semibold text-purple-900 mb-3">Living the Gospel This Week</h4>
-                    <div className="text-sm text-purple-800 leading-relaxed whitespace-pre-line">
-                      {entry.application}
-                    </div>
-                  </div>
+          {/* Info about schedule */}
+          <div className="mt-4 text-center text-gray-500 text-sm">
+            <p>New Gospel commentaries are added weekly, following the Sunday Lectionary cycle.</p>
+          </div>
+        </div>
 
-                  {/* Sources */}
-                  <div className="bg-gray-50 rounded-lg p-5">
-                    <h4 className="font-semibold text-gray-800 mb-3">Sources & Further Reading</h4>
-                    <ol className="text-sm text-gray-600 space-y-1.5 list-decimal list-inside">
-                      {entry.sources.map((source, i) => (
-                        <li key={i}>{source}</li>
-                      ))}
-                    </ol>
-                  </div>
-                </div>
-              )}
-            </article>
-          )
-        })}
-      </div>
+        {/* Right Sidebar */}
+        <div className="lg:col-span-1 space-y-6">
+          {/* About this section */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <h2 className="text-lg font-serif font-semibold text-gray-900 mb-3">About</h2>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Weekly reflections on the Sunday Gospel reading, following the Catholic Lectionary&apos;s
+              three-year cycle (Year A: Matthew, Year B: Mark, Year C: Luke, with John woven throughout).
+              Each entry provides the Gospel text, historical context, theological commentary, and
+              practical application for daily life.
+            </p>
+          </div>
 
-      {/* Info about schedule */}
-      <div className="mt-10 text-center text-gray-500 text-sm">
-        <p>New Gospel commentaries are added weekly, following the Sunday Lectionary cycle.</p>
+          {/* Liturgical Year Info */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 rounded-lg bg-amber-50">
+                <Calendar className="w-5 h-5 text-amber-700" />
+              </div>
+              <h2 className="text-base font-serif font-semibold text-gray-900">Liturgical Year 2025-2026</h2>
+            </div>
+            <p className="text-gray-600 text-sm leading-relaxed mb-3">
+              <span className="font-medium text-gray-800">Year A</span> — Gospel of Matthew (Cycle II weekdays)
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              The three-year cycle ensures that Catholics hear the vast majority of the four Gospels.
+              Year A focuses on Matthew, Year B on Mark, and Year C on Luke,
+              with John appearing during special seasons (Lent, Easter) in all three years.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )

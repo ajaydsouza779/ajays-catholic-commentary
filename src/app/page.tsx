@@ -116,6 +116,7 @@ const exploreGroups = [
     heading: "History",
     items: [
       { title: "Jesus Christ", description: "The historical Jesus and the Gospel accounts", icon: Cross, href: "/history/jesus", color: "bg-amber-50 border-amber-200 text-amber-700" },
+      { title: "Resurrection", description: "The central event of the Catholic faith", icon: Flame, href: "/history/resurrection", color: "bg-rose-50 border-rose-200 text-rose-700" },
       { title: "The Apostles", description: "The Twelve, their missions, and their martyrdom", icon: Users, href: "/history/apostles", color: "bg-indigo-50 border-indigo-200 text-indigo-700" },
       { title: "Papal Timeline", description: "History of the Chair of St. Peter", icon: Crown, href: "/history/papal-timeline", color: "bg-violet-50 border-violet-200 text-violet-700" },
       { title: "Church History", description: "Divisions and unity across the centuries", icon: Users, href: "/history/church-divisions", color: "bg-emerald-50 border-emerald-200 text-emerald-700" },

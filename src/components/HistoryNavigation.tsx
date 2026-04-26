@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { Home, ChevronDown } from 'lucide-react'
 
@@ -11,6 +11,7 @@ const categories = [
     label: 'History',
     tabs: [
       { href: '/history/jesus', label: 'Jesus Christ' },
+      { href: '/history/resurrection', label: 'Resurrection' },
       { href: '/history/apostles', label: 'The Apostles' },
       { href: '/history/papal-timeline', label: 'Papal Timeline' },
       { href: '/history/church-divisions', label: 'Church Divisions' },
@@ -63,6 +64,7 @@ const categories = [
 
 export default function HistoryNavigation() {
   const pathname = usePathname()
+  const router = useRouter()
 
   // Determine which category is active based on the current path
   const getActiveCategory = () => {
@@ -110,7 +112,10 @@ export default function HistoryNavigation() {
             return (
               <button
                 key={cat.id}
-                onClick={() => setOpenCategory(cat.id)}
+                onClick={() => {
+                  setOpenCategory(cat.id)
+                  router.push(cat.tabs[0].href)
+                }}
                 className={`py-3 px-3 text-sm font-medium transition-colors inline-flex items-center gap-1 shrink-0 rounded-t-md ${
                   isOpen
                     ? 'text-amber-700 bg-amber-50'
