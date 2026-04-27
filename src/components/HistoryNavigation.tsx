@@ -10,7 +10,7 @@ const categories = [
     id: 'history',
     label: 'History',
     tabs: [
-      { href: '/history/jesus', label: 'Jesus Christ' },
+      { href: '/history/christ', label: 'Lord Jesus Christ' },
       { href: '/history/resurrection', label: 'Resurrection' },
       { href: '/history/apostles', label: 'The Apostles' },
       { href: '/history/papal-timeline', label: 'Papal Timeline' },

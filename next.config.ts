@@ -5,6 +5,15 @@ const nextConfig: NextConfig = {
     // Allow production builds to succeed even if ESLint errors exist.
     ignoreDuringBuilds: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/history/jesus',
+        destination: '/history/christ',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 export default nextConfig;

@@ -115,7 +115,7 @@ const exploreGroups = [
   {
     heading: "History",
     items: [
-      { title: "Jesus Christ", description: "The historical Jesus and the Gospel accounts", icon: Cross, href: "/history/jesus", color: "bg-amber-50 border-amber-200 text-amber-700" },
+      { title: "Lord Jesus Christ", description: "The historical Christ and the Gospel accounts", icon: Cross, href: "/history/christ", color: "bg-amber-50 border-amber-200 text-amber-700" },
       { title: "Resurrection", description: "The central event of the Catholic faith", icon: Flame, href: "/history/resurrection", color: "bg-rose-50 border-rose-200 text-rose-700" },
       { title: "The Apostles", description: "The Twelve, their missions, and their martyrdom", icon: Users, href: "/history/apostles", color: "bg-indigo-50 border-indigo-200 text-indigo-700" },
       { title: "Papal Timeline", description: "History of the Chair of St. Peter", icon: Crown, href: "/history/papal-timeline", color: "bg-violet-50 border-violet-200 text-violet-700" },
@@ -198,11 +198,11 @@ export default function Home() {
               Catholic commentary, historical research, and spiritual reflection
             </p>
 
-            {/* Posts card standalone */}
-            <div className="mb-8">
+            {/* Posts + Sunday Gospel cards */}
+            <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
               <Link
                 href="/posts"
-                className="group rounded-xl p-5 border bg-amber-50 border-amber-200 hover:shadow-md transition-all block max-w-md mx-auto"
+                className="group rounded-xl p-5 border bg-amber-50 border-amber-200 hover:shadow-md transition-all block"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-2.5 rounded-lg bg-white/70 text-amber-700">
@@ -213,6 +213,21 @@ export default function Home() {
                     <p className="text-sm text-gray-600 leading-relaxed">Catholic commentary and theological reflections</p>
                   </div>
                   <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-amber-600 mt-1 shrink-0 transition-colors" />
+                </div>
+              </Link>
+              <Link
+                href="/commentary"
+                className="group rounded-xl p-5 border bg-rose-50 border-rose-200 hover:shadow-md transition-all block"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="p-2.5 rounded-lg bg-white/70 text-rose-700">
+                    <BookOpen className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-rose-800 transition-colors">Sunday Gospel</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">Weekly commentary on the Sunday Gospel reading</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-rose-600 mt-1 shrink-0 transition-colors" />
                 </div>
               </Link>
             </div>
@@ -270,26 +285,6 @@ export default function Home() {
             </div>
           </section>
 
-          {/* About */}
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 max-w-2xl mx-auto text-center">
-              <h3 className="text-xl font-serif font-bold text-gray-900 mb-4">
-                About This Platform
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                This platform is dedicated to exploring Catholic faith through
-                commentary, historical research, and spiritual reflection. From
-                the Apostolic era to the modern Church, discover the depth and
-                beauty of Catholic tradition.
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-1 text-amber-600 hover:text-amber-700 text-sm font-medium"
-              >
-                Learn more about Ajay <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </section>
         </main>
 
         <Footer />
