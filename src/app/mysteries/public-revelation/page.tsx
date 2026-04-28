@@ -115,23 +115,32 @@ export default function PublicRevelationPage() {
               </p>
 
               <div className="bg-amber-50 p-6 rounded-lg mb-6">
-                <h3 className="text-lg font-semibold text-amber-900 mb-3">C.S. Lewis&rsquo;s Trilemma</h3>
+                <h3 className="text-lg font-semibold text-amber-900 mb-3">St. Paul&rsquo;s First Sermon: &ldquo;Jesus Is the Son of God&rdquo;</h3>
+                <p className="text-amber-800 italic leading-relaxed mb-3">
+                  &ldquo;At once he began to proclaim Jesus in the synagogues, saying, &lsquo;He is the Son
+                  of God.&rsquo;&rdquo;
+                </p>
+                <p className="text-amber-700 text-sm mb-4">&mdash; <em>Acts 9:20</em></p>
+                <p className="text-amber-800 leading-relaxed mb-3">
+                  This single verse is one of the most important pieces of historical evidence for early Christology.
+                  Saul of Tarsus &mdash; a strict Pharisee, trained under Gamaliel, zealous for the Law &mdash; had
+                  been violently persecuting the Church precisely because he saw the claim that a crucified man was
+                  divine as blasphemy. After his encounter with the risen Christ on the road to Damascus
+                  (c. AD 33&ndash;36), the very <em>first</em> thing he preached, immediately, in the synagogues
+                  of Damascus, was that <strong>Jesus is the Son of God</strong>.<sup className="text-amber-600 font-semibold cursor-help">(a)</sup>
+                </p>
                 <p className="text-amber-800 leading-relaxed">
-                  &ldquo;A man who was merely a man and said the sort of things Jesus said would not be a
-                  great moral teacher. He would either be a lunatic &mdash; on the level with the man who
-                  says he is a poached egg &mdash; or else he would be the Devil of Hell. You must make your
-                  choice. Either this man was, and is, the Son of God, or else a madman or something worse.
-                  You can shut him up for a fool, you can spit at him and kill him as a demon, or you can
-                  fall at his feet and call him Lord and God. But let us not come with any patronising
-                  nonsense about his being a great human teacher. He has not left that open to us. He did
-                  not intend to.&rdquo;<sup className="text-amber-600 font-semibold cursor-help">(a)</sup>
+                  This matters because it shows the divinity of Christ was not a late legendary development. Within
+                  a few years of the crucifixion &mdash; before any Gospel was written, before any of Paul&rsquo;s
+                  letters &mdash; the core Christian proclamation was already that this Jesus is God&rsquo;s own Son.
+                  A man who had every reason to deny that claim staked his life on it from his very first sermon.
                 </p>
               </div>
 
               <div className="bg-gray-50 rounded-lg p-5 mt-6">
                 <h4 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">Notes</h4>
                 <div className="text-sm text-gray-600 space-y-2">
-                  <p><span className="font-semibold text-amber-600">(a)</span> C.S. Lewis, <em>Mere Christianity</em> (1952), Book II, Chapter 3. The argument is sometimes called &ldquo;Lord, Liar, or Lunatic.&rdquo;</p>
+                  <p><span className="font-semibold text-amber-600">(a)</span> Acts 9:20. The Greek phrase is <em>ho huios tou theou</em> (&ldquo;the Son of God&rdquo;) &mdash; the same divine sonship language used in the Synoptic Gospels and confessed at Caesarea Philippi (Matt 16:16). Paul&rsquo;s pre-conversion letters of authorization from the high priest (Acts 9:1&ndash;2) date this preaching to within roughly three years of the Resurrection.</p>
                 </div>
               </div>
             </div>
@@ -341,7 +350,7 @@ export default function PublicRevelationPage() {
                 <li>Raymond E. Brown, <em>An Introduction to New Testament Christology</em> (Paulist Press, 1994)</li>
                 <li>Larry Hurtado, <em>Lord Jesus Christ: Devotion to Jesus in Earliest Christianity</em> (Eerdmans, 2003)</li>
                 <li>J.N.D. Kelly, <em>Early Christian Doctrines</em>, 5th revised edition (Continuum, 1977)</li>
-                <li>C.S. Lewis, <em>Mere Christianity</em> (1952), Book II</li>
+                <li>Martin Hengel, <em>The Son of God: The Origin of Christology and the History of Jewish-Hellenistic Religion</em> (Fortress, 1976)</li>
                 <li><em>Catechism of the Catholic Church</em>, 422&ndash;478 (&ldquo;I Believe in Jesus Christ&rdquo;)</li>
               </ol>
             </div>
