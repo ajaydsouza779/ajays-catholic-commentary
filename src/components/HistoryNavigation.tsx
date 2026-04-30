@@ -13,6 +13,7 @@ const categories = [
       { href: '/history/christ', label: 'Lord Jesus Christ' },
       { href: '/history/resurrection', label: 'Resurrection' },
       { href: '/history/apostles', label: 'The Apostles' },
+      { href: '/history/church', label: 'The Church' },
       { href: '/history/papal-timeline', label: 'Papal Timeline' },
       { href: '/history/church-divisions', label: 'Church Divisions' },
       { href: '/history/church-tree', label: 'Church Tree' },
