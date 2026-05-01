@@ -1,0 +1,232 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import { BookOpen, Calendar } from 'lucide-react'
+import sundayCommentaries from '@/lib/lectionary/sundayCommentaries'
+import type { SundayCommentary } from '@/lib/lectionary/types'
+import { getCycleForDate } from '@/lib/lectionary'
+import ShareButtons from './ShareButtons'
+
+// Pre-render one page per commentary entry at build time
+export async function generateStaticParams() {
+  return sundayCommentaries.map(entry => ({
+    slug: entry.id,
+  }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const entry = sundayCommentaries.find(e => e.id === slug)
+  if (!entry) return {}
+
+  const description = entry.themes[0]
+    ? `${entry.themes[0].substring(0, 155)}`
+    : `Catholic commentary on ${entry.sundayName} — ${entry.gospelRef}`
+
+  const url = `https://ajays-catholic-commentary.vercel.app/commentary/sunday-gospel/${slug}`
+
+  return {
+    title: `${entry.sundayName} — Ajay's Catholic Commentary`,
+    description,
+    openGraph: {
+      title: `${entry.sundayName} — Ajay's Catholic Commentary`,
+      description,
+      url,
+      type: 'article',
+      siteName: "Ajay's Catholic Commentary",
+    },
+    twitter: {
+      card: 'summary',
+      title: `${entry.sundayName} — Ajay's Catholic Commentary`,
+      description,
+    },
+    alternates: {
+      canonical: url,
+    },
+  }
+}
+
+function parseCommentary(text: string) {
+  return text.split('\n\n').map((para, i) => {
+    if (para.startsWith('**')) {
+      const cleaned = para.replace(/\*\*/g, '')
+      const firstNewline = cleaned.indexOf('\n')
+      if (firstNewline > -1) {
+        return (
+          <div key={i} className="mb-4">
+            <h5 className="font-semibold text-gray-900 mb-2">{cleaned.substring(0, firstNewline)}</h5>
+            <p>{cleaned.substring(firstNewline + 1)}</p>
+          </div>
+        )
+      }
+      return <h5 key={i} className="font-semibold text-gray-900 mb-2 mt-4">{cleaned}</h5>
+    }
+    return <p key={i} className="mb-3">{para}</p>
+  })
+}
+
+export default async function SundayGospelPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const entry: SundayCommentary | undefined = sundayCommentaries.find(e => e.id === slug)
+  if (!entry) notFound()
+
+  const pageUrl = `https://ajays-catholic-commentary.vercel.app/commentary/sunday-gospel/${slug}`
+  const entryDate = new Date(entry.date + 'T12:00:00')
+  const computedCycle = getCycleForDate(entryDate)
+  const contentMismatch = entry.cycle !== computedCycle
+  const displayDate = entryDate.toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Breadcrumb */}
+      <nav className="text-sm text-gray-500 mb-6 flex flex-wrap items-center gap-1">
+        <Link href="/commentary" className="hover:text-amber-600 transition-colors">
+          Sunday Gospel
+        </Link>
+        <span>/</span>
+        <span className="text-gray-700">{entry.sundayName}</span>
+      </nav>
+
+      {/* Header */}
+      <div className="mb-6">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-amber-600 font-medium mb-2">
+          <Calendar className="w-4 h-4" />
+          <span>{displayDate}</span>
+          <span className="text-gray-300">·</span>
+          <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">
+            Liturgical Year {computedCycle}
+          </span>
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-2">
+          {entry.sundayName}
+        </h1>
+        <p className="text-gray-600 font-medium">
+          Gospel: <span className="text-gray-900">{entry.gospelRef}</span>
+        </p>
+      </div>
+
+      {/* Content-cycle mismatch warning (shown when commentary was written for a different cycle) */}
+      {contentMismatch && (
+        <div className="mb-6 p-4 bg-yellow-50 rounded-xl border border-yellow-300">
+          <p className="text-sm text-yellow-800">
+            <strong>Note:</strong> This commentary was written using the Year {entry.cycle} lectionary readings.
+            The Sunday ({displayDate}) falls in Liturgical Year {computedCycle}.
+            The correct Year {computedCycle} gospel for this Sunday will be added in a future update.
+          </p>
+        </div>
+      )}
+
+      {/* Share buttons */}
+      <div className="mb-8 p-4 bg-amber-50 rounded-xl border border-amber-200">
+        <ShareButtons url={pageUrl} title={`${entry.sundayName} — ${entry.gospelRef}`} />
+      </div>
+
+      {/* Readings overview */}
+      <div className="bg-blue-50 rounded-xl p-5 mb-6">
+        <h2 className="font-semibold text-blue-900 mb-3">Today&apos;s Readings</h2>
+        <ul className="space-y-2 text-sm text-blue-800">
+          <li><span className="font-medium">First Reading:</span> {entry.firstReading}</li>
+          <li><span className="font-medium">Responsorial Psalm:</span> {entry.psalm}</li>
+          <li><span className="font-medium">Second Reading:</span> {entry.secondReading}</li>
+          <li><span className="font-medium">Gospel:</span> {entry.gospelRef}</li>
+        </ul>
+      </div>
+
+      {/* Gospel text */}
+      <div className="bg-amber-50 rounded-xl p-6 mb-6 border-l-4 border-amber-400">
+        <div className="flex items-center gap-2 mb-3">
+          <BookOpen className="w-5 h-5 text-amber-700" />
+          <h2 className="font-serif font-bold text-gray-900">Gospel — {entry.gospelRef}</h2>
+        </div>
+        <div className="text-gray-800 leading-relaxed whitespace-pre-line text-[15px]">
+          {entry.gospelText}
+        </div>
+      </div>
+
+      {/* Key themes */}
+      <div className="bg-green-50 rounded-xl p-5 mb-6">
+        <h2 className="font-semibold text-green-900 mb-3">Key Themes</h2>
+        <ul className="space-y-2">
+          {entry.themes.map((theme, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-green-800">
+              <span className="text-green-600 mt-0.5">&#x2022;</span>
+              {theme}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Historical & literary context */}
+      <div className="mb-6">
+        <h2 className="text-xl font-serif font-bold text-gray-900 mb-3">
+          Historical &amp; Literary Context
+        </h2>
+        <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+          {entry.context}
+        </div>
+      </div>
+
+      {/* Commentary */}
+      <div className="mb-6">
+        <h2 className="text-xl font-serif font-bold text-gray-900 mb-3">Commentary</h2>
+        <div className="prose prose-sm max-w-none text-gray-700 leading-relaxed">
+          {parseCommentary(entry.commentary)}
+        </div>
+      </div>
+
+      {/* Practical application */}
+      <div className="bg-purple-50 rounded-xl p-6 mb-6">
+        <h2 className="font-semibold text-purple-900 mb-3">Living the Gospel This Week</h2>
+        <div className="text-sm text-purple-800 leading-relaxed whitespace-pre-line">
+          {entry.application}
+        </div>
+      </div>
+
+      {/* Sources */}
+      <div className="mb-8">
+        <h2 className="text-lg font-serif font-bold text-gray-900 mb-3">
+          Sources &amp; Further Reading
+        </h2>
+        <ul className="space-y-1.5">
+          {entry.sources.map((source, i) => (
+            <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
+              <span dangerouslySetInnerHTML={{ __html: source.replace(/\*(.*?)\*/g, '<em>$1</em>') }} />
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Bottom share strip */}
+      <div className="border-t border-gray-200 pt-6">
+        <p className="text-sm text-gray-600 mb-3">
+          Found this helpful? Share it with your parish or priest:
+        </p>
+        <ShareButtons url={pageUrl} title={`${entry.sundayName} — ${entry.gospelRef}`} />
+      </div>
+
+      {/* Back link */}
+      <div className="mt-8">
+        <Link
+          href="/commentary"
+          className="text-sm text-amber-600 hover:text-amber-800 transition-colors font-medium"
+        >
+          ← Back to Sunday Gospel
+        </Link>
+      </div>
+    </div>
+  )
+}
