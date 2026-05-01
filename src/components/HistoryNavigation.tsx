@@ -59,6 +59,7 @@ const categories = [
     label: 'Bible Commentary',
     tabs: [
       { href: '/commentary', label: 'Sunday Gospel' },
+      { href: '/commentary/liturgical-calendar', label: 'Liturgical Calendar' },
     ],
   },
 ]
