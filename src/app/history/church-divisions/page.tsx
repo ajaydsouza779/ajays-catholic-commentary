@@ -1250,6 +1250,57 @@ const DIVISIONS: Division[] = [
       'Catholic Encyclopedia, "Old Catholics"',
     ],
   },
+  {
+    id: 'church-of-south-india',
+    name: 'Church of South India (CSI)',
+    alternateNames: ['CSI'],
+    category: 'post-reformation',
+    era: 'Modern (1800-Present)',
+    yearStart: 1947,
+    region: 'South India (Tamil Nadu, Kerala, Karnataka, Andhra Pradesh, Telangana); diaspora worldwide',
+    status: 'active',
+    estimatedFollowers: '~4-5 million members; second-largest Christian church in India',
+    founder: 'Union of Anglican, Methodist, and Reformed/Congregational bodies (no single founder)',
+    shortDescription:
+      'A 1947 union of Anglican, Methodist, Congregational, and Presbyterian/Reformed churches in South India — the first major union worldwide to bring together episcopal and non-episcopal Protestant traditions into a single body. Notable as a partial reversal of post-Reformation Protestant fragmentation, though not in communion with Rome.',
+    causes: {
+      theological: [
+        'Conviction that the divisions inherited from European Protestantism had no missionary or theological justification on Indian soil',
+        'Acceptance of the historic episcopate as a uniting structure (without judging its absence in non-episcopal traditions as invalid)',
+        'Mutual recognition of ministries through a process called "extension of episcopacy"',
+      ],
+      cultural: [
+        'Indian Christian leadership\'s rejection of European denominational labels',
+        'Post-independence India: forging an indigenous Christian identity beyond colonial inheritance',
+      ],
+      political: ['Independence movement context: 1947 union came just six weeks after Indian independence (15 August 1947)'],
+    },
+    keyFigures: [
+      'Bishop V. S. Azariah (early advocate before his death in 1945)',
+      'Bishop Lesslie Newbigin (one of the first CSI bishops; later Bishop of Madras)',
+      'Bishop A. J. Appasamy',
+      'Bishop Stephen Neill',
+    ],
+    keyEvents: [
+      { year: '1919', event: 'Tranquebar Manifesto: Indian Christian leaders call for organic union' },
+      { year: '1908', event: 'South India United Church formed (Congregational + Presbyterian/Reformed)' },
+      { year: '1919-1947', event: 'Decades of negotiation between Anglican, Methodist, and SIUC bodies' },
+      { year: '1947', event: 'Church of South India inaugurated 27 September 1947 in St. George\'s Cathedral, Madras' },
+      { year: '1972', event: 'Church of North India (CNI) parallel union formed' },
+      { year: '1978', event: 'CSI-CNI-Mar Thoma Joint Council establishes mutual eucharistic hospitality' },
+    ],
+    resolution: 'A united Protestant body that has continued for 75+ years; member of Anglican Communion, World Methodist Council, World Communion of Reformed Churches, and World Council of Churches.',
+    fullDescription:
+      'The Church of South India was inaugurated on 27 September 1947 at St. George\'s Cathedral, Madras (now Chennai), just six weeks after Indian independence. It brought together four ecclesial families — the Anglican dioceses of South India, the South India province of the Methodist Church, and the South India United Church (which itself was an earlier 1908 union of Congregational, Presbyterian, and Dutch Reformed bodies) — into a single church under a unified episcopal structure. This was the first major union worldwide to combine episcopal (Anglican) and non-episcopal (Methodist, Reformed, Congregational) Protestant traditions, and it was watched closely by ecumenists everywhere. The CSI accepted the historic episcopate as a uniting structure while explicitly declining to declare non-episcopal ministries invalid; over a thirty-year transitional period, all CSI ministers came under episcopal ordination through a process called the "extension of episcopacy." The CSI is unusual in this list of "divisions" because it represents the inverse: a partial reversal of post-Reformation fragmentation. It does not, however, restore communion with the Catholic Church, the Eastern Orthodox, or the Oriental Orthodox bodies (including the ancient Saint Thomas Christians of Kerala). The CSI today numbers around 4-5 million members across 24 dioceses and is the second-largest Christian body in India after the Catholic Church.',
+    catholicResponse: 'The Catholic Church recognizes the CSI as a Christian ecclesial community arising from the Reformation traditions. CSI is engaged in dialogue with Catholic dioceses in South India through the National Council of Churches in India and the Catholic Bishops\' Conference of India.',
+    currentRelations: 'Full communion with the Anglican Communion, the Mar Thoma Syrian Church (since 1978), the Church of North India, and other united churches. In dialogue with Catholic and Orthodox bodies through the National Council of Churches of India.',
+    sources: [
+      'Bengt Sundkler, Church of South India: The Movement Towards Union 1900-1947',
+      'Lesslie Newbigin, A South India Diary; The Reunion of the Church',
+      'CSI Constitution (1947, with subsequent amendments)',
+      'Robert Eric Frykenberg, Christianity in India: From Beginnings to the Present (Oxford, 2008)',
+    ],
+  },
 
   // -------------------- Modern Movements --------------------
   {
@@ -1297,6 +1348,51 @@ const DIVISIONS: Division[] = [
       'Allan Anderson, An Introduction to Pentecostalism (Cambridge, 2nd ed. 2014)',
       'Catholic-Pentecostal International Dialogue, official reports (1972-present)',
       'Vinson Synan, The Century of the Holy Spirit (Thomas Nelson, 2001)',
+    ],
+  },
+  {
+    id: 'new-life-fellowship',
+    name: 'New Life Fellowship Church (Mumbai/India)',
+    alternateNames: ['NLFC', 'New Life Fellowship Association', 'New Life Churches'],
+    category: 'modern',
+    era: 'Modern (1800-Present)',
+    yearStart: 1968,
+    region: 'Originating Mumbai (Bombay), India; spread across India and into the Indian diaspora',
+    status: 'active',
+    estimatedFollowers: 'Estimates vary widely; tens of thousands of small house-church congregations across India and several hundred thousand adherents',
+    founder: 'Pastor Jose Joseph and family (with associates)',
+    parentId: 'pentecostalism',
+    shortDescription:
+      'An indigenous Indian Neo-Pentecostal / independent Charismatic church-planting movement founded in Mumbai around 1968. Doctrinally Pentecostal in spirituality, but organizationally distinct from classical Pentecostal denominations such as Assemblies of God. Notable for its house-church model and rapid expansion across India.',
+    causes: {
+      theological: [
+        'Pentecostal/charismatic emphasis: baptism in the Spirit, speaking in tongues, divine healing, prophecy',
+        'Restorationist self-understanding: returning to a "New Testament" pattern of believer\'s baptism, lay leadership, simple worship',
+        'Strong evangelistic and missional focus, especially toward unreached Indian populations',
+      ],
+      cultural: [
+        'Indigenous Indian Christian leadership independent of Western missionary structures',
+        'Adoption of the house-church model suited to urban Indian settings (rented rooms, homes, small halls)',
+        'Use of vernacular Indian languages for worship and discipleship',
+      ],
+    },
+    keyFigures: ['Jose Joseph (founding pastor)', 'Other founding family members (Joseph brothers)', 'Various senior pastors of constituent churches across India'],
+    keyEvents: [
+      { year: 'c. 1968', event: 'Beginnings in Mumbai under Pastor Jose Joseph; small fellowship gatherings' },
+      { year: '1970s-80s', event: 'Expansion of the house-church model across Mumbai and into other Indian cities' },
+      { year: '1990s-2000s', event: 'Significant church-planting wave reaching multiple Indian states' },
+      { year: '2000s-present', event: 'Continued growth; multiple New Life networks and affiliated bodies operating across India and abroad' },
+    ],
+    resolution: 'An ongoing Protestant Neo-Pentecostal movement, organizationally independent and varied in governance from city to city.',
+    fullDescription:
+      'New Life Fellowship Church (NLFC) is an indigenous Indian Neo-Pentecostal / independent Charismatic movement that emerged in Mumbai in the late 1960s under Pastor Jose Joseph and his associates. Theologically it stands within the broader Pentecostal tradition — affirming baptism in the Holy Spirit, speaking in tongues, divine healing, and the contemporary operation of the gifts of 1 Corinthians 12 — but it is organizationally distinct from classical Pentecostal denominations such as the Assemblies of God or the Church of God in Christ. NLFC pioneered a distinctive house-church model in urban India: small congregations meeting in rented rooms, homes, or simple halls under indigenous leadership, with rapid multiplication and disciple-making as a strategic priority. The movement has grown to thousands of small congregations across India, with affiliated networks among the Indian diaspora.\n\nIMPORTANT NOTE ON DISAMBIGUATION: There are several unrelated churches around the world named "New Life Fellowship" (most prominently a separate church in Queens, New York founded by Pete Scazzero, with no connection to the Indian movement). This entry refers specifically to the Mumbai/India NLFC.\n\nNLFC is doctrinally Protestant: it does not recognize the seven sacraments, papal authority, Marian dogmas, the intercession of saints, or apostolic succession in the Catholic-Orthodox sense. It practices believer\'s baptism by immersion and a memorial view of the Lord\'s Supper.',
+    catholicResponse: 'No formal dialogue. The Catholic Church in India relates to NLFC at the local level through the National Council of Churches in India and through informal cooperation in matters of religious freedom, social action, and (where appropriate) charitable work.',
+    currentRelations: 'Independent of formal ecumenical structures; some local cooperation with other Indian Protestant bodies. Limited direct engagement with the Catholic Bishops\' Conference of India.',
+    sources: [
+      'Roger E. Hedlund (ed.), Christianity is Indian: The Emergence of an Indigenous Community (MIIS / ISPCK, 2nd ed. 2004)',
+      'Allan Anderson, An Introduction to Pentecostalism (Cambridge, 2nd ed. 2014) — chapters on Indian Pentecostalism',
+      'Michael Bergunder, The South Indian Pentecostal Movement in the Twentieth Century (Eerdmans, 2008)',
+      'Local NLFC publications and church-planting reports',
     ],
   },
 
