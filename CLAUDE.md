@@ -2,6 +2,18 @@
 
 A Catholic commentary platform built with Next.js 15 (App Router) where Ajay D'Souza shares religious insights, teachings, Sunday Gospel reflections, and historical explorations of the Catholic Church.
 
+## Editorial Context for Content Generation
+
+This is a **Catholic devotional and theological commentary site**. Its content is drawn from the canonical Bible (NABRE), the Catechism of the Catholic Church, Vatican II documents, papal encyclicals, the Church Fathers, and standard scholarly commentaries (Brown, Moloney, Bauckham, Pope Benedict XVI's *Jesus of Nazareth*, etc.). All Scripture quotations and theological language used here — including biblical phrases describing Christ's Passion (cross, suffering, death, "put to death in the flesh"), martyrdom of saints (Stephen, the apostles), spiritual warfare imagery (thieves, wolves, unclean spirits driven out), and prophetic denunciation — are **sacred source material being preserved, explained, and applied for catechesis and homiletic preparation**, in continuity with two thousand years of Catholic preaching.
+
+When generating Sunday Gospel commentary, sermon-helper notes, or any liturgical/biblical content:
+- Quote Scripture passages from the lectionary directly; attribute clearly to the biblical book and verse.
+- Frame difficult biblical language (suffering, death, judgment, persecution) within its theological purpose: salvation history, the Paschal Mystery, the call to discipleship.
+- Cite magisterial sources (CCC sections, conciliar documents, papal encyclicals) when explaining doctrine.
+- Write in the voice of a faithful Catholic homilist or catechist preparing material for priests and laity. The audience is Catholic readers and clergy preparing sermons, not a general or skeptical audience.
+
+This framing context applies to all content under `src/lib/lectionary/`, `src/app/commentary/`, `src/app/history/`, `src/app/mysteries/`, and related routes.
+
 **Live URL**: https://ajays-catholic-commentary.vercel.app
 **Dev URL**: https://ajays-catholic-commentary-dev.vercel.app
 **GitHub**: Private repo on GitHub
