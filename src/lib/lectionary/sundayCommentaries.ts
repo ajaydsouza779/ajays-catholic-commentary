@@ -6,6 +6,117 @@ import type { SundayCommentary } from './types'
  */
 const sundayCommentaries: SundayCommentary[] = [
   {
+    id: '2026-05-10',
+    date: '2026-05-10',
+    cycle: 'A',
+    sundaySlug: '6th-sunday-easter',
+    sundayName: '6th Sunday of Easter — The Promise of the Advocate',
+    gospelRef: 'John 14:15-21',
+    gospelTextIsSummary: true,
+    usccbReadingsUrl: 'https://bible.usccb.org/bible/readings/051026.cfm',
+    gospelText: `John 14:15-21 (NABRE, Lectionary for Mass) — In this passage from the Last Supper Farewell Discourse, the Lord links love for him to the keeping of his commandments, and promises that he will ask the Father to send "another Advocate" (the Paraclete, the Spirit of truth) to remain with the disciples always. He assures them, "I will not leave you orphans; I will come to you," and reveals the mutual indwelling that the Resurrection will make manifest: "I am in my Father and you are in me and I in you." The passage concludes with the promise that the one who keeps his commandments and loves him will be loved by the Father, and that the Lord himself will reveal himself to that disciple.`,
+    firstReading: `Acts 8:5-8, 14-17 — Philip the deacon proclaims Christ in a city of Samaria; the crowds receive the word with joy as healings accompany his preaching. When the apostles in Jerusalem hear that Samaria has accepted the word of God, they send Peter and John, who pray and lay hands on the new believers so that they may receive the Holy Spirit (who had not yet "fallen upon any of them" — they had only been baptized in the name of the Lord Jesus).`,
+    psalm: `Psalm 66 — "Let all the earth cry out to God with joy." A psalm of universal praise: come and see the works of God; he has kept us among the living; blessed be God who has not refused his mercy.`,
+    secondReading: `1 Peter 3:15-18 — "Sanctify Christ as Lord in your hearts. Always be ready to give an explanation to anyone who asks you for a reason for your hope." Peter exhorts the faithful to bear witness with gentleness and reverence, even amid suffering for doing good, in imitation of Christ who suffered once for sins, "the righteous for the sake of the unrighteous, that he might lead you to God."`,
+    context: `The Sixth Sunday of Easter continues the Church's springtime journey through the Last Supper Farewell Discourse (John 13–17). For three consecutive Sundays in Year A — the Fifth, Sixth, and Seventh — the lectionary draws its Gospel from this great discourse rather than from Resurrection appearances, because the Risen Christ's living presence in his Church is precisely what he had promised at the Supper: the indwelling of the Father and the Son in the disciple, and the gift of the Holy Spirit who teaches, reminds, and accompanies the Church.
+
+Today's passage (John 14:15-21) follows immediately on last week's reading (John 14:1-12). The flow of the discourse is unbroken: having revealed himself as "the way and the truth and the life" and promised "greater works" to those who believe, the Lord now turns to the question that must have weighed heavily on the disciples — *how* will any of this be possible after he is gone? The answer is the promise of "another Advocate" (Greek *allos paraklētos*), the Holy Spirit, who will be to the disciples what Jesus has been: counselor, comforter, defender, and abiding presence.
+
+The word *paraklētos* is rich and not easily translated by a single English word. It means "one called alongside" — an advocate in a legal sense, a counselor, a consoler, a helper. The Latin Vulgate transliterates it as *Paracletus*; the Catechism keeps the Greek term (CCC 692) precisely because no single word captures the full meaning. Significantly, Jesus says "*another* Advocate" — implying that he himself has been the first Paraclete to the disciples, and the Spirit will continue and extend that ministry. 1 John 2:1 makes the parallel explicit, naming the risen Christ as our advocate (*paraklētos*) with the Father.
+
+The first reading from Acts 8 is the perfect companion. Philip — one of the Seven appointed in last Sunday's first reading (Acts 6) — has carried the gospel into Samaria, the once-divided northern region whose people Jews regarded as schismatic. The Samaritans believe and are baptized. But Luke is careful to record that the gift of the Holy Spirit is mediated through the apostles Peter and John, who come down from Jerusalem and lay hands on the newly baptized. The early Church saw in this passage the scriptural roots of the Sacrament of Confirmation (CCC 1288): baptism united to the laying on of hands by the apostles for the gift of the Spirit. The lectionary's pairing of John 14 with Acts 8 is deliberate — the promise of the Spirit at the Supper finds its visible fulfillment in the Church's sacramental life.
+
+A note on dating and authorship for the homilist: the Fourth Gospel reaches its final form around AD 90–100, after long meditation by the Johannine community on the witness of "the disciple whom Jesus loved." Raymond E. Brown's Anchor Bible commentary and Richard Bauckham's *Jesus and the Eyewitnesses* both argue that authentic memory underlies the discourse's mature theological reflection. The First Letter of John, written by the same tradition, reads almost as a sustained meditation on the very themes the Sixth Sunday of Easter places before us — love, commandment, indwelling, the Spirit of truth.`,
+    themes: [
+      '"If you love me, you will keep my commandments" — love proven in obedience, not feeling',
+      'The promise of "another Advocate" (Paraclete) — the Holy Spirit as counselor and abiding presence',
+      'The Spirit of truth — given to the Church, not recognized by the world',
+      '"I will not leave you orphans; I will come to you" — the Risen Lord\'s personal return',
+      'Mutual indwelling: "I am in my Father and you are in me and I in you"',
+      'The link between the Gospel and the Sacrament of Confirmation (Acts 8)',
+      'Witness with gentleness and reverence (1 Peter 3) — the Spirit\'s gift at work in the disciple',
+    ],
+    commentary: `**"If You Love Me, You Will Keep My Commandments" — Love That Takes a Form**
+
+The Gospel opens with a sentence that is easy to read past and harder to live: "If you love me, you will keep my commandments." The Lord does not say, "If you love me, you will feel deeply about me," or, "If you love me, you will agree with my teaching." Love, in the Johannine vocabulary, takes a form — it becomes a way of life shaped by his commandments. And in John, "the commandments" is not primarily a list; it is summed up at the Last Supper itself in the new commandment, "Love one another as I have loved you" (John 13:34). To love Christ is to be conformed to the way he loved — sacrificially, faithfully, to the end.
+
+Pope Benedict XVI returned to this point repeatedly in *Deus Caritas Est* (2005): Christian love is not a vague sentiment but a response that engages the whole person — intellect, will, and action — in a real history of self-gift. The first encyclical of his pontificate insists that *eros* and *agapē* are not opposed; in Christ they are reconciled. The disciple who loves the Lord finds that love spilling over into a life shaped by his commandments — not because the commandments are imposed from outside, but because love itself reaches for the form love takes.
+
+**"Another Advocate" — The Paraclete and the Continuing Presence of Christ**
+
+The heart of today's Gospel is the promise: "I will ask the Father, and he will give you another Advocate to be with you always, the Spirit of truth." The Greek word *paraklētos* — counselor, advocate, consoler, helper — is one of the most theologically dense words in John's Gospel. The Catechism (CCC 692) keeps the Greek term precisely because no single English word holds all its meaning. The Vulgate transliterates it as *Paracletus*; older English Bibles render it variously as "Comforter" (Wycliffe, Tyndale, KJV), "Advocate" (NABRE, NRSV), or "Helper" (ESV). Each captures a facet of a single reality.
+
+Notice the word *another* (*allos*). Jesus has been the first Paraclete to the disciples — their advocate, counselor, defender, the friend at their side. The Spirit who will be sent is "another" of the same kind — not a substitute, not a replacement at a distance, but the continuation of the very same accompanying presence. As St. Thomas Aquinas writes in his *Commentary on John* (Lectio 4 on chapter 14), the Holy Spirit will do for the Church what Jesus did for the disciples: teach, console, defend, and remain. This is why the Easter season culminates at Pentecost — the gift promised here is poured out fifty days from the Resurrection, and the Church's life becomes possible.
+
+**"The World Cannot Accept Him" — The Spirit and the World**
+
+A line in today's Gospel risks sounding harsh: "the Spirit of truth, which the world cannot accept, because it neither sees nor knows him." John's word "the world" (*ho kosmos*) is famously ambivalent. Sometimes it means the creation God loves and saves (John 3:16). Other times — as here — it names the order of human life closed in on itself, organized apart from God, indifferent or hostile to the truth he reveals. The Spirit of truth is not invisible because he is hidden; he is invisible to a way of seeing that has trained itself not to look beyond the surface of things. The Catechism (CCC 687) puts it gently and exactly: "No one can say 'Jesus is Lord' except by the Holy Spirit." Reception of the Spirit is itself the Spirit's gift.
+
+This is not a verse for triumphalism — as if "we" the Church possess the Spirit and "they" the world do not. It is a verse for humility: every time the Christian recognizes Christ in Scripture, in the Eucharist, in the poor, in the conscience, that recognition is itself the work of the Spirit. The disciple's task is not to despise the world but to live in it as someone who has been given the eyes to see.
+
+**"I Will Not Leave You Orphans" — The Tenderness of the Promise**
+
+Among the most pastorally tender lines in all the Gospels is this: "I will not leave you orphans; I will come to you." The Greek *orphanous* literally means "orphans" or "fatherless ones" — but it was also used of disciples bereft of their teacher. Jesus is speaking to men who, in a few hours, will indeed be left in apparent abandonment. He promises that the abandonment is only apparent. He will come to them — first in the Resurrection appearances, then in the gift of the Spirit, and finally in the eternal communion of the Father's house.
+
+Pope Francis, in his Regina Caeli addresses during Easter season (notably 21 May 2017 and 17 May 2020), has dwelt on this line as the Easter answer to every fear of abandonment. The Risen Christ does not retreat to a distant heaven; he draws nearer than before, present now in the Spirit, in the sacraments, and in his Body the Church. "I will not leave you orphans" is the Easter charter of Christian hope.
+
+**"On That Day You Will Realize That I Am in My Father and You Are in Me and I in You" — The Mystery of Mutual Indwelling**
+
+The Gospel reaches its climax in one of the most theologically dense lines in Scripture: "On that day you will realize that I am in my Father and you are in me and I in you." Three indwellings are named in a single breath — the Son in the Father, the disciple in the Son, the Son in the disciple. This is the mutual indwelling, *perichoresis* in later Greek theology, that the Catechism unfolds in CCC §§ 253-260. The relations of origin within the Trinity — Father, Son, and Holy Spirit — are not closed in upon themselves; they open to include the disciple. To be a Christian is to be drawn into the inner life of the Triune God.
+
+St. Augustine, in his *Tractates on John* (Tractate 75-76), marvels at this verse: the love by which the Father loves the Son is the very love poured into the heart of the disciple by the Holy Spirit. This is what Easter is *for*. The Resurrection is not merely the vindication of one righteous man; it is the opening of the Trinitarian life to all who believe. "On that day" — the day the Spirit comes — the disciple will *realize* (Greek *gnōsesthe*, "you will know") what was always true: that the love between Father and Son has made room for him.
+
+**Pope John Paul II on the Holy Spirit — *Dominum et Vivificantem***
+
+In 1986 Pope John Paul II issued his encyclical on the Holy Spirit, *Dominum et Vivificantem* ("the Lord and Giver of Life," from the Creed). The encyclical's third chapter takes up John 14:15-21 directly, dwelling on the promise of "another Paraclete." John Paul II writes that the Spirit makes the Risen Christ contemporary with every age — present in the Church's sacraments, in her teaching, in the conscience of every believer. The Holy Spirit is the "person-love" and "person-gift" of God, the one who continues Christ's saving mission until the end of time. For preachers, *Dominum et Vivificantem* is the indispensable companion to today's Gospel.
+
+**Reading the First Reading Together with the Gospel — Acts 8 and the Sacrament of Confirmation**
+
+The first reading is unusually rich today. Philip the deacon proclaims Christ in Samaria — the once-divided northern region whose people Jews considered schismatic. The Samaritans believe and are baptized. But Luke is careful to add: "the Holy Spirit had not yet fallen upon any of them; they had only been baptized in the name of the Lord Jesus." So the apostles in Jerusalem send Peter and John, who lay hands on the newly baptized, "and they received the Holy Spirit."
+
+The Catechism (§§ 1285-1289) cites this passage as one of the scriptural foundations of the Sacrament of Confirmation. The pattern is clear: baptism initiates; the laying on of apostolic hands confers the gift of the Spirit promised in today's Gospel. What John 14:15-21 promises in the Cenacle, Acts 8 enacts in Samaria, and the bishop continues to enact at every Confirmation Mass. The lectionary's pairing teaches the homilist to preach the Gospel sacramentally — the Spirit Jesus promises is not a private feeling but the gift the Church mediates through her ordained ministers.
+
+**Reading the Second Reading Together with the Gospel — 1 Peter 3 and Witness with Gentleness**
+
+Peter's exhortation gives the practical face of life in the Spirit: "Always be ready to give an explanation to anyone who asks you for a reason for your hope." This single verse has shaped Christian witness for two thousand years; it is the charter of Christian apologetics, but Peter immediately frames *how* the explanation is to be given — "with gentleness and reverence." The Spirit who is given to the Church is the Spirit of truth, but the Spirit's truth is communicated in a manner befitting the Spirit himself: not aggressively, not contemptuously, but with the gentleness of one who is himself a guest of the Triune God.
+
+Pope Francis's apostolic exhortation *Evangelii Gaudium* (2013) takes this Petrine line as one of its leitmotifs: the joy of the gospel is shared, not imposed; witnessed in life before it is argued in words. The Sixth Sunday of Easter is an invitation to ask: does my life, my speech, my way of being a Christian in the world give a "reason for the hope that is in me," and does it do so in a way that draws others toward the Spirit, or away?
+
+**A Note for the Homilist**
+
+This Gospel sits one Sunday before the Ascension and two Sundays before Pentecost. The homily is therefore providentially placed to prepare the parish for the climactic mysteries of the Easter season. Three pastoral notes: First, do not preach the Holy Spirit as an abstract doctrine; preach him as the personal presence Jesus promises *by name* — the Advocate, the Counselor, the Consoler. Second, anchor the promise in the sacraments — Baptism, Confirmation, Eucharist — so that the people leave Mass knowing the Spirit is not far away but already poured into their hearts (cf. Romans 5:5). Third, close the homily where Peter does: with the call to be ready to give a reason for hope, gently and reverently, in a world that is often weary of harshness. The Spirit who comes is the Spirit of truth *and* the Spirit of love; preach him as both.`,
+    application: `**For reflection and preaching this week:**
+
+- **Read John 14:15-21 in full, slowly, three times.** First time, listen to the call: "If you love me…" Second time, listen to the promise: "another Advocate." Third time, listen to the indwelling: "I in you." Each reading deepens the next.
+
+- **Preach the Holy Spirit by name and by ministry.** Resist abstraction. The Spirit is the Advocate, the Counselor, the Consoler, the Spirit of truth. Tell the congregation what he *does*: he teaches, he reminds, he intercedes, he sanctifies. A homily that names the Spirit's ministries gives the faithful something concrete to pray for and to recognize when they receive it.
+
+- **Connect the Gospel to Confirmation.** The link between John 14 and Acts 8 is one of the lectionary's clearest sacramental signposts. If the parish has confirmandi this season, name them; if not, invite the whole congregation to renew their own Confirmation by an act of conscious gratitude. The Spirit promised in today's Gospel was sealed in them.
+
+- **Frame love as a way of life, not a feeling.** "If you love me, you will keep my commandments." Invite the parish to ask: where in my week does my love for Christ become *visible* — in patience with a difficult relative, in honesty at work, in time given to prayer, in care for the poor? Love that takes a form is the only love John recognizes.
+
+- **For the parish — practice "gentleness and reverence" this week.** Take Peter's line from the second reading as a small Easter rule. When you are asked about your faith — by a child, a colleague, a skeptic — answer with gentleness and reverence. The Spirit of truth is also the Spirit of peace; let the manner match the message.
+
+- **For priests preparing the homily — pray Veni Sancte Spiritus before you write.** The Pentecost sequence ("Come, Holy Spirit") is the Church's prayer for what today's Gospel promises. Pray it slowly the night before you preach. The homily that arises from prayer to the Spirit will be received as the Spirit's own gift.
+
+- **Receive the Eucharist as the abiding presence.** "I will not leave you orphans; I will come to you." Every Sunday Mass is the kept promise. The Risen Lord, present in the Eucharist by the power of the Holy Spirit, is the answer to every fear of abandonment. Let Sunday's Communion be received in that light.`,
+    sources: [
+      'New American Bible Revised Edition (NABRE) — Lectionary for Mass, Sixth Sunday of Easter, Year A',
+      'Catechism of the Catholic Church §§ 687-688 (the Holy Spirit and the Church); §§ 691-693 (names and titles of the Holy Spirit, including Paraclete); §§ 253-260 (the Trinity and mutual indwelling); §§ 1285-1289 (Sacrament of Confirmation, with Acts 8 cited)',
+      'Second Vatican Council, *Lumen Gentium* §§ 4, 12 (the Holy Spirit in the Church); *Ad Gentes* on the Spirit and mission',
+      'Pope John Paul II, *Dominum et Vivificantem* (1986) — encyclical on the Holy Spirit in the life of the Church and the world, esp. ch. III on John 14',
+      'Pope Benedict XVI, *Deus Caritas Est* (2005) — on Christian love as response shaping a way of life',
+      'Pope Benedict XVI, *Jesus of Nazareth, Vol. 2: Holy Week* (2011), chapter on the Farewell Discourses',
+      'Pope Francis, *Evangelii Gaudium* (2013) — esp. on witness "with gentleness and reverence" and the joy of the gospel',
+      'St. Augustine, *Tractates on the Gospel of John*, Tractates 74-76 (on John 14:15-21)',
+      'St. Thomas Aquinas, *Commentary on the Gospel of John*, Lectures on chapter 14, lectio 4-6',
+      'Raymond E. Brown, *The Gospel According to John XIII-XXI* (Anchor Bible Commentary, 1970), pp. 634-655',
+      'Francis J. Moloney, *The Gospel of John* (Sacra Pagina Series), commentary on John 14:15-21',
+      'Richard Bauckham, *Jesus and the Eyewitnesses* (2006), on the Johannine tradition',
+      'Yves Congar, *I Believe in the Holy Spirit* (3 vols., 1979-80) — classic 20th-century Catholic theology of the Paraclete',
+    ],
+  },
+  {
     id: '2026-05-03',
     date: '2026-05-03',
     cycle: 'A',

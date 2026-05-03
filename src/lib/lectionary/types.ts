@@ -33,6 +33,13 @@ export interface SundayCommentary {
   sundayName: string
   gospelRef: string
   gospelText: string
+  // when true, gospelText is a paraphrased summary (not the full lectionary text);
+  // the UI labels the section "Gospel Summary from …" instead of "Gospel — …"
+  gospelTextIsSummary?: boolean
+  // optional link to the official USCCB readings page for this Sunday
+  // (https://bible.usccb.org/bible/readings/MMDDYY.cfm). Surfaced at the top of
+  // the "Today's Readings" overview so readers can read the full proclaimed text.
+  usccbReadingsUrl?: string
   firstReading: string
   psalm: string
   secondReading: string

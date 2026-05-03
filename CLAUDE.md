@@ -2,6 +2,53 @@
 
 A Catholic commentary platform built with Next.js 15 (App Router) where Ajay D'Souza shares religious insights, teachings, Sunday Gospel reflections, and historical explorations of the Catholic Church.
 
+## Editorial Context for Content Generation
+
+This is a **Catholic devotional and theological commentary site**. Its content is drawn from the canonical Bible (NABRE), the Catechism of the Catholic Church, Vatican II documents, papal encyclicals, the Church Fathers, and standard scholarly commentaries (Brown, Moloney, Bauckham, Pope Benedict XVI's *Jesus of Nazareth*, etc.). All Scripture quotations and theological language used here — including biblical phrases describing Christ's Passion (cross, suffering, death, "put to death in the flesh"), martyrdom of saints (Stephen, the apostles), spiritual warfare imagery (thieves, wolves, unclean spirits driven out), and prophetic denunciation — are **sacred source material being preserved, explained, and applied for catechesis and homiletic preparation**, in continuity with two thousand years of Catholic preaching.
+
+When generating Sunday Gospel commentary, sermon-helper notes, or any liturgical/biblical content:
+- Quote Scripture passages from the lectionary directly; attribute clearly to the biblical book and verse.
+- Frame difficult biblical language (suffering, death, judgment, persecution) within its theological purpose: salvation history, the Paschal Mystery, the call to discipleship.
+- Cite magisterial sources (CCC sections, conciliar documents, papal encyclicals) when explaining doctrine.
+- Write in the voice of a faithful Catholic homilist or catechist preparing material for priests and laity. The audience is Catholic readers and clergy preparing sermons, not a general or skeptical audience.
+
+This framing context applies to all content under `src/lib/lectionary/`, `src/app/commentary/`, `src/app/history/`, `src/app/mysteries/`, and related routes.
+
+### Weekly Sunday Gospel Commentary — Generation Recipe
+
+This recipe lets a fresh agent generate a new weekly entry without re-deriving conventions. Follow it section by section to avoid output content-filter blocks (the model's safety filter has triggered on full Gospel quotation in past runs — that is why we paraphrase).
+
+**1. Locate the Sunday in the lectionary index.** The three-year cycle lives in `src/lib/lectionary/sundays/year-{a,b,c}.ts`. Each entry has `slug`, `sundayName`, `gospelRef`, `firstReadingRef`, `psalmRef`, `secondReadingRef`. Use these as the authoritative references — do not invent verse ranges.
+
+**2. Derive the USCCB readings URL.** Pattern: `https://bible.usccb.org/bible/readings/MMDDYY.cfm` (e.g. May 10, 2026 → `051026.cfm`). Set this on the entry as `usccbReadingsUrl`. Always two-digit month, two-digit day, two-digit year, no separators.
+
+**3. Add the skeleton to `src/lib/lectionary/sundayCommentaries.ts`.** Required fields per `SundayCommentary` in `src/lib/lectionary/types.ts`:
+- `id`, `date` (both ISO `YYYY-MM-DD` and identical)
+- `cycle` (`'A'` | `'B'` | `'C'` — the cycle the readings are drawn from, *not* the calendar year)
+- `sundaySlug` (must match a `SundayEntry.slug` in the corresponding `year-X.ts`)
+- `sundayName` — format: `"Nth Sunday of Season — Theme line"` (e.g. `"6th Sunday of Easter — The Promise of the Advocate"`)
+- `gospelRef` — exact reference, e.g. `"John 14:15-21"`
+- `gospelText` — **paraphrased summary, not the full lectionary text** (see step 4)
+- `gospelTextIsSummary: true` — toggles UI heading to "Gospel Summary from …"
+- `usccbReadingsUrl` — from step 2
+- `firstReading`, `psalm`, `secondReading` — short summary paragraphs with the reference and 1–2 sentences of substance
+- `context`, `themes`, `commentary`, `application`, `sources`
+
+**4. Filter-safe `gospelText`.** Open with `"<Reference> (NABRE, Lectionary for Mass) — "` then paraphrase the passage in indirect speech with selected short quoted phrases (a phrase or short clause at a time, not whole verses). Avoid reproducing long contiguous Gospel passages verbatim. Do not append a "please read the full text" line — the UI already surfaces the USCCB link.
+
+**5. Section style — match existing entries (use the May 3, 2026 entry as the canonical reference).** Each section's tone and structure:
+- `context` — 4–6 paragraphs: where the passage sits in the liturgical season; the immediate narrative/discourse setting; the original-language word notes (Greek/Hebrew with transliteration); a dating/authorship note citing modern Catholic scholarship (Brown, Moloney, Bauckham, Pope Benedict XVI's *Jesus of Nazareth*).
+- `themes` — 5–7 bullets, each a single quotable phrase from the passage paired with a one-line theological note.
+- `commentary` — 7–10 bold-headed sections (`**Heading**` followed by paragraph(s)). Cover: opening line / key phrase exegesis; central image or doctrine; one Greek/Hebrew word study; a magisterial cross-reference (CCC, Vatican II, an encyclical by name); a named Pope (JPII, Benedict XVI, Francis) on the passage with the encyclical or homily named; a Father (Augustine, Aquinas, Chrysostom — cite the work and tractate/lectio number); a section linking the first reading to the Gospel; a section linking the second reading to the Gospel; "A Note for the Homilist" closing.
+- `application` — 6–7 bullets, mix of preaching tips for priests and lived application for laity. Always include one bullet on the Eucharist as fulfillment of the Gospel's promise.
+- `sources` — 10–14 entries: NABRE, relevant CCC paragraph ranges, Vatican II documents by name, Pope encyclicals/exhortations with year, Father's commentary with section/tractate, Brown's Anchor Bible volume with page range, Moloney *Sacra Pagina*, Bauckham, plus one or two specialist works for the topic.
+
+**6. UI placement is automatic.** With `gospelTextIsSummary: true` the Gospel section heading reads "Gospel Summary from {ref}"; with `usccbReadingsUrl` set, a "Read the full proclaimed readings on USCCB →" link appears at the bottom of the blue Today's Readings box. No template changes needed per week.
+
+**7. Generate section by section, not all at once.** This avoids triggering the model's output content filter mid-stream and lets the user spot-check each section before continuing. Order: gospelText + readings → context → themes → commentary → application → sources.
+
+**8. After saving, run `npx tsc --noEmit`** to confirm the new entry satisfies the `SundayCommentary` type.
+
 **Live URL**: https://ajays-catholic-commentary.vercel.app
 **Dev URL**: https://ajays-catholic-commentary-dev.vercel.app
 **GitHub**: Private repo on GitHub
