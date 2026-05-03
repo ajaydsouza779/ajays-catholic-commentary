@@ -144,13 +144,29 @@ export default async function SundayGospelPage({
           <li><span className="font-medium">Second Reading:</span> {entry.secondReading}</li>
           <li><span className="font-medium">Gospel:</span> {entry.gospelRef}</li>
         </ul>
+        {entry.usccbReadingsUrl && (
+          <p className="mt-3 text-sm">
+            <a
+              href={entry.usccbReadingsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-700 hover:text-blue-900 font-medium underline"
+            >
+              Read the full proclaimed readings on USCCB &rarr;
+            </a>
+          </p>
+        )}
       </div>
 
       {/* Gospel text */}
       <div className="bg-amber-50 rounded-xl p-6 mb-6 border-l-4 border-amber-400">
         <div className="flex items-center gap-2 mb-3">
           <BookOpen className="w-5 h-5 text-amber-700" />
-          <h2 className="font-serif font-bold text-gray-900">Gospel — {entry.gospelRef}</h2>
+          <h2 className="font-serif font-bold text-gray-900">
+            {entry.gospelTextIsSummary
+              ? `Gospel Summary from ${entry.gospelRef}`
+              : `Gospel — ${entry.gospelRef}`}
+          </h2>
         </div>
         <div className="text-gray-800 leading-relaxed whitespace-pre-line text-[15px]">
           {entry.gospelText}
