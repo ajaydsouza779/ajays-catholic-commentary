@@ -6,6 +6,12 @@ import { BookOpen, Calendar, ChevronDown, ChevronUp, Share2 } from 'lucide-react
 import sundayCommentaries from '@/lib/lectionary/sundayCommentaries'
 import { getCycleForDate, getCycleSpan } from '@/lib/lectionary'
 
+function splitReading(raw: string): { ref: string; summary: string } {
+  const idx = raw.indexOf(' — ')
+  if (idx === -1) return { ref: raw, summary: '' }
+  return { ref: raw.slice(0, idx), summary: raw.slice(idx + 3) }
+}
+
 const today = new Date()
 const currentCycle = getCycleForDate(today)
 const currentSpan = getCycleSpan(today)
@@ -86,44 +92,74 @@ export default function CommentaryPage() {
                       </div>
                     </div>
 
-                    {/* Readings Overview */}
-                    <div className="bg-blue-50 rounded-lg p-5 mb-6">
-                      <h4 className="font-semibold text-blue-900 mb-3">Today&apos;s Readings</h4>
-                      <ul className="space-y-2 text-sm text-blue-800">
-                        <li><span className="font-medium">First Reading:</span> {entry.firstReading}</li>
-                        <li><span className="font-medium">Responsorial Psalm:</span> {entry.psalm}</li>
-                        <li><span className="font-medium">Second Reading:</span> {entry.secondReading}</li>
-                        <li><span className="font-medium">Gospel:</span> {entry.gospelRef}</li>
-                      </ul>
-                      {entry.usccbReadingsUrl && (
-                        <p className="mt-3 text-sm">
-                          <a
-                            href={entry.usccbReadingsUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-700 hover:text-blue-900 font-medium underline"
-                            onClick={e => e.stopPropagation()}
-                          >
-                            Read the full proclaimed readings on USCCB &rarr;
-                          </a>
-                        </p>
-                      )}
-                    </div>
+                    {/* Today's Readings — 4 cards */}
+                    {(() => {
+                      const fr = splitReading(entry.firstReading)
+                      const ps = splitReading(entry.psalm)
+                      const sr = splitReading(entry.secondReading)
+                      return (
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-gray-900 mb-3">Readings at a Glance</h4>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {/* First Reading */}
+                            <div className="rounded-xl border border-indigo-100 bg-indigo-50 p-4 flex flex-col gap-2">
+                              <span className="text-xs font-bold uppercase tracking-wide text-indigo-500">First Reading</span>
+                              <p className="font-semibold text-indigo-900 text-sm leading-snug">{fr.ref}</p>
+                              {fr.summary && <p className="text-sm text-indigo-800 leading-relaxed">{fr.summary}</p>}
+                            </div>
+                            {/* Responsorial Psalm */}
+                            <div className="rounded-xl border border-green-100 bg-green-50 p-4 flex flex-col gap-2">
+                              <span className="text-xs font-bold uppercase tracking-wide text-green-500">Responsorial Psalm</span>
+                              <p className="font-semibold text-green-900 text-sm leading-snug">{ps.ref}</p>
+                              {ps.summary && <p className="text-sm text-green-800 leading-relaxed">{ps.summary}</p>}
+                            </div>
+                            {/* Second Reading */}
+                            <div className="rounded-xl border border-rose-100 bg-rose-50 p-4 flex flex-col gap-2">
+                              <span className="text-xs font-bold uppercase tracking-wide text-rose-500">Second Reading</span>
+                              <p className="font-semibold text-rose-900 text-sm leading-snug">{sr.ref}</p>
+                              {sr.summary && <p className="text-sm text-rose-800 leading-relaxed">{sr.summary}</p>}
+                            </div>
+                            {/* Gospel */}
+                            <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 flex flex-col gap-2">
+                              <span className="text-xs font-bold uppercase tracking-wide text-amber-600">Gospel</span>
+                              <div className="flex items-center gap-1.5">
+                                <BookOpen className="w-4 h-4 text-amber-700 shrink-0" />
+                                <p className="font-semibold text-amber-900 text-sm leading-snug">{entry.gospelRef}</p>
+                              </div>
+                              {entry.gospelTextIsSummary && (
+                                <p className="text-sm text-amber-800 leading-relaxed">{splitReading(entry.gospelText).summary}</p>
+                              )}
+                            </div>
+                          </div>
+                          {entry.usccbReadingsUrl && (
+                            <p className="mt-3 text-sm text-center">
+                              <a
+                                href={entry.usccbReadingsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-amber-700 hover:text-amber-900 font-medium underline underline-offset-2"
+                                onClick={e => e.stopPropagation()}
+                              >
+                                Read the full proclaimed readings on USCCB &rarr;
+                              </a>
+                            </p>
+                          )}
+                        </div>
+                      )
+                    })()}
 
-                    {/* Gospel Text */}
-                    <div className="bg-amber-50 rounded-lg p-6 mb-6 border-l-4 border-amber-400">
-                      <div className="flex items-center gap-2 mb-3">
-                        <BookOpen className="w-5 h-5 text-amber-700" />
-                        <h4 className="font-serif font-bold text-gray-900">
-                          {entry.gospelTextIsSummary
-                            ? `Gospel Summary from ${entry.gospelRef}`
-                            : `Gospel — ${entry.gospelRef}`}
-                        </h4>
+                    {/* Gospel full text — only shown when not a summary */}
+                    {!entry.gospelTextIsSummary && (
+                      <div className="bg-amber-50 rounded-lg p-6 mb-6 border-l-4 border-amber-400">
+                        <div className="flex items-center gap-2 mb-3">
+                          <BookOpen className="w-5 h-5 text-amber-700" />
+                          <h4 className="font-serif font-bold text-gray-900">Gospel — {entry.gospelRef}</h4>
+                        </div>
+                        <div className="text-gray-800 leading-relaxed whitespace-pre-line text-[15px]">
+                          {entry.gospelText}
+                        </div>
                       </div>
-                      <div className="text-gray-800 leading-relaxed whitespace-pre-line text-[15px]">
-                        {entry.gospelText}
-                      </div>
-                    </div>
+                    )}
 
                     {/* Historical & Literary Context */}
                     <div className="mb-6">
