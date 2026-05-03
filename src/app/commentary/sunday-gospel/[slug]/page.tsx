@@ -7,6 +7,7 @@ import type { SundayCommentary } from '@/lib/lectionary/types'
 import { getCycleForDate } from '@/lib/lectionary'
 import { getSiteUrl } from '@/lib/config'
 import ShareButtons from './ShareButtons'
+import DownloadPPTButton from './DownloadPPTButton'
 
 // Pre-render one page per commentary entry at build time
 export async function generateStaticParams() {
@@ -134,8 +135,10 @@ export default async function SundayGospelPage({
 
       {/* Floating share sidebar — 2xl only: at max-w-6xl need ≥1536px to have clear margin left */}
       <div className="hidden 2xl:block print:hidden fixed left-6 top-1/2 -translate-y-1/2 z-30">
-        <div className="bg-white rounded-2xl shadow-md border border-gray-100 px-2 py-4">
+        <div className="bg-white rounded-2xl shadow-md border border-gray-100 px-2 py-4 flex flex-col items-center gap-1">
           <ShareButtons layout="vertical" url={pageUrl} title={`${entry.sundayName} — ${entry.gospelRef}`} />
+          <div className="w-full border-t border-gray-100 my-1" />
+          <DownloadPPTButton entryId={entry.id} fileName={`${entry.id}-${entry.sundaySlug}.pptx`} layout="vertical" />
         </div>
       </div>
 
@@ -348,7 +351,10 @@ export default async function SundayGospelPage({
                 <p className="text-sm text-gray-600 mb-3">
                   Found this helpful? Share it with your parish or priest:
                 </p>
-                <ShareButtons url={pageUrl} title={`${entry.sundayName} — ${entry.gospelRef}`} layout="horizontal" />
+                <div className="flex flex-wrap items-center gap-2">
+                  <ShareButtons url={pageUrl} title={`${entry.sundayName} — ${entry.gospelRef}`} layout="horizontal" />
+                  <DownloadPPTButton entryId={entry.id} fileName={`${entry.id}-${entry.sundaySlug}.pptx`} />
+                </div>
               </div>
 
               {/* Back link */}
