@@ -170,15 +170,15 @@ export default function LiturgicalCalendarPage() {
             <div className="prose prose-gray max-w-none text-gray-700 space-y-4">
               <p>
                 Before the Second Vatican Council (1962–65), the Roman Rite used a single-year lectionary.
-                Each Sunday's readings rotated on a one-year cycle, which meant that large portions of the
+                Each Sunday&rsquo;s readings rotated on a one-year cycle, which meant that large portions of the
                 New Testament — and almost all of the Old Testament — were never heard at Sunday Mass.
               </p>
               <p>
-                The Council's Constitution on the Sacred Liturgy,{' '}
+                The Council&rsquo;s Constitution on the Sacred Liturgy,{' '}
                 <em>Sacrosanctum Concilium</em> §51, mandated that{' '}
                 <strong>
-                  "the treasures of the Bible are to be opened up more lavishly, so that richer fare may
-                  be provided for the faithful at the table of God's word."
+                  &ldquo;the treasures of the Bible are to be opened up more lavishly, so that richer fare may
+                  be provided for the faithful at the table of God&rsquo;s word.&rdquo;
                 </strong>
               </p>
               <p>
