@@ -108,3 +108,16 @@ select:focus {
   color: #D4AF37;
   text-decoration-color: #1B365D;
 }
+
+/* Remove browser-injected print headers/footers (date, title, URL, page number).
+   The browser renders those in the @page margin area — setting it to 0 removes them.
+   Body padding restores readable whitespace around the content. */
+@page {
+  margin: 0;
+}
+
+@media print {
+  body {
+    padding: 14mm 18mm;
+  }
+}
