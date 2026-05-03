@@ -133,7 +133,7 @@ export default async function SundayGospelPage({
       </div>
 
       {/* Floating share sidebar — 2xl only: at max-w-6xl need ≥1536px to have clear margin left */}
-      <div className="hidden 2xl:block fixed left-6 top-1/2 -translate-y-1/2 z-30">
+      <div className="hidden 2xl:block print:hidden fixed left-6 top-1/2 -translate-y-1/2 z-30">
         <div className="bg-white rounded-2xl shadow-md border border-gray-100 px-2 py-4">
           <ShareButtons layout="vertical" url={pageUrl} title={`${entry.sundayName} — ${entry.gospelRef}`} />
         </div>
@@ -235,7 +235,7 @@ export default async function SundayGospelPage({
           <div className="lg:grid lg:grid-cols-4 lg:gap-8 lg:items-start">
 
             {/* Right sticky sidebar — DOM first so mobile shows readings above content */}
-            <aside className="lg:col-span-1 lg:order-last mb-8 lg:mb-0">
+            <aside className="lg:col-span-1 lg:order-last mb-8 lg:mb-0 print:hidden">
               <div className="lg:sticky lg:top-6">
                 {readingCards}
               </div>
@@ -259,7 +259,7 @@ export default async function SundayGospelPage({
 
               {/* USCCB readings prompt — shown before commentary so readers can read the source first */}
               {entry.usccbReadingsUrl && (
-                <div className="flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-6">
+                <div className="flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-6 print:hidden">
                   <BookOpen className="w-4 h-4 text-amber-600 shrink-0" />
                   <p className="text-sm text-amber-800">
                     <span className="font-medium">Before you read:</span>{' '}
@@ -277,7 +277,7 @@ export default async function SundayGospelPage({
 
               {/* Key Themes — collapsible, so it doesn't block the reader but is easy to open */}
               {entry.themes.length > 0 && (
-                <details className="group bg-green-50 border border-green-200 rounded-xl mb-6">
+                <details className="group bg-green-50 border border-green-200 rounded-xl mb-6 print:hidden">
                   <summary className="flex items-center justify-between px-4 py-3 cursor-pointer list-none select-none">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-bold text-green-900 uppercase tracking-wide">Key Themes</span>
@@ -344,7 +344,7 @@ export default async function SundayGospelPage({
               </div>
 
               {/* Bottom share strip — primary CTA on mobile; xl users have the floating sidebar */}
-              <div className="border-t border-gray-200 pt-6">
+              <div className="border-t border-gray-200 pt-6 print:hidden">
                 <p className="text-sm text-gray-600 mb-3">
                   Found this helpful? Share it with your parish or priest:
                 </p>

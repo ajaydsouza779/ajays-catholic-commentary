@@ -94,7 +94,7 @@ export default function HistoryNavigation() {
   const activeCategory = categories.find(c => c.id === openCategory)
 
   return (
-    <div className="bg-white border-b border-gray-200">
+    <div className="bg-white border-b border-gray-200 print:hidden">
       <div className="container mx-auto px-4">
         {/* Top row: Home + Category toggles */}
         <div className="flex items-center gap-1 overflow-x-auto">

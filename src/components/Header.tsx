@@ -11,7 +11,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="shadow-lg border-b border-amber-200" style={{ backgroundColor: '#DBEAFE' }}>
+    <header className="shadow-lg border-b border-amber-200 print:hidden" style={{ backgroundColor: '#DBEAFE' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Brand Title */}
