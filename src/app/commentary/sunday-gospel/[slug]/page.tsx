@@ -5,6 +5,7 @@ import { BookOpen, Calendar } from 'lucide-react'
 import sundayCommentaries from '@/lib/lectionary/sundayCommentaries'
 import type { SundayCommentary } from '@/lib/lectionary/types'
 import { getCycleForDate } from '@/lib/lectionary'
+import { getSiteUrl } from '@/lib/config'
 import ShareButtons from './ShareButtons'
 
 // Pre-render one page per commentary entry at build time
@@ -27,7 +28,7 @@ export async function generateMetadata({
     ? `${entry.themes[0].substring(0, 155)}`
     : `Catholic commentary on ${entry.sundayName} — ${entry.gospelRef}`
 
-  const url = `https://ajays-catholic-commentary.vercel.app/commentary/sunday-gospel/${slug}`
+  const url = `${getSiteUrl()}/commentary/sunday-gospel/${slug}`
 
   return {
     title: `${entry.sundayName} — Ajay's Catholic Commentary`,
@@ -78,7 +79,7 @@ export default async function SundayGospelPage({
   const entry: SundayCommentary | undefined = sundayCommentaries.find(e => e.id === slug)
   if (!entry) notFound()
 
-  const pageUrl = `https://ajays-catholic-commentary.vercel.app/commentary/sunday-gospel/${slug}`
+  const pageUrl = `${getSiteUrl()}/commentary/sunday-gospel/${slug}`
   const entryDate = new Date(entry.date + 'T12:00:00')
   const computedCycle = getCycleForDate(entryDate)
   const contentMismatch = entry.cycle !== computedCycle
