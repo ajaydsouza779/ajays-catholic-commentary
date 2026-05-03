@@ -12,6 +12,13 @@ function splitReading(raw: string): { ref: string; summary: string } {
   return { ref: raw.slice(0, idx), summary: raw.slice(idx + 3) }
 }
 
+function toBullets(text: string): string[] {
+  return text
+    .split(/\.[ \n]+(?=[A-Z"""])/)
+    .map(s => s.replace(/\.+$/, '').trim())
+    .filter(Boolean)
+}
+
 const today = new Date()
 const currentCycle = getCycleForDate(today)
 const currentSpan = getCycleSpan(today)
@@ -105,19 +112,46 @@ export default function CommentaryPage() {
                             <div className="rounded-xl border border-indigo-100 bg-indigo-50 p-4 flex flex-col gap-2">
                               <span className="text-xs font-bold uppercase tracking-wide text-indigo-500">First Reading</span>
                               <p className="font-semibold text-indigo-900 text-sm leading-snug">{fr.ref}</p>
-                              {fr.summary && <p className="text-sm text-indigo-800 leading-relaxed">{fr.summary}</p>}
+                              {fr.summary && (
+                                <ul className="space-y-1 mt-1">
+                                  {toBullets(fr.summary).map((pt, i) => (
+                                    <li key={i} className="flex items-start gap-2 text-sm text-indigo-800">
+                                      <span className="mt-2 w-1 h-1 rounded-full bg-indigo-400 shrink-0" />
+                                      <span>{pt}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
                             </div>
                             {/* Responsorial Psalm */}
                             <div className="rounded-xl border border-green-100 bg-green-50 p-4 flex flex-col gap-2">
                               <span className="text-xs font-bold uppercase tracking-wide text-green-500">Responsorial Psalm</span>
                               <p className="font-semibold text-green-900 text-sm leading-snug">{ps.ref}</p>
-                              {ps.summary && <p className="text-sm text-green-800 leading-relaxed">{ps.summary}</p>}
+                              {ps.summary && (
+                                <ul className="space-y-1 mt-1">
+                                  {toBullets(ps.summary).map((pt, i) => (
+                                    <li key={i} className="flex items-start gap-2 text-sm text-green-800">
+                                      <span className="mt-2 w-1 h-1 rounded-full bg-green-400 shrink-0" />
+                                      <span>{pt}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
                             </div>
                             {/* Second Reading */}
                             <div className="rounded-xl border border-rose-100 bg-rose-50 p-4 flex flex-col gap-2">
                               <span className="text-xs font-bold uppercase tracking-wide text-rose-500">Second Reading</span>
                               <p className="font-semibold text-rose-900 text-sm leading-snug">{sr.ref}</p>
-                              {sr.summary && <p className="text-sm text-rose-800 leading-relaxed">{sr.summary}</p>}
+                              {sr.summary && (
+                                <ul className="space-y-1 mt-1">
+                                  {toBullets(sr.summary).map((pt, i) => (
+                                    <li key={i} className="flex items-start gap-2 text-sm text-rose-800">
+                                      <span className="mt-2 w-1 h-1 rounded-full bg-rose-400 shrink-0" />
+                                      <span>{pt}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
                             </div>
                             {/* Gospel */}
                             <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 flex flex-col gap-2">
@@ -127,7 +161,14 @@ export default function CommentaryPage() {
                                 <p className="font-semibold text-amber-900 text-sm leading-snug">{entry.gospelRef}</p>
                               </div>
                               {entry.gospelTextIsSummary && (
-                                <p className="text-sm text-amber-800 leading-relaxed">{splitReading(entry.gospelText).summary}</p>
+                                <ul className="space-y-1 mt-1">
+                                  {toBullets(splitReading(entry.gospelText).summary).map((pt, i) => (
+                                    <li key={i} className="flex items-start gap-2 text-sm text-amber-800">
+                                      <span className="mt-2 w-1 h-1 rounded-full bg-amber-400 shrink-0" />
+                                      <span>{pt}</span>
+                                    </li>
+                                  ))}
+                                </ul>
                               )}
                             </div>
                           </div>
