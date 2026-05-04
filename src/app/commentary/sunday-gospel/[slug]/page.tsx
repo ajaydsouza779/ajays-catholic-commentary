@@ -238,7 +238,7 @@ export default async function SundayGospelPage({
           <div className="lg:grid lg:grid-cols-4 lg:gap-8 lg:items-start">
 
             {/* Right sticky sidebar — DOM first so mobile shows readings above content */}
-            <aside className="lg:col-span-1 lg:order-last mb-8 lg:mb-0 print:hidden">
+            <aside className="hidden lg:block lg:col-span-1 lg:order-last print:hidden">
               <div className="lg:sticky lg:top-6">
                 {readingCards}
               </div>
