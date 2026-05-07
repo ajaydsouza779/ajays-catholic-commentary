@@ -48,6 +48,40 @@ export async function uploadImageToCloudinary(
   }
 }
 
+// ─── PPT (raw file) helpers ───────────────────────────────────────────────────
+
+const PPT_FOLDER = 'commentary-ppt'
+
+function pptPublicId(entryId: string) {
+  return `${PPT_FOLDER}/${entryId}`
+}
+
+export async function uploadPPTToCloudinary(
+  buffer: Buffer,
+  entryId: string
+): Promise<string> {
+  const result = await new Promise<{ secure_url: string }>((resolve, reject) => {
+    cloudinary.uploader.upload_stream(
+      { folder: PPT_FOLDER, public_id: entryId, resource_type: 'raw', overwrite: true },
+      (error, res) => { if (error) reject(error); else resolve(res as { secure_url: string }) }
+    ).end(buffer)
+  })
+  return result.secure_url
+}
+
+export async function getPPTCloudinaryUrl(entryId: string): Promise<string | null> {
+  try {
+    const result = await cloudinary.api.resource(pptPublicId(entryId), { resource_type: 'raw' })
+    return result.secure_url as string
+  } catch {
+    return null
+  }
+}
+
+export async function deletePPTFromCloudinary(entryId: string): Promise<void> {
+  await cloudinary.uploader.destroy(pptPublicId(entryId), { resource_type: 'raw' })
+}
+
 // Helper function to delete image from Cloudinary
 export async function deleteImageFromCloudinary(publicId: string): Promise<void> {
   try {
