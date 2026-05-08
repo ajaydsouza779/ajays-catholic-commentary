@@ -67,8 +67,14 @@ export async function POST(
   }
 
   const buffer = Buffer.from(await file.arrayBuffer())
-  const url = await uploadPPTToCloudinary(buffer, entry.id)
-  return NextResponse.json({ url })
+  try {
+    const url = await uploadPPTToCloudinary(buffer, entry.id)
+    return NextResponse.json({ url })
+  } catch (err) {
+    console.error('[PPT upload] Cloudinary error:', err)
+    const msg = err instanceof Error ? err.message : 'Upload failed'
+    return NextResponse.json({ error: msg }, { status: 500 })
+  }
 }
 
 // DELETE — admin only: remove curated file (reverts to auto-generated)
@@ -85,6 +91,12 @@ export async function DELETE(
   const entry = await getEntry(id)
   if (!entry) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
-  await deletePPTFromCloudinary(entry.id)
-  return NextResponse.json({ ok: true })
+  try {
+    await deletePPTFromCloudinary(entry.id)
+    return NextResponse.json({ ok: true })
+  } catch (err) {
+    console.error('[PPT delete] Cloudinary error:', err)
+    const msg = err instanceof Error ? err.message : 'Delete failed'
+    return NextResponse.json({ error: msg }, { status: 500 })
+  }
 }
