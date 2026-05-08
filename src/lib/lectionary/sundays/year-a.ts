@@ -300,6 +300,7 @@ const yearA: SundayEntry[] = [
     psalmRef: 'Ps 27',
     secondReadingRef: '1 Pet 4:13-16',
     oneLineTheme: 'Jesus prays for unity: "That they may all be one as we are one"',
+    hasCommentary: true,
   },
   {
     slug: 'pentecost-sunday',

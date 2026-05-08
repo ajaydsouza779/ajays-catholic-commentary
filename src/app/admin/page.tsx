@@ -262,6 +262,21 @@ export default function AdminDashboard() {
           </Link>
 
           <Link
+            href="/admin/commentary"
+            className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+          >
+            <div className="flex items-center">
+              <div className="p-2 rounded-lg bg-amber-100">
+                <BookOpen className="w-6 h-6 text-amber-700" />
+              </div>
+              <div className="ml-4">
+                <h3 className="font-semibold text-gray-900">Commentary PPTs</h3>
+                <p className="text-sm text-gray-600">Upload &amp; manage PPT files</p>
+              </div>
+            </div>
+          </Link>
+
+          <Link
             href="/admin/settings"
             className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
           >
