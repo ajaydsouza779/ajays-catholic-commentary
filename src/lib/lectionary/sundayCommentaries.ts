@@ -6,6 +6,107 @@ import type { SundayCommentary } from './types'
  */
 const sundayCommentaries: SundayCommentary[] = [
   {
+    id: '2026-05-17',
+    date: '2026-05-17',
+    cycle: 'A',
+    sundaySlug: '7th-sunday-easter',
+    sundayName: '7th Sunday of Easter — "Holy Father, Keep Them in Your Name"',
+    gospelRef: 'John 17:1-11a',
+    gospelTextIsSummary: true,
+    usccbReadingsUrl: 'https://bible.usccb.org/bible/readings/051726.cfm',
+    gospelText: `John 17:1-11a (NABRE, Lectionary for Mass) — This passage opens the great High Priestly Prayer of the Lord at the Last Supper. He raises his eyes to heaven and addresses the Father directly, saying that the hour has come: he asks the Father to glorify him so that he may glorify the Father, and explains that eternal life consists in knowing the one true God and the one whom he has sent. He declares that he has glorified the Father on earth by completing the work entrusted to him, and asks to be restored to the glory he shared with the Father before the world began. He then turns his prayer toward the disciples: he has made the Father's name known to those the Father gave him, and they have accepted the word that he came from the Father. The passage closes with a solemn intercession — "I pray for them; I do not pray for the world but for those you have given me, because they are yours" — and with the affirmation that he is glorified in them.`,
+    firstReading: `Acts 1:12-14 — After the Ascension, the apostles return to Jerusalem and gather in the upper room: Peter, John, James, Andrew, Philip, Thomas, Bartholomew, Matthew, James son of Alphaeus, Simon the Zealot, and Judas son of James. Together with the women, Mary the mother of the Lord, and his brothers, they devote themselves with one accord to prayer — a picture of the newborn Church waiting in unity for the promised Spirit.`,
+    psalm: `Psalm 27 — "I believe that I shall see the good things of the Lord in the land of the living." A psalm of trust and longing: do not abandon me; wait for the Lord with courage.`,
+    secondReading: `1 Peter 4:13-16 — "Rejoice to the extent that you share in the sufferings of Christ, so that when his glory is revealed you may also rejoice exultantly." Peter exhorts the persecuted faithful not to be ashamed when they suffer as Christians; the Spirit of glory rests on those who bear the name of Christ.`,
+    context: `The Seventh Sunday of Easter falls in the unique liturgical gap between the Ascension (celebrated this past Thursday, or on the preceding Sunday in some dioceses) and Pentecost. The Church is in the posture of the upper room — the Lord has ascended, the Spirit has not yet come, and the disciples wait in prayer. It is the most fitting moment in the liturgical year to hear Jesus's High Priestly Prayer (John 17), because the prayer is itself addressed to the Father on behalf of those the Lord is about to leave behind. The community listening to it on this Sunday *is* the community Jesus prays for.
+
+John 17 is the longest recorded prayer of Jesus in the New Testament and the theological summit of the Farewell Discourse (John 13–17). Scholars call it the "High Priestly Prayer" — a term coined by the Lutheran theologian David Chytraeus in 1569 — because it functions as Jesus's intercessory consecration of himself and his disciples before his Passion, analogous to the high priest's prayer on the Day of Atonement (Yom Kippur, Leviticus 16). The prayer has three movements: Jesus prays for himself (vv. 1-8), for his disciples (vv. 9-19), and for all future believers (vv. 20-26). Today's lectionary reading covers the first two movements through verse 11a.
+
+The Greek word *doxazō* ("glorify") appears seven times in John 17. In John's Gospel, "glory" (*doxa*) does not mean spectacular display but the self-giving love of God made visible — supremely in the cross. When Jesus asks the Father to "glorify" him, he is asking that his self-offering be received and vindicated. The Resurrection is the Father's "glorification" of the Son. This is why Raymond E. Brown (Anchor Bible, vol. 29A) calls the prayer the interpretive key to the Passion narrative that immediately follows in John 18-19.
+
+The definition of eternal life in verse 3 — "that they should know you, the only true God, and the one whom you sent, Jesus Christ" — is the only place in the Fourth Gospel where Jesus uses his own name ("Jesus Christ") in the third person within a prayer. It reads almost like a credal insertion, and Brown and Moloney both note it may reflect the Johannine community's own confessional language shaped for catechesis. The word *ginōskōsin* ("know") is the Greek equivalent of the Hebrew *yada'* — not intellectual acquaintance but covenantal, intimate, transforming knowledge.
+
+The first reading from Acts 1:12-14 provides the exact historical and liturgical context: the Church between Ascension and Pentecost, gathered in prayer with Mary and the Twelve. The pairing is deliberate — John 17 is Jesus's prayer *for* that community; Acts 1 shows that community *living* the answer to that prayer, united in one accord. Pope Benedict XVI, in *Jesus of Nazareth, Vol. 2*, describes John 17 as "the prayer of the cosmic High Priest that spans the centuries," and sees the gathered Church's prayer as the continuation of that intercession into every age.`,
+    themes: [
+      '"The hour has come" — the Passion as the moment of mutual glorification of Father and Son',
+      'Eternal life redefined: knowing the Father and the Son, not a future reward but a present relationship',
+      '"I have glorified you on earth" — the completed work of the Incarnation as an act of worship',
+      'The High Priestly Prayer — Jesus as intercessor, consecrating himself and his disciples before the Passion',
+      '"Keep them in your name" — the prayer for protection and unity as the Church enters the world',
+      'The disciples given to the Son by the Father — election as gift and responsibility',
+      'The Church between Ascension and Pentecost — the posture of waiting, prayer, and unity (Acts 1)',
+    ],
+    commentary: `**"Father, the Hour Has Come" — Glorification and the Cross**
+
+The prayer opens with a breathtaking inversion: "Father, the hour has come; glorify your Son so that your Son may glorify you." In John's Gospel, "the hour" is the moment of the Passion — the arrest, trial, crucifixion. Jesus does not pray to be spared from it; he prays that it may become what it truly is: the mutual glorification of Father and Son. Glory (*doxa*) in John is not divine majesty at a safe distance; it is the love of God poured out in self-giving, made visible in the cross. The Father glorifies the Son by raising him; the Son glorifies the Father by the total obedience of his death. The prayer begins where the Passion is about to begin — not in fear but in the filial confidence of one who knows the Father's will completely.
+
+**"Eternal Life Is This: To Know You" — A Redefinition That Changes Everything**
+
+John 17:3 contains one of the most important theological statements in the New Testament: "Now this is eternal life, that they should know you, the only true God, and the one whom you sent, Jesus Christ." Note what eternal life is *not* said to be: a place, a reward, a future state, a length of time. It is a *relationship* — the knowledge (*ginōskōsin*) of the Father through the Son. The Greek verb echoes the Hebrew *yada'*, which in the Old Testament describes the covenantal intimacy between God and his people (Hosea 2:20; Jer 31:34). To know God in this sense is to be known by him, loved by him, drawn into his life. The Catechism (CCC § 1703, 2014) follows this Johannine line: eternal life begins now, in the life of grace. The homilist has the opportunity to rescue the congregation from a vague future-heaven piety and anchor them in the present: eternal life is available at this Sunday's Mass.
+
+**"I Have Glorified You on Earth" — The Completed Work**
+
+Jesus's next statement is spoken in the past tense before the cross has happened: "I have glorified you on earth by accomplishing the work that you gave me to do." This is what theologians call the "prophetic perfect" — the future event so certain it can be spoken as accomplished. In four words, Jesus sums up the entire Incarnation: it was a *work*, given by the Father, and it is *done*. Pope Francis, in his homily for the Seventh Sunday of Easter 2017, dwelt on this line as the model for every Christian life: to be able to say at the end, "I have completed the work you gave me." Not the work I chose, but the work given. Not the accomplishment I imagined, but the surrender the Father asked for.
+
+**"Now Glorify Me, Father" — The Pre-Existent Glory and the Return**
+
+Having declared the work complete, Jesus asks for the restoration of the glory he shared with the Father "before the world began." This is one of the clearest statements of pre-existence and eternal Sonship in the Gospels — the Son did not begin at the Incarnation; he was with the Father in glory before creation. Pope Benedict XVI in *Jesus of Nazareth, Vol. 2* identifies this as the hinge of the prayer: the eternal Son, who freely emptied himself into history (cf. Phil 2:6-8), now asks to return — not abandoning the humanity he assumed, but bringing it with him into the glory of the Trinity. This is the Christian theology of the Ascension in seed form, and the reason the liturgy reads this prayer on the Sunday between Ascension and Pentecost.
+
+**St. Augustine on Knowing the Father — *Tractates on John*, Tractate 105**
+
+Augustine devotes Tractate 105 to John 17:1-5 and is arrested by the definition of eternal life. He writes: "He calls 'eternal life' the knowledge of God — not to be understood as temporal knowledge... but that knowledge which is itself eternal life." He goes on to argue that because the Son is the eternal Word, to know the Son is already to know the Father; the Incarnation does not add a *different* knowledge of God but makes the same eternal knowledge accessible in time. For Augustine, John 17:3 is the answer to every religious longing: the soul was made for exactly this knowledge, and finds its rest only here.
+
+**"I Have Made Your Name Known to Them" — Revelation as Relationship**
+
+The next movement of the prayer shifts from Jesus to the disciples: he has made the Father's *name* known to those the Father gave him. In the Old Testament, to know the name of God is not just information; it is to enter into relationship with the living God (cf. Exodus 3:13-15). Jesus claims to have completed that revelation: "they have received the word" and "believed that you sent me." The disciples are defined, in this prayer, not by their own achievement but by what has been *given* to them — word, faith, knowledge — all gifts flowing from the Father through the Son. St. Thomas Aquinas (Commentary on John, Lectio 1 on ch. 17) reads this as the structure of Christian discipleship: receptivity before activity, hearing before doing.
+
+**"I Pray for Them" — Intercession and the Church's Identity**
+
+The passage closes with the most intimate intercession in the New Testament: "I pray for them. I do not pray for the world but for those you have given me, because they are yours." The exclusion of "the world" does not mean indifference to the world — Jesus has already said "God so loved the world" (John 3:16), and the prayer will later ask that they be sent *into* the world (17:18). The distinction is between the community now entrusted to the Father's keeping and the broader creation not yet gathered. The phrase "because they are yours" is the foundation of the Church's security: the disciples do not belong to themselves; they belong to the Father. This is the deepest answer to anxiety about the Church's future in any age — not institutional strength but the Father's ownership.
+
+**Reading the First Reading with the Gospel — The Upper Room as Answer**
+
+Acts 1:12-14 shows the disciples doing exactly what Jesus prayed for: gathered with one accord in prayer, including Mary and the women, waiting. The Greek *homothumadon* ("with one accord") is a keynote word of Acts — it appears ten times and always signals the Spirit's movement. The unity of the upper room community is the first fulfillment of Jesus's prayer "that they may all be one." The first reading and the Gospel together teach: the High Priest prays; the Church lives the answer. Every Sunday Eucharist is a re-gathering of the upper room.
+
+**Reading the Second Reading with the Gospel — Suffering as Participation in the Hour**
+
+1 Peter 4:13-16 addresses Christians suffering for the name of Christ and calls them blessed: "the Spirit of glory... rests upon you." This is the pastoral application of John 17's theology of glory: the "hour" of Jesus — suffering that becomes glorification — continues in the life of every disciple who suffers in his name. The connection between the two readings is precise: Jesus says he is "glorified in them" (John 17:10); Peter says the Spirit of glory rests on those who suffer for the name. The glory of the cross extends to the Church's own costly witness.
+
+**A Note for the Homilist**
+
+This is one of the richest Sundays of the year for preaching, and one of the least well-known. Three entry points: (1) Redefine eternal life from verse 3 — not a future destination but a present relationship; invite the congregation to receive the Eucharist this Sunday as an act of "knowing the Father." (2) Name the posture of the week: the Church is in the upper room right now, between Ascension and Pentecost, waiting and praying. What does it mean for this parish to wait in prayer together this week? (3) Use the intercession "I pray for them" — let the congregation hear that *they* are the ones Jesus prays for, that they belong to the Father, that their future is secure not in their own fidelity but in God's faithfulness.`,
+    application: `**For reflection and preaching this week:**
+
+- **Receive John 17:3 as the definition of your life.** This week, before each meal or prayer, say quietly: "Eternal life is this — to know you." Let it reorient what you are actually seeking in every act of prayer, every Sunday Mass, every moment of silence.
+
+- **Preach eternal life as present, not just future.** The homily that rescues the congregation from a vague "going to heaven someday" piety and roots them in the present intimacy of knowing the Father through Christ will be remembered. Use John 17:3 to do that work.
+
+- **Invite the parish into the upper room posture.** The days between Ascension and Pentecost are the Church's novena — nine days of prayer. Suggest a concrete practice: pray the Veni Sancte Spiritus each morning this week. Name the parish community as the continuation of Acts 1:14.
+
+- **Let "I pray for them" land personally.** Tell the congregation: Jesus is praying for you, by name, to the Father. He says "those you gave me" — you were given to the Son by the Father. The prayer Jesus prayed in the upper room two thousand years ago is still being offered by the risen Lord who "always lives to make intercession" (Heb 7:25).
+
+- **Connect suffering and glory using 1 Peter 4.** For any in the congregation carrying suffering — illness, persecution, marginalization for faith — offer Peter's word: "the Spirit of glory rests upon you." Their suffering is not punishment; it is participation in the hour of Christ.
+
+- **For priests: pray John 17 before the Eucharistic Prayer.** The High Priestly Prayer of Jesus is the template for the priest's own intercession at the altar. Reading it slowly before Mass on this Sunday, as personal preparation, will deepen the praying of the Eucharistic Prayer immeasurably.
+
+- **Eucharist as the knowing of the Father.** Eternal life is knowing the Father through the Son. Every Eucharist is that knowing made sacramental — the Son gives himself, the Father receives the offering, and the communicant is drawn into that exchange. Receive Communion this Sunday in the light of John 17:3.`,
+    sources: [
+      'New American Bible Revised Edition (NABRE) — Lectionary for Mass, Seventh Sunday of Easter, Year A',
+      'Catechism of the Catholic Church §§ 2746-2751 (Jesus\'s High Priestly Prayer); §§ 1703, 2014 (eternal life as present relationship); §§ 661-664 (the Ascension and Christ\'s intercession)',
+      'Second Vatican Council, *Lumen Gentium* §§ 3-4 (the Church gathered in prayer, Acts 1 image); *Unitatis Redintegratio* §1 (unity as fulfillment of John 17)',
+      'Pope John Paul II, *Ut Unum Sint* (1995) — encyclical on ecumenism taking John 17:21 ("that they may all be one") as its charter text',
+      'Pope Benedict XVI, *Jesus of Nazareth, Vol. 2: Holy Week* (2011), ch. 4: "The High Priestly Prayer"',
+      'Pope Francis, homily for Seventh Sunday of Easter, 28 May 2017 — on "I have completed the work you gave me"',
+      'St. Augustine, *Tractates on the Gospel of John*, Tractates 104-107 (on John 17:1-11)',
+      'St. Thomas Aquinas, *Commentary on the Gospel of John*, ch. 17, Lectio 1-3',
+      'Raymond E. Brown, *The Gospel According to John XIII-XXI* (Anchor Bible Commentary, 1970), pp. 741-786',
+      'Francis J. Moloney, *The Gospel of John* (Sacra Pagina Series), commentary on John 17:1-11',
+      'Richard Bauckham, *Jesus and the Eyewitnesses* (2006), on the Johannine tradition',
+      'David Chytraeus (1569) — originator of the term "High Priestly Prayer" for John 17',
+      'Pope John Paul II, *Redemptor Hominis* (1979) §13 — on the Church as the community that lives in the knowledge of the Father',
+    ],
+  },
+  {
     id: '2026-05-10',
     date: '2026-05-10',
     cycle: 'A',
