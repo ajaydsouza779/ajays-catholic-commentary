@@ -62,6 +62,18 @@ const categories = [
       { href: '/commentary/liturgical-calendar', label: 'Liturgical Calendar' },
     ],
   },
+  {
+    id: 'eschatology',
+    label: 'End Times',
+    tabs: [
+      { href: '/eschatology/overview', label: 'Catholic Teaching' },
+      { href: '/eschatology/apocalyptic-literature', label: 'Apocalyptic Literature' },
+      { href: '/eschatology/revelation', label: 'Book of Revelation' },
+      { href: '/eschatology/protestant-views', label: 'Protestant Views' },
+      { href: '/eschatology/catholic-vs-protestant', label: 'Catholic vs. Protestant' },
+      { href: '/eschatology/signs-of-times', label: 'Signs of the Times' },
+    ],
+  },
 ]
 
 export default function HistoryNavigation() {
