@@ -312,6 +312,7 @@ const yearA: SundayEntry[] = [
     secondReadingRef: '1 Cor 12:3b-7, 12-13',
     oneLineTheme: '"Receive the Holy Spirit — whose sins you forgive are forgiven"',
     sameEveryYear: true,
+    hasCommentary: true,
   },
   // ORDINARY TIME II (after Pentecost)
   {

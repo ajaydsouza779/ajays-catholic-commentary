@@ -6,6 +6,86 @@ import type { SundayCommentary } from './types'
  */
 const sundayCommentaries: SundayCommentary[] = [
   {
+    id: '2026-05-24',
+    date: '2026-05-24',
+    cycle: 'A',
+    sundaySlug: 'pentecost-sunday',
+    sundayName: 'Pentecost Sunday — Receive the Holy Spirit: The Birth of the Church',
+    gospelRef: 'John 20:19-23',
+    gospelTextIsSummary: true,
+    usccbReadingsUrl: 'https://bible.usccb.org/bible/readings/052426.cfm',
+    gospelText: `John 20:19-23 (NABRE, Lectionary for Mass) — On the evening of that first day of the week, the disciples are gathered behind locked doors out of fear. The Risen Christ appears in their midst and greets them with "Peace be with you," showing them his hands and side so that they rejoice at seeing the Lord. He then commissions them — "As the Father has sent me, so I send you" — and breathes on them, saying "Receive the Holy Spirit." He grants them authority over sin: those whose sins they forgive are forgiven; those whose sins they hold bound remain bound.`,
+    firstReading: `Acts 2:1-11 — When the day of Pentecost arrives, all the disciples are together in one place. A sound like a mighty rushing wind fills the house; tongues as of fire come to rest on each of them; they are filled with the Holy Spirit and begin to speak in other languages. Devout Jews from every nation who are gathered in Jerusalem hear them speaking in their own native tongues and are astounded: "Are not all these people who are speaking Galileans? How does each of us hear them in his own language?"`,
+    psalm: `Psalm 104:1, 24, 29-30, 31, 34 — A creation hymn praising God's wisdom and power over all living things. The refrain — "Lord, send out your Spirit, and renew the face of the earth" — links the Spirit's outpouring at Pentecost to the original creative breath that gave life at the dawn of creation.`,
+    secondReading: `1 Corinthians 12:3b-7, 12-13 — Paul teaches that no one can confess "Jesus is Lord" except by the Holy Spirit, and that the same Spirit distributes different gifts to each person for the common good of the community. Just as one body has many parts, so all — whether Jew or Greek, slave or free — have been baptized into the one body of Christ and given the one Spirit to drink.`,
+    context: `Pentecost Sunday crowns the fifty days of the Easter season, completing the great arc from the empty tomb to the outpouring of the Spirit. In the Jewish calendar, Shavuot — the Feast of Weeks — fell fifty days after Passover and commemorated the giving of the Torah on Sinai. Luke deliberately sets the Spirit's outpouring on that day to signal that the new covenant, written not on stone but on hearts (Jer 31:31-34; 2 Cor 3:3), is now being inaugurated. The very name "Pentecost" derives from the Greek *pentēkostē* (πεντηκοστή), meaning "fiftieth."
+
+The Gospel pericope from John 20 belongs to the Easter Sunday evening appearance narrative — John places the gift of the Spirit on the same day as the Resurrection (20:1, 19), weeks before the Acts account. John's pneumatology is intimate and embodied: rather than a public outpouring, the Spirit comes through a single physical gesture — Jesus "breathed" (ἐνεφύσησεν, *enephysēsen*) on the disciples. This verb appears nowhere else in the New Testament; its only Old Testament parallel in the Greek Septuagint is Genesis 2:7, where God breathes *nishmat hayyim* (נִשְׁמַת חַיִּים — "breath of life") into Adam. The evangelist is deliberately signaling a new creation.
+
+The word translated "receive" (λάβετε, *labete*) is an aorist imperative — a decisive command in the present moment, not a future promise. For John, resurrection, Spirit, and mission are a single, indivisible Paschal event. Raymond E. Brown, SS, (*The Gospel According to John*, Anchor Bible vol. 29A, pp. 1036–1037) notes that the Johannine Pentecost is theologically equivalent to Luke's Pentecost in Acts 2, even though the narrative form differs radically. The two accounts are not in tension; they are complementary portraits of the one mystery.
+
+The Paraclete sayings in John 14–16 have prepared for this moment: the Spirit of truth will be sent by the Father in Jesus' name (14:26), will bear witness to Jesus (15:26), and will convict the world of sin, righteousness, and judgment (16:8). In John 20:22, this promise is fulfilled — the Farewell Discourse finds its answer in a breath.
+
+The authority to forgive and retain sins in verse 23 — the *potestas clavium* — has been understood by the Catholic tradition, from the Fathers through the Council of Trent (Session XIV, ch. 1–2) to the Catechism (§§1441–1442), as the scriptural foundation of the sacrament of Penance. The Greek syntax is precise: the perfect passive in the apodosis — "they stand forgiven," "they stand retained" — indicates a completed divine action. The apostolic pronouncement does not create the forgiveness; it ratifies what God's mercy has already accomplished.`,
+    themes: [
+      '"Peace be with you" — the Risen Christ\'s greeting is not a polite formality but the shalom of the Paschal Mystery, reconciling humanity to God through the wounds he shows',
+      '"As the Father has sent me, so I send you" — mission flows from the inner life of the Trinity; the disciples are drawn into the eternal sending of the Son',
+      '*Enephysēsen* (he breathed) — a deliberate echo of Genesis 2:7; Pentecost is a new creation, humanity re-animated by the divine breath of the Risen Lord',
+      '"Receive the Holy Spirit" — the Spirit is not an impersonal force but the personal gift of the Risen Christ himself, inseparable from his glorified humanity',
+      'Tongues of fire in Acts 2 — the Spirit reverses Babel (Gen 11), restoring the unity of the scattered human family through one Gospel proclaimed in every tongue',
+      'Diversity of gifts, one Spirit (1 Cor 12) — the Church\'s plurality of charisms is itself the Spirit\'s work, ordered to the mission of the one Body of Christ',
+      'Authority to forgive sins — the ministry of reconciliation entrusted to the Church continues the Father\'s own sending of the Son; mercy is the Church\'s first and deepest vocation',
+    ],
+    commentary: `**"Peace Be with You" — The Paschal Greeting**
+Jesus's first word to the frightened disciples is "Peace be with you" (εἰρήνη ὑμῖν, *eirēnē hymin*) — spoken twice in the same breath (vv. 19, 21). Coming from the Crucified-Risen One who immediately shows his wounds, this is not a conventional greeting but the gift of a reconciliation accomplished by the cross (Col 1:20; Eph 2:14–17). The disciples' fear dissolves into joy (v. 20) — precisely the movement the Farewell Discourse had promised: "your sorrow will turn to joy" (John 16:20). The wounds are not hidden; they are shown. The peace Jesus gives is not the absence of suffering but its transfiguration.
+
+**The Breath of New Creation**
+The gesture of breathing (*enephysēsen*) is the single most theologically dense word in this passage. In Genesis 2:7 the same Greek verb describes God breathing the breath of life into Adam. John presents the resurrection appearance not merely as a comforting visitation but as a cosmic renewal: the Last Adam (1 Cor 15:45) breathes a new and imperishable life into the community of disciples. Pope Benedict XVI (*Jesus of Nazareth: Holy Week*, pp. 274–275) reflects that in this gesture "the new creation begins — a creation that is a re-creation, a restoration of the original design." Pentecost is Easter completing itself.
+
+**The Missio Dei — "As the Father Has Sent Me"**
+The parallel between the Father's sending of the Son and the Son's sending of the disciples (v. 21) is not merely rhetorical; it is ontological. The Catechism of the Catholic Church (§§849–850) teaches that "the Church on earth is by her nature missionary since, according to the plan of the Father, she has her origin in the mission of the Son and the Holy Spirit." The disciples are not commissioned to carry a message *about* Jesus; they are sent to extend his own mission in the power of his Spirit. As Brown notes, the mission here is broader than in Matthew's Great Commission (28:19) — it encompasses the entire redemptive work of the Son.
+
+**Acts 2 and the Reversal of Babel**
+Luke's Pentecost narrative deliberately inverts the Tower of Babel (Gen 11:1-9). At Babel, one human language was shattered into mutual incomprehension; at Pentecost, the many languages of the Jewish diaspora hear one Gospel, each in his own tongue. John Chrysostom (*Homilies on Acts*, Hom. IV) observed that the miracle is not merely glossolalia but a sign of the new unity of the human family in Christ — the Church as the eschatological gathering of the nations foreseen by the prophets (Isa 2:2-4; 66:18-21). The fire that once threatened Babel now rests gently on each head as gift, not judgment.
+
+**One Body, Many Gifts — The Teaching of 1 Corinthians 12**
+Paul's teaching on charisms completes the Pentecost portrait. The Spirit who descended as tongues of fire distributes wisdom, knowledge, faith, healing, prophecy, discernment, and tongues to each member "for the common good" (1 Cor 12:7). The Second Vatican Council's *Lumen Gentium* (§12) receives this teaching, affirming that the Holy Spirit "distributes special graces among the faithful of every rank" and that these charisms "are to be received with thanksgiving and consolation." No single member exhausts the Spirit's generosity; the diversity of gifts is itself a revelation of the Spirit's inexhaustible richness.
+
+**Augustine and the Soul of the Church**
+Augustine of Hippo (*Sermon 267*, PL 38:1231) offers the classic patristic formula: "What the soul is to the human body, the Holy Spirit is to the Body of Christ, which is the Church." Without the Spirit, the external structures of the Church — sacraments, hierarchy, scripture — would be lifeless forms. Pope John Paul II takes up this image in *Dominum et Vivificantem* (1986, §26): "The Spirit is the soul of the Church." Pentecost is not, therefore, a past event that the Church commemorates; it is the permanent condition of the Church's existence and the source of her continual renewal.
+
+**The Keys of Forgiveness — Foundation of the Sacrament of Penance**
+Verse 23 — "whose sins you forgive are forgiven, and whose sins you retain are retained" — is the Johannine foundation for the sacrament of Penance, which the Council of Trent defined against Reformation challenges (Session XIV, Canon 3). The CCC (§1441–1442) teaches that "Christ entrusted the exercise of the power of absolution to the apostolic ministry." Crucially, the act of breathing links forgiveness inseparably to the life-giving Spirit: it is by the Paraclete's power that the Church pronounces God's mercy. Every absolution is a Pentecost renewed.
+
+**Linking the Two Readings to the Gospel**
+Where John narrates an intimate, quiet gift of the Spirit behind locked doors, Luke narrates a public, dramatic outpouring that spills into Jerusalem's streets. Both accounts are essential. John shows the Spirit as the breath of the Risen Christ given to the gathered, praying community; Luke shows the same Spirit as the power that propels the Church outward to the ends of the earth (Acts 1:8). Together they hold in tension the Church's interior life — prayer, table, forgiveness — and her outward missionary impulse. A Church that has only the upper room without the street, or only the street without the upper room, has only half of Pentecost.
+
+**A Note for the Homilist**
+Pentecost is often called the "birthday of the Church," but the homily gains more traction if it focuses on what the Spirit *does* rather than what the day commemorates. The threefold movement of the Gospel — peace given, mission entrusted, Spirit breathed — is a complete sermon in itself. Invite the assembly to name the Spirit's gifts already active in the parish. End with the ancient Pentecost sequence *Veni, Sancte Spiritus* (the "Golden Sequence," attributed to Stephen Langton, c. 1200), whose petition — "Heal our wounds, our strength renew / On our dryness pour thy dew" — gives the congregation's deepest need a voice.`,
+    application: `- **For the homilist:** Structure the homily around the three verbs of vv. 21–22 — *sent*, *breathed*, *received* — showing how the Trinity's own inner movement becomes the shape of Christian life and ministry
+- **For the parish:** Pentecost is the moment to name publicly the charisms alive in your community — catechists, hospital visitors, musicians, hospitality ministers, those who serve the poor — as gifts of the one Spirit for the one Body
+- **For families:** At the Pentecost table, invite each family member to name one gift the Spirit has given them and one way they intend to use it for someone else this week; close with a spontaneous prayer to the Holy Spirit
+- **For personal prayer:** Pray the *Veni, Sancte Spiritus* slowly, line by line — it is the Church's oldest and most comprehensive petition to the Spirit, composed around 1200, and it names every human need the Spirit comes to fill
+- **For those preparing for Confirmation:** John 20:22 and Acts 2 together show that Confirmation is not a graduation from faith but a commissioning — a formal sending into mission with the Spirit's own power; the bishop's hand is the Risen Christ's breath extended
+- **For the Eucharist:** Every Eucharistic Prayer includes an epiclesis — an invocation of the Holy Spirit over the gifts and over the assembled Body; the same Spirit breathed by the Risen Lord is the agent of every transformation at the altar; the Mass is Pentecost renewed, Sunday by Sunday
+- **For the world:** The Spirit's reversal of Babel is a call against every nationalism and tribalism that fragments the human family; the Gospel of peace carries social and political implications that the Church is commissioned — not merely invited — to embody`,
+    sources: [
+      'New American Bible Revised Edition (NABRE), John 20:19-23; Acts 2:1-11; 1 Corinthians 12:3b-7, 12-13; Psalm 104 — United States Conference of Catholic Bishops, 2011',
+      'Catechism of the Catholic Church, §§686–741 (The Holy Spirit in the Economy of Salvation); §§849–852 (The Church\'s Missionary Mandate); §§1441–1445 (The Power of Forgiveness)',
+      'Second Vatican Council, Lumen Gentium (Dogmatic Constitution on the Church), §§4, 7, 12 — November 21, 1964',
+      'Second Vatican Council, Ad Gentes (Decree on Missionary Activity), §§2–4 — December 7, 1965',
+      'Pope John Paul II, Dominum et Vivificantem (Encyclical on the Holy Spirit in the Life of the Church and the World), §§14–26 — May 18, 1986',
+      'Pope Benedict XVI, Jesus of Nazareth: Holy Week — From the Entrance into Jerusalem to the Resurrection, Ignatius Press, 2011, pp. 274–277',
+      'Pope Francis, Evangelii Gaudium (Apostolic Exhortation on the Proclamation of the Gospel), §§259–261 — November 24, 2013',
+      'Raymond E. Brown, SS, The Gospel According to John (XIII–XXI), Anchor Bible vol. 29A, Doubleday, 1970, pp. 1021–1045',
+      'Francis J. Moloney, SDB, The Gospel of John, Sacra Pagina 4, Liturgical Press, 1998, pp. 528–536',
+      'Joseph A. Fitzmyer, SJ, The Acts of the Apostles, Anchor Bible vol. 31, Doubleday, 1998, pp. 233–260',
+      'Council of Trent, Session XIV, Doctrina de Sacramento Paenitentiae, Chapters 1–2; Canon 3 — November 25, 1551',
+      'John Chrysostom, Homilies on the Acts of the Apostles, Homily IV (on Acts 2:1-4), Nicene and Post-Nicene Fathers, Series I, vol. 11',
+      'Augustine of Hippo, Sermon 267 (On Pentecost), PL 38:1231 — "What the soul is to the human body, the Holy Spirit is to the Body of Christ"',
+    ],
+  },
+  {
     id: '2026-05-17',
     date: '2026-05-17',
     cycle: 'A',
