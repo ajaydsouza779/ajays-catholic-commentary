@@ -63,6 +63,20 @@ const categories = [
     ],
   },
   {
+    id: 'prayer',
+    label: 'Prayer & Devotion',
+    tabs: [
+      { href: '/prayer/overview', label: 'What Is Prayer?' },
+      { href: '/prayer/rosary', label: 'The Holy Rosary' },
+      { href: '/prayer/marian-devotions', label: 'Marian Devotions' },
+      { href: '/prayer/divine-mercy', label: 'Divine Mercy' },
+      { href: '/prayer/way-of-the-cross', label: 'Way of the Cross' },
+      { href: '/prayer/contemplative-prayer', label: 'Contemplative Prayer' },
+      { href: '/prayer/charismatic-renewal', label: 'Charismatic Renewal' },
+      { href: '/prayer/liturgy-of-hours', label: 'Liturgy of the Hours' },
+    ],
+  },
+  {
     id: 'eschatology',
     label: 'End Times',
     tabs: [
