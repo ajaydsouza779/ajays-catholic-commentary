@@ -314,6 +314,18 @@ const yearA: SundayEntry[] = [
     sameEveryYear: true,
     hasCommentary: true,
   },
+  // SOLEMNITIES AFTER PENTECOST
+  {
+    slug: 'most-holy-trinity',
+    sundayName: 'The Most Holy Trinity',
+    season: 'OrdinaryTime',
+    gospelRef: 'John 3:16-18',
+    firstReadingRef: 'Exod 34:4b-6, 8-9',
+    psalmRef: 'Dan 3:52-56',
+    secondReadingRef: '2 Cor 13:11-13',
+    oneLineTheme: '"God so loved the world he gave his only Son" — the inner life of God revealed as Love',
+    hasCommentary: true,
+  },
   // ORDINARY TIME II (after Pentecost)
   {
     slug: '10th-sunday-ordinary-time',
