@@ -326,6 +326,17 @@ const yearA: SundayEntry[] = [
     oneLineTheme: '"God so loved the world he gave his only Son" — the inner life of God revealed as Love',
     hasCommentary: true,
   },
+  {
+    slug: 'most-holy-body-and-blood-of-christ',
+    sundayName: 'The Most Holy Body and Blood of Christ',
+    season: 'OrdinaryTime',
+    gospelRef: 'John 6:51-58',
+    firstReadingRef: 'Deut 8:2-3, 14b-16a',
+    psalmRef: 'Ps 147',
+    secondReadingRef: '1 Cor 10:16-17',
+    oneLineTheme: '"The bread that I will give is my flesh for the life of the world" — Corpus Christi',
+    hasCommentary: true,
+  },
   // ORDINARY TIME II (after Pentecost)
   {
     slug: '10th-sunday-ordinary-time',

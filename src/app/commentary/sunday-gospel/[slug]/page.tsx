@@ -65,22 +65,42 @@ function toBullets(text: string): string[] {
     .filter(Boolean)
 }
 
+// Convert inline markdown emphasis (**bold**, *italic*) to HTML.
+// Content is statically authored in TS, so it is trusted.
+function renderInlineHtml(text: string): string {
+  return text
+    .replace(/\*\*([^*]+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*\n]+?)\*/g, '<em>$1</em>')
+}
+
+function InlineMd({ text, className }: { text: string; className?: string }) {
+  return <span className={className} dangerouslySetInnerHTML={{ __html: renderInlineHtml(text) }} />
+}
+
 function parseCommentary(text: string) {
   return text.split('\n\n').map((para, i) => {
     if (para.startsWith('**')) {
-      const cleaned = para.replace(/\*\*/g, '')
-      const firstNewline = cleaned.indexOf('\n')
+      const firstNewline = para.indexOf('\n')
       if (firstNewline > -1) {
+        const heading = para.substring(0, firstNewline).replace(/^\*\*|\*\*$/g, '')
+        const body = para.substring(firstNewline + 1)
         return (
           <div key={i} className="mb-4">
-            <h5 className="font-semibold text-gray-900 mb-2">{cleaned.substring(0, firstNewline)}</h5>
-            <p>{cleaned.substring(firstNewline + 1)}</p>
+            <h5 className="font-semibold text-gray-900 mb-2">
+              <InlineMd text={heading} />
+            </h5>
+            <p dangerouslySetInnerHTML={{ __html: renderInlineHtml(body) }} />
           </div>
         )
       }
-      return <h5 key={i} className="font-semibold text-gray-900 mb-2 mt-4">{cleaned}</h5>
+      const heading = para.replace(/^\*\*|\*\*$/g, '')
+      return (
+        <h5 key={i} className="font-semibold text-gray-900 mb-2 mt-4">
+          <InlineMd text={heading} />
+        </h5>
+      )
     }
-    return <p key={i} className="mb-3">{para}</p>
+    return <p key={i} className="mb-3" dangerouslySetInnerHTML={{ __html: renderInlineHtml(para) }} />
   })
 }
 
@@ -125,8 +145,21 @@ export default async function SundayGospelPage({
             Liturgical Year {computedCycle}
           </span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-2">
-          {entry.sundayName}
+        <h1 className="font-serif font-bold text-gray-900 mb-2 leading-tight">
+          {(() => {
+            const dashIdx = entry.sundayName.indexOf(' — ')
+            if (dashIdx === -1) {
+              return <span className="text-3xl sm:text-4xl">{entry.sundayName}</span>
+            }
+            return (
+              <>
+                <span className="text-3xl sm:text-4xl block">{entry.sundayName.slice(0, dashIdx)}</span>
+                <span className="text-xl sm:text-2xl font-medium text-gray-600 block mt-1">
+                  {entry.sundayName.slice(dashIdx + 3)}
+                </span>
+              </>
+            )
+          })()}
         </h1>
         <p className="text-gray-600 font-medium">
           Gospel: <span className="text-gray-900">{entry.gospelRef}</span>
@@ -174,7 +207,7 @@ export default async function SundayGospelPage({
                     {toBullets(fr.summary).map((pt, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-indigo-800">
                         <span className="mt-2 w-1 h-1 rounded-full bg-indigo-400 shrink-0" />
-                        <span>{pt}</span>
+                        <InlineMd text={pt} />
                       </li>
                     ))}
                   </ul>
@@ -189,7 +222,7 @@ export default async function SundayGospelPage({
                     {toBullets(ps.summary).map((pt, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-green-800">
                         <span className="mt-2 w-1 h-1 rounded-full bg-green-400 shrink-0" />
-                        <span>{pt}</span>
+                        <InlineMd text={pt} />
                       </li>
                     ))}
                   </ul>
@@ -204,7 +237,7 @@ export default async function SundayGospelPage({
                     {toBullets(sr.summary).map((pt, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-rose-800">
                         <span className="mt-2 w-1 h-1 rounded-full bg-rose-400 shrink-0" />
-                        <span>{pt}</span>
+                        <InlineMd text={pt} />
                       </li>
                     ))}
                   </ul>
@@ -222,7 +255,7 @@ export default async function SundayGospelPage({
                     {toBullets(splitReading(entry.gospelText).summary).map((pt, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-amber-800">
                         <span className="mt-2 w-1 h-1 rounded-full bg-amber-400 shrink-0" />
-                        <span>{pt}</span>
+                        <InlineMd text={pt} />
                       </li>
                     ))}
                   </ul>
@@ -298,7 +331,7 @@ export default async function SundayGospelPage({
                     {entry.themes.map((theme, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-green-800 pt-2">
                         <span className="text-green-500 mt-0.5 shrink-0 font-bold">&#x2022;</span>
-                        {theme}
+                        <InlineMd text={theme} />
                       </li>
                     ))}
                   </ul>
@@ -310,9 +343,10 @@ export default async function SundayGospelPage({
                 <h2 className="text-xl font-serif font-bold text-gray-900 mb-3">
                   Historical &amp; Literary Context
                 </h2>
-                <div className="text-gray-700 leading-relaxed whitespace-pre-line">
-                  {entry.context}
-                </div>
+                <div
+                  className="text-gray-700 leading-relaxed whitespace-pre-line"
+                  dangerouslySetInnerHTML={{ __html: renderInlineHtml(entry.context) }}
+                />
               </div>
 
               {/* Commentary */}
@@ -326,9 +360,10 @@ export default async function SundayGospelPage({
               {/* Practical application */}
               <div className="bg-purple-50 rounded-xl p-6 mb-8">
                 <h2 className="font-semibold text-purple-900 mb-3">Living the Gospel This Week</h2>
-                <div className="text-sm text-purple-800 leading-relaxed whitespace-pre-line">
-                  {entry.application}
-                </div>
+                <div
+                  className="text-sm text-purple-800 leading-relaxed whitespace-pre-line"
+                  dangerouslySetInnerHTML={{ __html: renderInlineHtml(entry.application) }}
+                />
               </div>
 
               {/* Sources */}
@@ -340,7 +375,7 @@ export default async function SundayGospelPage({
                   {entry.sources.map((source, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
                       <span className="mt-2 w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
-                      <span dangerouslySetInnerHTML={{ __html: source.replace(/\*(.*?)\*/g, '<em>$1</em>') }} />
+                      <span dangerouslySetInnerHTML={{ __html: renderInlineHtml(source) }} />
                     </li>
                   ))}
                 </ul>
