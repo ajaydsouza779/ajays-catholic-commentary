@@ -357,6 +357,7 @@ const yearA: SundayEntry[] = [
     psalmRef: 'Ps 100',
     secondReadingRef: 'Rom 5:6-11',
     oneLineTheme: '"The harvest is abundant but the laborers are few" — sending out the Twelve',
+    hasCommentary: true,
   },
   {
     slug: '12th-sunday-ordinary-time',
@@ -367,6 +368,7 @@ const yearA: SundayEntry[] = [
     psalmRef: 'Ps 69',
     secondReadingRef: 'Rom 5:12-15',
     oneLineTheme: 'Fear not those who kill the body — "Every hair on your head is counted"',
+    hasCommentary: true,
   },
   {
     slug: '13th-sunday-ordinary-time',

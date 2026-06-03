@@ -12,6 +12,11 @@ body {
 
 .font-serif {
   font-family: var(--font-playfair);
+  /* Playfair Display defaults to old-style figures (digits sit at x-height and
+     look small/uneven next to capitals, e.g. "11th"). Force full-height lining
+     figures so numerals match the cap height in serif headings. */
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1, "onum" 0;
 }
 
 /* Custom scrollbar */
