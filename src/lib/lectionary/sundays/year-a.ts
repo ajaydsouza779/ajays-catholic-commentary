@@ -379,6 +379,7 @@ const yearA: SundayEntry[] = [
     psalmRef: 'Ps 89',
     secondReadingRef: 'Rom 6:3-4, 8-11',
     oneLineTheme: '"Whoever receives you receives me" — giving even a cup of cold water',
+    hasCommentary: true,
   },
   {
     slug: '14th-sunday-ordinary-time',
@@ -389,6 +390,7 @@ const yearA: SundayEntry[] = [
     psalmRef: 'Ps 145',
     secondReadingRef: 'Rom 8:9, 11-13',
     oneLineTheme: '"Come to me, all who are weary — my yoke is easy and my burden light"',
+    hasCommentary: true,
   },
   {
     slug: '15th-sunday-ordinary-time',
