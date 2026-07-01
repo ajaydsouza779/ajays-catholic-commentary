@@ -401,6 +401,7 @@ const yearA: SundayEntry[] = [
     psalmRef: 'Ps 65',
     secondReadingRef: 'Rom 8:18-23',
     oneLineTheme: 'Parable of the Sower — the Word bears fruit in good soil',
+    hasCommentary: true,
   },
   {
     slug: '16th-sunday-ordinary-time',
